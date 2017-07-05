@@ -11,7 +11,7 @@ public:
 
 	Lexer();
 
-	string ReadFile(ifstream& in);
+	string ReadFromFile(ifstream& in);
 	void SetTokens(string sqlCommand);
 
 	~Lexer();

@@ -7,7 +7,7 @@ Lexer::Lexer()
 {
 }
 
-string Lexer::ReadFile(ifstream & in)
+string Lexer::ReadFromFile(ifstream & in)
 {
 	char c;
 	string sqlCommand;
