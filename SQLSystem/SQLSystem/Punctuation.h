@@ -5,6 +5,7 @@ class Punctuation :
 {
 public:
 	Punctuation();
+	TokenType GetType() override;
 	~Punctuation();
 };
 

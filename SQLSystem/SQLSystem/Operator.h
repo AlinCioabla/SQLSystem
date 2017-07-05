@@ -5,6 +5,7 @@ class Operator :
 {
 public:
 	Operator();
+	TokenType GetType() override;
 	~Operator();
 };
 

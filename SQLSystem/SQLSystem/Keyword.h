@@ -5,6 +5,8 @@ class Keyword :
 {
 public:
 	Keyword();
+	TokenType GetType() override;
 	~Keyword();
+
 };
 
