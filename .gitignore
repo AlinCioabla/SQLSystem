@@ -351,3 +351,5 @@ __pycache__/
 *.zip
 *.lib
 *.sbr
+SQLSystem/SQLSystem/SQLSystem.vcxproj.filters
+SQLSystem/SQLSystem/SQLSystem.vcxproj
