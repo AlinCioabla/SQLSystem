@@ -17,7 +17,12 @@ void Lexer::ReadFromFile(ifstream & in)
 
 void Lexer::SetTokens()
 {
-
+	for_each(sqlCommand.begin(), sqlCommand.end(),
+				[](char word){
+		cout << word;
+		return true;
+		});
+			
 
 }
 

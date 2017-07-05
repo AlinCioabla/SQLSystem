@@ -11,7 +11,8 @@ void SQLSystem::Start(ifstream & in)
 {
 	Lexer lexer;
 	Parser parsser;
-	lexer.SetTokens(lexer.ReadFromFile(in));
+	lexer.ReadFromFile(in);
+	lexer.SetTokens();
 
 
 }
