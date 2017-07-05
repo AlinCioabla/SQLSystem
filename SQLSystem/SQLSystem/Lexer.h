@@ -11,9 +11,11 @@ public:
 
 	Lexer();
 
-	string ReadFromFile(ifstream& in);
-	void SetTokens(string sqlCommand);
+	void ReadFromFile(ifstream& in);
+	void SetTokens();
 
 	~Lexer();
+private:
+	string sqlCommand;
 };
 #endif // !_LEXER_
