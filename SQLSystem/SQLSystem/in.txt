@@ -1,0 +1,1 @@
+SELECT Nume FROM Tabel WHERE Nume LIKE '%A';

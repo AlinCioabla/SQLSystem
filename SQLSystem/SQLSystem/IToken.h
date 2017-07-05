@@ -1,4 +1,6 @@
 #pragma once
+#include"stdafx.h"
+
 enum TokenType
 {
 	Keyword,
@@ -13,9 +15,12 @@ public:
 	IToken();
 	
 
+
+
 	virtual TokenType GetType() = 0;
 
-
 	virtual ~IToken();
+private:
+	string word;
 };
 
