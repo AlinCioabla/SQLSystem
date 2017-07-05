@@ -7,6 +7,8 @@
 *.o
 *.obj
 
+*.db
+
 # Precompiled Headers
 *.gch
 *.pch
@@ -326,3 +328,26 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+*.obj
+*.exe
+*.exp
+*.pdb
+*.dll
+*.user
+*.aps
+*.pch
+*.vspscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.cache
+*.ilk
+*.log
+*.zip
+*.lib
+*.sbr
