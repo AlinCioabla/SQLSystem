@@ -111,6 +111,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="IToken.cpp" />
+    <ClCompile Include="Keyword.cpp" />
+    <ClCompile Include="Lexer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Operator.cpp" />
+    <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="Punctuation.cpp" />
+    <ClCompile Include="SQLSystem.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="IToken.h" />
+    <ClInclude Include="Keyword.h" />
+    <ClInclude Include="Lexer.h" />
+    <ClInclude Include="Operator.h" />
+    <ClInclude Include="Parser.h" />
+    <ClInclude Include="Punctuation.h" />
+    <ClInclude Include="SQLSystem.h" />
+    <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
