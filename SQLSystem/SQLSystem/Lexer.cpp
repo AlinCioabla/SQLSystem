@@ -17,12 +17,9 @@ void Lexer::ReadFromFile(ifstream & in)
 
 void Lexer::SetTokens()
 {
-	string currentToken;
 
-	for_each(sqlCommand.begin(), sqlCommand.end(), [](char &word){
-		
-		});
-			
+
+	std::string::iterator it=find_if(sqlCommand.begin(),sqlCommand.end(),!isAlphanumeric);
 
 }
 
