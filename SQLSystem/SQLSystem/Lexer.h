@@ -22,8 +22,8 @@ public:
 private:
 	string sqlCommand;
 
-	string punctuation[5] = { ".", ",", "'", "?", "!" };
-	string operators[5] = { "+", "-", "*", "/", "=" };
+	string punctuation = { ".,'?""&!" };
+	string operators = { "+-*/=^%" };
 
 };
 #endif // !_LEXER_

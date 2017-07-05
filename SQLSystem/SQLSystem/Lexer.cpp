@@ -33,7 +33,13 @@ bool Lexer::isAlphanumeric(char c)
 
 bool Lexer::isOperator(char c)
 {
-	return (operators.find(c) != nullptr);
+	return (operators.find(c) == std::string::npos);
+}
+
+bool Lexer::isPunctuation(char c)
+{
+	return (punctuation.find(c) == std::string::npos);
+
 }
 
 
