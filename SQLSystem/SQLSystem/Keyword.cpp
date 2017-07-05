@@ -2,9 +2,7 @@
 
 
 
-Keyword::Keyword()
-{
-}
+
 
 TokenType Keyword::GetType()
 {

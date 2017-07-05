@@ -12,11 +12,6 @@ enum TokenType
 class IToken
 {
 public:
-	IToken();
-	
-
-
-
 	virtual TokenType GetType() = 0;
 	virtual ~IToken();
 
