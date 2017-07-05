@@ -18,7 +18,6 @@ public:
 
 
 	virtual TokenType GetType() = 0;
-
 	virtual ~IToken();
 private:
 	string word;

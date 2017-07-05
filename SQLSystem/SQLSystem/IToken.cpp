@@ -2,11 +2,12 @@
 
 
 
+
+
+
 IToken::IToken()
 {
 }
-
-
 
 IToken::~IToken()
 {
