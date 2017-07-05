@@ -31,6 +31,11 @@ bool Lexer::isAlphanumeric(char c)
 	return (c >= 'A' && c <= 'z' || c >= '0' && c <= '9');
 }
 
+bool Lexer::isOperator(char c)
+{
+	return (operators.find(c) != nullptr);
+}
+
 
 Lexer::~Lexer()
 {
