@@ -11,7 +11,6 @@ public:
 
 	void Start(ifstream& in);
 
-
 	~SQLSystem();
 };
 

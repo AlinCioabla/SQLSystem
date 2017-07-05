@@ -17,13 +17,18 @@ void Lexer::ReadFromFile(ifstream & in)
 
 void Lexer::SetTokens()
 {
-	for_each(sqlCommand.begin(), sqlCommand.end(),
-				[](char word){
-		cout << word;
-		return true;
+	string currentToken;
+
+	for_each(sqlCommand.begin(), sqlCommand.end(), [](char &word){
+		
 		});
 			
 
+}
+
+bool Lexer::isAlphanumeric(char c)
+{
+	return (c >= 'A' && c <= 'z' || c >= '0' && c <= '9');
 }
 
 
