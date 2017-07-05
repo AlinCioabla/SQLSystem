@@ -22,7 +22,7 @@ void Lexer::SetTokens()
 	for_each(sqlCommand.begin(), sqlCommand.end(), [](char &word){
 		
 		});
-			
+
 
 }
 

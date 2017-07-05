@@ -3,7 +3,7 @@
 
 enum TokenType
 {
-	Keyword,
+	Keyword = 0,
 	Operator,
 	Punctuation
 };
@@ -19,7 +19,6 @@ public:
 
 	virtual TokenType GetType() = 0;
 	virtual ~IToken();
-private:
-	string word;
+
 };
 
