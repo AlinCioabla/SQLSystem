@@ -12,6 +12,7 @@ enum TokenType
 class IToken
 {
 public:
+	virtual void PrintWord() = 0;
 	virtual TokenType GetType() = 0;
 	virtual ~IToken() {};
 

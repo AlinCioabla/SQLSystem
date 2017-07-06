@@ -4,6 +4,11 @@
 
 
 
+void Punctuation::PrintWord()
+{
+	cout << word << " ";
+}
+
 TokenType Punctuation::GetType()
 {
 	return TokenType::PunctuationType;
