@@ -4,8 +4,10 @@ class Punctuation :
 	public IToken
 {
 public:
-	Punctuation();
+	Punctuation(char _word) : word(_word) {};
 	TokenType GetType() override;
 	~Punctuation();
+private:
+	char word;
 };
 

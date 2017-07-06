@@ -2,6 +2,8 @@
 #ifndef _LEXER_
 #define _LEXER_
 #include"IToken.h"
+#include"Keyword.h"
+using namespace std;
 
 class Lexer
 {

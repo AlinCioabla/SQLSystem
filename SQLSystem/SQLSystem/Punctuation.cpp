@@ -2,13 +2,11 @@
 
 
 
-Punctuation::Punctuation()
-{
-}
+
 
 TokenType Punctuation::GetType()
 {
-	return TokenType::Punctuation;
+	return TokenType::PunctuationType;
 }
 
 
