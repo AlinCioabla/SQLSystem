@@ -33,21 +33,7 @@ bool Lexer::isPunctuation(char c)
 
 void Lexer::SetTokens()
 {
-	/*string temp;
-	auto lastPos = sqlCommand.find_first_not_of(" ",0);
-	cout << lastPos << endl;
 	
-	auto pos = sqlCommand.find_first_of(" ", lastPos);
-	cout << pos << endl;
-
-	while (string::npos != pos || string::npos != lastPos)
-	{
-		temp = sqlCommand.substr(lastPos, pos - lastPos);
-		lastPos = sqlCommand.find_first_not_of(" ", pos);
-		pos = sqlCommand.find_first_of(" ", lastPos);
-		cout << temp << endl;
-	}*/
-
 	int i, j=0, k=0;
 	string temp;
 

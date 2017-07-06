@@ -4,7 +4,7 @@
 
 void Keyword::PrintWord()
 {
-	cout << word << " ";
+	cout << word << " "<<"keyword"<<endl;
 }
 
 TokenType Keyword::GetType()

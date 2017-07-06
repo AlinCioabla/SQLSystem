@@ -4,7 +4,7 @@
 
 void Operator::PrintWord()
 {
-	cout << word << " ";
+	cout << word << "  operator"<<endl;
 }
 
 TokenType Operator::GetType()

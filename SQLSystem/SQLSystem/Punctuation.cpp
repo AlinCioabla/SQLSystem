@@ -6,7 +6,7 @@
 
 void Punctuation::PrintWord()
 {
-	cout << word << " ";
+	cout << word << " punctuation" << endl;
 }
 
 TokenType Punctuation::GetType()

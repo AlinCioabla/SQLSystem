@@ -25,7 +25,7 @@ public:
 private:
 	string sqlCommand;
 
-	string punctuation = { ".,'?""&!" };
+	string punctuation = { ".,'?""'&!" };
 	string operators = { "+-*/=^%<>" };
 	string alphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
 
