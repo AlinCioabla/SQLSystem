@@ -27,9 +27,6 @@
     <ClCompile Include="Parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IToken.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Keyword.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
