@@ -13,7 +13,7 @@ class IToken
 {
 public:
 	virtual TokenType GetType() = 0;
-	virtual ~IToken();
+	virtual ~IToken() {};
 
 };
 

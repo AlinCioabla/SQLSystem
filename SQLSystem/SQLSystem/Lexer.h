@@ -23,7 +23,8 @@ private:
 	string sqlCommand;
 
 	string punctuation = { ".,'?""&!" };
-	string operators = { "+-*/=^%" };
+	string operators = { "+-*/=^%<>" };
+	string alphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
 
 };
 #endif // !_LEXER_

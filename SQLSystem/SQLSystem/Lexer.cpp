@@ -15,13 +15,7 @@ void Lexer::ReadFromFile(ifstream & in)
 		sqlCommand += c;
 }
 
-void Lexer::SetTokens()
-{
 
-
-	std::string::iterator it=find_if(sqlCommand.begin(),sqlCommand.end(),!isAlphanumeric);
-
-}
 
 bool Lexer::isAlphanumeric(char c)
 {
@@ -36,8 +30,14 @@ bool Lexer::isOperator(char c)
 bool Lexer::isPunctuation(char c)
 {
 	return (punctuation.find(c) == std::string::npos);
-
 }
+
+void Lexer::SetTokens()
+{
+	
+}
+
+
 
 
 Lexer::~Lexer()
