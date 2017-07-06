@@ -42,12 +42,18 @@ void Lexer::SetTokens()
 	while (iss >> token) {
 		cout << token;
 		if (isOperator(token))
-			cout << "Operator"<<endl;
+			cout << " Operator" << endl;
 		else if (isPunctuation(token))
-			cout << "is punctuation"<<endl;
+			cout << " is punctuation" << endl;
 		else
-			if(isAlphanumeric(token))
-				cout << "is word"<<endl;
+			if (isAlphanumeric(token))
+				cout << " is word" << endl;
+			else
+				for (auto it : token) {
+					string(it);
+					token.SetTokens();
+				}
+
 	}
 }
 
