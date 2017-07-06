@@ -2,8 +2,6 @@
 
 
 
-
-
 TokenType Keyword::GetType()
 {
 	return TokenType::Keyword;
