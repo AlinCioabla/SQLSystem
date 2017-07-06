@@ -2,7 +2,8 @@
 #ifndef _LEXER_
 #define _LEXER_
 #include"IToken.h"
-#include"Operator.h"
+#include"Keyword.h"
+using namespace std;
 
 class Lexer
 {
@@ -15,13 +16,13 @@ public:
 	void ReadFromFile(ifstream& in);
 	void SetTokens();
 
-	bool isAlphanumeric(string c);
-	bool isOperator(string c);
-	bool isPunctuation(string c);
+	bool isAlphanumeric(char c);
+	bool isOperator(char c);
+	bool isPunctuation(char c);
 
 	~Lexer();
 private:
-	string  sqlCommand;
+	string sqlCommand;
 
 	string punctuation = { ".,'?""&!" };
 	string operators = { "+-*/=^%<>" };

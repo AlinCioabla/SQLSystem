@@ -4,7 +4,7 @@
 
 TokenType Keyword::GetType()
 {
-	return TokenType::Keyword;
+	return TokenType::KeywordType;
 }
 
 

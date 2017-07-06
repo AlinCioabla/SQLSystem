@@ -1,7 +1,9 @@
 #include"stdafx.h"
 #include "Lexer.h"
 
-
+#include"Keyword.h"
+#include "Punctuation.h"
+#include "Operator.h"
 
 Lexer::Lexer()
 {
@@ -10,51 +12,75 @@ Lexer::Lexer()
 void Lexer::ReadFromFile(ifstream & in)
 {
 	getline(in, sqlCommand, ';');
-	
 }
 
 
 
-bool Lexer::isAlphanumeric(string s)
+bool Lexer::isAlphanumeric(char c)
 {
-	char l, r;
-	l = s[0]; r = s[s.size() - 1];
-	if ((l >= 'A' && l <= 'z' || l >= '0' && l <= '9') && (r >= 'A' && r <= 'z' || r >= '0' && r <= '9'))
-		return true;
-	else return false;
+	return (c >= 'A' && c <= 'z' || c >= '0' && c <= '9');
 }
 
-bool Lexer::isOperator(string c)
+bool Lexer::isOperator(char c)
 {
-	return (operators.find(c) != std::string::npos);
+	return (operators.find(c) == std::string::npos);
 }
 
-bool Lexer::isPunctuation(string c)
+bool Lexer::isPunctuation(char c)
 {
-	return (punctuation.find(c) != std::string::npos);
+	return (punctuation.find(c) == std::string::npos);
 }
 
 void Lexer::SetTokens()
 {
-	string token;
+	/*string temp;
+	auto lastPos = sqlCommand.find_first_not_of(" ",0);
+	cout << lastPos << endl;
+	
+	auto pos = sqlCommand.find_first_of(" ", lastPos);
+	cout << pos << endl;
 
-	istringstream iss(sqlCommand);
-	while (iss >> token) {
-		cout << token;
-		if (isOperator(token))
-			cout << " Operator" << endl;
-		else if (isPunctuation(token))
-			cout << " is punctuation" << endl;
+	while (string::npos != pos || string::npos != lastPos)
+	{
+		temp = sqlCommand.substr(lastPos, pos - lastPos);
+		lastPos = sqlCommand.find_first_not_of(" ", pos);
+		pos = sqlCommand.find_first_of(" ", lastPos);
+		cout << temp << endl;
+	}*/
+
+	int i, j=0, k=0;
+	string temp;
+
+	for (i = 0; i < sqlCommand.length(); i++)
+	{
+		if (isAlphanumeric(sqlCommand[i]))
+		{
+			temp += sqlCommand[i];
+		}
 		else
-			if (isAlphanumeric(token))
-				cout << " is word" << endl;
-			else
-				for (auto it : token) {
-					string(it);
-					token.SetTokens();
-				}
+		{	
+			if (temp.length())
+			{
+				
+				tokens.push_back(new Keyword(temp));
+				
+				temp.clear();
+			}
 
+
+			if (sqlCommand[i] != ' ')
+			{
+				if (isPunctuation(sqlCommand[i]))
+					tokens.push_back(new Punctuation(sqlCommand[i]));
+				else if(isOperator(sqlCommand[i]))
+					tokens.push_back(new Operator(sqlCommand[i]));
+			}
+		}
 	}
+	
+
+
+
 }
 
 

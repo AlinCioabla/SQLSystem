@@ -3,9 +3,9 @@
 
 enum TokenType
 {
-	Keyword = 0,
-	Operator,
-	Punctuation
+	KeywordType = 0,
+	OperatorType,
+	PunctuationType
 };
 
 
