@@ -83,6 +83,11 @@ void Lexer::SetTokens()
 
 }
 
+void Lexer::PrintTokens()
+{
+	for_each(tokens.begin(), tokens.end(), [](IToken *token) { token->PrintWord(); });
+}
+
 
 
 

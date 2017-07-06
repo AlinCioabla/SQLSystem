@@ -13,6 +13,7 @@ void SQLSystem::Start(ifstream & in)
 	Parser parsser;
 	lexer.ReadFromFile(in);
 	lexer.SetTokens();
+	lexer.PrintTokens();
 
 
 }
