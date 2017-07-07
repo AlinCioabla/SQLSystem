@@ -4,6 +4,10 @@
 
 
 
+void Parser::StartParsing()
+{
+}
+
 Parser::~Parser()
 {
 }
