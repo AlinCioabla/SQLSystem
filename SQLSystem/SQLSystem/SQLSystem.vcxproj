@@ -113,6 +113,7 @@
   <ItemGroup>
     <ClCompile Include="Keyword.cpp" />
     <ClCompile Include="Lexer.cpp" />
+    <ClCompile Include="LexerTester.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
@@ -124,6 +125,7 @@
     <ClInclude Include="IToken.h" />
     <ClInclude Include="Keyword.h" />
     <ClInclude Include="Lexer.h" />
+    <ClInclude Include="LexerTester.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="Parser.h" />
     <ClInclude Include="Punctuation.h" />

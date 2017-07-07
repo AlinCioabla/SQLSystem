@@ -5,12 +5,12 @@ class WhiteSpace :
 {
 public:
 public:
-	WhiteSpace(string _word) : word(_word) {}
+	WhiteSpace(char _word) : word(_word) {}
 
 	void PrintWord() override;
 	TokenType GetType() override;
 	~WhiteSpace();
-	string word;
+	char word;
 	
 };
 
