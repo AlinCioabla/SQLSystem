@@ -27,12 +27,12 @@ bool Lexer::isAlphanumeric(char c)
 
 bool Lexer::isOperator(char c)
 {
-	return (operators.find(c) == std::string::npos);
+	return (operators.find(c) != std::string::npos);
 }
 
 bool Lexer::isPunctuation(char c)
 {
-	return (punctuation.find(c) == std::string::npos);
+	return (punctuation.find(c) != std::string::npos);
 }
 
 void Lexer::SetTokens()
@@ -53,16 +53,17 @@ void Lexer::SetTokens()
 				temp.clear();
 			}
 
-			if (it == ' ')
+			if (it == ' ' || it =='\n')
 				tokens.push_back(new WhiteSpace(it));
 
 			else
-
+			{ 
 				if (isOperator(it))
-					tokens.push_back(new Punctuation(it));
+					tokens.push_back(new Operator(it));
 
 				else if (isPunctuation(it))
-					tokens.push_back(new Operator(it));
+					tokens.push_back(new Punctuation(it));
+			}
 		}
 	}
 }
