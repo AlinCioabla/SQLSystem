@@ -3,7 +3,7 @@
 class WhiteSpace :
 	public IToken
 {
-public:
+
 public:
 	WhiteSpace(char _word) : word(_word) {}
 
