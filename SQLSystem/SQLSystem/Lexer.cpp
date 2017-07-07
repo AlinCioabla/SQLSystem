@@ -1,9 +1,10 @@
 #include"stdafx.h"
 #include "Lexer.h"
 
-#include"Keyword.h"
+#include "Keyword.h"
 #include "Punctuation.h"
 #include "Operator.h"
+#include "WhiteSpace.h"
 
 Lexer::Lexer()
 {
@@ -47,15 +48,13 @@ void Lexer::SetTokens()
 		{	
 			if (temp.length())
 			{
-				
-				tokens.push_back(new Keyword(temp));
-				
+				tokens.push_back(new Keyword(temp));		
 				temp.clear();
 			}
 
-
 			if (sqlCommand[i] != ' ')
-			{
+				tokens.push_back(new WhiteSpace(temp));
+			else
 				if (isOperator(sqlCommand[i]))
 					tokens.push_back(new Punctuation(sqlCommand[i]));
 				else if(isPunctuation(sqlCommand[i]))
@@ -64,8 +63,6 @@ void Lexer::SetTokens()
 		}
 	}
 	
-
-
 
 }
 
