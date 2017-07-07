@@ -74,6 +74,9 @@
     <ClInclude Include="LexerTester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IStates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt">
