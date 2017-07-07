@@ -5,7 +5,7 @@ class Punctuation :
 {
 public:
 	Punctuation(char _word) : word(_word) {};
-	char GetWord() { return word; }
+	string GetWord() override;
 	void PrintWord() override;
 	TokenType GetType() override;
 	~Punctuation();

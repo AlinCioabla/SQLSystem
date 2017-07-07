@@ -9,6 +9,7 @@ public:
 
 	void PrintWord() override;
 	TokenType GetType() override;
+	string GetWord() override;
 	~WhiteSpace();
 	char word;
 	

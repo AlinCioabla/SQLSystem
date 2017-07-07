@@ -8,6 +8,7 @@ public:
 
 	void PrintWord() override;
 	TokenType GetType() override;
+	string GetWord() override;
 	~Keyword();
 private:
 	string word;

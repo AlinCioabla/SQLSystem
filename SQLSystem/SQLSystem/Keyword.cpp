@@ -12,6 +12,11 @@ TokenType Keyword::GetType()
 	return TokenType::KeywordType;
 }
 
+string Keyword::GetWord()
+{
+	return word;
+}
+
 
 Keyword::~Keyword()
 {
