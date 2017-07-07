@@ -14,7 +14,7 @@ void SQLSystem::Start(ifstream & in)
 	Parser parsser;
 	lexer.ReadFromFile(in);
 	lexer.SetTokens();
-	lexer.PrintTokenTypes();
+	//lexer.PrintTokenTypes();
 	LexerTester tester(lexer);
 	cout << tester.TestTokens();
 
