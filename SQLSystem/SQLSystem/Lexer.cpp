@@ -1,6 +1,5 @@
 #include"stdafx.h"
 #include "Lexer.h"
-
 #include "Keyword.h"
 #include "Punctuation.h"
 #include "Operator.h"
@@ -21,7 +20,6 @@ void Lexer::ReadFromFile(ifstream & in)
 }
 
 
-
 bool Lexer::isAlphanumeric(char c)
 {
 	return (c >= 'A' && c <= 'z' || c >= '0' && c <= '9');
@@ -39,15 +37,13 @@ bool Lexer::isPunctuation(char c)
 
 void Lexer::SetTokens()
 {
-
-	int i, j = 0;
 	string temp;
 
-	for (i = 0; i < sqlCommand.length(); i++)
+	for (auto it : sqlCommand)
 	{
-		if (isAlphanumeric(sqlCommand[i]))
+		if (isAlphanumeric(it))
 		{
-			temp += sqlCommand[i];
+			temp += it;
 		}
 		else
 		{
@@ -57,28 +53,24 @@ void Lexer::SetTokens()
 				temp.clear();
 			}
 
-			if (sqlCommand[i] == ' ')
-				tokens.push_back(new WhiteSpace(sqlCommand[i]));
+			if (it == ' ')
+				tokens.push_back(new WhiteSpace(it));
+
 			else
-				if (isOperator(sqlCommand[i]))
-					tokens.push_back(new Punctuation(sqlCommand[i]));
-				else if (isPunctuation(sqlCommand[i]))
-					tokens.push_back(new Operator(sqlCommand[i]));
+
+				if (isOperator(it))
+					tokens.push_back(new Punctuation(it));
+
+				else if (isPunctuation(it))
+					tokens.push_back(new Operator(it));
 		}
 	}
-
 }
-
-
-
 
 void Lexer::PrintTokenTypes()
 {
 	for_each(tokens.begin(), tokens.end(), [](IToken *token) { token->PrintWord(); });
 }
-
-
-
 
 Lexer::~Lexer()
 {
