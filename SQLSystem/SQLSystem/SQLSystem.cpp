@@ -16,7 +16,8 @@ void SQLSystem::Start(ifstream & in)
 	lexer.SetTokens();
 	//lexer.PrintTokenTypes();
 	LexerTester tester(lexer);
-	cout << tester.TestTokens();
+	bool testResult = tester.TestTokens();
+	cout << "Token test: " << testResult << endl;
 
 
 }
