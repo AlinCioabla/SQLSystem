@@ -15,7 +15,7 @@ public:
 
 	void ReadFromFile(ifstream& in);
 	void SetTokens();
-	void PrintTokens();
+	void PrintTokenTypes();
 
 	bool isAlphanumeric(char c);
 	bool isOperator(char c);

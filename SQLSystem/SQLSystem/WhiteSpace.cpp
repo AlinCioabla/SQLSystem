@@ -4,14 +4,14 @@
 
 void WhiteSpace::PrintWord()
 {
-	cout << word << " " << endl;
+	cout << word << " whitespace" << endl;
 }
 
 
 
 TokenType WhiteSpace::GetType()
 {
-	return TokenType::OperatorType;
+	return TokenType::WhiteSpaceType;
 }
 
 

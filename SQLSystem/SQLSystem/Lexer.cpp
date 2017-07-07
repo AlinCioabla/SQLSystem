@@ -12,7 +12,12 @@ Lexer::Lexer()
 
 void Lexer::ReadFromFile(ifstream & in)
 {
-	getline(in, sqlCommand, ';');
+	char c;
+	while (in.get(c))
+	{
+		sqlCommand += c;
+	}
+	
 }
 
 
@@ -52,8 +57,8 @@ void Lexer::SetTokens()
 				temp.clear();
 			}
 
-			if (sqlCommand[i] != ' ')
-				tokens.push_back(new WhiteSpace(temp));
+			if (sqlCommand[i] == ' ')
+				tokens.push_back(new WhiteSpace(sqlCommand[i]));
 			else
 				if (isOperator(sqlCommand[i]))
 					tokens.push_back(new Punctuation(sqlCommand[i]));
@@ -61,12 +66,13 @@ void Lexer::SetTokens()
 					tokens.push_back(new Operator(sqlCommand[i]));
 			}
 		}
+
 }
 	
 
 
 
-void Lexer::PrintTokens()
+void Lexer::PrintTokenTypes()
 {
 	for_each(tokens.begin(), tokens.end(), [](IToken *token) { token->PrintWord(); });
 }
