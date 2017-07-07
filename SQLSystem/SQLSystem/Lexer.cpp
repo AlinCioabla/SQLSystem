@@ -61,10 +61,10 @@ void Lexer::SetTokens()
 					tokens.push_back(new Operator(sqlCommand[i]));
 			}
 		}
-	}
+}
 	
 
-}
+
 
 void Lexer::PrintTokens()
 {

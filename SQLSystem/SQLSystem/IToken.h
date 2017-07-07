@@ -6,7 +6,7 @@ enum TokenType
 	KeywordType ,
 	OperatorType,
 	PunctuationType,
-	WhiteSpace
+	WhiteSpaceType
 };
 
 
