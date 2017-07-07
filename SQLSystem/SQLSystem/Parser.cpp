@@ -2,9 +2,6 @@
 
 
 
-Parser::Parser()
-{
-}
 
 
 Parser::~Parser()
