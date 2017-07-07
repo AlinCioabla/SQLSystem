@@ -53,7 +53,7 @@ void Lexer::SetTokens()
 				temp.clear();
 			}
 
-			if (it == ' ' || it =='\n')
+			if (it == ' ')
 				tokens.push_back(new WhiteSpace(it));
 
 			else
