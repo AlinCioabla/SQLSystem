@@ -12,7 +12,10 @@ bool LexerTester::TestTokens()
 		tokensVector+=(token->GetWord());
 	}
 		);
-	cout << tokensVector << endl << endl << initialCommand<<endl;
+	//cout << tokensVector << endl << endl << initialCommand<<endl;
+
+
+
 	return tokensVector == initialCommand;
 }
 
