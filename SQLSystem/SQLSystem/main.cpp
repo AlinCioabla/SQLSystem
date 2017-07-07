@@ -4,7 +4,6 @@
 ifstream in("in.txt");
 int main()
 {
-
 	SQLSystem program;
 	program.Start(in);
 

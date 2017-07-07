@@ -25,7 +25,7 @@ public:
 	~Lexer();
 private:
 	string sqlCommand;
-	string punctuation = { ".,'?""'&!;" };
+	string punctuation = { ".,?""'&!;:_()" };
 	string operators = { "+-*/=^%<>" };
 	string alphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
 

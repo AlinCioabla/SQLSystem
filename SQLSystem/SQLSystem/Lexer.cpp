@@ -57,13 +57,11 @@ void Lexer::SetTokens()
 				tokens.push_back(new WhiteSpace(it));
 
 			else
-			{ 
 				if (isOperator(it))
 					tokens.push_back(new Operator(it));
 
 				else if (isPunctuation(it))
 					tokens.push_back(new Punctuation(it));
-			}
 		}
 	}
 }
