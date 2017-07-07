@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt" />
+    <Text Include="Instr.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -9,7 +9,7 @@ ParserFSM::ParserFSM()
 void ParserFSM::Start(vector<IToken*>& tokens)
 {
 
-	for_each(tokens.begin(), tokens.end(), [&currentState](IToken *token)
+	for_each(tokens.begin(), tokens.end(), [&](IToken *token)
 	{
 		switch (currentState)
 		{
