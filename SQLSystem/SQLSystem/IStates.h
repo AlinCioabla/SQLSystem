@@ -1,12 +1,26 @@
 #pragma once
 
 
-enum FirstStateType
+enum StateType
 {	
-	SELECT,
-	INSERT,
+	ALL,
+	AND,
+	BETWEEN,
+	CREATE_TABLE,
 	DELETE,
-	UPDATE
+	FROM,
+	IN,
+	INSERT,
+	INSERT_INTO,
+	LIKE,
+	OR,
+	ORDER_BY,
+	NOT,
+	STAR,
+	SET,
+	SELECT,
+	UPDATE,
+	WHERE
 };
 
 
