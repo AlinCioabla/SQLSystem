@@ -12,7 +12,12 @@ Lexer::Lexer()
 
 void Lexer::ReadFromFile(ifstream & in)
 {
-	getline(in, sqlCommand, ';');
+	char c;
+	while (in.get(c))
+	{
+		sqlCommand += c;
+	}
+	
 }
 
 
@@ -34,14 +39,15 @@ bool Lexer::isPunctuation(char c)
 
 void Lexer::SetTokens()
 {
-
+	
+	int i, j=0;
 	string temp;
 
-	for (auto it: sqlCommand)
+	for (i = 0; i < sqlCommand.length(); i++)
 	{
-		if (isAlphanumeric(sqlCommand[it]))
+		if (isAlphanumeric(sqlCommand[i]))
 		{
-			temp += sqlCommand[it];
+			temp += sqlCommand[i];
 		}
 		else
 		{	
@@ -50,22 +56,23 @@ void Lexer::SetTokens()
 				tokens.push_back(new Keyword(temp));		
 				temp.clear();
 			}
-	
-			if (sqlCommand[it] == ' ')
-				tokens.push_back(new WhiteSpace(temp));
+
+			if (sqlCommand[i] == ' ')
+				tokens.push_back(new WhiteSpace(sqlCommand[i]));
 			else
-				if (isOperator(sqlCommand[it]))
-					tokens.push_back(new Punctuation(sqlCommand[it]));
-				else if(isPunctuation(sqlCommand[it]))
-					tokens.push_back(new Operator(sqlCommand[it]));
+				if (isOperator(sqlCommand[i]))
+					tokens.push_back(new Punctuation(sqlCommand[i]));
+				else if(isPunctuation(sqlCommand[i]))
+					tokens.push_back(new Operator(sqlCommand[i]));
 			}
 		}
+
 }
 	
 
 
 
-void Lexer::PrintTokens()
+void Lexer::PrintTokenTypes()
 {
 	for_each(tokens.begin(), tokens.end(), [](IToken *token) { token->PrintWord(); });
 }
