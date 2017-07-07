@@ -4,7 +4,7 @@
 
 void Operator::PrintWord()
 {
-	cout << word << "  operator"<<endl;
+	cout << word <<" operator"<<endl;
 }
 
 

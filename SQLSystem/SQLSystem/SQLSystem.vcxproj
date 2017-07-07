@@ -118,6 +118,7 @@
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
+    <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="IToken.h" />
@@ -128,6 +129,7 @@
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="WhiteSpace.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt" />
