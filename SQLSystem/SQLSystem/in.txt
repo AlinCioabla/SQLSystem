@@ -1,1 +1,1 @@
-SELECT Nume FROM Tabel1 , Tabel2 WHERE Nume LIKE '%A';
+SELECT Nume !?...FROM : Tabel1 , Tabel2 WHERE Nume LIKE '%A';

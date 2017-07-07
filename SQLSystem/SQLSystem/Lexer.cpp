@@ -34,7 +34,7 @@ bool Lexer::isPunctuation(char c)
 void Lexer::SetTokens()
 {
 	
-	int i, j=0, k=0;
+	int i, j=0;
 	string temp;
 
 	for (i = 0; i < sqlCommand.length(); i++)
@@ -56,9 +56,9 @@ void Lexer::SetTokens()
 
 			if (sqlCommand[i] != ' ')
 			{
-				if (isPunctuation(sqlCommand[i]))
+				if (isOperator(sqlCommand[i]))
 					tokens.push_back(new Punctuation(sqlCommand[i]));
-				else if(isOperator(sqlCommand[i]))
+				else if(isPunctuation(sqlCommand[i]))
 					tokens.push_back(new Operator(sqlCommand[i]));
 			}
 		}
