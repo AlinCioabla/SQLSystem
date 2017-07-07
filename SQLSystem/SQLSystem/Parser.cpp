@@ -8,12 +8,11 @@ void Parser::StartParsing()
 {
 }
 
-void Parser::SetKeywords(ifstream & instr)
+void Parser::SetKeywords(ifstream &instr)
 {
 	string line;
 	while (getline(instr, line)) 
 	{
-		cout << line<<endl;
 		keywords.push_back(line);
 	}
 }

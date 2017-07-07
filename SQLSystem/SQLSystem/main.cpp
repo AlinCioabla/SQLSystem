@@ -2,6 +2,8 @@
 #include"SQLSystem.h"
 
 ifstream in("in.txt");
+
+
 int main()
 {
 	SQLSystem program;
