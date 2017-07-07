@@ -12,6 +12,7 @@ public:
 
 	~Parser();
 private:
+	string keywords[] = { "SELECT", "INSERT" };
 
 };
 
