@@ -4,12 +4,11 @@ class Punctuation :
 	public IToken
 {
 public:
-	Punctuation(char _word) : word(_word) {};
-	string GetWord() override;
-	void PrintWord() override;
-	TokenType GetType() override;
+	Punctuation(char aWord) : mWord(aWord) {};
+	string GetWord() const override;
+	TokenType GetType() const override;
 	~Punctuation();
 private:
-	char word;
+	char mWord;
 };
 

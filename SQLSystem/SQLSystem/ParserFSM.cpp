@@ -11,7 +11,7 @@ void ParserFSM::Start(vector<IToken*>& tokens)
 
 	for_each(tokens.begin(), tokens.end(), [&](IToken *token)
 	{
-		switch (currentState)
+		switch (mCurrentState)
 		{
 		case ALL:
 			break;
@@ -52,10 +52,14 @@ void ParserFSM::Start(vector<IToken*>& tokens)
 		case NAME:
 			break;
 		default:
+		{
+			cout << "";
 			break;
+		}
 		}
 	});
 }
+
 
 
 ParserFSM::~ParserFSM()

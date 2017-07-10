@@ -2,22 +2,15 @@
 
 
 
-void WhiteSpace::PrintWord()
-{
-	cout << word << " whitespace" << endl;
-}
-
-
-
-TokenType WhiteSpace::GetType()
+TokenType WhiteSpace::GetType()const
 {
 	return TokenType::WhiteSpaceType;
 }
 
-string WhiteSpace::GetWord()
+string WhiteSpace::GetWord()const
 {
 	string s_word;
-	s_word += word;
+	s_word += mWord;
 	return s_word;
 }
 

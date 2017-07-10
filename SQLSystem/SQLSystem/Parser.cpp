@@ -13,13 +13,13 @@ void Parser::SetKeywords(ifstream &instr)
 	string line;
 	while (getline(instr, line)) 
 	{
-		keywords.push_back(line);
+		mKeywords.push_back(line);
 	}
 }
 
-vector<string> Parser::GetKeywords()
+const vector<string> Parser::GetKeywords() 
 {
-	return keywords;
+	return mKeywords;
 }
 
 Parser::~Parser()

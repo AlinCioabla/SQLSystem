@@ -11,11 +11,11 @@ public:
 	Parser(vector <IToken*> &tokens) { StartParsing(); };
 	void StartParsing();
 	void SetKeywords(ifstream &instr);
-	vector<string> GetKeywords();
+	vector<string> const GetKeywords();
 
 	~Parser();
 private:
-	vector<string> keywords;
+	vector<string> mKeywords;
 
 };
 

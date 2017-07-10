@@ -5,13 +5,12 @@ class WhiteSpace :
 {
 
 public:
-	WhiteSpace(char _word) : word(_word) {}
+	WhiteSpace(char aWord) : mWord(aWord) {}
 
-	void PrintWord() override;
-	TokenType GetType() override;
-	string GetWord() override;
+	TokenType GetType() const override;
+	string GetWord() const override;
 	~WhiteSpace();
-	char word;
+	char mWord;
 	
 };
 

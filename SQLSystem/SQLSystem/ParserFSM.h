@@ -31,15 +31,16 @@ class ParserFSM
 public:
 	ParserFSM();
 
-	void TransitionTo(StateType state) { currentState = state; }
+	void TransitionTo(StateType aState) { mCurrentState = aState; }
 	void Start(vector <IToken*> &tokens);
-	StateType GetCurrentState() { return currentState; }
+	StateType GetCurrentState() { return mCurrentState; }
+
 
 
 	~ParserFSM();
 
 private:
-	StateType currentState;
+	StateType mCurrentState;
 
 	
 };

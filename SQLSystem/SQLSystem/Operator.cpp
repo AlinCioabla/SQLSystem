@@ -9,13 +9,6 @@ string Operator::GetWord()
 	return s_word;
 }
 
-void Operator::PrintWord()
-{
-	cout << word <<" operator"<<endl;
-}
-
-
-
 TokenType Operator::GetType()
 {
 	return TokenType::OperatorType;

@@ -2,19 +2,16 @@
 
 
 
-void Keyword::PrintWord()
-{
-	cout << word << " "<<"keyword"<<endl;
-}
 
-TokenType Keyword::GetType()
+
+TokenType Keyword::GetType()const
 {
 	return TokenType::KeywordType;
 }
 
-string Keyword::GetWord()
+string Keyword::GetWord()const
 {
-	return word;
+	return mWord;
 }
 
 

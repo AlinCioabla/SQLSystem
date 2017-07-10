@@ -11,10 +11,6 @@ string Punctuation::GetWord()
 	return s_word;
 }
 
-void Punctuation::PrintWord()
-{
-	cout << word << " punctuation" << endl;
-}
 
 TokenType Punctuation::GetType()
 {

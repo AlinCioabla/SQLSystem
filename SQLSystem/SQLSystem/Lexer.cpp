@@ -66,10 +66,6 @@ void Lexer::SetTokens()
 	}
 }
 
-void Lexer::PrintTokenTypes()
-{
-	for_each(tokens.begin(), tokens.end(), [](IToken *token) { token->PrintWord(); });
-}
 
 Lexer::~Lexer()
 {

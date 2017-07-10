@@ -1,5 +1,5 @@
 #pragma once
-
+#include"IToken.h"
 
 enum StateType
 {	
@@ -27,6 +27,8 @@ enum StateType
 class IStates
 {
 public:
+	
+
 	IStates();
 	~IStates();
 };

@@ -15,7 +15,6 @@ public:
 
 	void ReadFromFile(ifstream& in);
 	void SetTokens();
-	void PrintTokenTypes();
 	string getSqlCommand() { return sqlCommand; };
 
 	bool isAlphanumeric(char c);
@@ -27,7 +26,7 @@ private:
 	string sqlCommand;
 	string punctuation = { ".,?""'&!;:_()" };
 	string operators = { "+-*/=^%<>" };
-	string alphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
+	
 
 };
 #endif // !_LEXER_

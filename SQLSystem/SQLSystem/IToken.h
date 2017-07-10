@@ -13,9 +13,9 @@ enum TokenType
 class IToken
 {
 public:
-	virtual void PrintWord() = 0;
-	virtual TokenType GetType() = 0;
-	virtual string GetWord() = 0;
+	
+	virtual TokenType GetType() const  = 0;
+	virtual string GetWord() const = 0;
 	virtual ~IToken() {};
 
 };

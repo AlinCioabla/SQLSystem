@@ -4,13 +4,13 @@ class Keyword :
 	public IToken
 {
 public:
-	Keyword(string _word) : word(_word) {}
+	Keyword(string aWord) : mWord(aWord) {}
 
-	void PrintWord() override;
-	TokenType GetType() override;
-	string GetWord() override;
+	
+	TokenType GetType() const override;
+	string GetWord() const override;
 	~Keyword();
 private:
-	string word;
+	string mWord;
 };
 

@@ -4,12 +4,11 @@ class Operator :
 	public IToken
 {
 public:
-	Operator(char _word) : word(_word) {};
-	string GetWord() override;
-	void PrintWord() override;
-	TokenType GetType() override;
+	Operator(char aWord) : mWord(aWord) {};
+	string GetWord() const override;
+	TokenType GetType() const override;
 	~Operator();
 private:
-	char word;
+	char mWord;
 };
 
