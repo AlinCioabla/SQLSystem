@@ -5,7 +5,8 @@
 
 bool LexerTester::TestTokens()
 {
-	string tokensVector, initialCommand=m_lexer.getSqlCommand();
+	string tokensVector;
+	string initialCommand = m_lexer.getSqlCommand();
 	for_each(m_lexer.tokens.begin(), m_lexer.tokens.end(), 
 		[&](IToken * token)
 	{
