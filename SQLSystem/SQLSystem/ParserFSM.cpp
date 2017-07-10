@@ -8,8 +8,14 @@ ParserFSM::ParserFSM()
 
 void ParserFSM::Start(vector<IToken*>& tokens)
 {
+	auto it = tokens.begin();
+	while (it != tokens.end())
+	{
 
-	for_each(tokens.begin(), tokens.end(), [&](IToken *token)
+	}
+
+
+	/*for_each(tokens.begin(), tokens.end(), [&](IToken *token)
 	{
 		switch (currentState)
 		{
@@ -54,7 +60,7 @@ void ParserFSM::Start(vector<IToken*>& tokens)
 		default:
 			break;
 		}
-	});
+	});*/
 }
 
 

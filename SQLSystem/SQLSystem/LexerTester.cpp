@@ -5,19 +5,19 @@
 
 bool LexerTester::TestTokens()
 {
-	string tokensVector;
-	string initialCommand = m_lexer.getSqlCommand();
-	for_each(m_lexer.tokens.begin(), m_lexer.tokens.end(), 
+	string TokensVector;
+	string InitialCommand = m_lexer.GetSqlCommand();
+	for_each(m_lexer.mTokens.begin(), m_lexer.mTokens.end(), 
 		[&](IToken * token)
 	{
-		tokensVector+=(token->GetWord());
+		TokensVector+=(token->GetWord());
 	}
 		);
 	//cout << tokensVector << endl << endl << initialCommand<<endl;
 
 
 
-	return tokensVector == initialCommand;
+	return TokensVector == InitialCommand;
 }
 
 LexerTester::~LexerTester()
