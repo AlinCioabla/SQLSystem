@@ -5,7 +5,7 @@
 
 bool LexerTester::TestTokens() 
 {
-	
+	// Check if the file is valid
 	bool readFromFileStatus = mLexer.ReadFromFile(mIn);
 	if (!readFromFileStatus)
 	{
@@ -13,11 +13,17 @@ bool LexerTester::TestTokens()
 		return false;
 	}
 
+	// Start tokenizing the input
 	mLexer.Tokenize();
 
+	// Create 2 temporary strings
+	// The method will try recomposing the tokens into the original input
+	// If it succeeds, it will return true
 
 	string _TokensVector;
 	string _InitialCommand = mLexer.GetSqlCommand();
+
+	// Concatenate all the strings contained by the tokens
 	for_each(mLexer.mTokens.begin(), mLexer.mTokens.end(), 
 		[&_TokensVector](IToken * token)
 	{
@@ -25,10 +31,11 @@ bool LexerTester::TestTokens()
 	}
 		);
 
+	// Check if the resulted concatenated string matches the input
 	bool TestTokensStatus = (_TokensVector == _InitialCommand);
 	if (!TestTokensStatus)
 	{
-		cout << "Failed to tokenize." << endl;
+		cout << "Failed to tokenize properly." << endl;
 		return false;
 	}
 

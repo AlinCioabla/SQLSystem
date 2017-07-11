@@ -8,29 +8,29 @@ bool LexerTests()
 {
 	//Test #1
 	cout << "Test1: " << endl;
-	ifstream inputFile1("TestFile1.txt");
-	Lexer lexer1;
-	LexerTester lexerTester1(inputFile1, lexer1);
-	bool succes1 = lexerTester1.TestTokens();
-	cout << succes1 << endl << endl;
+	ifstream _inputFile1("TestFile1.txt");
+	Lexer _lexer1;
+	LexerTester lexerTester1(_inputFile1, _lexer1);
+	bool _succes1 = lexerTester1.TestTokens();
+	cout << _succes1 << endl << endl;
 	
 	//Test #2
 	cout << "Test2: " << endl;
-	ifstream inputFile2("TestFile2FAKE.txt");
-	Lexer lexer2;
-	LexerTester lexerTester2(inputFile2, lexer2);
-	bool succes2 = lexerTester2.TestTokens();
-	cout << succes2 << endl << endl;
+	ifstream _inputFile2("TestFile2FAKE.txt");
+	Lexer _lexer2;
+	LexerTester lexerTester2(_inputFile2, _lexer2);
+	bool _succes2 = lexerTester2.TestTokens();
+	cout << _succes2 << endl << endl;
 
 	//Test #3
 	cout << "Test3: " << endl;
-	ifstream inputFile3("TestFile3.txt");
-	Lexer lexer3;
-	LexerTester lexerTester3(inputFile3, lexer3);
-	bool succes3 = lexerTester3.TestTokens();
-	cout << succes3 << endl << endl;
+	ifstream _inputFile3("TestFile3.txt");
+	Lexer _lexer3;
+	LexerTester lexerTester3(_inputFile3, _lexer3);
+	bool _succes3 = lexerTester3.TestTokens();
+	cout << _succes3 << endl << endl;
 
-	if (succes1 && succes2 && succes3)
+	if (_succes1 && _succes2 && _succes3)
 		return true;
 	return false;
 }

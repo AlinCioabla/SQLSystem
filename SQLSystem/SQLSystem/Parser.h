@@ -12,7 +12,9 @@ public:
 
 	//Sets mKeywords with sql commands;
 	void SetKeywords(ifstream &instr);
+
 	void StartParsing();
+
 	vector<string> const GetKeywords();
 
 	~Parser();
