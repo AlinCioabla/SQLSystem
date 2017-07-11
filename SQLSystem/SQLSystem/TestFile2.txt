@@ -1,0 +1,11 @@
+SELECT column1, column2
+FROM table_name
+ORDER BY column1, column2 DESC;
+SELECT COUNT(column_name)
+FROM table_name
+WHERE condition;
+SELECT * FROM Customers
+WHERE CustomerName NOT LIKE 'a%';
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;

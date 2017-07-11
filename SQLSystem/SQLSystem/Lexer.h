@@ -10,19 +10,16 @@ class Lexer
 public:
 
 	vector<IToken*> mTokens;
-
 	Lexer();
-
-	void ReadFromFile(ifstream& aIn);
-	void Tokenize();
+	bool ReadFromFile(ifstream& aIn);
+	bool Tokenize();
 	string GetSqlCommand() { return mSqlCommand; };
-
-	bool IsAlphanumeric(char aC);
-	bool IsOperator(char aC);
-	bool IsPunctuation(char aC);
 
 	~Lexer();
 private:
+	bool IsAlphanumeric(char aC);
+	bool IsOperator(char aC);
+	bool IsPunctuation(char aC);
 	string mSqlCommand;
 	string mPunctuation = { ".,?""'&!;:_()" };
 	string mOperators = { "+-*/=^%<>" };

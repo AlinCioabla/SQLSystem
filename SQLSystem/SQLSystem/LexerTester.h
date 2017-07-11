@@ -5,10 +5,11 @@
 
 class LexerTester
 {
-	Lexer m_lexer;
+	Lexer mLexer;
+	ifstream &mIn;
 
 public:
-	LexerTester(Lexer lexer):m_lexer(lexer) {};
+	LexerTester(ifstream &aIn, Lexer &aLexer) : mLexer(aLexer), mIn(aIn) {}
 	bool TestTokens();
 	~LexerTester();
 };

@@ -5,19 +5,35 @@
 
 bool LexerTester::TestTokens()
 {
-	string TokensVector;
-	string InitialCommand = m_lexer.GetSqlCommand();
-	for_each(m_lexer.mTokens.begin(), m_lexer.mTokens.end(), 
-		[&](IToken * token)
+	;
+	bool readFromFileStatus = mLexer.ReadFromFile(mIn);
+	if (!readFromFileStatus)
 	{
-		TokensVector+=(token->GetWord());
+		cout << "Cannot read from given file."<< endl;
+		return false;
+	}
+
+	mLexer.Tokenize();
+
+
+	string _TokensVector;
+	string _InitialCommand = mLexer.GetSqlCommand();
+	for_each(mLexer.mTokens.begin(), mLexer.mTokens.end(), 
+		[&_TokensVector](IToken * token)
+	{
+		_TokensVector+=(token->GetWord());
 	}
 		);
-	//cout << tokensVector << endl << endl << initialCommand<<endl;
 
+	bool TestTokensStatus = (_TokensVector == _InitialCommand);
+	if (!TestTokensStatus)
+	{
+		cout << "Failed to tokenize." << endl;
+		return false;
+	}
 
+	return true;
 
-	return TokensVector == InitialCommand;
 }
 
 LexerTester::~LexerTester()

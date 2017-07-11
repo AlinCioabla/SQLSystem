@@ -39,22 +39,22 @@ bool Lexer::IsPunctuation(char aC)
 	return (mPunctuation.find(aC) != string::npos);
 }
 
-void Lexer::Tokenize()
+bool Lexer::Tokenize()
 {
-	string temp;
+	string _temp;
 	
 	for (auto it : mSqlCommand)
 	{
 		if (IsAlphanumeric(it))
 		{
-			temp += it;
+			_temp += it;
 		}
 		else
 		{
-			if (temp.length())
+			if (_temp.length())
 			{
-				mTokens.push_back(new Keyword(temp));
-				temp.clear();
+				mTokens.push_back(new Keyword(_temp));
+				_temp.clear();
 			}
 
 			if (it == ' ' || it == '\n')
@@ -66,8 +66,14 @@ void Lexer::Tokenize()
 
 				else if (IsPunctuation(it))
 					mTokens.push_back(new Punctuation(it));
+				else
+					return false;
 		}
+
 	}
+
+	return true;
+
 }
 
 
