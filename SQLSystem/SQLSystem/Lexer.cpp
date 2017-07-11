@@ -9,13 +9,17 @@ Lexer::Lexer()
 {
 }
 
-void Lexer::ReadFromFile(ifstream& aIn)
+bool Lexer::ReadFromFile(ifstream& aIn)
 {
+	if (!aIn)
+		return false;
+
 	char c;
 	while (aIn.get(c))
 	{
 		mSqlCommand += c;
 	}
+	return true;
 	
 }
 
@@ -38,7 +42,7 @@ bool Lexer::IsPunctuation(char aC)
 void Lexer::Tokenize()
 {
 	string temp;
-
+	
 	for (auto it : mSqlCommand)
 	{
 		if (IsAlphanumeric(it))
