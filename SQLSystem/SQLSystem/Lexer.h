@@ -18,12 +18,12 @@ public:
 
 	//This one tokenize mSqlCommand and stores the tokens in mTokens 
 	bool Tokenize();
-	string GetSqlCommand() { return mSqlCommand; };
+	string GetSqlCommand() const { return mSqlCommand; };
 
 	//Checks if a token is an alphanumeric, operator or punctuation
-	bool IsAlphanumeric(char aC);
-	bool IsOperator(char aC);
-	bool IsPunctuation(char aC);
+	bool IsAlphanumeric(char aC) const;
+	bool IsOperator(char aC) const;
+	bool IsPunctuation(char aC) const;
 
 	~Lexer();
 private:

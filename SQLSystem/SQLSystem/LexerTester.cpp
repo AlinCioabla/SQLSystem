@@ -3,7 +3,7 @@
 
 
 
-bool LexerTester::TestTokens()
+bool LexerTester::TestTokens() 
 {
 	
 	bool readFromFileStatus = mLexer.ReadFromFile(mIn);
