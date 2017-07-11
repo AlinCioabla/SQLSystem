@@ -17,7 +17,7 @@ bool LexerTests()
 
 	//Test #2
 	cout << "Test2: " << endl;
-	ifstream inputFile2("TestFile22.txt");
+	ifstream inputFile2("TestFile2FAKE.txt");
 	Lexer lexer2;
 	LexerTester lexerTester2(inputFile2, lexer2);
 	bool succes2 = lexerTester2.TestTokens();
@@ -40,16 +40,15 @@ bool LexerTests()
 
 int main()
 {
+
 	if (!LexerTests())
 		return -1;
 		
-
-
-
 	//SQLSystem program;
 	//program.Start(in);
 
-	
 
 	return 0;
+
+
 }

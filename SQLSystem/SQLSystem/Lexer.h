@@ -14,7 +14,7 @@ public:
 	Lexer();
 
 	bool ReadFromFile(ifstream& aIn);//Checks if the file can be read and sets mSqlCommand
-	void Tokenize();//This one tokenize mSqlCommand and stores the tokens in mTokens 
+	bool Tokenize();//This one tokenize mSqlCommand and stores the tokens in mTokens 
 	string GetSqlCommand() { return mSqlCommand; };
 
 	//Checks if a token is an alphanumeric, operator or punctuation
