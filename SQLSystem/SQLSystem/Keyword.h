@@ -1,5 +1,7 @@
 #pragma once
 #include "IToken.h"
+
+//This class is for string like :SELECT, TableName, FROM...
 class Keyword :
 	public IToken
 {
