@@ -36,14 +36,10 @@ public:
 	ParserFSM();
 
 	void TransitionTo(StateType aState) { mCurrentState = aState; }
-<<<<<<< HEAD
+
 	void Start(vector <IToken*> &tokens);
 	StateType GetCurrentState() { return mCurrentState; }
 
-=======
-	void Start(vector<IToken*>& aTokens);
-	StateType GetCurrentState() { return mCurrentState; }
->>>>>>> afbbe6b9d07ec3efffaa254529ee0fe0f3da6e47
 
 
 	~ParserFSM();

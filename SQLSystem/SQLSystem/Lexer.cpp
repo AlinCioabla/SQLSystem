@@ -66,10 +66,6 @@ void Lexer::Tokenize()
 	}
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> afbbe6b9d07ec3efffaa254529ee0fe0f3da6e47
 
 Lexer::~Lexer()
 {

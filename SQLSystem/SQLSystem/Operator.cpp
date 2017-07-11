@@ -2,14 +2,14 @@
 
 
 
-string Operator::GetWord()
+string Operator::GetWord() const
 {
 	string s_word;
-	s_word+= word;
+	s_word+= mWord;
 	return s_word;
 }
 
-TokenType Operator::GetType()
+TokenType Operator::GetType() const
 {
 	return TokenType::OperatorType;
 }
