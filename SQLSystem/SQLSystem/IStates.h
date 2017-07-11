@@ -29,7 +29,6 @@ class IStates
 public:
 	
 
-	IStates();
-	~IStates();
+
 };
 

@@ -13,10 +13,11 @@ public:
 
 	Lexer();
 
-	void ReadFromFile(ifstream& aIn);
-	void Tokenize();
+	bool ReadFromFile(ifstream& aIn);//Checks if the file can be read and sets mSqlCommand
+	void Tokenize();//This one tokenize mSqlCommand and stores the tokens in mTokens 
 	string GetSqlCommand() { return mSqlCommand; };
 
+	//Checks if a token is an alphanumeric, operator or punctuation
 	bool IsAlphanumeric(char aC);
 	bool IsOperator(char aC);
 	bool IsPunctuation(char aC);
@@ -26,7 +27,6 @@ private:
 	string mSqlCommand;
 	string mPunctuation = { ".,?""'&!;:_()" };
 	string mOperators = { "+-*/=^%<>" };
-	string mAlphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
 
 };
 #endif // !_LEXER_
