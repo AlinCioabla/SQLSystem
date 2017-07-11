@@ -14,7 +14,6 @@ bool LexerTests()
 	bool succes1 = lexerTester1.TestTokens();
 	cout << succes1 << endl << endl;
 	
-
 	//Test #2
 	cout << "Test2: " << endl;
 	ifstream inputFile2("TestFile2FAKE.txt");
