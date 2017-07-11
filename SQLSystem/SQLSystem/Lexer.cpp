@@ -9,39 +9,39 @@ Lexer::Lexer()
 {
 }
 
-void Lexer::ReadFromFile(ifstream & in)
+void Lexer::ReadFromFile(ifstream& aIn)
 {
 	char c;
-	while (in.get(c))
+	while (aIn.get(c))
 	{
-		sqlCommand += c;
+		mSqlCommand += c;
 	}
 	
 }
 
 
-bool Lexer::isAlphanumeric(char c)
+bool Lexer::IsAlphanumeric(char aC)
 {
-	return (c >= 'A' && c <= 'z' || c >= '0' && c <= '9');
+	return (aC >= 'A' && aC <= 'z' || aC >= '0' && aC <= '9');
 }
 
-bool Lexer::isOperator(char c)
+bool Lexer::IsOperator(char aC)
 {
-	return (operators.find(c) != std::string::npos);
+	return (mOperators.find(aC) != string::npos);
 }
 
-bool Lexer::isPunctuation(char c)
+bool Lexer::IsPunctuation(char aC)
 {
-	return (punctuation.find(c) != std::string::npos);
+	return (mPunctuation.find(aC) != string::npos);
 }
 
-void Lexer::SetTokens()
+void Lexer::Tokenize()
 {
 	string temp;
 
-	for (auto it : sqlCommand)
+	for (auto it : mSqlCommand)
 	{
-		if (isAlphanumeric(it))
+		if (IsAlphanumeric(it))
 		{
 			temp += it;
 		}
@@ -49,23 +49,27 @@ void Lexer::SetTokens()
 		{
 			if (temp.length())
 			{
-				tokens.push_back(new Keyword(temp));
+				mTokens.push_back(new Keyword(temp));
 				temp.clear();
 			}
 
 			if (it == ' ' || it == '\n')
-				tokens.push_back(new WhiteSpace(it));
+				mTokens.push_back(new WhiteSpace(it));
 
 			else
-				if (isOperator(it))
-					tokens.push_back(new Operator(it));
+				if (IsOperator(it))
+					mTokens.push_back(new Operator(it));
 
-				else if (isPunctuation(it))
-					tokens.push_back(new Punctuation(it));
+				else if (IsPunctuation(it))
+					mTokens.push_back(new Punctuation(it));
 		}
 	}
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> afbbe6b9d07ec3efffaa254529ee0fe0f3da6e47
 
 Lexer::~Lexer()
 {

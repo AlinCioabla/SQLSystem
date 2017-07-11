@@ -9,24 +9,24 @@ class Lexer
 {
 public:
 
-	vector<IToken*> tokens;
+	vector<IToken*> mTokens;
 
 	Lexer();
 
-	void ReadFromFile(ifstream& in);
-	void SetTokens();
-	string getSqlCommand() { return sqlCommand; };
+	void ReadFromFile(ifstream& aIn);
+	void Tokenize();
+	string GetSqlCommand() { return mSqlCommand; };
 
-	bool isAlphanumeric(char c);
-	bool isOperator(char c);
-	bool isPunctuation(char c);
+	bool IsAlphanumeric(char aC);
+	bool IsOperator(char aC);
+	bool IsPunctuation(char aC);
 
 	~Lexer();
 private:
-	string sqlCommand;
-	string punctuation = { ".,?""'&!;:_()" };
-	string operators = { "+-*/=^%<>" };
-	
+	string mSqlCommand;
+	string mPunctuation = { ".,?""'&!;:_()" };
+	string mOperators = { "+-*/=^%<>" };
+	string mAlphanumerics = { "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmopqrstuvwxyz0123456789" };
 
 };
 #endif // !_LEXER_

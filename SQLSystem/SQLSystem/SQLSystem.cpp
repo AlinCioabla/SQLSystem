@@ -12,9 +12,9 @@ void SQLSystem::Start(ifstream & in)
 {
 	
 	Lexer lexer;
-	Parser parser(lexer.tokens);
+	Parser parser(lexer.mTokens);
 	lexer.ReadFromFile(in);
-	lexer.SetTokens();
+	lexer.Tokenize();
 	//lexer.PrintTokenTypes();
 	LexerTester tester(lexer);
 	bool testResult = tester.TestTokens();
