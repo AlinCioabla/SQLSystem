@@ -18,7 +18,9 @@ class IToken
 public:
 	
 	virtual TokenType GetType() const  = 0;
-	virtual string GetWord() const = 0;//gets the word inside an object  as a string 
+
+	//gets the word inside an object  as a string 
+	virtual string GetWord() const = 0;
 	virtual ~IToken() {};
 
 };

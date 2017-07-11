@@ -10,6 +10,8 @@ class LexerTester
 
 public:
 	LexerTester(ifstream &aIn, Lexer &aLexer) : mLexer(aLexer), mIn(aIn) {}
+
+	//Tests Tokennize function and ReadFromFile
 	bool TestTokens();
 	~LexerTester();
 };

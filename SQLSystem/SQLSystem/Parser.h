@@ -9,8 +9,10 @@ class Parser
 public:
 
 	Parser(vector <IToken*> &tokens) { StartParsing(); };
+
+	//Sets mKeywords with sql commands;
+	void SetKeywords(ifstream &instr);
 	void StartParsing();
-	void SetKeywords(ifstream &instr);//Sets mKeywords with sql commands;
 	vector<string> const GetKeywords();
 
 	~Parser();

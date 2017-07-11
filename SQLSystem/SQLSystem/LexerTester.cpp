@@ -5,7 +5,7 @@
 
 bool LexerTester::TestTokens()
 {
-	;
+	
 	bool readFromFileStatus = mLexer.ReadFromFile(mIn);
 	if (!readFromFileStatus)
 	{
