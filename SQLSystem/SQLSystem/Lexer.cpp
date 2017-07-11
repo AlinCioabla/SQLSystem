@@ -79,4 +79,6 @@ bool Lexer::Tokenize()
 
 Lexer::~Lexer()
 {
+	for (auto token : mTokens)
+		delete token;
 }
