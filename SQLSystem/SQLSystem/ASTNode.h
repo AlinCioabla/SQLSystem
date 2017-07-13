@@ -7,11 +7,11 @@ public:
 
 	vector<AstNode*> mChildren;
 	AstNode(ICommand* aCommand) :mCommand(aCommand) {};
+	AstNode();
 
-
+	ICommand* mCommand;
 
 	~AstNode();
-private:
-	ICommand* mCommand;
+
 };
 

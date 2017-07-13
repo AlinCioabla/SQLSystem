@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="Begin.cpp" />
     <ClCompile Include="Final.cpp" />
     <ClCompile Include="Intermediar.cpp" />
@@ -126,6 +127,7 @@
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AstNode.h" />
     <ClInclude Include="Begin.h" />
     <ClInclude Include="Final.h" />
     <ClInclude Include="ICommand.h" />

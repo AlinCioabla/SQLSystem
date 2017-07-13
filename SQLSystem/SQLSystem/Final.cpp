@@ -5,6 +5,7 @@
 
 void Final::SetArguments(IToken* aTableName)
 {
+	mArguments.push_back(aTableName);
 }
 
 CommandType Final::GetType() const

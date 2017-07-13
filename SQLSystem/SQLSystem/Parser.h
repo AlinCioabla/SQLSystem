@@ -5,6 +5,7 @@
 #include"Begin.h"
 #include"Intermediar.h"
 #include"Final.h"
+#include"AstNode.h"
 
 class Parser
 {
@@ -30,7 +31,7 @@ private:
 
 	vector<string> mBegin{"SELECT","DELETE","UPDATE","INSERT"};
 	vector<string> mIntermediar{"FROM","WHERE","SET"};
-	vector<string> mFinal{"LIKE","OR","AND","NOT"};
+	vector<string> mFinal{"LIKE","OR","AND","NOT","+","-","%"};
 
 };
 

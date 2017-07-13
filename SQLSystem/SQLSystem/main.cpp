@@ -2,6 +2,7 @@
 #include"SQLSystem.h"
 #include"Lexer.h"
 #include"LexerTester.h"
+#include"Parser.h"
 
 
 bool LexerTests()
@@ -39,7 +40,12 @@ bool LexerTests()
 
 int main()
 {
-
+	ifstream in("in.txt");
+	Lexer lexer;
+	lexer.ReadFromFile(in);
+	lexer.Tokenize();
+	Parser parser(lexer.mTokens);
+	parser.SetCommands();
 	if (!LexerTests())
 		return -1;
 		

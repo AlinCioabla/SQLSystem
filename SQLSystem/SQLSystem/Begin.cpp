@@ -6,6 +6,8 @@
 
 void Begin::SetArguments(IToken* aTableName)
 {
+	
+
 }
 
 CommandType Begin::GetType() const
