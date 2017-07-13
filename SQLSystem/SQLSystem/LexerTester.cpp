@@ -3,7 +3,7 @@
 
 
 
-bool LexerTester::TestLexer() 
+bool LexerTester::TestTokens() 
 {
 	// Check if the file is valid
 	bool readFromFileStatus = mLexer.ReadFromFile(mIn);
@@ -14,12 +14,7 @@ bool LexerTester::TestLexer()
 	}
 
 	// Start tokenizing the input
-	bool tokenizeStatus = mLexer.Tokenize();
-	if (!tokenizeStatus)
-	{
-		cout << "Error tokenizing. Unexpected symbol"<<endl;
-		return false;
-	}
+	mLexer.Tokenize();
 
 	// Create 2 temporary strings
 	// The method will try recomposing the tokens into the original input
