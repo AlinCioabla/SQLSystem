@@ -1,8 +1,9 @@
 #pragma once
 #include"stdafx.h"
 
+//this is the Interface for tokens objects (Operators, Punctuation and Keywords)
+//we have 3 types of operators and white spaces {SELECT, *-=+ , !?; }
 
-// We have 3 types of operators and white spaces {SELECT, *-=+ , !?; }
 enum TokenType
 {
 	KeywordType ,
