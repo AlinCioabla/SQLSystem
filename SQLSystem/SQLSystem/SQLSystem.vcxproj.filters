@@ -45,6 +45,15 @@
     <ClCompile Include="ParserFSM.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Begin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Intermediar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Final.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -81,6 +90,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ParserFSM.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ICommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Begin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Intermediar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Final.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

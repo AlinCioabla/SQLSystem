@@ -1,27 +1,54 @@
 #include "Parser.h"
 
-
-
-
-
-void Parser::StartParsing()
+bool Parser::StartParsing()
 {
+
+	return true;
 }
 
-void Parser::SetKeywords(ifstream &instr)
+bool Parser::isBegin(IToken * aToken)
 {
-	string line;
-	while (getline(instr, line)) 
-	{
-		mKeywords.push_back(line);
-	}
+	
+	return (find(mBegin.begin(), mBegin.end(), aToken->GetWord()) != mBegin.end());
+	
 }
 
-const vector<string> Parser::GetKeywords() 
+bool Parser::isIntermediar(IToken * aToken)
+{
+	return (find(mIntermediar.begin(), mIntermediar.end(), aToken->GetWord()) != mIntermediar.end());
+}
+
+bool Parser::isFinal(IToken * aToken)
+{
+	return (find(mFinal.begin(), mFinal.end(), aToken->GetWord()) != mFinal.end());
+}
+
+const vector<IToken*> Parser::GetKeywords() 
 {
 	return mKeywords;
 }
 
 Parser::~Parser()
 {
+}
+void Parser::SetCommands()
+{
+
+	for (auto it : mKeywords)
+	{
+		if (isBegin(it))
+		{
+			mCommands.push_back(new Begin(it));
+		}
+		else if (isIntermediar(it))
+		{
+			mCommands.push_back(new Intermediar(it));
+		}
+
+		else if (isFinal(it))
+		{
+			mCommands.push_back(new Final(it));
+		}
+
+	}
 }

@@ -111,7 +111,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="ASTNode.cpp" />
+=======
+    <ClCompile Include="Begin.cpp" />
+    <ClCompile Include="Final.cpp" />
+    <ClCompile Include="Intermediar.cpp" />
+>>>>>>> b096acda0bc8407e52be9c242bfb51bd2088259c
     <ClCompile Include="Keyword.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="LexerTester.cpp" />
@@ -124,7 +130,14 @@
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClInclude Include="ASTNode.h" />
+=======
+    <ClInclude Include="Begin.h" />
+    <ClInclude Include="Final.h" />
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="Intermediar.h" />
+>>>>>>> b096acda0bc8407e52be9c242bfb51bd2088259c
     <ClInclude Include="IStates.h" />
     <ClInclude Include="IToken.h" />
     <ClInclude Include="Keyword.h" />
