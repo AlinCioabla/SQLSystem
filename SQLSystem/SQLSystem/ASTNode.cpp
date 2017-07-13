@@ -1,17 +1,7 @@
-#include "ASTNode.h"
+#include "AstNode.h"
 
-
-
-ASTNode::ASTNode()
+AstNode::~AstNode()
 {
-	mType = Undefined;
-	mLeft = nullptr;
-	mRight = nullptr;
-}
-
-
-ASTNode::~ASTNode()
-{
-	delete mLeft;
-	delete mRight;
+	for (auto it : mChildren)
+		delete it;
 }

@@ -1,34 +1,17 @@
 #pragma once
-
-#include "stdafx.h"
-
-enum ASTNodeType
-{
-	Undefined,
-	OperatorPlus,
-	OperatorMinus,
-	OperatorMul,
-	OperatorDiv,
-	UnaryMinus,
-	NumberValue
-};
-
-class ASTNode
+#include"stdafx.h"
+#include"ICommand.h"
+class AstNode
 {
 public:
 
+	vector<AstNode*> mChildren;
+	AstNode(ICommand* aCommand) :mCommand(aCommand) {};
 
 
 
-
-
-	ASTNodeType mType;
-	string mWord;
-	ASTNode* mLeft;
-	ASTNode* mRight;
-
-
-
+	~AstNode();
+private:
+	ICommand* mCommand;
 };
-
 
