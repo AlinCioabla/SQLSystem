@@ -111,6 +111,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Begin.cpp" />
+    <ClCompile Include="Final.cpp" />
+    <ClCompile Include="Intermediar.cpp" />
     <ClCompile Include="Keyword.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="LexerTester.cpp" />
@@ -123,6 +126,10 @@
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Begin.h" />
+    <ClInclude Include="Final.h" />
+    <ClInclude Include="ICommand.h" />
+    <ClInclude Include="Intermediar.h" />
     <ClInclude Include="IStates.h" />
     <ClInclude Include="IToken.h" />
     <ClInclude Include="Keyword.h" />

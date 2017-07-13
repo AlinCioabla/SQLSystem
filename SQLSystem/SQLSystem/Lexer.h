@@ -3,6 +3,10 @@
 #define _LEXER_
 #include"IToken.h"
 #include"Keyword.h"
+#include "Keyword.h"
+#include "Punctuation.h"
+#include "Operator.h"
+#include "WhiteSpace.h"
 using namespace std;
 
 class Lexer
