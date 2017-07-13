@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ASTNode.cpp" />
     <ClCompile Include="Keyword.cpp" />
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="LexerTester.cpp" />
@@ -123,6 +124,7 @@
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ASTNode.h" />
     <ClInclude Include="IStates.h" />
     <ClInclude Include="IToken.h" />
     <ClInclude Include="Keyword.h" />
