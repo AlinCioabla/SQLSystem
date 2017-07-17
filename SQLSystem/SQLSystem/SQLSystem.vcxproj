@@ -111,6 +111,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="Begin.cpp" />
     <ClCompile Include="Final.cpp" />
@@ -125,8 +126,10 @@
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
     <ClCompile Include="WhiteSpace.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Begin.h" />
     <ClInclude Include="Final.h" />
@@ -144,6 +147,7 @@
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="WhiteSpace.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="in.txt" />

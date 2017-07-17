@@ -9,14 +9,14 @@ void Intermediar::SetArguments(IToken* aTableName)
 	mArguments.push_back(aTableName);
 }
 
-CommandType Intermediar::GetType() const
+CommandType Intermediar::GetCommandType() const
 {
 	return CommandType::IntermediarType;
 }
 
 bool Intermediar::ExpectedNext(ICommand*  aNextCommand) const
 {
-	return(aNextCommand->GetType() == IntermediarType || aNextCommand->GetType() == FinalType);
+	return(aNextCommand->GetCommandType() == IntermediarType || aNextCommand->GetCommandType() == FinalType);
 }
 
 Intermediar::~Intermediar()

@@ -5,11 +5,15 @@ class AstNode
 {
 public:
 
-	vector<AstNode*> mChildren;
+	
 	AstNode(ICommand* aCommand) :mCommand(aCommand) {};
 	AstNode();
+	int GetPos();
 
 	ICommand* mCommand;
+	AstNode *left;
+	AstNode *right;
+
 
 	~AstNode();
 

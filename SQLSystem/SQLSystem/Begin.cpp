@@ -1,26 +1,12 @@
 #include "Begin.h"
 
+void Begin::SetArguments(IToken *aTableName) {}
 
+CommandType Begin::GetCommandType() const { return CommandType::BeginType; }
 
-
-
-void Begin::SetArguments(IToken* aTableName)
-{
-	
-
+bool Begin::ExpectedNext(ICommand *aNextCommand) const {
+	return (aNextCommand->GetCommandType() == BeginType || aNextCommand->GetCommandType() == IntermediarType);
 }
 
-CommandType Begin::GetType() const
-{
-	return CommandType::BeginType;
-}
+Begin::~Begin() {}
 
-bool Begin::ExpectedNext(ICommand*  aNextCommand) const
-{
-	return(aNextCommand->GetType() == IntermediarType || aNextCommand->GetType() == FinalType);
-	
-}
-
-Begin::~Begin()
-{
-}

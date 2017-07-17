@@ -8,14 +8,14 @@ void Final::SetArguments(IToken* aTableName)
 	mArguments.push_back(aTableName);
 }
 
-CommandType Final::GetType() const
+CommandType Final::GetCommandType() const
 {
-	return CommandType::IntermediarType;
+	return CommandType::FinalType;
 }
 
 bool Final::ExpectedNext(ICommand* aNextCommand) const
 {
-	return(aNextCommand->GetType() == FinalType);
+	return(aNextCommand->GetCommandType() == FinalType);
 }
 
 Final::~Final()

@@ -6,6 +6,7 @@
 #include"Intermediar.h"
 #include"Final.h"
 #include"AstNode.h"
+#include"Word.h"
 
 class Parser
 {
@@ -20,18 +21,18 @@ public:
 	bool isBegin(IToken *aToken);
 	bool isIntermediar(IToken *aToken);
 	bool isFinal(IToken *aToken);
+	
 
 	vector<IToken*> const GetKeywords();
 
 	~Parser();
 private:
 
-	vector<ICommand*> mCommands;
 	vector<IToken*> mKeywords;
 
 	vector<string> mBegin{"SELECT","DELETE","UPDATE","INSERT"};
-	vector<string> mIntermediar{"FROM","WHERE","SET"};
-	vector<string> mFinal{"LIKE","OR","AND","NOT","+","-","%"};
+	vector<string> mIntermediar{"FROM"};
+	vector<string> mFinal{ "WHERE","LIKE","OR","AND","NOT","+","-","%"};
 
 };
 

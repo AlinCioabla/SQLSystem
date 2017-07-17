@@ -1,20 +1,22 @@
 #pragma once
 #include "ICommand.h"
-class Final :
+class Word :
 	public ICommand
 {
 public:
+	Word(IToken* aWord) :mWord(aWord) {};
 
-	Final(IToken* aCommand) :mCommand(aCommand) {};
+	IToken* mWord;
+	
 
 	void SetArguments(IToken* aTableName) override;
 	CommandType GetCommandType() const  override;
 	bool ExpectedNext(ICommand* aNextCommand)const override;
 
-	~Final();
 
-	vector<IToken*> mArguments;
+	
 
-	IToken* mCommand;
+
+	~Word();
 };
 

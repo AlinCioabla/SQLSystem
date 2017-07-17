@@ -1,7 +1,7 @@
 #include "SQLSystem.h"
 #include"Lexer.h"
-#include"Parser.h"
 #include"LexerTester.h"
+#include"Parser.h"
 ifstream instr("Instr.txt");
 
 SQLSystem::SQLSystem()
@@ -11,12 +11,12 @@ SQLSystem::SQLSystem()
 void SQLSystem::Start(ifstream & in)
 {
 	
-	Lexer lexer;
-	Parser parser(lexer.mTokens);
-	parser.SetCommands();
+	//Lexer lexer;
+	//Parser parser(lexer.mTokens);
+	//parser.SetCommands();
 	//lexer.ReadFromFile(in);
 	//lexer.Tokenize();
-	////lexer.PrintTokenTypes();
+	//lexer.PrintTokenTypes();
 	//LexerTester tester(lexer);
 	//bool testResult = tester.TestTokens();
 	//parser.SetKeywords(instr);

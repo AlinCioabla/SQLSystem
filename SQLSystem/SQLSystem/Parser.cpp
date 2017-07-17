@@ -1,4 +1,5 @@
 #include "Parser.h"
+#include"Ast.h"
 
 bool Parser::StartParsing()
 {
@@ -9,7 +10,8 @@ bool Parser::StartParsing()
 bool Parser::isBegin(IToken * aToken)
 {
 	
-	return (find(mBegin.begin(), mBegin.end(), aToken->GetWord()) != mBegin.end());
+	return find(mBegin.begin(), mBegin.end(), aToken->GetWord()) != mBegin.end();
+		
 	
 }
 
@@ -33,44 +35,67 @@ Parser::~Parser()
 }
 void Parser::SetCommands()
 {
-	AstNode current;
 	AstNode prev(new Begin(*mKeywords.begin()));
-	for (auto it=mKeywords.begin()+1;it<mKeywords.end();++it)
+	AstNode current(nullptr);
+	Ast ast(prev);
+	int ok = 1;
+	
+	
+	for ( auto it:mKeywords)
+
 	{
-		if (isBegin(*it))
+	
+		if (isBegin(it))
 		{
-			AstNode current(new Begin(*it));
+			AstNode aux=new Begin(it);
+			current=move(aux);
 			if (!prev.mCommand->ExpectedNext(current.mCommand))
 			{
-				cout << "Another command expected"<<endl;
-				return;
-			}	
-		}
-		else if (isIntermediar(*it))
-		{
-			AstNode current(new Intermediar(*it));
-			if (!prev.mCommand->ExpectedNext(current.mCommand))
-			{
-				cout << "Another command expected"<<endl;
+				cout << "Another command expected 1 " <<endl;
+
 				return;
 			}
+			
+			
 		}
-		else if (isFinal(*it))
+		else if (isIntermediar(it))
 		{
-			AstNode current(new Final(*it));
+
+			AstNode aux = new Intermediar(it);
+			current = move(aux);
 			if (!prev.mCommand->ExpectedNext(current.mCommand))
 			{
-				cout << "Another command expected"<<endl;
+				cout << "Another command expected 2 " << endl;
+				
 				return;
 			}
+			ok++;
+			ast.Insert(current,ok);
 		}
-		else
+		else if (isFinal(it))
 		{
-			//if (*it->GetType() == KeywordType)
-				//prev.mCommand->SetArguments(*it);
+
+			AstNode aux = new Final(it);
+			current = move(aux);
+			if (!prev.mCommand->ExpectedNext(current.mCommand))
+			{
+				cout << "Another command expected 3  "  << endl;
+				return;
+			}
+			ok++;
+			ast.Insert(current,ok);
+		}
+		else if (it->GetWord() != " ")
+		{
+			AstNode aux = new Word(it);
+			ok++;
+			ast.Insert(aux,ok);
+
 		}
 		
-		prev = current;
+		
+		prev = move(current);
+		
 
 	}
 

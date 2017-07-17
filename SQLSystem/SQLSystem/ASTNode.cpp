@@ -4,8 +4,13 @@ AstNode::AstNode()
 {
 }
 
+int AstNode::GetPos()
+{
+	
+	return 0;
+}
+
 AstNode::~AstNode()
 {
-	for (auto it : mChildren)
-		delete it;
+	
 }

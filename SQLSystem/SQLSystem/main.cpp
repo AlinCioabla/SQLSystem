@@ -1,8 +1,8 @@
-#include"stdafx.h"
-#include"SQLSystem.h"
 #include"Lexer.h"
 #include"LexerTester.h"
 #include"Parser.h"
+#include"SQLSystem.h"
+#include"stdafx.h"
 
 
 bool LexerTests()
@@ -36,24 +36,17 @@ bool LexerTests()
 	return false;
 }
 
+int main() {
+  ifstream in("in.txt");
+  Lexer lexer;
+  lexer.ReadFromFile(in);
+  lexer.Tokenize();
+  Parser parser(lexer.mTokens);
+  parser.SetCommands();
+  // if (!LexerTests())
+  //		return -1;
 
-
-int main()
-{
-	ifstream in("in.txt");
-	Lexer lexer;
-	lexer.ReadFromFile(in);
-	lexer.Tokenize();
-	Parser parser(lexer.mTokens);
-	parser.SetCommands();
-	if (!LexerTests())
-		return -1;
-		
-	//SQLSystem program;
-	//program.Start(in);
-
-
-	return 0;
+  return 0;
 
 
 }
