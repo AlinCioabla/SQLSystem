@@ -17,6 +17,5 @@ private:
 	vector<IToken*> mArguments;
 	IToken* mCommand;
 
-
 };
 

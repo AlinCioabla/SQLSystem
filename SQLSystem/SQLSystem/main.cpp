@@ -3,6 +3,7 @@
 #include"Lexer.h"
 #include"LexerTester.h"
 #include"Parser.h"
+#include"ParserFSM.h"
 
 
 bool LexerTests()
@@ -40,12 +41,14 @@ bool LexerTests()
 
 int main()
 {
-	ifstream in("in.txt");
+	ifstream in("TestFile1.txt");
 	Lexer lexer;
 	lexer.ReadFromFile(in);
 	lexer.Tokenize();
-	Parser parser(lexer.mTokens);
-	parser.SetCommands();
+	ParserFSM parserFsm;
+	parserFsm.Start(lexer.mTokens);
+
+
 	if (!LexerTests())
 		return -1;
 		

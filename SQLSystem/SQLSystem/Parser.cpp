@@ -33,45 +33,6 @@ Parser::~Parser()
 }
 void Parser::SetCommands()
 {
-	AstNode current;
-	AstNode prev(new Begin(*mKeywords.begin()));
-	for (auto it=mKeywords.begin()+1;it<mKeywords.end();++it)
-	{
-		if (isBegin(*it))
-		{
-			AstNode current(new Begin(*it));
-			if (!prev.mCommand->ExpectedNext(current.mCommand))
-			{
-				cout << "Another command expected"<<endl;
-				return;
-			}	
-		}
-		else if (isIntermediar(*it))
-		{
-			AstNode current(new Intermediar(*it));
-			if (!prev.mCommand->ExpectedNext(current.mCommand))
-			{
-				cout << "Another command expected"<<endl;
-				return;
-			}
-		}
-		else if (isFinal(*it))
-		{
-			AstNode current(new Final(*it));
-			if (!prev.mCommand->ExpectedNext(current.mCommand))
-			{
-				cout << "Another command expected"<<endl;
-				return;
-			}
-		}
-		else
-		{
-			//if (*it->GetType() == KeywordType)
-				//prev.mCommand->SetArguments(*it);
-		}
-		
-		prev = current;
-
-	}
+	
 
 }
