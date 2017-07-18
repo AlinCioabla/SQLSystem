@@ -15,3 +15,8 @@ bool Parser::Parse()
 Parser::~Parser()
 {
 }
+
+void Parser::TransitionTo(ParserState aState)
+{
+	mCurrentState = aState;
+}
