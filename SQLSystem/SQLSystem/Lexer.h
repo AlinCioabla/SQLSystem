@@ -7,6 +7,8 @@
 #include "Punctuation.h"
 #include "Operator.h"
 #include "WhiteSpace.h"
+#include "Identifier.h"
+#include "Number.h"
 using namespace std;
 
 class Lexer
