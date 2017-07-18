@@ -135,6 +135,7 @@
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Begin.h" />
+    <ClInclude Include="ITokensTraversal.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Final.h" />
     <ClInclude Include="Helpers.h" />
