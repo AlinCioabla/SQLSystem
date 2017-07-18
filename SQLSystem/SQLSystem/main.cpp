@@ -41,10 +41,8 @@ int main() {
   Lexer lexer;
   lexer.ReadFromFile(in);
   lexer.Tokenize();
-  Parser parser(lexer.mTokens);
-  parser.SetCommands();
-  // if (!LexerTests())
-  //		return -1;
+   if (!LexerTests())
+  		return -1;
 
   return 0;
 

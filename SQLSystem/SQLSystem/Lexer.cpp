@@ -1,6 +1,6 @@
 #include"stdafx.h"
 #include "Lexer.h"
-
+#include "Helpers.h"
 
 Lexer::Lexer()
 {
@@ -53,7 +53,7 @@ bool Lexer::Tokenize()
 
 			// Then we create the appropiate token for the given non alphanumeric
 			// character from the input
-			if (it == ' ' || it == '\n')
+			if (IsWhitespace(it))
 				mTokens.push_back(new WhiteSpace(it));
 
 			else

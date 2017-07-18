@@ -14,25 +14,27 @@ bool LexerTester::TestTokens()
 	}
 
 	// Start tokenizing the input
-	mLexer.Tokenize();
+	bool _tokenizeSucces = mLexer.Tokenize();
+	if (!_tokenizeSucces)
+	{
+		cout << "Tokenization ended unexpectedly.";
+		return false;
+	}
 
 	// Create 2 temporary strings
 	// The method will try recomposing the tokens into the original input
 	// If it succeeds, it will return true
 
-	string _TokensVector;
-	string _InitialCommand = mLexer.GetSqlCommand();
+	string _tokensVector;
+	string _initialCommand = mLexer.GetSqlCommand();
 
 	// Concatenate all the strings contained by the tokens
-	for_each(mLexer.mTokens.begin(), mLexer.mTokens.end(), 
-		[&_TokensVector](IToken * token)
-	{
-		_TokensVector+=(token->GetWord());
-	}
-		);
+	for (auto it : mLexer.mTokens)
+		_tokensVector += it->GetWord();
 
 	// Check if the resulted concatenated string matches the input
-	bool TestTokensStatus = (_TokensVector == _InitialCommand);
+	bool TestTokensStatus = (_tokensVector == _initialCommand);
+	
 	if (!TestTokensStatus)
 	{
 		cout << "Failed to tokenize properly." << endl;
