@@ -43,6 +43,7 @@ int main()
 	ifstream in("TestFile1.txt");
 	ITokensTraversal *lexer = new Lexer();
 	lexer->ReadFromFile(in);
+	lexer->Tokenize();
 	Parser *parser = new Parser();
 	parser->Parse(lexer);
 

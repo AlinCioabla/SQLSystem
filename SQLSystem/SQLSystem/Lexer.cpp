@@ -70,7 +70,7 @@ bool Lexer::Tokenize()
 		}
 
 	}
-
+	mIndex = mTokens.begin();
 	return true;
 
 }
@@ -78,8 +78,12 @@ bool Lexer::Tokenize()
 IToken * Lexer::GetNextToken() 
 {
 	if (this->HasNext()) {
-
-		mIndex++;
+		if (!returnedFirstToken)
+		{
+			returnedFirstToken = true;
+		}
+		else
+			advance(mIndex, 1);
 		return *mIndex;
 	}
 	else {

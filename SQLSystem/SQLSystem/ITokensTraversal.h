@@ -7,8 +7,6 @@ class ITokensTraversal {
 
 public:
 
-
-	
 	virtual bool ReadFromFile(ifstream& aIn)=0;
 
 	virtual bool Tokenize()=0;
@@ -19,9 +17,5 @@ public:
 
 	virtual bool HasNext() const = 0;
 	
-
-
-
-
 
 };

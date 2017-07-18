@@ -9,7 +9,7 @@ Parser::Parser()
 
 }
 
-bool Parser::Parse(ITokensTraversal * aLexer)
+bool Parser::Parse(ITokensTraversal * &aLexer)
 {
 
 	IToken* currentToken = aLexer->GetNextToken();

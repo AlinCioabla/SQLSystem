@@ -25,7 +25,7 @@ public:
 
 	Parser();
 	
-	bool Parse(ITokensTraversal* aLexer);
+	bool Parse(ITokensTraversal* &aLexer);
 
 
 
