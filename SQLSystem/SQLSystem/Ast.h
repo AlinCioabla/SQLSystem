@@ -4,11 +4,11 @@
 class Ast
 {
 public:
-	Ast(AstNode aNode) :mNode(aNode) {};
+	Ast(AstNode aRoot) :mRoot(aRoot) {};
 	void Insert(AstNode aNode,int aN);
 
 	~Ast();
 private:
-	AstNode mNode;
+	AstNode mRoot;
 };
 

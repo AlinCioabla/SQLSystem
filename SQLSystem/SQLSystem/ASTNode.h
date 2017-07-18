@@ -6,13 +6,14 @@ class AstNode
 public:
 
 	
-	AstNode(ICommand* aCommand) :mCommand(aCommand) {};
+	AstNode(IToken* aToken) :mToken(aToken) {};
 	AstNode();
-	int GetPos();
+	
 
-	ICommand* mCommand;
+	IToken* mToken;
 	AstNode *left;
 	AstNode *right;
+	int mOk;
 
 
 	~AstNode();

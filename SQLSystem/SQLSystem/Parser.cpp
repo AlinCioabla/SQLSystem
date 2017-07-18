@@ -35,9 +35,9 @@ Parser::~Parser()
 }
 void Parser::SetCommands()
 {
-	AstNode prev(new Begin(*mKeywords.begin()));
-	AstNode current(nullptr);
-	Ast ast(prev);
+	ICommand*  prev(new Begin(*mKeywords.begin()));
+	ICommand* current(nullptr);
+	AstNode root=prev. ;
 	int ok = 1;
 	
 	
