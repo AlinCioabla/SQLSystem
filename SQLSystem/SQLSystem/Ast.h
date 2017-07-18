@@ -4,11 +4,14 @@
 class Ast
 {
 public:
-	Ast(AstNode aRoot) :mRoot(aRoot) {};
-	void Insert(AstNode aNode,int aN);
+	Ast(AstNode *aNode) :mRoot(aNode) {};
+	void Insert(AstNode *aAstNode);
+	AstNode* CreateNode(int val, IToken* aToken);
+
+
 
 	~Ast();
 private:
-	AstNode mRoot;
+	AstNode *mRoot;
 };
 
