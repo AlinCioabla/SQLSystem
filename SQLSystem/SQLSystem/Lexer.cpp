@@ -86,10 +86,9 @@ IToken * Lexer::GetNextToken()
 			advance(mIndex, 1);
 		return *mIndex;
 	}
-	else {
-		cout << "End of tokens" << endl;
+	else 
 		return nullptr;
-	}
+
 }
 
 
