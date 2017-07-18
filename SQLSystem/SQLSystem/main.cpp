@@ -36,13 +36,18 @@ bool LexerTests()
 	return false;
 }
 
-int main() {
-  ifstream in("in.txt");
-  Lexer lexer;
-  lexer.ReadFromFile(in);
-  lexer.Tokenize();
-   if (!LexerTests())
-  		return -1;
+int main()
+{
+
+
+	ifstream in("TestFile1.txt");
+	ITokensTraversal *lexer = new Lexer();
+	lexer->ReadFromFile(in);
+	Parser *parser = new Parser();
+	parser->Parse(lexer);
+
+   /*if (!LexerTests())
+  		return -1;*/
 
   return 0;
 

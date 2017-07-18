@@ -3,14 +3,23 @@
 
 
 
+
 Parser::Parser()
 {
+
 }
 
-bool Parser::Parse()
+bool Parser::Parse(ITokensTraversal * aLexer)
 {
+
+	IToken* currentToken = aLexer->GetNextToken();
+	IToken* anotherToken = aLexer->GetNextToken();
+
+
 	return false;
 }
+
+
 
 Parser::~Parser()
 {

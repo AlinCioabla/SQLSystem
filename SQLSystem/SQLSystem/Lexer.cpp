@@ -75,9 +75,9 @@ bool Lexer::Tokenize()
 
 }
 
-IToken * Lexer::GetNextToken() const
+IToken* Lexer::GetNextToken() const
 {
-	return nullptr;
+	
 }
 
 

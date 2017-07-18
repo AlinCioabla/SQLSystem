@@ -24,8 +24,10 @@ class Parser
 public:
 
 	Parser();
+	
+	bool Parse(ITokensTraversal* aLexer);
 
-	bool Parse();
+
 
 	~Parser();
 private:
