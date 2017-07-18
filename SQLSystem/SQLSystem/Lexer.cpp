@@ -1,6 +1,12 @@
 #include"stdafx.h"
 #include "Lexer.h"
 #include "Helpers.h"
+#include"IToken.h"
+#include"Keyword.h"
+#include "Keyword.h"
+#include "Punctuation.h"
+#include "Operator.h"
+#include "WhiteSpace.h"
 
 Lexer::Lexer()
 {

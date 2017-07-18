@@ -7,11 +7,13 @@
 #include "Punctuation.h"
 #include "Operator.h"
 #include "WhiteSpace.h"
-#include "Identifier.h"
-#include "Number.h"
+#include"ITokensTraversal.h"
+
+
 using namespace std;
 
-class Lexer
+class Lexer:
+	public ITokensTraversal
 {
 public:
 	Lexer();
@@ -23,6 +25,9 @@ public:
 	bool Tokenize();
 	string GetSqlCommand() const { return mSqlCommand; };
 	vector<IToken*> mTokens;
+	IToken* GetNextToken() const ;
+
+	bool HasNext() const ;
 	~Lexer();
 private:
 	string mSqlCommand;
