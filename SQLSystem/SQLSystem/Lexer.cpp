@@ -1,12 +1,6 @@
 #include"stdafx.h"
 #include "Lexer.h"
 #include "Helpers.h"
-#include"IToken.h"
-#include"Keyword.h"
-#include "Keyword.h"
-#include "Punctuation.h"
-#include "Operator.h"
-#include "WhiteSpace.h"
 
 Lexer::Lexer()
 {
@@ -19,7 +13,6 @@ bool Lexer::ReadFromFile(ifstream& aIn)
 {
 	if (!aIn)
 		return false;
-
 	char c;
 	while (aIn.get(c))
 	{
@@ -28,8 +21,6 @@ bool Lexer::ReadFromFile(ifstream& aIn)
 	return true;
 	
 }
-
-
 
 
 // Split the input string into different types
@@ -53,12 +44,16 @@ bool Lexer::Tokenize()
 		{
 			if (_temp.length())
 			{
-				mTokens.push_back(new Keyword(_temp));
+				if (IsKeyword(_temp))
+					mTokens.push_back(new Keyword(_temp));
+				else
+					mTokens.push_back(new Identifier(_temp));
 				_temp.clear();
 			}
 
 			// Then we create the appropiate token for the given non alphanumeric
 			// character from the input
+		
 			if (IsWhitespace(it))
 				mTokens.push_back(new WhiteSpace(it));
 

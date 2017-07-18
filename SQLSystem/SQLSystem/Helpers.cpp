@@ -42,3 +42,13 @@ const bool IsNumber(const string & aString)
 			return false;
 	return true;
 }
+
+const bool IsKeyword(const string & aString)
+{
+	for (auto it : keywords)
+	{
+		if (it == aString)
+			return true;
+	}
+	return false;
+}
