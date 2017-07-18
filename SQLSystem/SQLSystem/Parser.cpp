@@ -33,21 +33,17 @@ const vector<IToken*> Parser::GetKeywords()
 Parser::~Parser()
 {
 }
-void Parser::SetCommands()
+Ast Parser::SetCommands()
 {
-	AstNode prev(new Begin(*mKeywords.begin()));
-	AstNode current(nullptr);
-	Ast ast(prev);
 	int ok = 1;
-	
-	
-	for ( auto it:mKeywords)
+	Ast ast;
 
+
+	for (auto it : mKeywords)
 	{
-	
 		if (isBegin(it))
 		{
-			AstNode aux=new Begin(it);
+			
 			current=move(aux);
 			if (!prev.mCommand->ExpectedNext(current.mCommand))
 			{
