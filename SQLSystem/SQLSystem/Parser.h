@@ -29,6 +29,8 @@ public:
 
 	~Parser();
 private:
+	ParserState mCurrentState;
+	void TransitionTo(ParserState aState);
 
 
 };
