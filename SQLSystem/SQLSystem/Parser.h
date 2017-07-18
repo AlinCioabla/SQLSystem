@@ -8,29 +8,28 @@
 #include"AstNode.h"
 #include"Word.h"
 
+enum ParserState
+{
+	SELECT,
+	FROM,
+	WHERE,
+	LIKE,
+	AND,
+	UNDEFINED,
+	INVALID
+};
+
 class Parser
 {
 public:
 
-	Parser(vector <IToken*> &tokens):mKeywords(tokens){ StartParsing(); };
+	Parser();
 
-	bool StartParsing();
-	
-	bool isBegin(IToken *aToken);
-	bool isIntermediar(IToken *aToken);
-	bool isFinal(IToken *aToken);
-	
-
-	vector<IToken*> const GetKeywords();
+	bool Parse();
 
 	~Parser();
 private:
 
-	vector<IToken*> mKeywords;
-
-	vector<string> mBegin{"SELECT","DELETE","UPDATE","INSERT"};
-	vector<string> mIntermediar{"FROM"};
-	vector<string> mFinal{ "WHERE","LIKE","OR","AND","NOT","+","-","%"};
 
 };
 

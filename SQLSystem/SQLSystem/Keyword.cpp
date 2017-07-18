@@ -4,12 +4,12 @@
 
 
 
-TokenType Keyword::GetType()const
+TokenType Keyword::GetType() const
 {
 	return TokenType::KeywordType;
 }
 
-string Keyword::GetWord()const
+string Keyword::GetWord() const
 {
 	return mWord;
 }
