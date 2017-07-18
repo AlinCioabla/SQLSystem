@@ -12,6 +12,7 @@
 #include"Number.h"
 
 
+
 using namespace std;
 
 class Lexer:
@@ -33,6 +34,7 @@ public:
 	~Lexer();
 private:
 	string mSqlCommand;
+	vector<IToken*>::iterator mIndex;
 
 };
 #endif // !_LEXER_

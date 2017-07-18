@@ -77,13 +77,25 @@ bool Lexer::Tokenize()
 
 IToken * Lexer::GetNextToken() const
 {
-	return nullptr;
+	if (this->HasNext()) {
+
+		advance(mIndex, 1);
+		return *mIndex;
+	}
+	else {
+		cout << "End of tokens" << endl;
+		return nullptr;
+	}
 }
 
 
 bool Lexer::HasNext() const
 {
-	return false;
+	if (mIndex != mTokens.end()-1)
+
+		return true;
+	else
+		return false;
 }
 
 Lexer::~Lexer()
