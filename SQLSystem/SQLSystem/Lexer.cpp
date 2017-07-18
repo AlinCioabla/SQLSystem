@@ -75,11 +75,11 @@ bool Lexer::Tokenize()
 
 }
 
-IToken * Lexer::GetNextToken() const
+IToken * Lexer::GetNextToken() 
 {
 	if (this->HasNext()) {
 
-		advance(mIndex, 1);
+		mIndex++;
 		return *mIndex;
 	}
 	else {

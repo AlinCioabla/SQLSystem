@@ -15,7 +15,7 @@ public:
 
 	virtual string GetSqlCommand() const =0;
 	
-	virtual IToken* GetNextToken() const = 0;
+	virtual IToken* GetNextToken() = 0;
 
 	virtual bool HasNext() const = 0;
 	
