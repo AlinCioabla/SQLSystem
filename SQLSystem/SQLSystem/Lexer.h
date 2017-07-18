@@ -28,13 +28,14 @@ public:
 	bool Tokenize();
 	string GetSqlCommand() const { return mSqlCommand; };
 	vector<IToken*> mTokens;
-	IToken* GetNextToken() const ;
+	IToken* GetNextToken() const;
 
 	bool HasNext() const ;
 	~Lexer();
 private:
 	string mSqlCommand;
-	vector<IToken*>::iterator mIndex;
+	vector<IToken*>::iterator mIndex = mTokens.begin();
+	
 
 };
 #endif // !_LEXER_
