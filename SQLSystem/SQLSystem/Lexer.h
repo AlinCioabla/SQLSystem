@@ -8,6 +8,8 @@
 #include "Operator.h"
 #include "WhiteSpace.h"
 #include"ITokensTraversal.h"
+#include"Identifier.h"
+#include"Number.h"
 
 
 using namespace std;
