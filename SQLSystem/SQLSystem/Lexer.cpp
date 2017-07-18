@@ -75,6 +75,16 @@ bool Lexer::Tokenize()
 
 }
 
+IToken * Lexer::GetNextToken() const
+{
+	return nullptr;
+}
+
+
+bool Lexer::HasNext() const
+{
+	return false;
+}
 
 Lexer::~Lexer()
 {
