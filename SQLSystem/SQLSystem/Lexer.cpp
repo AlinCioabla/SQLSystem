@@ -24,20 +24,7 @@ bool Lexer::ReadFromFile(ifstream& aIn)
 }
 
 
-bool Lexer::IsAlphanumeric(char aC) const
-{
-	return (aC >= 'A' && aC <= 'z' || aC >= '0' && aC <= '9');
-}
 
-bool Lexer::IsOperator(char aC) const 
-{
-	return (mOperators.find(aC) != string::npos);
-}
-
-bool Lexer::IsPunctuation(char aC) const
-{
-	return (mPunctuation.find(aC) != string::npos);
-}
 
 // Split the input string into different types
 bool Lexer::Tokenize()

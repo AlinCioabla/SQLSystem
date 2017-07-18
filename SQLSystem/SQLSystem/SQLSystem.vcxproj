@@ -115,6 +115,7 @@
     <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="Begin.cpp" />
     <ClCompile Include="Final.cpp" />
+    <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="Intermediar.cpp" />
     <ClCompile Include="Keyword.cpp" />
     <ClCompile Include="Lexer.cpp" />
@@ -133,6 +134,7 @@
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Begin.h" />
     <ClInclude Include="Final.h" />
+    <ClInclude Include="Helpers.h" />
     <ClInclude Include="ICommand.h" />
     <ClInclude Include="Intermediar.h" />
     <ClInclude Include="IStates.h" />

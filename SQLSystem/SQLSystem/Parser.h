@@ -14,8 +14,6 @@ public:
 
 	Parser(vector <IToken*> &tokens):mKeywords(tokens){ StartParsing(); };
 
-	void SetCommands();
-
 	bool StartParsing();
 	
 	bool isBegin(IToken *aToken);
