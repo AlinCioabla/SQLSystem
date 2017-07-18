@@ -4,18 +4,14 @@
 //this is the Interface for tokens objects (Operators, Punctuation and Keywords)
 //we have 3 types of operators and white spaces {SELECT, *-=+ , !?; }
 
-enum class TokenType
+enum TokenType
 {
+
 	KeywordType ,
 	OperatorType,
 	PunctuationType,
-	WhiteSpaceType,
-	IdentifierType,
-	DigitType
+	WhiteSpaceType
 };
-
-
-
 
 // This is the Interface for tokens objects (Operators, Punctuation and Keywords)
 class IToken
