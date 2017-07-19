@@ -2,13 +2,12 @@
 #include "Lexer.h"
 #include "Helpers.h"
 
-Lexer::Lexer()
-{
-}
+
 
 // Read the input from a given file and store it in the member string
 // of the class mSqlCommand
 // If the file is not valid the method returns false and exits.
+
 bool Lexer::ReadFromFile(ifstream& aIn)
 {
 	if (!aIn)
@@ -66,6 +65,7 @@ bool Lexer::Tokenize()
 				else
 					// If we find a character we do not recognize, the tokenizer stops
 					// and returns false
+					
 					return false;
 		}
 
