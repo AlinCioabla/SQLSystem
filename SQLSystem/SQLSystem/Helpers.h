@@ -19,4 +19,4 @@ const bool IsNumber(const string &aString);
 
 const bool IsKeyword(const string  &aString);
 
-void SkipWhitespaces(ITokensTraversal * &aLexer);
+IToken* GetNwToken(ITokensTraversal *& aLexer);
