@@ -26,7 +26,7 @@ bool Lexer::ReadFromFile(ifstream& aIn)
 bool Lexer::Tokenize()
 {
 	// Temporary string
-	string temp;
+	string _temp;
 	
 	// Iterate through all the initial input string characters
 	for (auto it : mSqlCommand)
@@ -35,19 +35,19 @@ bool Lexer::Tokenize()
 		// _temp string
 		if (IsAlphanumeric(it))
 		{
-			temp += it;
+			_temp += it;
 		}
 		// If we find a delimiter, we store the created _temp string as
 		// a keyword token, then empty it
 		else
 		{
-			if (temp.length())
+			if (_temp.length())
 			{
-				if (IsKeyword(temp))
-					mTokens.push_back(new Keyword(temp));
+				if (IsKeyword(_temp))
+					mTokens.push_back(new Keyword(_temp));
 				else
-					mTokens.push_back(new Identifier(temp));
-				temp.clear();
+					mTokens.push_back(new Identifier(_temp));
+				_temp.clear();
 			}
 
 			// Then we create the appropiate token for the given non alphanumeric
@@ -65,6 +65,7 @@ bool Lexer::Tokenize()
 				else
 					// If we find a character we do not recognize, the tokenizer stops
 					// and returns false
+					
 					return false;
 		}
 
