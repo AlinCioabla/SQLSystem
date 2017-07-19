@@ -8,6 +8,10 @@
 // of the class mSqlCommand
 // If the file is not valid the method returns false and exits.
 
+Lexer::Lexer()
+{
+}
+
 bool Lexer::ReadFromFile(ifstream& aIn)
 {
 	if (!aIn)

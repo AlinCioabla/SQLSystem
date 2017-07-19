@@ -53,8 +53,8 @@ const bool IsKeyword(const string & aString)
 	return false;
 }
 
-void SkipWhitespaces(ITokensTraversal *& aLexer)
-{
-	IToken * currentToken = aLexer->GetNextToken();
-	while(currentToken!=nullptr && currentToken == )
-}
+//void SkipWhitespaces(ITokensTraversal *& aLexer)
+//{
+//	IToken * currentToken = aLexer->GetNextToken();
+//	while(currentToken!=nullptr && currentToken == )
+//}
