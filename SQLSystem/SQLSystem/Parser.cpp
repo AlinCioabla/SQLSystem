@@ -11,11 +11,14 @@ Parser::Parser()
 
 bool Parser::Parse(ITokensTraversal * &aLexer)
 {
+
+	mCurrentState = UNDEFINED;
 	IToken *currentToken = aLexer->GetNextToken();
+
 	while(currentToken != nullptr)
 	{
-		cout << currentToken->GetWord();
-		currentToken = aLexer->GetNextToken();
+		
+
 
 	}
 

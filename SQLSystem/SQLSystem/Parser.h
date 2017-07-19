@@ -16,7 +16,8 @@ enum ParserState
 	LIKE,
 	AND,
 	UNDEFINED,
-	INVALID
+	INVALID,
+	VALID
 };
 
 class Parser

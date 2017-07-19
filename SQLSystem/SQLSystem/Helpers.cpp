@@ -56,4 +56,5 @@ const bool IsKeyword(const string & aString)
 void SkipWhitespaces(ITokensTraversal *& aLexer)
 {
 	IToken * currentToken = aLexer->GetNextToken();
+	while(currentToken!=nullptr && currentToken == )
 }
