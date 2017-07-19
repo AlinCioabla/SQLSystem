@@ -3,9 +3,11 @@
 #include"Parser.h"
 #include"SQLSystem.h"
 #include"stdafx.h"
+#include"AstNode.h"
+#include"Ast.h"
 
 
-bool LexerTests()
+/*bool LexerTests()
 {
 	//Test #1
 	cout << "Test1: " << endl;
@@ -35,17 +37,31 @@ bool LexerTests()
 		return true;
 	return false;
 }
-
+*/
 int main()
 {
 
 
 	ifstream in("TestFile1.txt");
-	ITokensTraversal *lexer = new Lexer();
-	lexer->ReadFromFile(in);
-	lexer->Tokenize();
-	Parser *parser = new Parser();
-	parser->Parse(lexer);
+	//ITokensTraversal *lexer = new Lexer();
+	//lexer->ReadFromFile(in);
+	//lexer->Tokenize();
+	
+	Lexer lexer;
+	lexer.ReadFromFile(in);
+	lexer.Tokenize();
+	AstNode *root = new AstNode(*lexer.mTokens.begin());
+	Ast *ast = new Ast(root);
+	for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++) {
+		
+		ast->InsertNode(root, *it);
+	}
+	ast->PrintInorder(root);
+
+
+
+	//Parser *parser = new Parser();
+	//parser->Parse(lexer);
 
    /*if (!LexerTests())
   		return -1;*/
