@@ -27,8 +27,6 @@ public:
 	
 	bool Parse(ITokensTraversal* &aLexer);
 
-
-
 	~Parser();
 private:
 	ParserState mCurrentState;

@@ -6,17 +6,12 @@ class Word :
 public:
 	Word(IToken* aWord) :mWord(aWord) {};
 
-	IToken* mWord;
-	
-
 	void SetArguments(IToken* aTableName) override;
 	CommandType GetCommandType() const  override;
 	bool ExpectedNext(ICommand* aNextCommand)const override;
 
-
-	
-
-
 	~Word();
+private: 
+	IToken* mWord;
 };
 

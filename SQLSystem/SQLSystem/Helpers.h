@@ -17,3 +17,5 @@ const bool IsWhitespace(const char &aChar);
 const bool IsNumber(const string &aString);
 
 const bool IsKeyword(const string  &aString);
+
+const bool isNext

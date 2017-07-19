@@ -2,13 +2,12 @@
 #include "Lexer.h"
 #include "Helpers.h"
 
-Lexer::Lexer()
-{
-}
+
 
 // Read the input from a given file and store it in the member string
 // of the class mSqlCommand
 // If the file is not valid the method returns false and exits.
+
 bool Lexer::ReadFromFile(ifstream& aIn)
 {
 	if (!aIn)
@@ -27,7 +26,7 @@ bool Lexer::ReadFromFile(ifstream& aIn)
 bool Lexer::Tokenize()
 {
 	// Temporary string
-	string _temp;
+	string temp;
 	
 	// Iterate through all the initial input string characters
 	for (auto it : mSqlCommand)
@@ -36,19 +35,19 @@ bool Lexer::Tokenize()
 		// _temp string
 		if (IsAlphanumeric(it))
 		{
-			_temp += it;
+			temp += it;
 		}
 		// If we find a delimiter, we store the created _temp string as
 		// a keyword token, then empty it
 		else
 		{
-			if (_temp.length())
+			if (temp.length())
 			{
-				if (IsKeyword(_temp))
-					mTokens.push_back(new Keyword(_temp));
+				if (IsKeyword(temp))
+					mTokens.push_back(new Keyword(temp));
 				else
-					mTokens.push_back(new Identifier(_temp));
-				_temp.clear();
+					mTokens.push_back(new Identifier(temp));
+				temp.clear();
 			}
 
 			// Then we create the appropiate token for the given non alphanumeric

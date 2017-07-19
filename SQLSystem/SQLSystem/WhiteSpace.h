@@ -12,6 +12,8 @@ public:
 	TokenType GetType() const override;
 	string GetWord() const override;
 	~WhiteSpace();
+
+private:
 	char mWord;
 	
 };
