@@ -36,6 +36,18 @@ void Ast::PrintInorder(AstNode *aRoot)
 	}
 }
 
+void Ast::Display(AstNode * current, int indent)
+{
+	if (current != nullptr)
+	{
+		Display(current->GetLeft(), indent + 4);
+		if (indent > 0)
+			cout << setw(indent) << " ";
+		cout << current->GetToken()->GetWord() << endl;
+		Display(current->GetRight(), indent + 4);
+	}
+}
+
 Ast::~Ast()
 {
 }

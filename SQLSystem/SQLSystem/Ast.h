@@ -10,6 +10,8 @@ public:
 	AstNode* NewNode(IToken* aToken);
 	AstNode* InsertNode(AstNode *aNode, IToken* aToken);
 	void PrintInorder(AstNode *aRoot);
+	void Display(AstNode *current, int indent);
+	
 
 
 	~Ast();
