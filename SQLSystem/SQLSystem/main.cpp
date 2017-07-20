@@ -56,8 +56,8 @@ int main()
 		
 		ast->InsertNode(root, *it);
 	}
-	ast->PrintInorder(root);
-	
+	//ast->PrintInorder(root);
+	ast->Display(root, 4);
 
 
 	//Parser *parser = new Parser();
