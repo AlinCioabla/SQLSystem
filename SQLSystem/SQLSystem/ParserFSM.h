@@ -17,11 +17,6 @@ enum StateType
 	SEMICOLON
 };
 
-
-
-
-
-
 class ParserFSM
 {
 public:
@@ -33,8 +28,5 @@ public:
 private:
 	StateType mCurrentState;
 	void TransitionTo(StateType aState) { mCurrentState = aState; }
-
-	
-	
 };
 
