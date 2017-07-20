@@ -12,7 +12,7 @@ string digits{ "1234567890" };
 
 const bool IsAlphanumeric(const char & aChar)
 {
-	return (aChar >= 'A' && aChar <= 'z' || IsDigit(aChar));
+	return ((aChar >= 'A' && aChar <= 'z' )|| IsDigit(aChar));
 }
 
 const bool IsDigit(const char & aChar)

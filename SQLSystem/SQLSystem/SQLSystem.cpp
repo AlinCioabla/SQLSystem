@@ -8,7 +8,7 @@ SQLSystem::SQLSystem()
 {
 }
 
-void SQLSystem::Start(ifstream & in)
+void SQLSystem::Start(ifstream & instr)
 {
 	
 	//Lexer lexer;

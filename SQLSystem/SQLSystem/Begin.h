@@ -7,7 +7,7 @@ public:
 	
 	Begin(IToken* aCommand) :mCommand(aCommand) {};
 
-	void SetArguments(IToken* aTableName) override;
+	
 	CommandType GetCommandType() const  override;
 	bool ExpectedNext(ICommand* aNextCommand)const override;
 

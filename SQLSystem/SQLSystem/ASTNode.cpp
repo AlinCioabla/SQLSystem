@@ -1,6 +1,6 @@
 #include "AstNode.h"
 
-void AstNode::SetToken(IToken * aToken)
+void AstNode::SetToken(IToken * aToken) 
 {
 	mToken = aToken;
 }

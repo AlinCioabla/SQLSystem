@@ -129,7 +129,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			if (currentToken->GetType() == IdentifierType)
 			{
 				if (prevToken->GetType() == KeywordType || prevToken->GetWord() == ","
-					|| predicateHasStarted && prevToken->GetWord() == "'")
+					|| (predicateHasStarted && prevToken->GetWord() == "'"))
 				{
 					// add node
 				}

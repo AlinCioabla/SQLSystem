@@ -6,9 +6,9 @@ class AstNode
 public:
 
 	AstNode(IToken* aToken) :mToken(aToken) {};
-	AstNode* GetLeft() { return mLeft; };
-	AstNode* GetRight() { return mRight; };
-	IToken*  GetToken() { return mToken; };
+	AstNode* GetLeft()  const  { return mLeft; };
+	AstNode* GetRight() const  { return mRight; };
+	IToken*  GetToken() const { return mToken; };
 	void SetToken(IToken *aToken);
 	void SetLeft(AstNode * aLeft);
 	void SetRight(AstNode *aRight);

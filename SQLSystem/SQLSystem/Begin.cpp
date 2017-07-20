@@ -1,6 +1,6 @@
 #include "Begin.h"
 
-void Begin::SetArguments(IToken *aTableName) {}
+
 
 CommandType Begin::GetCommandType() const { return CommandType::BeginType; }
 

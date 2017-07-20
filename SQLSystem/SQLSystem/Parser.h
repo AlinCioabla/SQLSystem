@@ -6,7 +6,6 @@
 #include"Intermediar.h"
 #include"Final.h"
 #include"AstNode.h"
-#include"Word.h"
 
 enum ParserState
 {
