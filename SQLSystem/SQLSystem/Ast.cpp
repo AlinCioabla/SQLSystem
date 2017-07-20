@@ -12,12 +12,18 @@ AstNode* Ast::NewNode(IToken * aToken)
 
 AstNode* Ast::InsertNode(AstNode *aNode, IToken* aToken)
 {
+
 	// If the tree is empty, return a new node 
 	if (aNode == nullptr) return NewNode(aToken);
 
+	if (aToken->GetType() == KeywordType)
+		
+
 	// Otherwise, recur down the tree 
-	if (aToken->GetType() != KeywordType)
-		aNode->SetLeft (InsertNode(aNode->GetLeft(), aToken));
+	if (aToken->GetType() != KeywordType ) {
+		
+		aNode->SetLeft(InsertNode(aNode, aToken));
+	}
 	else if (aToken->GetType() == KeywordType)
 		aNode->SetRight(InsertNode(aNode->GetRight(), aToken));
 

@@ -43,25 +43,25 @@ int main()
 
 
 	ifstream in("TestFile1.txt");
-	//ITokensTraversal *lexer = new Lexer();
-	//lexer->ReadFromFile(in);
-	//lexer->Tokenize();
+	ITokensTraversal *lexer = new Lexer();
+	lexer->ReadFromFile(in);
+	lexer->Tokenize();
 	
-	Lexer lexer;
-	lexer.ReadFromFile(in);
-	lexer.Tokenize();
-	AstNode *root = new AstNode(*lexer.mTokens.begin());
-	Ast *ast = new Ast(root);
-	for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++) {
-		
-		ast->InsertNode(root, *it);
-	}
-	//ast->PrintInorder(root);
-	ast->Display(root, 4);
+	//Lexer lexer;
+	//lexer.ReadFromFile(in);
+	//lexer.Tokenize();
+	//AstNode *root = new AstNode(*lexer.mTokens.begin());
+
+	//for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++) {
+	//	
+	//	ast->InsertNode(root, *it);
+	//}
+	////ast->PrintInorder(root);
+	//ast->Display(root, 4);
 
 
-	//Parser *parser = new Parser();
-	//parser->Parse(lexer);
+	Parser *parser = new Parser();
+	parser->Parse(lexer);
 
    /*if (!LexerTests())
   		return -1;*/

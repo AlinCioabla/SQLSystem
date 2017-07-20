@@ -16,13 +16,21 @@ Parser::Parser()
 bool Parser::Parse(ITokensTraversal* &aLexer)
 {
 
+
 	bool predicateHasStarted = false;
 
 	IToken *currentToken = GetNwToken(aLexer);
-	if (currentToken->GetWord() == "SELECT")
+	if (currentToken->GetWord() == "SELECT") 
+	{
 		TransitionTo(SELECT);
+		
+	}
 	else
 		TransitionTo(INVALID);
+	AstNode *root = new AstNode(currentToken);
+	Ast tree(root);
+	AstNode *prev = new AstNode(currentToken);
+
 	IToken *prevToken = currentToken;
 	currentToken = GetNwToken(aLexer);
 
@@ -40,7 +48,11 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetType() != KeywordType && prevToken->GetWord() != ",")
 					TransitionTo(INVALID);
-				// else add node
+				else
+				{
+					 prev = nullptr;
+					 prev=tree.InsertNode(root, currentToken);
+				}
 				
 				break;
 			}
@@ -50,7 +62,8 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetType() != IdentifierType)
 					TransitionTo(INVALID);
-					//else add node
+				else
+					prev=tree.InsertNode(prev, currentToken);
 
 				break;
 			}
@@ -62,7 +75,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 				else
 				{
 					TransitionTo(FROM);
-					// add FROM node
+					root = tree.InsertNode(root, currentToken);
 				}
 
 				break;
@@ -78,7 +91,10 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetType() != KeywordType && prevToken->GetWord() != ",")
 					TransitionTo(INVALID);
-				// else add node
+				else
+				{
+					prev=tree.InsertNode(root, currentToken);
+				}
 
 				break;
 			}
@@ -88,7 +104,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetType() != IdentifierType)
 					TransitionTo(INVALID);
-				//else add node
+				prev = tree.InsertNode(prev, currentToken);
 
 				break;
 			}
@@ -114,7 +130,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 				else
 				{
 					TransitionTo(WHERE);
-					// add WHERE node
+					root = tree.InsertNode(root, currentToken);
 				}
 
 				break;
@@ -131,7 +147,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 				if (prevToken->GetType() == KeywordType || prevToken->GetWord() == ","
 					|| (predicateHasStarted && prevToken->GetWord() == "'"))
 				{
-					// add node
+					prev = tree.InsertNode(root, currentToken);
 				}
 				else
 					TransitionTo(INVALID);
@@ -158,7 +174,10 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetType() != IdentifierType)
 					TransitionTo(INVALID);
-				//else add node
+				else
+				{
+					prev = tree.InsertNode(prev, currentToken);
+				}
 
 				break;
 			}
@@ -171,7 +190,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 					if (currentToken->GetWord() == "LIKE")
 					{
 						TransitionTo(LIKE);
-						//add like node
+						root = tree.InsertNode(root, currentToken);
 					}
 				break;
 			}
@@ -183,7 +202,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 				else
 				{
 
-					//add = node
+					prev = tree.InsertNode(root, currentToken);
 				}
 				break;
 			}
@@ -207,7 +226,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 			{
 				if (prevToken->GetWord() == "'" && predicateHasStarted == true)
 				{
-					//add child to =
+					prev = tree.InsertNode(prev, currentToken);
 					predicateHasStarted = false;
 				}
 				else
@@ -234,6 +253,7 @@ bool Parser::Parse(ITokensTraversal* &aLexer)
 		cout << "valid";
 	else
 		cout << "invalid";
+	tree.Display(tree.GetRoot(),4);
 
 	return false;
 }
