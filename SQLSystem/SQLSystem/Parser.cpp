@@ -180,24 +180,12 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
 
       /////////////////////////////////////////////////
 
-      if (currentToken->GetWord() == ",")
-      {
-        if (prevToken->GetType() != IdentifierType)
-          TransitionTo(INVALID);
-        else
-        {
-        }
-
-        break;
-      }
-
       if (currentToken->GetType() == KeywordType)
       {
         if (prevToken->GetType() != IdentifierType)
           TransitionTo(INVALID);
         else if (currentToken->GetWord() == "LIKE")
         {
-          TransitionTo(LIKE);
         }
         break;
       }
