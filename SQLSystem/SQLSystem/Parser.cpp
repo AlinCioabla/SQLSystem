@@ -1,264 +1,261 @@
 #include "Parser.h"
-#include"Ast.h"
-#include"Helpers.h"
-
-
-
+#include "Ast.h"
+#include "Helpers.h"
 
 Parser::Parser()
 {
-
 }
 
-
-
-
-bool Parser::Parse(ITokensTraversal* &aLexer)
+bool Parser::Parse(ITokensTraversal *& aLexer)
 {
+  bool predicateHasStarted = false;
 
+  IToken * currentToken = GetNwToken(aLexer);
+  if (currentToken->GetWord() == "SELECT")
+  {
+    TransitionTo(SELECT);
+  }
+  else
+    TransitionTo(INVALID);
 
-	bool predicateHasStarted = false;
+  AstNode * root                   = new AstNode(currentToken);
+  AstNode * currentInstructionNode = root;
+  Ast       ast(root);
 
-	IToken *currentToken = GetNwToken(aLexer);
-	if (currentToken->GetWord() == "SELECT") 
-	{
-		TransitionTo(SELECT);
-		
-	}
-	else
-		TransitionTo(INVALID);
-	AstNode *root = new AstNode(currentToken);
-	Ast tree(root);
-	AstNode *prev = new AstNode(currentToken);
+  IToken * prevToken = currentToken;
+  currentToken       = GetNwToken(aLexer);
 
-	IToken *prevToken = currentToken;
-	currentToken = GetNwToken(aLexer);
+  while (currentToken != nullptr && mCurrentState != INVALID)
+  {
+    ast.Display(ast.GetRoot(), 4);
+    cout << endl << endl;
 
-	while(currentToken != nullptr && mCurrentState != INVALID)
-	{
+    switch (mCurrentState)
+    {
+    case VALID:
+      if (currentToken != nullptr)
+        TransitionTo(INVALID);
+      break;
+    case SELECT:
+      if (currentToken->GetType() == IdentifierType)
+      {
+        if (prevToken->GetType() == KeywordType)
+        {
+          currentInstructionNode->SetLeft(new AstNode(currentToken));
+        }
 
-		switch (mCurrentState)
-		{
-		case VALID:
-			if (currentToken != nullptr)
-				TransitionTo(INVALID);
-			break;
-		case SELECT:
-			if (currentToken->GetType() == IdentifierType)
-			{
-				if (prevToken->GetType() != KeywordType && prevToken->GetWord() != ",")
-					TransitionTo(INVALID);
-				else
-				{
-					 prev = nullptr;
-					 prev=tree.InsertNode(root, currentToken);
-				}
-				
-				break;
-			}
+        else if (prevToken->GetWord() == ",")
+        {
+          currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+        }
+        else
+        {
+          TransitionTo(INVALID);
+        }
 
+        break;
+      }
 
-			if (currentToken->GetWord() == ",")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-					prev=tree.InsertNode(prev, currentToken);
+      if (currentToken->GetWord() == ",")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+          AstNode * temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetLeft(temp);
+        }
 
-				break;
-			}
+        break;
+      }
 
-			if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-				{
-					TransitionTo(FROM);
-					root = tree.InsertNode(root, currentToken);
-				}
+      if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+          TransitionTo(FROM);
+          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode = currentInstructionNode->GetRight();
+        }
 
-				break;
-			}
-			else
-			{
-				TransitionTo(INVALID);
-				break;
-			}
-			
-		case FROM:
-			if (currentToken->GetType() == IdentifierType)
-			{
-				if (prevToken->GetType() != KeywordType && prevToken->GetWord() != ",")
-					TransitionTo(INVALID);
-				else
-				{
-					prev=tree.InsertNode(root, currentToken);
-				}
+        break;
+      }
+      else
+      {
+        TransitionTo(INVALID);
+        break;
+      }
 
-				break;
-			}
+    case FROM:
+      if (currentToken->GetType() == IdentifierType)
+      {
+        if (prevToken->GetType() == KeywordType)
+        {
+          currentInstructionNode->SetLeft(new AstNode(currentToken));
+        }
+        else if (prevToken->GetWord() == ",")
+        {
+          currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+        }
+        else
+        {
+          TransitionTo(INVALID);
+        }
 
+        break;
+      }
 
-			if (currentToken->GetWord() == ",")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				prev = tree.InsertNode(prev, currentToken);
+      if (currentToken->GetWord() == ",")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+          AstNode * temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetLeft(temp);
+        }
 
-				break;
-			}
+        break;
+      }
 
-			//////////////////////////////////////////////////
-			if (currentToken->GetWord() == ";") 
-			{
-				if (prevToken->GetType() == IdentifierType)
-				{
-					TransitionTo(VALID);
-				}
-				else
-					TransitionTo(INVALID);
-				break;
-				
-			}
-			
-			/////////////////////////////////////////////////
-			if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "WHERE")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-				{
-					TransitionTo(WHERE);
-					root = tree.InsertNode(root, currentToken);
-				}
+      //////////////////////////////////////////////////
+      if (currentToken->GetWord() == ";")
+      {
+        if (prevToken->GetType() == IdentifierType)
+        {
+          TransitionTo(VALID);
+        }
+        else
+          TransitionTo(INVALID);
+        break;
+      }
 
-				break;
-			}
-			else
-			{
-				TransitionTo(INVALID);
-				break;
-			}
+      /////////////////////////////////////////////////
+      if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "WHERE")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+          TransitionTo(WHERE);
+          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode = currentInstructionNode->GetRight();
+        }
 
-		case WHERE:
-			if (currentToken->GetType() == IdentifierType)
-			{
-				if (prevToken->GetType() == KeywordType || prevToken->GetWord() == ","
-					|| (predicateHasStarted && prevToken->GetWord() == "'"))
-				{
-					prev = tree.InsertNode(root, currentToken);
-				}
-				else
-					TransitionTo(INVALID);
+        break;
+      }
+      else
+      {
+        TransitionTo(INVALID);
+        break;
+      }
 
-				break;
-			}
+    case WHERE:
+      if (currentToken->GetType() == IdentifierType)
+      {
+        if (prevToken->GetType() == KeywordType)
+        {
+        }
+        else
+          TransitionTo(INVALID);
 
-			//////////////////////////////////////////////////
-			if (currentToken->GetWord() == ";")
-			{
-				if (prevToken->GetType() == IdentifierType || prevToken->GetWord() == "'")
-				{
-					TransitionTo(VALID);
-				}
-				else
-					TransitionTo(INVALID);
-				break;
+        break;
+      }
 
-			}
+      //////////////////////////////////////////////////
+      if (currentToken->GetWord() == ";")
+      {
+        if (prevToken->GetType() == IdentifierType || prevToken->GetWord() == "'")
+        {
+          TransitionTo(VALID);
+        }
+        else
+          TransitionTo(INVALID);
+        break;
+      }
 
-			/////////////////////////////////////////////////
+      /////////////////////////////////////////////////
 
-			if (currentToken->GetWord() == ",")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-				{
-					prev = tree.InsertNode(prev, currentToken);
-				}
+      if (currentToken->GetWord() == ",")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+        }
 
-				break;
-			}
+        break;
+      }
 
-			if (currentToken->GetType() == KeywordType)
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-					if (currentToken->GetWord() == "LIKE")
-					{
-						TransitionTo(LIKE);
-						root = tree.InsertNode(root, currentToken);
-					}
-				break;
-			}
+      if (currentToken->GetType() == KeywordType)
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else if (currentToken->GetWord() == "LIKE")
+        {
+          TransitionTo(LIKE);
+        }
+        break;
+      }
 
-			if (currentToken->GetType() == OperatorType && currentToken->GetWord() == "=")
-			{
-				if (prevToken->GetType() != IdentifierType)
-					TransitionTo(INVALID);
-				else
-				{
+      if (currentToken->GetType() == OperatorType && currentToken->GetWord() == "=")
+      {
+        if (prevToken->GetType() != IdentifierType)
+          TransitionTo(INVALID);
+        else
+        {
+        }
+        break;
+      }
 
-					prev = tree.InsertNode(root, currentToken);
-				}
-				break;
-			}
+      if (currentToken->GetWord() == "'")
+      {
+        if (prevToken->GetWord() == "=")
+        {
+          predicateHasStarted = true;
+        }
+        else if (currentToken->GetWord() == "'" && prevToken->GetType() == IdentifierType)
+          predicateHasStarted = false;
+        else
+          TransitionTo(INVALID);
+        break;
+      }
 
-			if (currentToken->GetWord() == "'")
-			{
-				if (prevToken->GetWord() == "=")
-				{
-					predicateHasStarted = true;
-				}
-				else
-					if (currentToken->GetWord() == "'" && prevToken->GetType() == IdentifierType)
-						predicateHasStarted = false;
-				else
-					TransitionTo(INVALID);
-				break;
+      if (currentToken->GetType() == IdentifierType)
+      {
+        if (prevToken->GetWord() == "'" && predicateHasStarted == true)
+        {
+          predicateHasStarted = false;
+        }
+        else
+          TransitionTo(INVALID);
 
-			}
+        break;
+      }
+      else
+      {
+        TransitionTo(INVALID);
+        break;
+      }
 
-			if (currentToken->GetType() == IdentifierType)
-			{
-				if (prevToken->GetWord() == "'" && predicateHasStarted == true)
-				{
-					prev = tree.InsertNode(prev, currentToken);
-					predicateHasStarted = false;
-				}
-				else
-					TransitionTo(INVALID);
-				
-				break;
-			}
-			else
-			{
-				TransitionTo(INVALID);
-				break;
-			}
+    default:
+      break;
+    }
 
-		default:
-			break;
-		}
+    prevToken    = currentToken;
+    currentToken = GetNwToken(aLexer);
+  }
+  if (mCurrentState == VALID)
+    cout << "valid";
+  else
+    cout << "invalid";
 
-		prevToken = currentToken;
-		currentToken = GetNwToken(aLexer);
-
-		
-	}
-	if (mCurrentState == VALID)
-		cout << "valid";
-	else
-		cout << "invalid";
-	tree.Display(tree.GetRoot(),4);
-
-	return false;
+  return false;
 }
-
-
 
 Parser::~Parser()
 {
@@ -266,5 +263,5 @@ Parser::~Parser()
 
 void Parser::TransitionTo(ParserState aState)
 {
-	mCurrentState = aState;
+  mCurrentState = aState;
 }

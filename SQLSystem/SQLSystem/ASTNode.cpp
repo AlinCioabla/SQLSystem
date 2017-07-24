@@ -15,9 +15,7 @@ void AstNode::SetRight(AstNode * aRight)
 	mRight = aRight;
 }
 
-AstNode::AstNode()
-{
-}
+
 
 AstNode::~AstNode()
 {
