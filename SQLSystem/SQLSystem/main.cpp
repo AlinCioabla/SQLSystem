@@ -1,10 +1,10 @@
+#include "stdafx.h"
 #include "Ast.h"
 #include "AstNode.h"
 #include "Lexer.h"
 #include "LexerTester.h"
 #include "Parser.h"
 #include "SQLSystem.h"
-#include "stdafx.h"
 
 /*bool LexerTests()
 {
@@ -15,9 +15,7 @@
         LexerTester lexerTester1(_inputFile1, _lexer1);
         bool _succes1 = lexerTester1.TestTokens();
         cout << _succes1 << endl << endl;
-        
-
-
+        
         //Test #2
         cout << "Test2: " << endl;
         ifstream _inputFile2("TestFile2FAKE.txt");
@@ -39,10 +37,10 @@
         return false;
 }
 */
-int main() {
-
-  ifstream in("TestFile1.txt");
-  ITokensTraversal *lexer = new Lexer();
+int main()
+{
+  ifstream           in("TestFile1.txt");
+  ITokensTraversal * lexer = new Lexer();
   lexer->ReadFromFile(in);
   lexer->Tokenize();
 
@@ -51,14 +49,13 @@ int main() {
   // lexer.Tokenize();
   // AstNode *root = new AstNode(*lexer.mTokens.begin());
 
-  // for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++)
-  // {
+  // for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++) {
   //
   //	ast->InsertNode(root, *it);
   //}
   // ast->Display(root, 4);
 
-  auto *parser = new Parser();
+  Parser * parser = new Parser();
   parser->Parse(lexer);
 
   /*if (!LexerTests())
