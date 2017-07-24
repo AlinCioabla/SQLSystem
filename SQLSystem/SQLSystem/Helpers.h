@@ -1,9 +1,8 @@
 #pragma once
 
-#include"stdafx.h"
-#include"ITokensTraversal.h"
-#include"IToken.h"
-
+#include "IToken.h"
+#include "ITokensTraversal.h"
+#include "stdafx.h"
 
 const bool IsAlphanumeric(const char &aChar);
 
@@ -17,6 +16,6 @@ const bool IsWhitespace(const char &aChar);
 
 const bool IsNumber(const string &aString);
 
-const bool IsKeyword(const string  &aString);
+const bool IsKeyword(const string &aString);
 
-IToken* GetNwToken(ITokensTraversal *& aLexer);
+IToken *GetNwToken(ITokensTraversal *&aLexer);

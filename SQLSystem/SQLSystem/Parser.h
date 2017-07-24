@@ -1,37 +1,23 @@
 #pragma once
-#include"stdafx.h"
-#include"Lexer.h"
-#include"ICommand.h"
-#include"Begin.h"
-#include"Intermediar.h"
-#include"Final.h"
-#include"AstNode.h"
+#include "AstNode.h"
+#include "Begin.h"
+#include "Final.h"
+#include "ICommand.h"
+#include "Intermediar.h"
+#include "Lexer.h"
+#include "stdafx.h"
 
-enum ParserState
-{
-	SELECT,
-	FROM,
-	WHERE,
-	LIKE,
-	AND,
-	UNDEFINED,
-	INVALID,
-	VALID
-};
+enum ParserState { SELECT, FROM, WHERE, LIKE, AND, UNDEFINED, INVALID, VALID };
 
-class Parser
-{
+class Parser {
 public:
+  Parser();
 
-	Parser();
-	
-	bool Parse(ITokensTraversal* &aLexer);
+  bool Parse(ITokensTraversal *&aLexer);
 
-	~Parser();
+  ~Parser();
+
 private:
-	ParserState mCurrentState;
-	void TransitionTo(ParserState aState);
-
-
+  ParserState mCurrentState;
+  void TransitionTo(ParserState aState);
 };
-

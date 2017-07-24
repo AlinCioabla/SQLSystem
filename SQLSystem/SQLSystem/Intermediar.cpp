@@ -1,9 +1,5 @@
 #include "Intermediar.h"
 
-
-
-
-
 void Intermediar::SetArguments(IToken* aTableName)
 {
 	mArguments.push_back(aTableName);
