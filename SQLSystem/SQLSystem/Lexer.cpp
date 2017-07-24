@@ -27,54 +27,74 @@ bool Lexer::Tokenize()
 {
   // Temporary string
   string _temp;
-
+  bool   foundPredicate = false;
   // Iterate through all the initial input string characters
   for (auto it : mSqlCommand)
   {
     // If we find an alphanumeric character we add it to the
     // _temp string
-    if (IsAlphanumeric(it))
+    if (it == '\'' && !_temp.length() && !foundPredicate)
+    {
+      foundPredicate = true;
+      _temp += it;
+    }
+
+    else if (it == '\'' && foundPredicate)
+    {
+      foundPredicate = false;
+      _temp += it;
+      mTokens.push_back(new Predicate(_temp));
+      _temp.clear();
+    }
+    else if (foundPredicate)
     {
       _temp += it;
     }
-    // If we find a delimiter, we store the created _temp string as
-    // a keyword token, then empty it
     else
     {
-      if (_temp.length() != 0u)
+      if (IsAlphanumeric(it))
       {
-        if (IsKeyword(_temp))
+        _temp += it;
+      }
+      // If we find a delimiter, we store the created _temp string as
+      // a keyword token, then empty it
+      else
+      {
+        if (_temp.length())
         {
-          mTokens.push_back(new Keyword(_temp));
+          if (IsKeyword(_temp))
+          {
+            mTokens.push_back(new Keyword(_temp));
+          }
+          else
+          {
+            mTokens.push_back(new Identifier(_temp));
+          }
+          _temp.clear();
+        }
+
+        // Then we create the appropiate token for the given non alphanumeric
+        // character from the input
+
+        if (IsWhitespace(it))
+        {
+          mTokens.push_back(new WhiteSpace(it));
+        }
+        else if (IsOperator(it))
+        {
+          mTokens.push_back(new Operator(it));
+        }
+        else if (IsPunctuation(it))
+        {
+          mTokens.push_back(new Punctuation(it));
         }
         else
         {
-          mTokens.push_back(new Identifier(_temp));
+          // If we find a character we do not recognize, the tokenizer stops
+          // and returns false
+
+          return false;
         }
-        _temp.clear();
-      }
-
-      // Then we create the appropiate token for the given non alphanumeric
-      // character from the input
-
-      if (IsWhitespace(it))
-      {
-        mTokens.push_back(new WhiteSpace(it));
-      }
-      else if (IsOperator(it))
-      {
-        mTokens.push_back(new Operator(it));
-      }
-      else if (IsPunctuation(it))
-      {
-        mTokens.push_back(new Punctuation(it));
-      }
-      else
-      {
-        // If we find a character we do not recognize, the tokenizer stops
-        // and returns false
-
-        return false;
       }
     }
   }
