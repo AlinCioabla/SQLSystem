@@ -2,12 +2,14 @@
 #include "IToken.h"
 
 // This class is for string like :{ "+-*/=^%<>" };
-class Operator : public IToken {
+class Operator : public IToken
+{
 public:
-  Operator(char aWord) : mWord(aWord){};
-  string GetWord() const override;
+  Operator(char aWord)
+    : mWord(aWord){};
+  string    GetWord() const override;
   TokenType GetType() const override;
-  ~Operator();
+  virtual ~Operator();
 
 private:
   char mWord;

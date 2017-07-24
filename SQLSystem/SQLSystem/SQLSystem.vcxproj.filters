@@ -42,18 +42,6 @@
     <ClCompile Include="LexerTester.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ParserFSM.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Begin.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Intermediar.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Final.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AstNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -67,6 +55,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Number.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Predicate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -101,24 +92,6 @@
     <ClInclude Include="LexerTester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IStates.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserFSM.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ICommand.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Begin.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Intermediar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Final.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AstNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -135,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ITokensTraversal.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Predicate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

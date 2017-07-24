@@ -1,13 +1,13 @@
 #pragma once
 #include "IToken.h"
-class Identifier : public IToken
+class Predicate : public IToken
 {
 public:
-  Identifier(string & aWord)
+  Predicate(string & aWord)
     : mWord(aWord){};
   string    GetWord() const override;
   TokenType GetType() const override;
-  virtual ~Identifier();
+  virtual ~Predicate();
 
 private:
   string mWord;
