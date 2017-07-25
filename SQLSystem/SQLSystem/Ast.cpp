@@ -32,54 +32,6 @@ AstNode * Ast::InsertNode(AstNode * aNode, IToken * aToken)
   return aNode;
 }
 
-void Ast::printTree(AstNode * current) throw()
-{
-  if (current->GetRight() != nullptr)
-  {
-    printTree(true, "");
-  }
-  printNodeValue(current);
-  if (current->GetLeft() != nullptr)
-  {
-    printTree(false, "");
-  }
-}
-void Ast::printNodeValue(AstNode * current) throw()
-{
-  if (current->GetToken() == nullptr)
-  {
-    cout << "null";
-  }
-  else
-  {
-    cout << current->GetToken()->GetWord();
-  }
-  cout << endl;
-}
-// use string and not stringbuffer on purpose as we need to change the indent at each recursion
-void Ast::printTree(bool isRight, string indent) throw()
-{
-  if (right != nullptr)
-  {
-    printTree(true, indent + (isRight ? "        " : " |      "));
-  }
-  cout << indent;
-  if (isRight)
-  {
-    cout << " /";
-  }
-  else
-  {
-    cout << " \\";
-  }
-  cout << "----- ";
-  ////
-  if (left != nullptr)
-  {
-    printTree(false, indent + (isRight ? " |      " : "        "));
-  }
-}
-
 void Ast::Display(AstNode * current, int indent)
 {
   if (current != nullptr)
