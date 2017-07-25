@@ -1,24 +1,20 @@
 #pragma once
-#include"AstNode.h"
+#include "AstNode.h"
 
 class Ast
 {
 public:
-	
-	Ast(AstNode *aRoot) :mRoot(aRoot) {};
+  Ast(AstNode * aRoot)
+    : mRoot(aRoot){};
 
-	AstNode* NewNode(IToken* aToken);
-	AstNode* InsertNode(AstNode *aNode, IToken* aToken);
-	void printTree(AstNode * current);
-	void printNodeValue(AstNode *current);
-	void printTree( bool isRight, string indent);
+  AstNode * NewNode(IToken * aToken);
+  AstNode * InsertNode(AstNode * aNode, IToken * aToken);
 
-	void Display(AstNode *current, int indent);
-	AstNode* GetRoot()const { return mRoot; };
+  void      PrintInorder(AstNode * aRoot);
+  void      Display(AstNode * current, int indent);
+  AstNode * GetRoot() const { return mRoot; };
 
-
-	~Ast();
+  ~Ast();  // must implement
 private:
-	AstNode *mRoot;
+  AstNode * mRoot;
 };
-

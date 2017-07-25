@@ -154,8 +154,15 @@
     <Text Include="in.txt" />
     <Text Include="Instr.txt" />
     <Text Include="TestFile1.txt" />
+    <Text Include="TestFile10.txt" />
     <Text Include="TestFile2.txt" />
     <Text Include="TestFile3.txt" />
+    <Text Include="TestFile4.txt" />
+    <Text Include="TestFile5.txt" />
+    <Text Include="TestFile6.txt" />
+    <Text Include="TestFile7.txt" />
+    <Text Include="TestFile8.txt" />
+    <Text Include="TestFile9.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
