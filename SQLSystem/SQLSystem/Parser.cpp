@@ -255,8 +255,9 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
     currentToken = GetNwToken(aLexer);
   }
 
-  ast.Display(ast.GetRoot(), 4);
+  ast.Display(ast.GetRoot(), 20);
   cout << endl << endl;
+  ast.PrintQuery(ast.GetRoot());
 
   return (mCurrentState == VALID);
 }

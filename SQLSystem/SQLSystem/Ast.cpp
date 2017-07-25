@@ -32,17 +32,43 @@ AstNode * Ast::InsertNode(AstNode * aNode, IToken * aToken)
   return aNode;
 }
 
-void Ast::Display(AstNode * current, int indent)
+void Ast::Display(AstNode * aNode, int indent)
 {
-  if (current != nullptr)
+  if (aNode != nullptr)
   {
-    Display(current->GetLeft(), indent + 4);
-    if (indent > 0)
+    if (aNode->GetRight())
+    {
+      Display(aNode->GetRight(), indent + 4);
+    }
+    if (indent)
     {
       cout << setw(indent) << " ";
     }
-    cout << current->GetToken()->GetWord() << endl;
-    Display(current->GetRight(), indent + 4);
+    if (aNode->GetRight())
+      cout << " /\n" << setw(indent) << ' ';
+    cout << aNode->GetToken()->GetWord() << "\n ";
+    if (aNode->GetLeft())
+    {
+      cout << setw(indent) << ' ' << " \\\n";
+      Display(aNode->GetLeft(), indent + 4);
+    }
+  }
+}
+
+void Ast::PrintQuery(AstNode * aNode)
+{
+  if (aNode != nullptr)
+  {
+    if (aNode->GetToken()->GetType() == KeywordType)
+    {
+      cout << aNode->GetToken()->GetWord() << " ";
+    }
+    PrintQuery(aNode->GetLeft());
+    if (aNode->GetToken()->GetType() != KeywordType)
+    {
+      cout << aNode->GetToken()->GetWord() << " ";
+    }
+    PrintQuery(aNode->GetRight());
   }
 }
 
