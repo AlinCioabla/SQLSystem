@@ -1,23 +1,21 @@
 #include "AstNode.h"
 
-void AstNode::SetToken(IToken * aToken) 
+void AstNode::SetToken(IToken * aToken)
 {
-	mToken = aToken;
+  mToken = aToken;
 }
 
 void AstNode::SetLeft(AstNode * aLeft)
 {
-	mLeft = aLeft;
+  mLeft = aLeft;
 }
 
 void AstNode::SetRight(AstNode * aRight)
 {
-	mRight = aRight;
+  mRight = aRight;
 }
-
-
 
 AstNode::~AstNode()
 {
-	
+  delete mToken;
 }

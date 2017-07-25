@@ -44,20 +44,9 @@ int main()
   lexer->ReadFromFile(in);
   lexer->Tokenize();
   LexerTests();
-  // Lexer lexer;
-  // lexer.ReadFromFile(in);
-  // lexer.Tokenize();
-  // AstNode *root = new AstNode(*lexer.mTokens.begin());
-
-  // for (auto it = lexer.mTokens.begin() + 1; it != lexer.mTokens.end(); it++)
-  // {
-  //
-  //	ast->InsertNode(root, *it);
-  //}
-  // ast->Display(root, 4);
 
   auto * parser = new Parser();
-  parser->Parse(lexer);
+  cout << parser->Parse(lexer);
 
   return 0;
 }

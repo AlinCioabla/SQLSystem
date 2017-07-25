@@ -57,4 +57,6 @@ void Ast::Display(AstNode * current, int indent)
   }
 }
 
-Ast::~Ast() = default;
+Ast::~Ast()
+{
+}

@@ -130,5 +130,26 @@
     <Text Include="TestFile3.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="TestFile4.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile5.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile6.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile7.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile8.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile9.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile10.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

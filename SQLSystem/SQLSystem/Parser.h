@@ -13,7 +13,8 @@ enum ParserState
   FROM,
   WHERE,
   INVALID,
-  VALID
+  VALID,
+  UNDEFINED
 };
 
 class Parser
