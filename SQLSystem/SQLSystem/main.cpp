@@ -39,7 +39,7 @@ bool LexerTests()
 
 int main()
 {
-  ifstream           in("TestFile1.txt");
+  ifstream           in("TestFile6.txt");
   ITokensTraversal * lexer = new Lexer();
   lexer->ReadFromFile(in);
   lexer->Tokenize();

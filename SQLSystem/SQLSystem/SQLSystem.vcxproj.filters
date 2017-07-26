@@ -151,5 +151,20 @@
     <Text Include="TestFile10.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="TestFile11.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile12.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile13.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile14.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="TestFile15.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>
