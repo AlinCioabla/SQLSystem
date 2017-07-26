@@ -43,10 +43,14 @@ int main()
   ITokensTraversal * lexer = new Lexer();
   lexer->ReadFromFile(in);
   lexer->Tokenize();
-  LexerTests();
+  // LexerTests();
 
   auto * parser = new Parser();
   cout << parser->Parse(lexer);
+  Ast ast = parser->GetAst();
+  ast.Display(ast.GetRoot(), 20);
+  cout << endl << endl;
+  ast.PrintQuery(ast.GetRoot());
 
   return 0;
 }

@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "ICommand.h"
+#include "Ast.h"
 #include "AstNode.h"
 #include "Begin.h"
 #include "Final.h"
@@ -22,11 +23,13 @@ class Parser
 public:
   Parser();
 
-  bool Parse(ITokensTraversal *& aLexer);
+  bool  Parse(ITokensTraversal *& aLexer);
+  Ast & GetAst();
 
   ~Parser();
 
 private:
   ParserState mCurrentState;
   void        TransitionTo(ParserState aState);
+  Ast         mAst;
 };
