@@ -8,13 +8,13 @@ Parser::Parser()
 
 bool Parser::Parse(ITokensTraversal *& aLexer)
 {
-  IToken * currentToken = GetNwToken(aLexer);
-  IToken * prevToken    = currentToken;
-  TransitionTo(UNDEFINED);
+  IToken *  currentToken = GetNwToken(aLexer);
+  IToken *  prevToken    = currentToken;
+  AstNode * root         = new AstNode(currentToken);
+  mAst.SetRoot(root);
+  AstNode * currentInstructionNode = mAst.GetRoot();
 
-  AstNode * root                   = new AstNode(currentToken);
-  AstNode * currentInstructionNode = root;
-  Ast       ast(root);
+  TransitionTo(UNDEFINED);
 
   while (currentToken != nullptr && mCurrentState != INVALID)
   {
@@ -255,11 +255,16 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
     currentToken = GetNwToken(aLexer);
   }
 
-  ast.Display(ast.GetRoot(), 20);
-  cout << endl << endl;
-  ast.PrintQuery(ast.GetRoot());
+  // ast.Display(ast.GetRoot(), 20);
+  // cout << endl << endl;
+  // ast.PrintQuery(ast.GetRoot());
 
   return (mCurrentState == VALID);
+}
+
+Ast & Parser::GetAst()
+{
+  return mAst;
 }
 
 Parser::~Parser()

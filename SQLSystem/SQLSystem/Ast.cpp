@@ -1,38 +1,17 @@
 #include "Ast.h"
 #include "AstNode.h"
 
-AstNode * Ast::NewNode(IToken * aToken)
+Ast::Ast(const Ast & aAst)
 {
-  auto * temp = new AstNode();
-  temp->SetToken(aToken);
-  temp->SetLeft(nullptr);
-  temp->SetRight(nullptr);
-  return temp;
+  mRoot = aAst.GetRoot();
 }
 
-AstNode * Ast::InsertNode(AstNode * aNode, IToken * aToken)
+Ast::Ast()
 {
-  AstNode * prev(NewNode(aToken));
-  // If the tree is empty, return a new node
-  if (aNode == nullptr)
-  {
-    return NewNode(aToken);
-  }
-
-  // Otherwise, recur down the tree
-  if (aToken->GetType() != KeywordType)
-  {
-    aNode->SetLeft(InsertNode(aNode->GetLeft(), aToken));
-  }
-  else if (aToken->GetType() == KeywordType)
-  {
-    aNode->SetRight(InsertNode(aNode->GetRight(), aToken));
-  }
-  // return the (unchanged) node pointer
-  return aNode;
+  mRoot = nullptr;
 }
 
-void Ast::Display(AstNode * aNode, int indent)
+void Ast::Display(AstNode * aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -72,6 +51,15 @@ void Ast::PrintQuery(AstNode * aNode)
   }
 }
 
+void Ast::SetRoot(AstNode * aNode)
+{
+  if (mRoot == nullptr)
+  {
+    mRoot = aNode;
+  }
+}
+
 Ast::~Ast()
 {
+  delete mRoot;
 }

@@ -6,12 +6,13 @@ class Ast
 public:
   Ast(AstNode * aRoot)
     : mRoot(aRoot){};
+  Ast(const Ast & aAst);
 
-  AstNode * NewNode(IToken * aToken);
-  AstNode * InsertNode(AstNode * aNode, IToken * aToken);
+  Ast();
 
-  void      Display(AstNode * aNode, int indent);
+  void      Display(AstNode * aNode, int indent) const;
   void      PrintQuery(AstNode * aNode);
+  void      SetRoot(AstNode * aNode);
   AstNode * GetRoot() const { return mRoot; };
 
   ~Ast();  // must implement
