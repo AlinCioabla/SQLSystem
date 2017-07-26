@@ -25,6 +25,14 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         TransitionTo(SELECT);
       }
+      else if (currentToken->GetWord() == "DELETE")
+      {
+        TransitionTo(DELETE);
+      }
+      else if (currentToken->GetWord() == "UPDATE")
+      {
+        TransitionTo(UPDATE);
+      }
       else
         TransitionTo(INVALID);
       break;
@@ -33,6 +41,9 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
         TransitionTo(INVALID);
       break;
     case SELECT:
+    case DELETE:
+    case UPDATE:
+    case DISTINCT:
       if (currentToken->GetType() == IdentifierType)
       {
         if (prevToken->GetType() == KeywordType)
@@ -65,10 +76,39 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
 
         break;
       }
+      if (currentToken->GetWord() == "*")
+      {
+        if (prevToken->GetType() != IdentifierType)
+        {
+          AstNode * temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetLeft(temp);
+        }
+        else
+          TransitionTo(INVALID);
+
+        break;
+      }
+      if (currentToken->GetWord() == "DISTINCT")
+      {
+        if (prevToken->GetWord() == "DELETE" || prevToken->GetWord() == "UPDATE" ||
+            prevToken->GetWord() == "SELECT")
+        {
+          TransitionTo(DISTINCT);
+          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode = currentInstructionNode->GetRight();
+        }
+      }
 
       if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
       {
-        if (prevToken->GetType() != IdentifierType)
+        if (prevToken->GetWord() == "DELETE" || prevToken->GetWord() == "*")
+        {
+          TransitionTo(FROM);
+          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode = currentInstructionNode->GetRight();
+        }
+        else if (prevToken->GetType() != IdentifierType && prevToken->GetWord() != "DELETE")
           TransitionTo(INVALID);
         else
         {

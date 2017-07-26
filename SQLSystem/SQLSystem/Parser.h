@@ -11,6 +11,9 @@
 enum ParserState
 {
   SELECT,
+  DELETE,
+  UPDATE,
+  DISTINCT,
   FROM,
   WHERE,
   INVALID,
