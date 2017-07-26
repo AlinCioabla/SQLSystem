@@ -1,0 +1,2 @@
+SELECT DISTINCT Name1,Name2
+FROM Table1;

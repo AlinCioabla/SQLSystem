@@ -2,7 +2,7 @@
 
 // string operators[]{ "+", "-", "*", "/", ":", "=", "^", "%","<", ">" };
 // string punctuations[]{ ".", ",", "?", "&", "!", ";", ":", "_", "(" ")" };
-string keywords[]{ "SELECT", "DELETE", "UPDATE", "INSERT", "FROM", "WHERE" };
+string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT", "FROM", "WHERE" };
 string operators{ "%+-*/:=^<>" };
 string punctuations{ ".,?&!;_();'" };
 string whitespaces{ "\n " };

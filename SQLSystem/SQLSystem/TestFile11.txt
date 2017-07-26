@@ -1,0 +1,1 @@
+DELETE * FROM Table1 WHERE Nume1 LIKE 'a%';
