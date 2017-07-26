@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "Helpers.h"
-
 // string operators[]{ "+", "-", "*", "/", ":", "=", "^", "%","<", ">" };
 // string punctuations[]{ ".", ",", "?", "&", "!", ";", ":", "_", "(" ")" };
 string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT", "FROM", "WHERE" };

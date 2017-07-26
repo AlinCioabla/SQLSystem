@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Ast.h"
 #include "AstNode.h"
 
@@ -50,26 +51,6 @@ void Ast::PrintQuery(AstNode * aNode)
     PrintQuery(aNode->GetRight());
   }
 }
-
-// string Ast::GetQuery(AstNode * aNode) const
-//{
-//  string query;
-//  if (aNode != nullptr)
-//  {
-//    if (aNode->GetToken()->GetType() == KeywordType)
-//    {
-//      query += aNode->GetToken()->GetWord();
-//      query += " ";
-//    }
-//    GetQuery(aNode->GetLeft());
-//    if (aNode->GetToken()->GetType() != KeywordType)
-//    {
-//      query += aNode->GetToken()->GetWord();
-//      query += " ";
-//    }
-//    GetQuery(aNode->GetRight());
-//  }
-//}
 
 void Ast::SetRoot(AstNode * aNode)
 {

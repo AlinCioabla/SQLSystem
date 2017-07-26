@@ -1,7 +1,15 @@
+#include "stdafx.h"
 #include "Number.h"
+string Number::GetWord() const
+{
+  return mWord;
+}
 
-string Number::GetWord() const { return mWord; }
+TokenType Number::GetType() const
+{
+  return TokenType::NumberType;
+}
 
-TokenType Number::GetType() const { return TokenType::NumberType; }
-
-Number::~Number() {}
+Number::~Number()
+{
+}

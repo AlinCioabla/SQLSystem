@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "AstNode.h"
-
 void AstNode::SetToken(IToken * aToken)
 {
   mToken = aToken;

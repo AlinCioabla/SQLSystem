@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "Predicate.h"
-
 string Predicate::GetWord() const
 {
   return mWord;

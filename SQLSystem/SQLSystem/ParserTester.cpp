@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "ParserTester.h"
-
 bool ParserTester::ConstructAst()
 {
   return mParser.Parse(mLexer);

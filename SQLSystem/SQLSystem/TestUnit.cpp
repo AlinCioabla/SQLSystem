@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "TestUnit.h"
-
 bool LexerTests()
 {
   // Test #1
@@ -109,4 +109,5 @@ bool ParserTests()
   {
     return true;
   }
+  return false;
 }

@@ -1,7 +1,7 @@
+#include "stdafx.h"
 #include "Parser.h"
 #include "Ast.h"
 #include "Helpers.h"
-
 Parser::Parser()
 {
 }
