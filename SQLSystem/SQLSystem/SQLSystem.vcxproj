@@ -126,9 +126,11 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="ParserTester.cpp" />
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
+    <ClCompile Include="TestUnit.cpp" />
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -144,10 +146,12 @@
     <ClInclude Include="LexerTester.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="ParserTester.h" />
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="TestUnit.h" />
     <ClInclude Include="WhiteSpace.h" />
   </ItemGroup>
   <ItemGroup>

@@ -97,8 +97,9 @@ bool Lexer::Tokenize()
         }
       }
     }
+    mIndex = mTokens.begin();
   }
-  mIndex = mTokens.begin();
+
   return true;
 }
 

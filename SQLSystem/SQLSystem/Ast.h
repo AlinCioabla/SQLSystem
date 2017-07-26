@@ -10,8 +10,9 @@ public:
 
   Ast();
 
-  void      Display(AstNode * aNode, int indent) const;
-  void      PrintQuery(AstNode * aNode);
+  void Display(AstNode * aNode, int indent) const;
+  void PrintQuery(AstNode * aNode);
+  // string    GetQuery(AstNode * aNode) const;
   void      SetRoot(AstNode * aNode);
   AstNode * GetRoot() const { return mRoot; };
 
