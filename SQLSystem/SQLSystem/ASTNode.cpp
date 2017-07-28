@@ -1,21 +1,27 @@
 #include "stdafx.h"
 #include "AstNode.h"
-void AstNode::SetToken(IToken * aToken)
+AstNode::AstNode(const AstNode & aAstNode)
+{
+  mToken = aAstNode.GetToken();
+  mLeft  = aAstNode.GetLeft();
+  mRight = aAstNode.GetRight();
+}
+
+void AstNode::SetToken(TokenPtr aToken)
 {
   mToken = aToken;
 }
 
-void AstNode::SetLeft(AstNode * aLeft)
+void AstNode::SetLeft(AstNodePtr aLeft)
 {
   mLeft = aLeft;
 }
 
-void AstNode::SetRight(AstNode * aRight)
+void AstNode::SetRight(AstNodePtr aRight)
 {
   mRight = aRight;
 }
 
 AstNode::~AstNode()
 {
-  delete mToken;
 }

@@ -1,10 +1,14 @@
 #pragma once
 #include "stdafx.h"
-#include "ICommand.h"
+#include "IToken.h"
+
+class AstNode;
+typedef shared_ptr<AstNode> AstNodePtr;
+
 class AstNode
 {
 public:
-  AstNode(IToken * aToken)
+  AstNode(TokenPtr aToken)
     : mToken(aToken)
   {
     mLeft  = nullptr;
@@ -16,17 +20,24 @@ public:
     , mRight(nullptr)
   {
   }
-  AstNode * GetLeft() const { return mLeft; };
-  AstNode * GetRight() const { return mRight; };
-  IToken *  GetToken() const { return mToken; };
-  void      SetToken(IToken * aToken);
-  void      SetLeft(AstNode * aLeft);
-  void      SetRight(AstNode * aRight);
+  AstNode(const AstNode & aAstNode);
+
+  AstNodePtr GetLeft() const { return mLeft; };
+
+  AstNodePtr GetRight() const { return mRight; };
+
+  TokenPtr GetToken() const { return mToken; };
+
+  void SetToken(TokenPtr aToken);
+
+  void SetLeft(AstNodePtr aLeft);
+
+  void SetRight(AstNodePtr aRight);
 
   ~AstNode();
 
 private:
-  IToken *  mToken;
-  AstNode * mLeft;
-  AstNode * mRight;
+  TokenPtr   mToken;
+  AstNodePtr mLeft;
+  AstNodePtr mRight;
 };

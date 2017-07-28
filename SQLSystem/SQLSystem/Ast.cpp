@@ -12,7 +12,7 @@ Ast::Ast()
   mRoot = nullptr;
 }
 
-void Ast::Display(AstNode * aNode, int indent) const
+void Ast::Display(AstNodePtr aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -35,7 +35,7 @@ void Ast::Display(AstNode * aNode, int indent) const
   }
 }
 
-void Ast::PrintQuery(AstNode * aNode)
+void Ast::PrintQuery(AstNodePtr aNode)
 {
   if (aNode != nullptr)
   {
@@ -52,7 +52,7 @@ void Ast::PrintQuery(AstNode * aNode)
   }
 }
 
-void Ast::SetRoot(AstNode * aNode)
+void Ast::SetRoot(AstNodePtr aNode)
 {
   if (mRoot == nullptr)
   {
@@ -62,5 +62,4 @@ void Ast::SetRoot(AstNode * aNode)
 
 Ast::~Ast()
 {
-  delete mRoot;
 }

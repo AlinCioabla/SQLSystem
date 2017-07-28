@@ -6,13 +6,13 @@ Parser::Parser()
 {
 }
 
-bool Parser::Parse(ITokensTraversal *& aLexer)
+bool Parser::Parse(unique_ptr<ITokensTraversal> & aLexer)
 {
-  IToken *  currentToken = GetNwToken(aLexer);
-  IToken *  prevToken    = currentToken;
-  AstNode * root         = new AstNode(currentToken);
-  mAst.SetRoot(root);
-  AstNode * currentInstructionNode = mAst.GetRoot();
+  TokenPtr currentToken = GetNwToken(aLexer);
+  TokenPtr prevToken    = currentToken;
+
+  mAst.SetRoot(Ast::GetNewNode(currentToken));
+  AstNodePtr currentInstructionNode = mAst.GetRoot();
 
   TransitionTo(UNDEFINED);
 
@@ -48,12 +48,12 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         if (prevToken->GetType() == KeywordType)
         {
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
         }
 
         else if (prevToken->GetWord() == ",")
         {
-          currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
         }
         else
         {
@@ -69,8 +69,8 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
           TransitionTo(INVALID);
         else
         {
-          AstNode * temp = currentInstructionNode->GetLeft();
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          auto temp = Ast::GetNewNode(currentToken);
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
           currentInstructionNode->GetLeft()->SetLeft(temp);
         }
 
@@ -80,8 +80,8 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         if (prevToken->GetType() != IdentifierType)
         {
-          AstNode * temp = currentInstructionNode->GetLeft();
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          auto temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
           currentInstructionNode->GetLeft()->SetLeft(temp);
         }
         else
@@ -95,7 +95,7 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
             prevToken->GetWord() == "SELECT")
         {
           TransitionTo(DISTINCT);
-          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode->SetRight(Ast::GetNewNode(currentToken));
           currentInstructionNode = currentInstructionNode->GetRight();
         }
       }
@@ -105,7 +105,7 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
         if (prevToken->GetWord() == "DELETE" || prevToken->GetWord() == "*")
         {
           TransitionTo(FROM);
-          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode->SetRight(Ast::GetNewNode(currentToken));
           currentInstructionNode = currentInstructionNode->GetRight();
         }
         else if (prevToken->GetType() != IdentifierType && prevToken->GetWord() != "DELETE")
@@ -113,7 +113,7 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
         else
         {
           TransitionTo(FROM);
-          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode->SetRight(Ast::GetNewNode(currentToken));
           currentInstructionNode = currentInstructionNode->GetRight();
         }
 
@@ -130,11 +130,11 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         if (prevToken->GetType() == KeywordType)
         {
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
         }
         else if (prevToken->GetWord() == ",")
         {
-          currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
         }
         else
         {
@@ -150,8 +150,8 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
           TransitionTo(INVALID);
         else
         {
-          AstNode * temp = currentInstructionNode->GetLeft();
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          auto temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
           currentInstructionNode->GetLeft()->SetLeft(temp);
         }
 
@@ -178,7 +178,7 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
         else
         {
           TransitionTo(WHERE);
-          currentInstructionNode->SetRight(new AstNode(currentToken));
+          currentInstructionNode->SetRight(Ast::GetNewNode(currentToken));
           currentInstructionNode = currentInstructionNode->GetRight();
         }
 
@@ -195,8 +195,8 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         if (prevToken->GetType() == PredicateType || IsNumber(prevToken->GetWord()))
         {
-          AstNode * temp = currentInstructionNode->GetLeft();
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          auto temp = currentInstructionNode->GetLeft();
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
           currentInstructionNode->GetLeft()->SetLeft(temp);
         }
         else
@@ -212,14 +212,14 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
           if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
               currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
           {
-            AstNode * temp = currentInstructionNode->GetLeft()->GetRight();
-            currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+            auto temp = currentInstructionNode->GetLeft()->GetRight();
+            currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
             currentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
           }
           else
           {
-            AstNode * temp = currentInstructionNode->GetLeft();
-            currentInstructionNode->SetLeft(new AstNode(currentToken));
+            auto temp = currentInstructionNode->GetLeft();
+            currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
             currentInstructionNode->GetLeft()->SetLeft(temp);
           }
         }
@@ -234,11 +234,11 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         if (prevToken->GetType() == KeywordType)
         {
-          currentInstructionNode->SetLeft(new AstNode(currentToken));
+          currentInstructionNode->SetLeft(Ast::GetNewNode(currentToken));
         }
         else if (prevToken->GetWord() == "AND" || prevToken->GetWord() == "OR")
         {
-          currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+          currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
         }
         else
         {
@@ -256,11 +256,11 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
           if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
               currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
           {
-            currentInstructionNode->GetLeft()->GetRight()->SetRight(new AstNode(currentToken));
+            currentInstructionNode->GetLeft()->GetRight()->SetRight(Ast::GetNewNode(currentToken));
           }
           else
           {
-            currentInstructionNode->GetLeft()->SetRight(new AstNode(currentToken));
+            currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
           }
         }
         else
@@ -294,10 +294,6 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
     prevToken    = currentToken;
     currentToken = GetNwToken(aLexer);
   }
-
-  // ast.Display(ast.GetRoot(), 20);
-  // cout << endl << endl;
-  // ast.PrintQuery(ast.GetRoot());
 
   return (mCurrentState == VALID);
 }

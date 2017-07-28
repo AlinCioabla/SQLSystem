@@ -9,7 +9,16 @@
 
 int main()
 {
-  ParserTests();
+  ifstream                     in("TestFile1.txt");
+  unique_ptr<Parser>           parser = make_unique<Parser>();
+  unique_ptr<ITokensTraversal> lexer  = make_unique<Lexer>();
+  lexer->ReadFromFile(in);
+  lexer->Tokenize();
+
+  parser->Parse(lexer);
+
+  Ast & ast = parser->GetAst();
+  ast.Display(ast.GetRoot(), 20);
 
   return 0;
 }

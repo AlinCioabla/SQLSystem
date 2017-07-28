@@ -1,13 +1,12 @@
 #pragma once
-#include <iostream>
-#include <fstream>
-#include <vector>
-#include <functional>
-#include <string>
 #include <algorithm>
-#include <set>
+#include <fstream>
+#include <functional>
+#include <iomanip>
+#include <iostream>
 #include <list>
+#include <memory>
+#include <set>
 #include <string>
-#include <iomanip> 
-
+#include <vector>
 using namespace std;

@@ -1,11 +1,7 @@
 #pragma once
 #include "stdafx.h"
-#include "ICommand.h"
 #include "Ast.h"
 #include "AstNode.h"
-#include "Begin.h"
-#include "Final.h"
-#include "Intermediar.h"
 #include "Lexer.h"
 
 enum ParserState
@@ -26,7 +22,7 @@ class Parser
 public:
   Parser();
 
-  bool  Parse(ITokensTraversal *& aLexer);
+  bool  Parse(unique_ptr<ITokensTraversal> & aLexer);
   Ast & GetAst();
 
   ~Parser();
