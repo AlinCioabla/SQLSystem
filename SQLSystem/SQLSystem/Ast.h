@@ -4,7 +4,7 @@
 class Ast
 {
 public:
-  Ast(AstNode * aRoot)
+  Ast(AstNodePtr aRoot)
     : mRoot(aRoot){};
   Ast(const Ast & aAst);
 
@@ -15,6 +15,10 @@ public:
   void PrintQuery(AstNodePtr aNode);
 
   void SetRoot(AstNodePtr aNode);
+
+  void InsertLeft(AstNodePtr aNode, TokenPtr aToken);
+
+  void InsertRight(AstNodePtr aNode, TokenPtr aToken);
 
   AstNodePtr GetRoot() const { return mRoot; };
 

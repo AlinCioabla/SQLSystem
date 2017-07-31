@@ -9,7 +9,7 @@
 
 int main()
 {
-  ifstream                     in("TestFile1.txt");
+  /*ifstream                     in("TestFile1.txt");
   unique_ptr<Parser>           parser = make_unique<Parser>();
   unique_ptr<ITokensTraversal> lexer  = make_unique<Lexer>();
   lexer->ReadFromFile(in);
@@ -18,7 +18,9 @@ int main()
   parser->Parse(lexer);
 
   Ast & ast = parser->GetAst();
-  ast.Display(ast.GetRoot(), 20);
+  ast.Display(ast.GetRoot(), 20);*/
+
+  ParserTests();
 
   return 0;
 }
