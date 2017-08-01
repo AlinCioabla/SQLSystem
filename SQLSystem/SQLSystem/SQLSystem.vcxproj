@@ -121,6 +121,8 @@
   <ItemGroup>
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
+    <ClCompile Include="LexerTest.cpp" />
+    <ClCompile Include="LexerTestUnit.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="Identifier.cpp" />
@@ -130,7 +132,9 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="ParserTester.cpp" />
+    <ClCompile Include="ParserTestUnit.cpp" />
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
@@ -146,7 +150,10 @@
   <ItemGroup>
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
+    <ClInclude Include="ITestUnit.h" />
     <ClInclude Include="ITokensTraversal.h" />
+    <ClInclude Include="LexerTest.h" />
+    <ClInclude Include="LexerTestUnit.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Identifier.h" />
@@ -156,7 +163,9 @@
     <ClInclude Include="LexerTester.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="ParserTest.h" />
     <ClInclude Include="ParserTester.h" />
+    <ClInclude Include="ParserTestUnit.h" />
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="SQLSystem.h" />
@@ -165,8 +174,6 @@
     <ClInclude Include="WhiteSpace.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="in.txt" />
-    <Text Include="Instr.txt" />
     <Text Include="TestFile1.txt" />
     <Text Include="TestFile10.txt" />
     <Text Include="TestFile11.txt" />

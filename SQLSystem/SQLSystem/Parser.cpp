@@ -6,7 +6,7 @@ Parser::Parser()
 {
 }
 
-bool Parser::Parse(unique_ptr<ITokensTraversal> & aLexer)
+bool Parser::Parse(ITokensTraversal & aLexer)
 {
   TokenPtr currentToken = GetNwToken(aLexer);
   TokenPtr prevToken    = currentToken;

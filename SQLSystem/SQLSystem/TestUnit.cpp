@@ -37,10 +37,10 @@ bool ParserTests()
   cout << "Parser Test1: " << endl;
   ifstream _inputFile1("TestFile1.txt");
 
-  unique_ptr<Parser>           parser1 = make_unique<Parser>();
-  unique_ptr<ITokensTraversal> lexer1  = make_unique<Lexer>();
-  lexer1->ReadFromFile(_inputFile1);
-  lexer1->Tokenize();
+  Parser parser1;
+  Lexer  lexer1;
+  lexer1.ReadFromFile(_inputFile1);
+  lexer1.Tokenize();
   ParserTester parserTester1(parser1, lexer1);
 
   bool succes1 = parserTester1.ConstructAst();
@@ -57,53 +57,53 @@ bool ParserTests()
     cout << "////////////////////////////////////////////////////////" << endl;
   }
 
-  // Test2
-  cout << "Parser Test2: " << endl;
-  ifstream                     _inputFile2("TestFile2.txt");
-  unique_ptr<Parser>           parser2 = make_unique<Parser>();
-  unique_ptr<ITokensTraversal> lexer2  = make_unique<Lexer>();
-  lexer2->ReadFromFile(_inputFile2);
-  lexer2->Tokenize();
-  ParserTester parserTester2(parser2, lexer2);
+  //// Test2
+  // cout << "Parser Test2: " << endl;
+  // ifstream                     _inputFile2("TestFile2.txt");
+  // unique_ptr<Parser>           parser2 = make_unique<Parser>();
+  // unique_ptr<ITokensTraversal> lexer2  = make_unique<Lexer>();
+  // lexer2->ReadFromFile(_inputFile2);
+  // lexer2->Tokenize();
+  // ParserTester parserTester2(parser2, lexer2);
 
-  bool succes2 = parserTester2.ConstructAst();
-  if (!succes2)
-  {
-    cout << "Failed to construct AST. Invalid syntax." << endl;
-  }
-  else
-  {
-    parserTester2.DisplayAst();
-    cout << endl << "Query from AST: " << endl;
-    parserTester2.PrintQueryFromAst();
-    cout << endl << endl << "Initial Query: " << endl;
-    cout << "////////////////////////////////////////////////////////" << endl;
-  }
+  // bool succes2 = parserTester2.ConstructAst();
+  // if (!succes2)
+  //{
+  //  cout << "Failed to construct AST. Invalid syntax." << endl;
+  //}
+  // else
+  //{
+  //  parserTester2.DisplayAst();
+  //  cout << endl << "Query from AST: " << endl;
+  //  parserTester2.PrintQueryFromAst();
+  //  cout << endl << endl << "Initial Query: " << endl;
+  //  cout << "////////////////////////////////////////////////////////" << endl;
+  //}
 
-  // Test3
-  cout << "Parser Test3: " << endl;
-  ifstream                     _inputFile3("TestFile3.txt");
-  unique_ptr<Parser>           parser3 = make_unique<Parser>();
-  unique_ptr<ITokensTraversal> lexer3  = make_unique<Lexer>();
-  lexer3->ReadFromFile(_inputFile3);
-  lexer3->Tokenize();
-  ParserTester parserTester3(parser3, lexer3);
+  //// Test3
+  // cout << "Parser Test3: " << endl;
+  // ifstream                     _inputFile3("TestFile3.txt");
+  // unique_ptr<Parser>           parser3 = make_unique<Parser>();
+  // unique_ptr<ITokensTraversal> lexer3  = make_unique<Lexer>();
+  // lexer3->ReadFromFile(_inputFile3);
+  // lexer3->Tokenize();
+  // ParserTester parserTester3(parser3, lexer3);
 
-  bool succes3 = parserTester3.ConstructAst();
-  if (!succes3)
-  {
-    cout << "Failed to construct AST. Invalid syntax." << endl;
-  }
-  else
-  {
-    parserTester3.DisplayAst();
-    cout << endl << "Query from AST: " << endl;
-    parserTester3.PrintQueryFromAst();
-    cout << endl << endl << "Initial Query: " << endl;
-    cout << "////////////////////////////////////////////////////////" << endl;
-  }
+  // bool succes3 = parserTester3.ConstructAst();
+  // if (!succes3)
+  //{
+  //  cout << "Failed to construct AST. Invalid syntax." << endl;
+  //}
+  // else
+  //{
+  //  parserTester3.DisplayAst();
+  //  cout << endl << "Query from AST: " << endl;
+  //  parserTester3.PrintQueryFromAst();
+  //  cout << endl << endl << "Initial Query: " << endl;
+  //  cout << "////////////////////////////////////////////////////////" << endl;
+  //}
 
-  if (succes1 && succes2 && succes3)
+  if (succes1 /*&& succes2 && succes3*/)
   {
     return true;
   }

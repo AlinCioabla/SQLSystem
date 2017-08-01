@@ -2,19 +2,19 @@
 #include "ParserTester.h"
 bool ParserTester::ConstructAst()
 {
-  return mParser->Parse(mLexer);
+  return mParser.Parse(mLexer);
 }
 
 void ParserTester::PrintQueryFromAst()
 {
-  auto root = mParser->GetAst().GetRoot();
-  mParser->GetAst().PrintQuery(root);
+  auto root = mParser.GetAst().GetRoot();
+  mParser.GetAst().PrintQuery(root);
 }
 
 void ParserTester::DisplayAst()
 {
-  auto root = mParser->GetAst().GetRoot();
-  mParser->GetAst().Display(root, 20);
+  auto root = mParser.GetAst().GetRoot();
+  mParser.GetAst().Display(root, 20);
 }
 
 bool ParserTester::TestAst()

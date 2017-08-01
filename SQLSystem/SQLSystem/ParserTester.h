@@ -6,9 +6,9 @@
 class ParserTester
 {
 public:
-  ParserTester(unique_ptr<Parser> & aParser, unique_ptr<ITokensTraversal> & aLexer)
-    : mParser(move(aParser))
-    , mLexer(move(aLexer))
+  ParserTester(Parser & aParser, ITokensTraversal & aLexer)
+    : mParser(aParser)
+    , mLexer(aLexer)
   {
   }
 
@@ -20,6 +20,6 @@ public:
   ~ParserTester();
 
 private:
-  unique_ptr<Parser>           mParser;
-  unique_ptr<ITokensTraversal> mLexer;
+  Parser &           mParser;
+  ITokensTraversal & mLexer;
 };

@@ -18,4 +18,4 @@ const bool IsNumber(const string & aString);
 
 const bool IsKeyword(const string & aString);
 
-TokenPtr GetNwToken(unique_ptr<ITokensTraversal> & aLexer);
+TokenPtr GetNwToken(ITokensTraversal & aLexer);

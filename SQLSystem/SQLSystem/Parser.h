@@ -22,7 +22,7 @@ class Parser
 public:
   Parser();
 
-  bool  Parse(unique_ptr<ITokensTraversal> & aLexer);
+  bool  Parse(ITokensTraversal & aLexer);
   Ast & GetAst();
 
   ~Parser();

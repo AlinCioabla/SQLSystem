@@ -1,6 +1,5 @@
 #pragma once
-#ifndef _LEXER_
-#define _LEXER_
+
 #include "IToken.h"
 #include "ITokensTraversal.h"
 #include "Identifier.h"
@@ -37,6 +36,5 @@ private:
   vector<TokenPtr>::iterator mIndex;
   vector<TokenPtr>           mTokens;
   bool                       returnedFirstToken = false;
-  friend class LexerTester;
+  friend class LexerTest;
 };
-#endif  // !_LEXER_

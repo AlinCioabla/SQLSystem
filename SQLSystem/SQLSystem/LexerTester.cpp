@@ -26,8 +26,8 @@ bool LexerTester::TestTokens()
   string _initialCommand = mLexer.GetSqlCommand();
 
   // Concatenate all the strings contained by the tokens
-  for (auto it : mLexer.mTokens)
-    _tokensVector += it->GetWord();
+  /*for (auto it : mLexer.mTokens)
+    _tokensVector += it->GetWord();*/
 
   // Check if the resulted concatenated string matches the input
   bool TestTokensStatus = (_tokensVector == _initialCommand);

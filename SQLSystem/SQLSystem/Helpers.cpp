@@ -51,12 +51,12 @@ const bool IsKeyword(const string & aString)
   return false;
 }
 
-TokenPtr GetNwToken(unique_ptr<ITokensTraversal> & aLexer)
+TokenPtr GetNwToken(ITokensTraversal & aLexer)
 {
-  TokenPtr currentToken = aLexer->GetNextToken();
+  TokenPtr currentToken = aLexer.GetNextToken();
   while (currentToken != nullptr && currentToken->GetType() == WhiteSpaceType)
   {
-    currentToken = aLexer->GetNextToken();
+    currentToken = aLexer.GetNextToken();
   }
   return currentToken;
 }
