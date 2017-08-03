@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include "Ast.h"
 #include "AstNode.h"
 
@@ -11,7 +12,7 @@ Ast::Ast()
   mRoot = nullptr;
 }
 
-void Ast::Display(AstNode * aNode, int indent) const
+void Ast::Display(AstNodePtr aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -34,7 +35,7 @@ void Ast::Display(AstNode * aNode, int indent) const
   }
 }
 
-void Ast::PrintQuery(AstNode * aNode)
+void Ast::PrintQuery(AstNodePtr aNode)
 {
   if (aNode != nullptr)
   {
@@ -51,27 +52,7 @@ void Ast::PrintQuery(AstNode * aNode)
   }
 }
 
-// string Ast::GetQuery(AstNode * aNode) const
-//{
-//  string query;
-//  if (aNode != nullptr)
-//  {
-//    if (aNode->GetToken()->GetType() == KeywordType)
-//    {
-//      query += aNode->GetToken()->GetWord();
-//      query += " ";
-//    }
-//    GetQuery(aNode->GetLeft());
-//    if (aNode->GetToken()->GetType() != KeywordType)
-//    {
-//      query += aNode->GetToken()->GetWord();
-//      query += " ";
-//    }
-//    GetQuery(aNode->GetRight());
-//  }
-//}
-
-void Ast::SetRoot(AstNode * aNode)
+void Ast::SetRoot(AstNodePtr aNode)
 {
   if (mRoot == nullptr)
   {
@@ -79,7 +60,20 @@ void Ast::SetRoot(AstNode * aNode)
   }
 }
 
+void Ast::InsertLeft(AstNodePtr aNode, TokenPtr aToken)
+{
+  auto temp = aNode->GetLeft();
+  aNode->SetLeft(Ast::GetNewNode(aToken));
+  aNode->GetLeft()->SetLeft(temp);
+}
+
+void Ast::InsertRight(AstNodePtr aNode, TokenPtr aToken)
+{
+  auto temp = aNode->GetRight();
+  aNode->SetRight(Ast::GetNewNode(aToken));
+  aNode->GetRight()->SetRight(temp);
+}
+
 Ast::~Ast()
 {
-  delete mRoot;
 }

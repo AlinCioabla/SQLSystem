@@ -1,16 +1,19 @@
+#include "stdafx.h"
 #include "LexerTester.h"
-
-bool LexerTester::TestTokens() {
+bool LexerTester::TestTokens()
+{
   // Check if the file is valid
   bool readFromFileStatus = mLexer.ReadFromFile(mIn);
-  if (!readFromFileStatus) {
+  if (!readFromFileStatus)
+  {
     cout << "Cannot read from given file." << endl;
     return false;
   }
 
   // Start tokenizing the input
   bool _tokenizeSucces = mLexer.Tokenize();
-  if (!_tokenizeSucces) {
+  if (!_tokenizeSucces)
+  {
     cout << "Tokenization ended unexpectedly.";
     return false;
   }
@@ -23,13 +26,14 @@ bool LexerTester::TestTokens() {
   string _initialCommand = mLexer.GetSqlCommand();
 
   // Concatenate all the strings contained by the tokens
-  for (auto it : mLexer.mTokens)
-    _tokensVector += it->GetWord();
+  /*for (auto it : mLexer.mTokens)
+    _tokensVector += it->GetWord();*/
 
   // Check if the resulted concatenated string matches the input
   bool TestTokensStatus = (_tokensVector == _initialCommand);
 
-  if (!TestTokensStatus) {
+  if (!TestTokensStatus)
+  {
     cout << "Failed to tokenize properly." << endl;
     return false;
   }
@@ -37,4 +41,6 @@ bool LexerTester::TestTokens() {
   return true;
 }
 
-LexerTester::~LexerTester() {}
+LexerTester::~LexerTester()
+{
+}

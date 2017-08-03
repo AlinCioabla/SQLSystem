@@ -6,7 +6,7 @@
 class ParserTester
 {
 public:
-  ParserTester(Parser & aParser, ITokensTraversal *& aLexer)
+  ParserTester(Parser & aParser, ITokensTraversal & aLexer)
     : mParser(aParser)
     , mLexer(aLexer)
   {
@@ -20,6 +20,6 @@ public:
   ~ParserTester();
 
 private:
-  Parser &            mParser;
-  ITokensTraversal *& mLexer;
+  Parser &           mParser;
+  ITokensTraversal & mLexer;
 };

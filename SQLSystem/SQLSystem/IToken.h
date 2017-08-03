@@ -28,3 +28,5 @@ public:
   // Destructor
   virtual ~IToken(){};
 };
+
+typedef shared_ptr<IToken> TokenPtr;

@@ -1,2 +1,1 @@
-SELECT column1, column2
-FROM table1 WHERE column1 = 'a';
+SELECT * FROM tabel1 WHERE nume1 = '%a';

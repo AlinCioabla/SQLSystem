@@ -43,7 +43,7 @@ bool Lexer::Tokenize()
     {
       foundPredicate = false;
       _temp += it;
-      mTokens.push_back(new Predicate(_temp));
+      mTokens.push_back(make_shared<Predicate>(_temp));
       _temp.clear();
     }
     else if (foundPredicate)
@@ -64,11 +64,11 @@ bool Lexer::Tokenize()
         {
           if (IsKeyword(_temp))
           {
-            mTokens.push_back(new Keyword(_temp));
+            mTokens.push_back(make_shared<Keyword>(_temp));
           }
           else
           {
-            mTokens.push_back(new Identifier(_temp));
+            mTokens.push_back(make_shared<Identifier>(_temp));
           }
           _temp.clear();
         }
@@ -78,15 +78,15 @@ bool Lexer::Tokenize()
 
         if (IsWhitespace(it))
         {
-          mTokens.push_back(new WhiteSpace(it));
+          mTokens.push_back(make_shared<WhiteSpace>(it));
         }
         else if (IsOperator(it))
         {
-          mTokens.push_back(new Operator(it));
+          mTokens.push_back(make_shared<Operator>(it));
         }
         else if (IsPunctuation(it))
         {
-          mTokens.push_back(new Punctuation(it));
+          mTokens.push_back(make_shared<Punctuation>(it));
         }
         else
         {
@@ -103,7 +103,7 @@ bool Lexer::Tokenize()
   return true;
 }
 
-IToken * Lexer::GetNextToken()
+TokenPtr Lexer::GetNextToken()
 {
   if (this->HasNext())
   {
@@ -127,10 +127,11 @@ bool Lexer::HasNext() const
   return mIndex != mTokens.end() - 1;
 }
 
+void Lexer::ResetNext()
+{
+  mIndex = mTokens.begin();
+}
+
 Lexer::~Lexer()
 {
-  for (auto token : mTokens)
-  {
-    delete token;
-  }
 }

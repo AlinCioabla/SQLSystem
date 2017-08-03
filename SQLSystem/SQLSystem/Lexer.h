@@ -1,6 +1,5 @@
 #pragma once
-#ifndef _LEXER_
-#define _LEXER_
+
 #include "IToken.h"
 #include "ITokensTraversal.h"
 #include "Identifier.h"
@@ -11,8 +10,6 @@
 #include "Punctuation.h"
 #include "WhiteSpace.h"
 
-using namespace std;
-
 class Lexer : public ITokensTraversal
 {
 public:
@@ -22,17 +19,22 @@ public:
   bool ReadFromFile(ifstream & aIn);
 
   // This one tokenize mSqlCommand and stores the tokens in mTokens
-  bool             Tokenize();
-  string           GetSqlCommand() const { return mSqlCommand; };
-  vector<IToken *> mTokens;
-  IToken *         GetNextToken();
+  bool Tokenize();
+
+  string GetSqlCommand() const { return mSqlCommand; };
+
+  TokenPtr GetNextToken() override;
 
   bool HasNext() const;
+
+  void ResetNext();
+
   ~Lexer();
 
 private:
   string                     mSqlCommand;
-  vector<IToken *>::iterator mIndex;
+  vector<TokenPtr>::iterator mIndex;
+  vector<TokenPtr>           mTokens;
   bool                       returnedFirstToken = false;
+  friend class LexerTest;
 };
-#endif  // !_LEXER_

@@ -1,5 +1,5 @@
+#include "stdafx.h"
 #include "Helpers.h"
-
 // string operators[]{ "+", "-", "*", "/", ":", "=", "^", "%","<", ">" };
 // string punctuations[]{ ".", ",", "?", "&", "!", ";", ":", "_", "(" ")" };
 string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT", "FROM", "WHERE" };
@@ -51,12 +51,12 @@ const bool IsKeyword(const string & aString)
   return false;
 }
 
-IToken * GetNwToken(ITokensTraversal *& aLexer)
+TokenPtr GetNwToken(ITokensTraversal & aLexer)
 {
-  IToken * currentToken = aLexer->GetNextToken();
+  TokenPtr currentToken = aLexer.GetNextToken();
   while (currentToken != nullptr && currentToken->GetType() == WhiteSpaceType)
   {
-    currentToken = aLexer->GetNextToken();
+    currentToken = aLexer.GetNextToken();
   }
   return currentToken;
 }

@@ -76,6 +76,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -84,6 +85,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -94,6 +96,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -108,6 +111,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <TreatWarningAsError>false</TreatWarningAsError>
+      <PrecompiledHeader>Use</PrecompiledHeader>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -117,6 +121,8 @@
   <ItemGroup>
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
+    <ClCompile Include="LexerTest.cpp" />
+    <ClCompile Include="LexerTestUnit.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Helpers.cpp" />
     <ClCompile Include="Identifier.cpp" />
@@ -126,17 +132,28 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
+    <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="ParserTester.cpp" />
+    <ClCompile Include="ParserTestUnit.cpp" />
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="TestUnit.cpp" />
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
+    <ClInclude Include="ITestUnit.h" />
     <ClInclude Include="ITokensTraversal.h" />
+    <ClInclude Include="LexerTest.h" />
+    <ClInclude Include="LexerTestUnit.h" />
     <ClInclude Include="Number.h" />
     <ClInclude Include="Helpers.h" />
     <ClInclude Include="Identifier.h" />
@@ -146,7 +163,9 @@
     <ClInclude Include="LexerTester.h" />
     <ClInclude Include="Operator.h" />
     <ClInclude Include="Parser.h" />
+    <ClInclude Include="ParserTest.h" />
     <ClInclude Include="ParserTester.h" />
+    <ClInclude Include="ParserTestUnit.h" />
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="SQLSystem.h" />
@@ -155,8 +174,6 @@
     <ClInclude Include="WhiteSpace.h" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="in.txt" />
-    <Text Include="Instr.txt" />
     <Text Include="TestFile1.txt" />
     <Text Include="TestFile10.txt" />
     <Text Include="TestFile11.txt" />
