@@ -35,7 +35,7 @@ bool ParserTests()
 {
   // Test1
   cout << "Parser Test1: " << endl;
-  ifstream           _inputFile1("TestFile1.txt");
+  ifstream           _inputFile1("TestFile13.txt");
   ITokensTraversal * lexer1 = new Lexer();
   lexer1->ReadFromFile(_inputFile1);
   lexer1->Tokenize();
@@ -57,55 +57,55 @@ bool ParserTests()
     cout << "////////////////////////////////////////////////////////" << endl;
   }
 
-  // Test2
-  cout << "Parser Test2: " << endl;
-  ifstream           _inputFile2("TestFile2.txt");
-  ITokensTraversal * lexer2 = new Lexer();
-  lexer2->ReadFromFile(_inputFile2);
-  lexer2->Tokenize();
-  Parser       parser2;
-  ParserTester parserTester2(parser2, lexer2);
+  //// Test2
+  // cout << "Parser Test2: " << endl;
+  // ifstream           _inputFile2("TestFile2.txt");
+  // ITokensTraversal * lexer2 = new Lexer();
+  // lexer2->ReadFromFile(_inputFile2);
+  // lexer2->Tokenize();
+  // Parser       parser2;
+  // ParserTester parserTester2(parser2, lexer2);
 
-  bool succes2 = parserTester2.ConstructAst();
-  if (!succes2)
-  {
-    cout << "Failed to construct AST. Invalid syntax." << endl;
-  }
-  else
-  {
-    parserTester2.DisplayAst();
-    cout << endl << "Query from AST: " << endl;
-    parserTester2.PrintQueryFromAst();
-    cout << endl << endl << "Initial Query: " << endl;
-    cout << lexer2->GetSqlCommand() << endl;
-    cout << "////////////////////////////////////////////////////////" << endl;
-  }
+  // bool succes2 = parserTester2.ConstructAst();
+  // if (!succes2)
+  //{
+  //  cout << "Failed to construct AST. Invalid syntax." << endl;
+  //}
+  // else
+  //{
+  //  parserTester2.DisplayAst();
+  //  cout << endl << "Query from AST: " << endl;
+  //  parserTester2.PrintQueryFromAst();
+  //  cout << endl << endl << "Initial Query: " << endl;
+  //  cout << lexer2->GetSqlCommand() << endl;
+  //  cout << "////////////////////////////////////////////////////////" << endl;
+  //}
 
-  // Test3
-  cout << "Parser Test3: " << endl;
-  ifstream           _inputFile3("TestFile3.txt");
-  ITokensTraversal * lexer3 = new Lexer();
-  lexer3->ReadFromFile(_inputFile3);
-  lexer3->Tokenize();
-  Parser       parser3;
-  ParserTester parserTester3(parser3, lexer3);
+  //// Test3
+  // cout << "Parser Test3: " << endl;
+  // ifstream           _inputFile3("TestFile3.txt");
+  // ITokensTraversal * lexer3 = new Lexer();
+  // lexer3->ReadFromFile(_inputFile3);
+  // lexer3->Tokenize();
+  // Parser       parser3;
+  // ParserTester parserTester3(parser3, lexer3);
 
-  bool succes3 = parserTester3.ConstructAst();
-  if (!succes3)
-  {
-    cout << "Failed to construct AST. Invalid syntax." << endl;
-  }
-  else
-  {
-    parserTester3.DisplayAst();
-    cout << endl << "Query from AST: " << endl;
-    parserTester3.PrintQueryFromAst();
-    cout << endl << endl << "Initial Query: " << endl;
-    cout << lexer3->GetSqlCommand() << endl;
-    cout << "////////////////////////////////////////////////////////" << endl;
-  }
+  // bool succes3 = parserTester3.ConstructAst();
+  // if (!succes3)
+  //{
+  //  cout << "Failed to construct AST. Invalid syntax." << endl;
+  //}
+  // else
+  //{
+  //  parserTester3.DisplayAst();
+  //  cout << endl << "Query from AST: " << endl;
+  //  parserTester3.PrintQueryFromAst();
+  //  cout << endl << endl << "Initial Query: " << endl;
+  //  cout << lexer3->GetSqlCommand() << endl;
+  //  cout << "////////////////////////////////////////////////////////" << endl;
+  //}
 
-  if (succes1 && succes2 && succes3)
+  if (succes1)
   {
     return true;
   }

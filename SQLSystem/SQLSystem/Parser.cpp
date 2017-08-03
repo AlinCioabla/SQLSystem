@@ -33,6 +33,10 @@ bool Parser::Parse(ITokensTraversal *& aLexer)
       {
         TransitionTo(UPDATE);
       }
+      else if (currentToken->GetWord() == "DISTINCT")
+      {
+        TransitionTo(UPDATE);
+      }
       else
         TransitionTo(INVALID);
       break;
