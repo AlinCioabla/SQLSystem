@@ -34,17 +34,6 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
     }
   }
-
-  else
-
-    if (aCurrentToken->GetWord() == "*")
-  {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-    }
-  }
-
   else
 
     if (aCurrentToken->GetWord() == "DISTINCT" && aPrevToken->GetWord() == "SELECT")
@@ -60,8 +49,7 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
 
     if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
   {
-    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType ||
-        aPrevToken->GetWord() == "DELETE")
+    if (aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
