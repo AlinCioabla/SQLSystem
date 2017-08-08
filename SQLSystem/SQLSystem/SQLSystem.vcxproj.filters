@@ -102,6 +102,9 @@
     <ClCompile Include="Invalid.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Undefined.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -198,6 +201,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Invalid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Undefined.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -149,6 +149,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="Undefined.cpp" />
     <ClCompile Include="Update.cpp" />
     <ClCompile Include="Valid.cpp" />
     <ClCompile Include="Where.cpp" />
@@ -183,6 +184,7 @@
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />
+    <ClInclude Include="Undefined.h" />
     <ClInclude Include="Update.h" />
     <ClInclude Include="Valid.h" />
     <ClInclude Include="Where.h" />
