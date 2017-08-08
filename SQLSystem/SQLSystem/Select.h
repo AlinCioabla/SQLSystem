@@ -4,10 +4,10 @@
 class Select : public IState
 {
 public:
-  virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               TokenPtr &   prevToken,
-                               AstNodePtr & aCurrentInstructionNode,
-                               Ast &        aAst) override;
+  IState * HandleToken(TokenPtr &   aCurrentToken,
+                       TokenPtr &   prevToken,
+                       AstNodePtr & aCurrentInstructionNode,
+                       Ast &        aAst) override;
 
   ~Select();
 };

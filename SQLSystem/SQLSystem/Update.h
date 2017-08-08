@@ -6,6 +6,9 @@ class Update : public IState
 
 public:
   Update();
-
+  virtual IState * HandleToken(TokenPtr &   aCurrentToken,
+                               TokenPtr &   prevToken,
+                               AstNodePtr & aCurrentInstructionNode,
+                               Ast &        aAst) override;
   virtual ~Update();
 };

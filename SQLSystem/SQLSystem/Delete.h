@@ -6,8 +6,6 @@ class Delete : public IState
 
 public:
   Delete();
-  void  TransitionTo(State aState) override;
-  State GetState() const override;
-  bool  TestCommand() const override;
+
   virtual ~Delete();
 };

@@ -6,6 +6,9 @@ class Valid : public IState
 
 public:
   Valid();
-
+  virtual IState * HandleToken(TokenPtr &   aCurrentToken,
+                               TokenPtr &   prevToken,
+                               AstNodePtr & aCurrentInstructionNode,
+                               Ast &        aAst) override;
   virtual ~Valid();
 };
