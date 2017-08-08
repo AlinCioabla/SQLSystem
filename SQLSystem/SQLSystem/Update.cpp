@@ -5,14 +5,12 @@ Update::Update()
 {
 }
 
-void Update::TransitionTo(State aState)
+IState * Update::HandleToken(TokenPtr &   aCurrentToken,
+                             TokenPtr &   prevToken,
+                             AstNodePtr & aCurrentInstructionNode,
+                             Ast &        aAst)
 {
-  mNextState = aState;
-}
-
-State Update::GetState() const
-{
-  return State();
+  return nullptr;
 }
 
 Update::~Update()

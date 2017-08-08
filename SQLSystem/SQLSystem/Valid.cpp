@@ -5,19 +5,12 @@ Valid::Valid()
 {
 }
 
-void Valid::TransitionTo(State aState)
+IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
+                            TokenPtr &   prevToken,
+                            AstNodePtr & aCurrentInstructionNode,
+                            Ast &        aAst)
 {
-  mNextState = aState;
-}
-
-State Valid::GetState() const
-{
-  return State();
-}
-
-bool Valid::TestCommand() const
-{
-  return false;
+  return nullptr;
 }
 
 Valid::~Valid()

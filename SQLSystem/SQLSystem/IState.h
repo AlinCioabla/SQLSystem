@@ -2,13 +2,6 @@
 #include "stdafx.h"
 #include "IToken.h"
 #include "Ast.h"
-#include "Delete.h"
-#include "From.h"
-#include "Invalid.h"
-#include "Select.h"
-#include "Update.h"
-#include "Valid.h"
-#include "Where.h"
 
 enum State
 {

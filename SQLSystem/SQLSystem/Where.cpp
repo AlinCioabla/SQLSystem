@@ -5,19 +5,12 @@ Where::Where()
 {
 }
 
-void Where::TransitionTo(State aState)
+IState * Where::HandleToken(TokenPtr &   aCurrentToken,
+                            TokenPtr &   prevToken,
+                            AstNodePtr & aCurrentInstructionNode,
+                            Ast &        aAst)
 {
-  mNextState = aState;
-}
-
-State Where::GetState() const
-{
-  return State();
-}
-
-bool Where::TestCommand() const
-{
-  return false;
+  return nullptr;
 }
 
 Where::~Where()

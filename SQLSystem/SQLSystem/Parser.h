@@ -5,19 +5,6 @@
 #include "AstNode.h"
 #include "Lexer.h"
 
-enum ParserState
-{
-  SELECT,
-  DELETE,
-  UPDATE,
-  DISTINCT,
-  FROM,
-  WHERE,
-  INVALID,
-  VALID,
-  UNDEFINED
-};
-
 class Parser
 {
 public:
@@ -29,9 +16,7 @@ public:
   ~Parser();
 
 private:
-  ParserState mCurrentState;
-  void        TransitionTo(ParserState aState);
-  Ast         mAst;
+  Ast mAst;
 
   IState *           mCurrentState;
   TokenPtr           currentToken;
