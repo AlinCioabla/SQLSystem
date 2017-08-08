@@ -6,7 +6,6 @@ class Update : public IState
 
 public:
   Update();
-  void  TransitionTo(State aState) override;
-  State GetState() const override;
+
   virtual ~Update();
 };

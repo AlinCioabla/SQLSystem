@@ -9,5 +9,5 @@ public:
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) override;
 
-  virtual ~Select();
+  ~Select();
 };

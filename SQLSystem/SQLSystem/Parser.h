@@ -5,37 +5,22 @@
 #include "AstNode.h"
 #include "Lexer.h"
 
-enum ParserState
-{
-  SELECT,
-  DELETE,
-  UPDATE,
-  DISTINCT,
-  FROM,
-  WHERE,
-  INVALID,
-  VALID,
-  UNDEFINED
-};
-
 class Parser
 {
 public:
   Parser(ITokensTraversal & mLexer);
 
-  bool Parse();
-  Ast  GetAst();
+  bool  Parse();
+  Ast & GetAst();
 
   ~Parser();
 
 private:
-  ParserState mCurrentState;
-  void        TransitionTo(ParserState aState);
-  Ast         mAst;
+  Ast mAst;
 
   IState *           mCurrentState;
-  TokenPtr           currentToken;
-  TokenPtr           prevToken;
-  AstNodePtr         currentInstructionNode;
+  TokenPtr           mCurrentToken;
+  TokenPtr           mPrevToken;
+  AstNodePtr         mCurrentInstructionNode;
   ITokensTraversal & mLexer;
 };
