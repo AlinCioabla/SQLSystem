@@ -44,82 +44,82 @@ bool Parser::Parse()
   // case DELETE:
   // case UPDATE:
 
-  //  if (currentToken->GetType() == IdentifierType)
-  //  {
-  //    if (prevToken->GetType() == KeywordType)
-  //    {
-  //      mAst.InsertLeft(currentInstructionNode, currentToken);
-  //    }
+  /*   if (currentToken->GetType() == IdentifierType)
+     {
+       if (prevToken->GetType() == KeywordType)
+       {
+         mAst.InsertLeft(currentInstructionNode, currentToken);
+       }
 
-  //    else if (prevToken->GetWord() == ",")
-  //    {
-  //      mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-  //    }
-  //    else
-  //    {
-  //      TransitionTo(INVALID);
-  //    }
+       else if (prevToken->GetWord() == ",")
+       {
+         mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
+       }
+       else
+       {
+         TransitionTo(INVALID);
+       }
 
-  //    break;
-  //  }
+       break;
+     }
 
-  //  if (currentToken->GetWord() == ",")
-  //  {
-  //    if (prevToken->GetType() == IdentifierType)
-  //    {
-  //      mAst.InsertLeft(currentInstructionNode, currentToken);
-  //    }
-  //    else
-  //    {
-  //      TransitionTo(INVALID);
-  //    }
+     if (currentToken->GetWord() == ",")
+     {
+       if (prevToken->GetType() == IdentifierType)
+       {
+         mAst.InsertLeft(currentInstructionNode, currentToken);
+       }
+       else
+       {
+         TransitionTo(INVALID);
+       }
 
-  //    break;
-  //  }
-  //  if (currentToken->GetWord() == "*")
-  //  {
-  //    if (prevToken->GetType() == KeywordType)
-  //    {
-  //      mAst.InsertLeft(currentInstructionNode, currentToken);
-  //    }
-  //    else
-  //    {
-  //      TransitionTo(INVALID);
-  //    }
+       break;
+     }
+     if (currentToken->GetWord() == "*")
+     {
+       if (prevToken->GetType() == KeywordType)
+       {
+         mAst.InsertLeft(currentInstructionNode, currentToken);
+       }
+       else
+       {
+         TransitionTo(INVALID);
+       }
 
-  //    break;
-  //  }
-  //  if (currentToken->GetWord() == "DISTINCT" && prevToken->GetWord() == "SELECT")
-  //  {
-  //    if (prevToken->GetType() == KeywordType)
-  //    {
-  //      mAst.InsertRight(currentInstructionNode, currentToken);
-  //      currentInstructionNode = currentInstructionNode->GetRight();
-  //    }
-  //    else
-  //    {
-  //      TransitionTo(INVALID);
-  //    }
+       break;
+     }
+     if (currentToken->GetWord() == "DISTINCT" && prevToken->GetWord() == "SELECT")
+     {
+       if (prevToken->GetType() == KeywordType)
+       {
+         mAst.InsertRight(currentInstructionNode, currentToken);
+         currentInstructionNode = currentInstructionNode->GetRight();
+       }
+       else
+       {
+         TransitionTo(INVALID);
+       }
 
-  //    break;
-  //  }
+       break;
+     }
 
-  //  if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
-  //  {
-  //    if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType ||
-  //        prevToken->GetWord() == "DELETE")
-  //    {
-  //      mAst.InsertRight(currentInstructionNode, currentToken);
-  //      currentInstructionNode = currentInstructionNode->GetRight();
-  //      TransitionTo(FROM);
-  //    }
-  //    else
-  //    {
-  //      TransitionTo(INVALID);
-  //    }
+     if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
+     {
+       if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType ||
+           prevToken->GetWord() == "DELETE")
+       {
+         mAst.InsertRight(currentInstructionNode, currentToken);
+         currentInstructionNode = currentInstructionNode->GetRight();
+         TransitionTo(FROM);
+       }
+       else
+       {
+         TransitionTo(INVALID);
+       }
 
-  //    break;
-  //  }
+       break;
+     }*/
 
   // case FROM:
   //  if (currentToken->GetType() == IdentifierType)
