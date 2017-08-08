@@ -1,1 +1,1 @@
-SELECT Nume1, Nume2, Nume3 FROM Tabel1 , Tabel2, Tabel3 WHERE Nume1 = '%Alin' AND Nume2 = 'Cioabla' AND Nume3 LIKE '%A' OR Nume4 NOTLIKE '%Alex';
+SELECT DISTINCT Name1,Name2 FROM Table1;

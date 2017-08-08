@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "LexerTest.h"
 
-bool LexerTest::Execute(Lexer aLexer)
+bool LexerTest::Execute(Lexer & aLexer)
 {
   ifstream _inputFile(mInputFileName);
   if (!TestInputFile(_inputFile))

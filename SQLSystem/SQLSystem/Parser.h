@@ -22,8 +22,8 @@ class Parser
 public:
   Parser();
 
-  bool  Parse(ITokensTraversal & aLexer);
-  Ast & GetAst();
+  bool Parse(ITokensTraversal & aLexer);
+  Ast  GetAst();
 
   ~Parser();
 

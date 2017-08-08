@@ -20,15 +20,18 @@ bool ParserTest::Execute(ITokensTraversal & aLexer, Parser & aParser)
     cout << "Cannot construct AST. Invalid syntax." << endl;
     return false;
   }
-  if (!TestAst(aParser))
+  else if (!TestAst(aParser))
   {
     cout << "AST was not constructed properly" << endl;
     return false;
   }
 
-  DisplayAst(aParser);
-  PrintQueryFromAst(aParser);
-  return true;
+  else
+  {
+    DisplayAst(aParser);
+    PrintQueryFromAst(aParser);
+    return true;
+  }
 }
 
 ParserTest::~ParserTest()
@@ -37,11 +40,11 @@ ParserTest::~ParserTest()
 
 bool ParserTest::TestInputFile(ifstream & aInputFile)
 {
-  if (!aInputFile)
+  if (aInputFile)
   {
-    return false;
+    return true;
   }
-  return true;
+  return false;
 }
 
 bool ParserTest::TestConstructAst(ITokensTraversal & aLexer, Parser & aParser)

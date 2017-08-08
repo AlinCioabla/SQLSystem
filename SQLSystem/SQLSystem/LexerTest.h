@@ -11,7 +11,7 @@ public:
   {
   }
 
-  bool Execute(Lexer aLexer);
+  bool Execute(Lexer & aLexer);
 
   ~LexerTest();
 

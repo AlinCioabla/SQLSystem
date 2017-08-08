@@ -1,1 +1,1 @@
-d
+SELECT * FROM tabel1 WHERE nume1 = '%a';

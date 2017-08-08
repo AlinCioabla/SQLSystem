@@ -35,20 +35,14 @@ bool ParserTests()
 {
   // Test1
   cout << "Parser Test1: " << endl;
-<<<<<<< HEAD
-  ifstream           _inputFile1("TestFile13.txt");
-  ITokensTraversal * lexer1 = new Lexer();
-  lexer1->ReadFromFile(_inputFile1);
-  lexer1->Tokenize();
-  Parser       parser1;
-=======
+
   ifstream _inputFile1("TestFile1.txt");
 
   Parser parser1;
   Lexer  lexer1;
   lexer1.ReadFromFile(_inputFile1);
   lexer1.Tokenize();
->>>>>>> 7f361f4e17ae91ecdf07e28ec14721786a7fe857
+
   ParserTester parserTester1(parser1, lexer1);
 
   bool succes1 = parserTester1.ConstructAst();
@@ -67,19 +61,19 @@ bool ParserTests()
 
   //// Test2
   // cout << "Parser Test2: " << endl;
-<<<<<<< HEAD
+
   // ifstream           _inputFile2("TestFile2.txt");
   // ITokensTraversal * lexer2 = new Lexer();
   // lexer2->ReadFromFile(_inputFile2);
   // lexer2->Tokenize();
   // Parser       parser2;
-=======
+
   // ifstream                     _inputFile2("TestFile2.txt");
   // unique_ptr<Parser>           parser2 = make_unique<Parser>();
   // unique_ptr<ITokensTraversal> lexer2  = make_unique<Lexer>();
   // lexer2->ReadFromFile(_inputFile2);
   // lexer2->Tokenize();
->>>>>>> 7f361f4e17ae91ecdf07e28ec14721786a7fe857
+
   // ParserTester parserTester2(parser2, lexer2);
 
   // bool succes2 = parserTester2.ConstructAst();
@@ -93,28 +87,27 @@ bool ParserTests()
   //  cout << endl << "Query from AST: " << endl;
   //  parserTester2.PrintQueryFromAst();
   //  cout << endl << endl << "Initial Query: " << endl;
-<<<<<<< HEAD
+
   //  cout << lexer2->GetSqlCommand() << endl;
-=======
->>>>>>> 7f361f4e17ae91ecdf07e28ec14721786a7fe857
+
   //  cout << "////////////////////////////////////////////////////////" << endl;
   //}
 
   //// Test3
   // cout << "Parser Test3: " << endl;
-<<<<<<< HEAD
+
   // ifstream           _inputFile3("TestFile3.txt");
   // ITokensTraversal * lexer3 = new Lexer();
   // lexer3->ReadFromFile(_inputFile3);
   // lexer3->Tokenize();
   // Parser       parser3;
-=======
+
   // ifstream                     _inputFile3("TestFile3.txt");
   // unique_ptr<Parser>           parser3 = make_unique<Parser>();
   // unique_ptr<ITokensTraversal> lexer3  = make_unique<Lexer>();
   // lexer3->ReadFromFile(_inputFile3);
   // lexer3->Tokenize();
->>>>>>> 7f361f4e17ae91ecdf07e28ec14721786a7fe857
+
   // ParserTester parserTester3(parser3, lexer3);
 
   // bool succes3 = parserTester3.ConstructAst();
@@ -128,20 +121,20 @@ bool ParserTests()
   //  cout << endl << "Query from AST: " << endl;
   //  parserTester3.PrintQueryFromAst();
   //  cout << endl << endl << "Initial Query: " << endl;
-<<<<<<< HEAD
+
   //  cout << lexer3->GetSqlCommand() << endl;
   //  cout << "////////////////////////////////////////////////////////" << endl;
   //}
 
   if (succes1)
-=======
-  //  cout << "////////////////////////////////////////////////////////" << endl;
-  //}
 
-  if (succes1 /*&& succes2 && succes3*/)
->>>>>>> 7f361f4e17ae91ecdf07e28ec14721786a7fe857
-  {
-    return true;
-  }
+    //  cout << "////////////////////////////////////////////////////////" << endl;
+    //}
+
+    if (succes1 /*&& succes2 && succes3*/)
+
+    {
+      return true;
+    }
   return false;
 }

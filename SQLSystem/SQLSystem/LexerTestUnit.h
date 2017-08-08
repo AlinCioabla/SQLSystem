@@ -10,15 +10,15 @@
 class LexerTestUnit : public ITestUnit
 {
 public:
-  LexerTestUnit(Lexer & aLexer);
+  LexerTestUnit(){};
 
   void ExecuteAllTests() override;
 
-  void CreateTest(string aFileName) override;
+  void CreateTest(string aFileName, Lexer & aLexer);
 
   ~LexerTestUnit();
 
 private:
-  Lexer &           mLexer;
   vector<LexerTest> mTests;
+  vector<Lexer>     mLexer;
 };

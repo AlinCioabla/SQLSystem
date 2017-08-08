@@ -8,16 +8,16 @@
 class ParserTestUnit : public ITestUnit
 {
 public:
-  ParserTestUnit(Parser & aParser, ITokensTraversal & aTokensTraversal);
+  ParserTestUnit(){};
 
   void ExecuteAllTests() override;
 
-  void CreateTest(string aFileName) override;
+  void CreateTest(string aFileName, Parser & aParser, shared_ptr<ITokensTraversal> aTokenTravesral);
 
   ~ParserTestUnit();
 
 private:
-  Parser &           mParser;
-  ITokensTraversal & mTokensTraversal;
+  vector<Parser>     mParser;
+  vector<TravPtr>    mTokensTraversal;
   vector<ParserTest> mTests;
 };

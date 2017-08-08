@@ -16,18 +16,18 @@ public:
   Lexer();
 
   // Checks if the file can be read and sets mSqlCommand
-  bool ReadFromFile(ifstream & aIn);
+  bool ReadFromFile(ifstream & aIn) override;
 
   // This one tokenize mSqlCommand and stores the tokens in mTokens
-  bool Tokenize();
+  bool Tokenize() override;
 
-  string GetSqlCommand() const { return mSqlCommand; };
+  string GetSqlCommand() const override { return mSqlCommand; };
 
   TokenPtr GetNextToken() override;
 
-  bool HasNext() const;
+  bool HasNext() const override;
 
-  void ResetNext();
+  void ResetNext() override;
 
   ~Lexer();
 

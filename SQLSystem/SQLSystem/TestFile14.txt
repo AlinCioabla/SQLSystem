@@ -1,1 +1,2 @@
-SELECT;
+SELECT column1, column2,column3, column4,column5
+FROM table_name;

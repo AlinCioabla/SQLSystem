@@ -33,10 +33,6 @@ bool Parser::Parse(ITokensTraversal & aLexer)
       {
         TransitionTo(UPDATE);
       }
-      else if (currentToken->GetWord() == "DISTINCT")
-      {
-        TransitionTo(UPDATE);
-      }
       else
         TransitionTo(INVALID);
       break;
@@ -47,7 +43,7 @@ bool Parser::Parse(ITokensTraversal & aLexer)
     case SELECT:
     case DELETE:
     case UPDATE:
-    case DISTINCT:
+
       if (currentToken->GetType() == IdentifierType)
       {
         if (prevToken->GetType() == KeywordType)
@@ -93,10 +89,25 @@ bool Parser::Parse(ITokensTraversal & aLexer)
 
         break;
       }
+      if (currentToken->GetWord() == "DISTINCT" && prevToken->GetWord() == "SELECT")
+      {
+        if (prevToken->GetType() == KeywordType)
+        {
+          mAst.InsertRight(currentInstructionNode, currentToken);
+          currentInstructionNode = currentInstructionNode->GetRight();
+        }
+        else
+        {
+          TransitionTo(INVALID);
+        }
+
+        break;
+      }
 
       if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
       {
-        if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType)
+        if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType ||
+            prevToken->GetWord() == "DELETE")
         {
           mAst.InsertRight(currentInstructionNode, currentToken);
           currentInstructionNode = currentInstructionNode->GetRight();
@@ -276,7 +287,7 @@ bool Parser::Parse(ITokensTraversal & aLexer)
   return (mCurrentState == VALID);
 }
 
-Ast & Parser::GetAst()
+Ast Parser::GetAst()
 {
   return mAst;
 }
