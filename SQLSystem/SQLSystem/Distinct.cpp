@@ -72,7 +72,6 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
   else
     return new Invalid();
 }
-}
 
 Distinct::~Distinct()
 {
