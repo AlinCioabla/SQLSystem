@@ -9,7 +9,7 @@ void ParserTestUnit::ExecuteAllTests()
     {
       cout << "-------------------------------------" << endl << endl;
       cout << "Parser Test: " << index << endl;
-      bool succes = test.Execute(*mTokensTraversal[index - 1], mParser[index - 1]);
+      bool succes = test->Execute();
       cout << "Result: ";
       if (succes)
         cout << "Success!" << endl;
@@ -21,14 +21,9 @@ void ParserTestUnit::ExecuteAllTests()
   }
 }
 
-void ParserTestUnit::CreateTest(string                       aFileName,
-                                Parser &                     aParser,
-                                shared_ptr<ITokensTraversal> aTokenTravesral)
+void ParserTestUnit::CreateTest(string aFileName)
 {
-  ParserTest test(aFileName);
-  mTests.push_back(test);
-  mParser.push_back(aParser);
-  mTokensTraversal.push_back(move(aTokenTravesral));
+  mTests.push_back(make_unique<ParserTest>(aFileName));
 }
 
 ParserTestUnit::~ParserTestUnit()

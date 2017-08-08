@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "LexerTest.h"
 
-bool LexerTest::Execute(Lexer & aLexer)
+bool LexerTest::Execute()
 {
   ifstream _inputFile(mInputFileName);
   if (!TestInputFile(_inputFile))
@@ -10,24 +10,19 @@ bool LexerTest::Execute(Lexer & aLexer)
     cout << "Cannot open the specified input file" << endl;
     return false;
   }
-  if (!TestReadFromFile(aLexer, _inputFile))
+  if (!TestReadFromFile(_inputFile))
   {
     cout << "Failed to read properly from the given file" << endl;
     return false;
   }
-  if (!TestGetSqlCommand(aLexer))
+  if (!TestGetSqlCommand(_inputFile))
   {
     cout << "Cannot retrieve the initial input." << endl;
     return false;
   }
-  if (!TestTokenize(aLexer))
+  if (!TestTokenize(_inputFile))
   {
     cout << "Tokenization did not end properly. Unexpected symbol" << endl;
-    return false;
-  }
-  if (!TestGetNextToken(aLexer))
-  {
-    cout << "Getting next token failed." << endl;
     return false;
   }
 
@@ -36,6 +31,7 @@ bool LexerTest::Execute(Lexer & aLexer)
 
 LexerTest::~LexerTest()
 {
+  delete mLexer;
 }
 
 bool LexerTest::TestInputFile(ifstream & aInputFile)
@@ -47,9 +43,9 @@ bool LexerTest::TestInputFile(ifstream & aInputFile)
   return true;
 }
 
-bool LexerTest::TestReadFromFile(Lexer & aLexer, ifstream & aInputFile)
+bool LexerTest::TestReadFromFile(ifstream & aInputFile)
 {
-  if (aLexer.ReadFromFile(aInputFile))
+  if (mLexer->ReadFromFile(aInputFile))
   {
     string _temp;
     char   _c;
@@ -60,33 +56,48 @@ bool LexerTest::TestReadFromFile(Lexer & aLexer, ifstream & aInputFile)
     {
       _temp += _c;
     }
-    return _temp == aLexer.mSqlCommand;
+    return _temp == mLexer->GetSqlCommand();
   }
   return false;
 }
 
-bool LexerTest::TestTokenize(Lexer & aLexer)
+bool LexerTest::TestTokenize(ifstream & aInputFile)
 {
   string _tokens;
-  if (!aLexer.Tokenize())
+  if (!mLexer->Tokenize())
     return false;
 
-  for (auto & it : aLexer.mTokens)
-    _tokens += it->GetWord();
-  return _tokens == aLexer.mSqlCommand;
-}
-
-bool LexerTest::TestGetNextToken(Lexer & aLexer)
-{
-  for (auto token : aLexer.mTokens)
+  auto _currentToken = mLexer->GetNextToken();
+  while (_currentToken)
   {
-    if (token != aLexer.GetNextToken())
-      return false;
+    _tokens += _currentToken->GetWord();
+    _currentToken = mLexer->GetNextToken();
   }
-  return true;
+
+  string _temp;
+  char   _c;
+  aInputFile.clear();
+  aInputFile.seekg(0, aInputFile.beg);
+
+  while (aInputFile.get(_c))
+  {
+    _temp += _c;
+  }
+
+  return _tokens == _temp;
 }
 
-bool LexerTest::TestGetSqlCommand(Lexer & aLexer)
+bool LexerTest::TestGetSqlCommand(ifstream & aInputFile)
 {
-  return aLexer.mSqlCommand == aLexer.GetSqlCommand();
+  string _temp;
+  char   _c;
+  aInputFile.clear();
+  aInputFile.seekg(0, aInputFile.beg);
+
+  while (aInputFile.get(_c))
+  {
+    _temp += _c;
+  }
+
+  return _temp == mLexer->GetSqlCommand();
 }

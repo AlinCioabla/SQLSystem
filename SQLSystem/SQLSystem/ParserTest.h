@@ -9,17 +9,21 @@ public:
   ParserTest(string aFileName)
     : mInputFileName(aFileName)
   {
+    mParser = new Parser();
+    mLexer  = new Lexer();
   }
 
-  bool Execute(ITokensTraversal & aLexer, Parser & aParser);
+  bool Execute();
 
   ~ParserTest();
 
 private:
-  bool   TestInputFile(ifstream & aInputFile);
-  bool   TestConstructAst(ITokensTraversal & aLexer, Parser & aParser);
-  bool   TestAst(Parser aParser);
-  void   PrintQueryFromAst(Parser aParser);
-  void   DisplayAst(Parser aParser);
-  string mInputFileName;
+  bool               TestInputFile(ifstream & aInputFile);
+  bool               TestConstructAst();
+  bool               TestAst();
+  void               PrintQueryFromAst();
+  void               DisplayAst();
+  string             mInputFileName;
+  Parser *           mParser;
+  ITokensTraversal * mLexer;
 };

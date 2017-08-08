@@ -14,11 +14,10 @@ public:
 
   void ExecuteAllTests() override;
 
-  void CreateTest(string aFileName, Lexer & aLexer);
+  void CreateTest(string aFileName);
 
   ~LexerTestUnit();
 
 private:
-  vector<LexerTest> mTests;
-  vector<Lexer>     mLexer;
+  vector<unique_ptr<LexerTest>> mTests;
 };

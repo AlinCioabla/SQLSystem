@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ParserTest.h"
 
-bool ParserTest::Execute(ITokensTraversal & aLexer, Parser & aParser)
+bool ParserTest::Execute()
 {
   ifstream _inputFile(mInputFileName);
   if (!TestInputFile(_inputFile))
@@ -9,18 +9,18 @@ bool ParserTest::Execute(ITokensTraversal & aLexer, Parser & aParser)
     cout << "Cannot open the given file" << endl;
     return false;
   }
-  aLexer.ReadFromFile(_inputFile);
-  aLexer.Tokenize();
+  mLexer->ReadFromFile(_inputFile);
+  mLexer->Tokenize();
 
   _inputFile.clear();
   _inputFile.seekg(0, _inputFile.beg);
 
-  if (!TestConstructAst(aLexer, aParser))
+  if (!TestConstructAst())
   {
     cout << "Cannot construct AST. Invalid syntax." << endl;
     return false;
   }
-  else if (!TestAst(aParser))
+  else if (!TestAst())
   {
     cout << "AST was not constructed properly" << endl;
     return false;
@@ -28,14 +28,16 @@ bool ParserTest::Execute(ITokensTraversal & aLexer, Parser & aParser)
 
   else
   {
-    DisplayAst(aParser);
-    PrintQueryFromAst(aParser);
+    DisplayAst();
+    PrintQueryFromAst();
     return true;
   }
 }
 
 ParserTest::~ParserTest()
 {
+  delete mLexer;
+  delete mParser;
 }
 
 bool ParserTest::TestInputFile(ifstream & aInputFile)
@@ -47,24 +49,24 @@ bool ParserTest::TestInputFile(ifstream & aInputFile)
   return false;
 }
 
-bool ParserTest::TestConstructAst(ITokensTraversal & aLexer, Parser & aParser)
+bool ParserTest::TestConstructAst()
 {
-  return aParser.Parse(aLexer);
+  return mParser->Parse(*mLexer);
 }
 
-bool ParserTest::TestAst(Parser aParser)
+bool ParserTest::TestAst()
 {
   return true;
 }
 
-void ParserTest::PrintQueryFromAst(Parser aParser)
+void ParserTest::PrintQueryFromAst()
 {
-  auto root = aParser.GetAst().GetRoot();
-  aParser.GetAst().PrintQuery(root);
+  auto root = mParser->GetAst().GetRoot();
+  mParser->GetAst().PrintQuery(root);
 }
 
-void ParserTest::DisplayAst(Parser aParser)
+void ParserTest::DisplayAst()
 {
-  auto root = aParser.GetAst().GetRoot();
-  aParser.GetAst().Display(root, 20);
+  auto root = mParser->GetAst().GetRoot();
+  mParser->GetAst().Display(root, 20);
 }
