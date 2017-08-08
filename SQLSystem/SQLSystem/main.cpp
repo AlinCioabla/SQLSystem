@@ -8,7 +8,6 @@
 #include "Parser.h"
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
-#include "TestUnit.h"
 
 int main()
 {

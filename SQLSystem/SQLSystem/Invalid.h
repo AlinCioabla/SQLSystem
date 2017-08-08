@@ -5,8 +5,10 @@ class Invalid : public IState
   State mNextState;
 
 public:
-
   IState * HandleToken(TokenPtr &   aCurrentToken,
-	
- virtual ~Invalid() ;
+                       TokenPtr &   prevToken,
+                       AstNodePtr & aCurrentInstructionNode,
+                       Ast &        aAst) override;
+
+  virtual ~Invalid();
 };
