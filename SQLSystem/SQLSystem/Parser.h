@@ -4,6 +4,7 @@
 #include "Ast.h"
 #include "AstNode.h"
 #include "Lexer.h"
+#include "Undefined.h"
 
 class Parser
 {

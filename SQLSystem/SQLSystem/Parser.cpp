@@ -2,13 +2,20 @@
 #include "Parser.h"
 #include "Ast.h"
 #include "Helpers.h"
+
 Parser::Parser(ITokensTraversal & aLexer)
   : mLexer(aLexer)
 {
+  mCurrentState           = new Undefined();
+  mCurrentToken           = nullptr;
+  mPrevToken              = nullptr;
+  mCurrentInstructionNode = nullptr;
 }
 
 bool Parser::Parse()
 {
+  mCurrentToken = GetNwToken(mLexer);
+
   while (mCurrentToken != nullptr /* && mCurrentState != INVALID*/)
   {
     IState * nextState =
