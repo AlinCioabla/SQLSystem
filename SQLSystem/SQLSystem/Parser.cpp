@@ -23,6 +23,7 @@ bool Parser::Parse()
 
     if (nextState != nullptr)
     {
+      delete mCurrentState;
       mCurrentState = nextState;
     }
 
@@ -35,18 +36,7 @@ bool Parser::Parse()
 // switch (mCurrentState)
 //{
 // case UNDEFINED:
-//  if (currentToken->GetWord() == "SELECT")
-//  {
-//    TransitionTo(SELECT);
-//  }
-//  else if (currentToken->GetWord() == "DELETE")
-//  {
-//    TransitionTo(DELETE);
-//  }
-//  else if (currentToken->GetWord() == "UPDATE")
-//  {
-//    TransitionTo(UPDATE);
-//  }
+//
 //  else
 //    TransitionTo(INVALID);
 //  break;

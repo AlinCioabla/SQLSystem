@@ -1,5 +1,7 @@
 #pragma once
+
 #include "IState.h"
+
 class Undefined : public IState
 {
 public:

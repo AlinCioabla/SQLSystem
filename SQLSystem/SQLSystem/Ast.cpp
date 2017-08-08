@@ -62,16 +62,22 @@ void Ast::SetRoot(AstNodePtr aNode)
 
 void Ast::InsertLeft(AstNodePtr aNode, TokenPtr aToken)
 {
-  auto temp = aNode->GetLeft();
-  aNode->SetLeft(Ast::GetNewNode(aToken));
-  aNode->GetLeft()->SetLeft(temp);
+  if (aNode != nullptr)
+  {
+    auto temp = aNode->GetLeft();
+    aNode->SetLeft(Ast::GetNewNode(aToken));
+    aNode->GetLeft()->SetLeft(temp);
+  }
 }
 
 void Ast::InsertRight(AstNodePtr aNode, TokenPtr aToken)
 {
-  auto temp = aNode->GetRight();
-  aNode->SetRight(Ast::GetNewNode(aToken));
-  aNode->GetRight()->SetRight(temp);
+  if (aNode != nullptr)
+  {
+    auto temp = aNode->GetRight();
+    aNode->SetRight(Ast::GetNewNode(aToken));
+    aNode->GetRight()->SetRight(temp);
+  }
 }
 
 Ast::~Ast()

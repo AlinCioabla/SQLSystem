@@ -2,8 +2,6 @@
 #include "IState.h"
 class Invalid : public IState
 {
-  State mNextState;
-
 public:
   IState * HandleToken(TokenPtr &   aCurrentToken,
                        TokenPtr &   prevToken,
