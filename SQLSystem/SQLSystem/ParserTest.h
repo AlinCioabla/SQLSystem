@@ -9,8 +9,8 @@ public:
   ParserTest(string aFileName)
     : mInputFileName(aFileName)
   {
-    mParser = new Parser();
     mLexer  = new Lexer();
+    mParser = new Parser(*mLexer);
   }
 
   bool Execute();

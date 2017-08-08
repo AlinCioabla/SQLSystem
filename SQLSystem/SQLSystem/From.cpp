@@ -5,19 +5,12 @@ From::From()
 {
 }
 
-void From::TransitionTo(State aState)
+IState * From::HandleToken(TokenPtr &   aCurrentToken,
+                           TokenPtr &   prevToken,
+                           AstNodePtr & aCurrentInstructionNode,
+                           Ast &        aAst)
 {
-  mNextState = aState;
-}
-
-State From::GetState() const
-{
-  return State();
-}
-
-bool From::TestCommand() const
-{
-  return false;
+  return nullptr;
 }
 
 From::~From()

@@ -5,19 +5,70 @@ Select::Select()
 {
 }
 
-void Select::TransitionTo(State aState)
+IState * Select::HandleToken(TokenPtr &   aCurrentToken,
+                             TokenPtr &   aPrevToken,
+                             AstNodePtr & aCurrentInstructionNode,
+                             Ast &        aAst)
 {
-  mNextState = aState;
-}
+  if (aCurrentToken->GetType() == IdentifierType)
+  {
+    if (aPrevToken->GetType() == KeywordType)
+    {
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    }
 
-State Select::GetState() const
-{
-  return State();
-}
+    else if (aPrevToken->GetWord() == ",")
+    {
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+    }
+  }
 
-bool Select::TestCommand() const
-{
-  return false;
+  else
+
+    if (aCurrentToken->GetWord() == ",")
+  {
+    if (aPrevToken->GetType() == IdentifierType)
+    {
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    }
+  }
+
+  else
+
+    if (aCurrentToken->GetWord() == "*")
+  {
+    if (aPrevToken->GetType() == KeywordType)
+    {
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    }
+  }
+
+  else
+
+    if (aCurrentToken->GetWord() == "DISTINCT" && aPrevToken->GetWord() == "SELECT")
+  {
+    if (aPrevToken->GetType() == KeywordType)
+    {
+      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    }
+  }
+
+  else
+
+    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
+  {
+    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType ||
+        aPrevToken->GetWord() == "DELETE")
+    {
+      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      return new From();
+    }
+  }
+
+  else
+    return new Invalid();
 }
 
 Select::~Select()

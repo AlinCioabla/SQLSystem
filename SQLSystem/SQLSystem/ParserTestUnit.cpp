@@ -28,5 +28,4 @@ void ParserTestUnit::CreateTest(string aFileName)
 
 ParserTestUnit::~ParserTestUnit()
 {
-  mTests.clear();
 }

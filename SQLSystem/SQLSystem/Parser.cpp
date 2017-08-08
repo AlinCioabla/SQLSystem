@@ -2,292 +2,288 @@
 #include "Parser.h"
 #include "Ast.h"
 #include "Helpers.h"
-Parser::Parser()
+Parser::Parser(ITokensTraversal & aLexer)
 {
+  mLexer = aLexer;
 }
 
-bool Parser::Parse(ITokensTraversal & aLexer)
+bool Parser::Parse()
 {
-  TokenPtr currentToken = GetNwToken(aLexer);
-  TokenPtr prevToken    = currentToken;
-
-  mAst.SetRoot(Ast::GetNewNode(currentToken));
-  AstNodePtr currentInstructionNode = mAst.GetRoot();
-
-  TransitionTo(UNDEFINED);
-
   while (currentToken != nullptr && mCurrentState != INVALID)
   {
-    switch (mCurrentState)
+    IState * nextState = mCurrentState->HandleToken();
+  }
+
+  switch (mCurrentState)
+  {
+  case UNDEFINED:
+    if (currentToken->GetWord() == "SELECT")
     {
-    case UNDEFINED:
-      if (currentToken->GetWord() == "SELECT")
-      {
-        TransitionTo(SELECT);
-      }
-      else if (currentToken->GetWord() == "DELETE")
-      {
-        TransitionTo(DELETE);
-      }
-      else if (currentToken->GetWord() == "UPDATE")
-      {
-        TransitionTo(UPDATE);
-      }
-      else
-        TransitionTo(INVALID);
-      break;
-    case VALID:
-      if (currentToken != nullptr)
-        TransitionTo(INVALID);
-      break;
-    case SELECT:
-    case DELETE:
-    case UPDATE:
+      TransitionTo(SELECT);
+    }
+    else if (currentToken->GetWord() == "DELETE")
+    {
+      TransitionTo(DELETE);
+    }
+    else if (currentToken->GetWord() == "UPDATE")
+    {
+      TransitionTo(UPDATE);
+    }
+    else
+      TransitionTo(INVALID);
+    break;
+  case VALID:
+    if (currentToken != nullptr)
+      TransitionTo(INVALID);
+    break;
+  case SELECT:
+  case DELETE:
+  case UPDATE:
 
-      if (currentToken->GetType() == IdentifierType)
+    if (currentToken->GetType() == IdentifierType)
+    {
+      if (prevToken->GetType() == KeywordType)
       {
-        if (prevToken->GetType() == KeywordType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-
-        else if (prevToken->GetWord() == ",")
-        {
-          mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
+        mAst.InsertLeft(currentInstructionNode, currentToken);
       }
 
-      if (currentToken->GetWord() == ",")
+      else if (prevToken->GetWord() == ",")
       {
-        if (prevToken->GetType() == IdentifierType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-      if (currentToken->GetWord() == "*")
-      {
-        if (prevToken->GetType() == KeywordType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-      if (currentToken->GetWord() == "DISTINCT" && prevToken->GetWord() == "SELECT")
-      {
-        if (prevToken->GetType() == KeywordType)
-        {
-          mAst.InsertRight(currentInstructionNode, currentToken);
-          currentInstructionNode = currentInstructionNode->GetRight();
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-      if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
-      {
-        if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType ||
-            prevToken->GetWord() == "DELETE")
-        {
-          mAst.InsertRight(currentInstructionNode, currentToken);
-          currentInstructionNode = currentInstructionNode->GetRight();
-          TransitionTo(FROM);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-    case FROM:
-      if (currentToken->GetType() == IdentifierType)
-      {
-        if (prevToken->GetType() == KeywordType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else if (prevToken->GetWord() == ",")
-        {
-          mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-      if (currentToken->GetWord() == ",")
-      {
-        if (prevToken->GetType() == IdentifierType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-      //////////////////////////////////////////////////
-      if (currentToken->GetWord() == ";")
-      {
-        if (prevToken->GetType() == IdentifierType)
-        {
-          TransitionTo(VALID);
-        }
-        else
-          TransitionTo(INVALID);
-        break;
-      }
-
-      /////////////////////////////////////////////////
-      if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "WHERE")
-      {
-        if (prevToken->GetType() == IdentifierType)
-        {
-          TransitionTo(WHERE);
-          mAst.InsertRight(currentInstructionNode, currentToken);
-          currentInstructionNode = currentInstructionNode->GetRight();
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-    case WHERE:
-      if (currentToken->GetWord() == "AND" || currentToken->GetWord() == "OR")
-      {
-        if (prevToken->GetType() == PredicateType || IsNumber(prevToken->GetWord()))
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else
-          TransitionTo(INVALID);
-        break;
-      }
-
-      if (currentToken->GetType() == OperatorType || currentToken->GetWord() == "LIKE" ||
-          currentToken->GetWord() == "NOTLIKE")
-      {
-        if (prevToken->GetType() == IdentifierType)
-        {
-          if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
-              currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
-          {
-            auto temp = currentInstructionNode->GetLeft()->GetRight();
-            currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
-            currentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
-          }
-          else
-          {
-            mAst.InsertLeft(currentInstructionNode, currentToken);
-          }
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-        break;
-      }
-
-      if (currentToken->GetType() == IdentifierType)
-      {
-        if (prevToken->GetType() == KeywordType)
-        {
-          mAst.InsertLeft(currentInstructionNode, currentToken);
-        }
-        else if (prevToken->GetWord() == "AND" || prevToken->GetWord() == "OR")
-        {
-          mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-        }
-        else
-        {
-          TransitionTo(INVALID);
-        }
-
-        break;
-      }
-
-      if (currentToken->GetType() == PredicateType || IsNumber(currentToken->GetWord()))
-      {
-        if (prevToken->GetType() == OperatorType || prevToken->GetWord() == "LIKE" ||
-            prevToken->GetWord() == "NOTLIKE")
-        {
-          if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
-              currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
-          {
-            currentInstructionNode->GetLeft()->GetRight()->SetRight(Ast::GetNewNode(currentToken));
-          }
-          else
-          {
-            mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-          }
-        }
-        else
-          TransitionTo(INVALID);
-
-        break;
-      }
-
-      //////////////////////////////////////////////////
-      if (currentToken->GetWord() == ";")
-      {
-        if (prevToken->GetType() == IdentifierType || prevToken->GetType() == PredicateType)
-        {
-          TransitionTo(VALID);
-        }
-        else
-          TransitionTo(INVALID);
-        break;
+        mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
       }
       else
       {
         TransitionTo(INVALID);
-        break;
       }
-    /////////////////////////////////////////////////
 
-    default:
       break;
     }
 
-    prevToken    = currentToken;
-    currentToken = GetNwToken(aLexer);
+    if (currentToken->GetWord() == ",")
+    {
+      if (prevToken->GetType() == IdentifierType)
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+    if (currentToken->GetWord() == "*")
+    {
+      if (prevToken->GetType() == KeywordType)
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+    if (currentToken->GetWord() == "DISTINCT" && prevToken->GetWord() == "SELECT")
+    {
+      if (prevToken->GetType() == KeywordType)
+      {
+        mAst.InsertRight(currentInstructionNode, currentToken);
+        currentInstructionNode = currentInstructionNode->GetRight();
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+    if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "FROM")
+    {
+      if (prevToken->GetWord() == "*" || prevToken->GetType() == IdentifierType ||
+          prevToken->GetWord() == "DELETE")
+      {
+        mAst.InsertRight(currentInstructionNode, currentToken);
+        currentInstructionNode = currentInstructionNode->GetRight();
+        TransitionTo(FROM);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+  case FROM:
+    if (currentToken->GetType() == IdentifierType)
+    {
+      if (prevToken->GetType() == KeywordType)
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else if (prevToken->GetWord() == ",")
+      {
+        mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+    if (currentToken->GetWord() == ",")
+    {
+      if (prevToken->GetType() == IdentifierType)
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+    //////////////////////////////////////////////////
+    if (currentToken->GetWord() == ";")
+    {
+      if (prevToken->GetType() == IdentifierType)
+      {
+        TransitionTo(VALID);
+      }
+      else
+        TransitionTo(INVALID);
+      break;
+    }
+
+    /////////////////////////////////////////////////
+    if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "WHERE")
+    {
+      if (prevToken->GetType() == IdentifierType)
+      {
+        TransitionTo(WHERE);
+        mAst.InsertRight(currentInstructionNode, currentToken);
+        currentInstructionNode = currentInstructionNode->GetRight();
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+  case WHERE:
+    if (currentToken->GetWord() == "AND" || currentToken->GetWord() == "OR")
+    {
+      if (prevToken->GetType() == PredicateType || IsNumber(prevToken->GetWord()))
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else
+        TransitionTo(INVALID);
+      break;
+    }
+
+    if (currentToken->GetType() == OperatorType || currentToken->GetWord() == "LIKE" ||
+        currentToken->GetWord() == "NOTLIKE")
+    {
+      if (prevToken->GetType() == IdentifierType)
+      {
+        if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
+            currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
+        {
+          auto temp = currentInstructionNode->GetLeft()->GetRight();
+          currentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(currentToken));
+          currentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
+        }
+        else
+        {
+          mAst.InsertLeft(currentInstructionNode, currentToken);
+        }
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+      break;
+    }
+
+    if (currentToken->GetType() == IdentifierType)
+    {
+      if (prevToken->GetType() == KeywordType)
+      {
+        mAst.InsertLeft(currentInstructionNode, currentToken);
+      }
+      else if (prevToken->GetWord() == "AND" || prevToken->GetWord() == "OR")
+      {
+        mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
+      }
+      else
+      {
+        TransitionTo(INVALID);
+      }
+
+      break;
+    }
+
+    if (currentToken->GetType() == PredicateType || IsNumber(currentToken->GetWord()))
+    {
+      if (prevToken->GetType() == OperatorType || prevToken->GetWord() == "LIKE" ||
+          prevToken->GetWord() == "NOTLIKE")
+      {
+        if (currentInstructionNode->GetLeft()->GetToken()->GetWord() == "AND" ||
+            currentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
+        {
+          currentInstructionNode->GetLeft()->GetRight()->SetRight(Ast::GetNewNode(currentToken));
+        }
+        else
+        {
+          mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
+        }
+      }
+      else
+        TransitionTo(INVALID);
+
+      break;
+    }
+
+    //////////////////////////////////////////////////
+    if (currentToken->GetWord() == ";")
+    {
+      if (prevToken->GetType() == IdentifierType || prevToken->GetType() == PredicateType)
+      {
+        TransitionTo(VALID);
+      }
+      else
+        TransitionTo(INVALID);
+      break;
+    }
+    else
+    {
+      TransitionTo(INVALID);
+      break;
+    }
+  /////////////////////////////////////////////////
+
+  default:
+    break;
   }
 
-  return (mCurrentState == VALID);
+  prevToken    = currentToken;
+  currentToken = GetNwToken(mLexer);
 }
 
-Ast Parser::GetAst()
+return (mCurrentState == VALID);
+}
+
+Ast & Parser::GetAst()
 {
   return mAst;
 }
