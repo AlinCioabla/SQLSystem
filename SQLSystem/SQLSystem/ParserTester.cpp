@@ -2,7 +2,7 @@
 #include "ParserTester.h"
 bool ParserTester::ConstructAst()
 {
-  return mParser.Parse(mLexer);
+  return mParser.Parse();
 }
 
 void ParserTester::PrintQueryFromAst()

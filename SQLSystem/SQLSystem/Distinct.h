@@ -2,11 +2,11 @@
 #include "IState.h"
 class Distinct : public IState
 {
-  State mNextState;
-
 public:
   Distinct();
-  void  TransitionTo(State aState) override;
-  State GetState() const override;
+  IState * HandleToken(TokenPtr &   aCurrentToken,
+                       TokenPtr &   prevToken,
+                       AstNodePtr & aCurrentInstructionNode,
+                       Ast &        aAst) override;
   virtual ~Distinct();
 };

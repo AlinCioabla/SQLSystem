@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Select.h"
 #include "From.h"
-
+#include "Invalid.h"
 Select::Select()
 {
 }
@@ -68,8 +68,8 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
     }
   }
 
-  /* else
-     return new Invalid();*/
+  else
+    return new Invalid();
 }
 
 Select::~Select()
