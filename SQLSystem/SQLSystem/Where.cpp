@@ -15,6 +15,11 @@ State Where::GetState() const
   return State();
 }
 
+bool Where::TestCommand() const
+{
+  return false;
+}
+
 Where::~Where()
 {
 }

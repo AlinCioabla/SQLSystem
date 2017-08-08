@@ -15,6 +15,11 @@ State Invalid::GetState() const
   return State();
 }
 
+bool Invalid::TestCommand() const
+{
+  return false;
+}
+
 Invalid::~Invalid()
 {
 }

@@ -15,6 +15,11 @@ State Select::GetState() const
   return State();
 }
 
+bool Select::TestCommand() const
+{
+  return false;
+}
+
 Select::~Select()
 {
 }

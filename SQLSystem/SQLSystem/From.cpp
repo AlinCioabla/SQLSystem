@@ -15,6 +15,11 @@ State From::GetState() const
   return State();
 }
 
+bool From::TestCommand() const
+{
+  return false;
+}
+
 From::~From()
 {
 }

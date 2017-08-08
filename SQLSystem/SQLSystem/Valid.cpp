@@ -15,6 +15,11 @@ State Valid::GetState() const
   return State();
 }
 
+bool Valid::TestCommand() const
+{
+  return false;
+}
+
 Valid::~Valid()
 {
 }
