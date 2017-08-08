@@ -46,7 +46,7 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == "DISTINCT" && aPrevToken->GetWord() == "SELECT")
+    if (aPrevToken->GetWord() == "SELECT")
   {
     if (aPrevToken->GetType() == KeywordType)
     {
@@ -59,8 +59,7 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
 
     if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
   {
-    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType ||
-        aPrevToken->GetWord() == "DELETE")
+    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
