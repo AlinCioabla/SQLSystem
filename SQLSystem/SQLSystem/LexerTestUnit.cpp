@@ -1,15 +1,14 @@
 #include "stdafx.h"
 #include "LexerTestUnit.h"
 
-Lexer mLexer;
-void  LexerTestUnit::ExecuteAllTests()
+void LexerTestUnit::ExecuteAllTests()
 {
   int index = 1;
   for (auto & test : mTests)
   {
     cout << "-------------------------------------" << endl << endl;
     cout << "Lexer Test: " << index++ << endl;
-    bool succes = test.Execute(mLexer[index - 2]);
+    bool succes = test->Execute();
     cout << "Result: ";
     if (succes)
       cout << "Success!" << endl;
@@ -19,14 +18,11 @@ void  LexerTestUnit::ExecuteAllTests()
   }
 }
 
-void LexerTestUnit::CreateTest(string aFileName, Lexer & aLexer)
+void LexerTestUnit::CreateTest(string aFileName)
 {
-  LexerTest test(aFileName);
-  mLexer.push_back(aLexer);
-  mTests.push_back(test);
+  mTests.push_back(make_unique<LexerTest>(aFileName));
 }
 
 LexerTestUnit::~LexerTestUnit()
 {
-  mTests.clear();
 }

@@ -9,17 +9,18 @@ public:
   LexerTest(string aFileName)
     : mInputFileName(aFileName)
   {
+    mLexer = new Lexer();
   }
 
-  bool Execute(Lexer & aLexer);
+  bool Execute();
 
   ~LexerTest();
 
 private:
-  bool   TestInputFile(ifstream & aInputFile);
-  bool   TestReadFromFile(Lexer & aLexer, ifstream & aInputFile);
-  bool   TestTokenize(Lexer & aLexer);
-  bool   TestGetNextToken(Lexer & aLexer);
-  bool   TestGetSqlCommand(Lexer & aLexer);
-  string mInputFileName;
+  bool               TestInputFile(ifstream & aInputFile);
+  bool               TestReadFromFile(ifstream & aInputFile);
+  bool               TestTokenize(ifstream & aInputFile);
+  bool               TestGetSqlCommand(ifstream & aInputFile);
+  string             mInputFileName;
+  ITokensTraversal * mLexer;
 };

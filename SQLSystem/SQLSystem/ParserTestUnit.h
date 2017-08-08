@@ -12,12 +12,10 @@ public:
 
   void ExecuteAllTests() override;
 
-  void CreateTest(string aFileName, Parser & aParser, shared_ptr<ITokensTraversal> aTokenTravesral);
+  void CreateTest(string aFileName);
 
   ~ParserTestUnit();
 
 private:
-  vector<Parser>     mParser;
-  vector<TravPtr>    mTokensTraversal;
-  vector<ParserTest> mTests;
+  vector<unique_ptr<ParserTest>> mTests;
 };
