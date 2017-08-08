@@ -4,6 +4,7 @@
 class Select : public IState
 {
 public:
+  Select();
   IState * HandleToken(TokenPtr &   aCurrentToken,
                        TokenPtr &   prevToken,
                        AstNodePtr & aCurrentInstructionNode,

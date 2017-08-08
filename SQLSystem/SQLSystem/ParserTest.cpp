@@ -51,7 +51,7 @@ bool ParserTest::TestInputFile(ifstream & aInputFile)
 
 bool ParserTest::TestConstructAst()
 {
-  return mParser->Parse(*mLexer);
+  return mParser->Parse();
 }
 
 bool ParserTest::TestAst()

@@ -5,14 +5,12 @@ Distinct::Distinct()
 {
 }
 
-void Distinct::TransitionTo(State aState)
+IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
+                               TokenPtr &   prevToken,
+                               AstNodePtr & aCurrentInstructionNode,
+                               Ast &        aAst)
 {
-  mNextState = aState;
-}
-
-State Distinct::GetState() const
-{
-  return State();
+  return nullptr;
 }
 
 Distinct::~Distinct()
