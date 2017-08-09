@@ -61,6 +61,11 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
     return new Invalid();
 }
 
+State Distinct::GetStateName() const
+{
+  return State::DISTINCT;
+}
+
 Distinct::~Distinct()
 {
 }

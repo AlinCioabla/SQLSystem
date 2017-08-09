@@ -71,4 +71,9 @@ IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
     return new Invalid();
 }
 
+State Delete::GetStateName() const
+{
+  return State::DELETE;
+}
+
 Delete::~Delete() = default;

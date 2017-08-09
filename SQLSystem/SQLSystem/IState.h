@@ -12,7 +12,8 @@ enum State
   FROM,
   WHERE,
   VALID,
-  INVALID
+  INVALID,
+  UNDEFINED
 };
 
 class IState
@@ -22,6 +23,7 @@ public:
                                TokenPtr &   prevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) = 0;
+  virtual State    GetStateName() const    = 0;
 
   virtual ~IState(){};
 };

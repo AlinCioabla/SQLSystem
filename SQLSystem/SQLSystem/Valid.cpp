@@ -13,6 +13,11 @@ IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
   return nullptr;
 }
 
+State Valid::GetStateName() const
+{
+  return State::VALID;
+}
+
 Valid::~Valid()
 {
 }

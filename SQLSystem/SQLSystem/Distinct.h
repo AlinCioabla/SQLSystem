@@ -8,5 +8,6 @@ public:
                        TokenPtr &   prevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
+  State    GetStateName() const override;
   virtual ~Distinct();
 };
