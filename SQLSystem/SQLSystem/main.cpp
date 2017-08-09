@@ -9,25 +9,7 @@
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
 
-struct A
-{
-  int a;
-  int b;
-};
-
 int main()
-{
-  int i = 0;
-
-  {
-    auto p = new A;
-    delete p;
-  }
-
-  return 0;
-}
-
-int main2()
 {
   LexerTestUnit lexerTestUnit;
   lexerTestUnit.CreateTest("TestFile1.txt"s);
