@@ -21,12 +21,16 @@ public:
   // This one tokenize mSqlCommand and stores the tokens in mTokens
   bool Tokenize() override;
 
+  // Get the initial input
   string GetSqlCommand() const override { return mSqlCommand; };
 
+  // Get a token then advance to the next
   TokenPtr GetNextToken() override;
 
+  // Checks if there exists another token after the current
   bool HasNext() const override;
 
+  // Resets the token iterator
   void ResetNext() override;
 
   ~Lexer();

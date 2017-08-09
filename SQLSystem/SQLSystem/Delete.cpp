@@ -60,8 +60,7 @@ IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
     }
   }
 
-  else
-    return new Invalid();
+  return new Invalid();
 }
 
 State Delete::GetStateName() const

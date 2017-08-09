@@ -61,8 +61,7 @@ IState * Update::HandleToken(TokenPtr &   aCurrentToken,
     }
   }
 
-  else
-    return new Invalid();
+  return new Invalid();
 }
 
 State Update::GetStateName() const

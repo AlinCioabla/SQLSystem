@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "AstNode.h"
+#include "IToken.h"
+
 AstNode::AstNode(const AstNode & aAstNode)
 {
   mToken = aAstNode.GetToken();
