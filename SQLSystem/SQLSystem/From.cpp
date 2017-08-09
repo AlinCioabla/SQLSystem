@@ -17,10 +17,12 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
     if (prevToken->GetType() == KeywordType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
     else if (prevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      return nullptr;
     }
   }
 
@@ -31,6 +33,7 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
     if (prevToken->GetType() == IdentifierType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
   }
 
@@ -51,9 +54,9 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
   {
     if (prevToken->GetType() == IdentifierType)
     {
-      return new Where();
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      return new Where();
     }
   }
   else

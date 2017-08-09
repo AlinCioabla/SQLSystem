@@ -19,6 +19,7 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     if (aPrevToken->GetType() == PredicateType || IsNumber(aPrevToken->GetWord()))
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
     else
       return new Invalid();
@@ -35,10 +36,12 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
         auto temp = aCurrentInstructionNode->GetLeft()->GetRight();
         aCurrentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(aCurrentToken));
         aCurrentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
+        return nullptr;
       }
       else
       {
         aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+        return nullptr;
       }
     }
     else
@@ -52,10 +55,12 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     if (aPrevToken->GetType() == KeywordType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
     else if (aPrevToken->GetWord() == "AND" || aPrevToken->GetWord() == "OR")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      return nullptr;
     }
     else
     {
@@ -72,10 +77,12 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         aCurrentInstructionNode->GetLeft()->GetRight()->SetRight(Ast::GetNewNode(aCurrentToken));
+        return nullptr;
       }
       else
       {
         aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+        return nullptr;
       }
     }
     else

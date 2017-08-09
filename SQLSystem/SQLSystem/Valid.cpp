@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Valid.h"
+#include "Invalid.h"
 
 Valid::Valid()
 {
@@ -10,7 +11,7 @@ IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
                             AstNodePtr & aCurrentInstructionNode,
                             Ast &        aAst)
 {
-  return nullptr;
+  return new Invalid();
 }
 
 State Valid::GetStateName() const
