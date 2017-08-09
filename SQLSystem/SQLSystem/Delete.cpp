@@ -49,18 +49,6 @@ IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aPrevToken->GetWord() == "SELECT")
-  {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return nullptr;
-    }
-  }
-
-  else
-
     if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
   {
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType ||
