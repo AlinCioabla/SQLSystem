@@ -10,7 +10,7 @@ void ParserTestUnit::ExecuteAllTests()
       cout << "-------------------------------------" << endl << endl;
       cout << "Parser Test: " << index << endl;
       bool succes = test->Execute();
-      cout << "Result: ";
+      cout << endl << "Result: ";
       if (succes)
         cout << "Success!" << endl;
       else

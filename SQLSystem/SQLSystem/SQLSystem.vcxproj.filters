@@ -39,9 +39,6 @@
     <ClCompile Include="WhiteSpace.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="LexerTester.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AstNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -134,9 +131,6 @@
     <ClInclude Include="WhiteSpace.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="LexerTester.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AstNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -156,9 +150,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Predicate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ParserTester.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ITestUnit.h">

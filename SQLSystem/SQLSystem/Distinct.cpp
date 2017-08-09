@@ -17,11 +17,13 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
     if (aPrevToken->GetType() == KeywordType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
 
     else if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      return nullptr;
     }
   }
 
@@ -32,6 +34,7 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
     if (aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
   }
   else
@@ -42,6 +45,7 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      return nullptr;
     }
   }
 
@@ -57,8 +61,7 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
     }
   }
 
-  else
-    return new Invalid();
+  return new Invalid();
 }
 
 State Distinct::GetStateName() const

@@ -99,10 +99,7 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     else
       return new Invalid();
   }
-  else
-  {
-    return new Invalid();
-  }
+  return new Invalid();
 }
 
 State Where::GetStateName() const
