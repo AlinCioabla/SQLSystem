@@ -124,6 +124,8 @@
     <ClCompile Include="Delete.cpp" />
     <ClCompile Include="Distinct.cpp" />
     <ClCompile Include="From.cpp" />
+    <ClCompile Include="Insert.cpp" />
+    <ClCompile Include="Into.cpp" />
     <ClCompile Include="Invalid.cpp" />
     <ClCompile Include="LexerTest.cpp" />
     <ClCompile Include="LexerTestUnit.cpp" />
@@ -160,6 +162,8 @@
     <ClInclude Include="Delete.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
+    <ClInclude Include="Insert.h" />
+    <ClInclude Include="Into.h" />
     <ClInclude Include="Invalid.h" />
     <ClInclude Include="IState.h" />
     <ClInclude Include="ITestUnit.h" />
