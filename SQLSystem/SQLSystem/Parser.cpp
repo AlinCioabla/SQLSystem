@@ -126,66 +126,6 @@ bool Parser::Parse()
 //  }
 
 // case FROM:
-//  if (currentToken->GetType() == IdentifierType)
-//  {
-//    if (prevToken->GetType() == KeywordType)
-//    {
-//      mAst.InsertLeft(currentInstructionNode, currentToken);
-//    }
-//    else if (prevToken->GetWord() == ",")
-//    {
-//      mAst.InsertRight(currentInstructionNode->GetLeft(), currentToken);
-//    }
-//    else
-//    {
-//      TransitionTo(INVALID);
-//    }
-
-//    break;
-//  }
-
-//  if (currentToken->GetWord() == ",")
-//  {
-//    if (prevToken->GetType() == IdentifierType)
-//    {
-//      mAst.InsertLeft(currentInstructionNode, currentToken);
-//    }
-//    else
-//    {
-//      TransitionTo(INVALID);
-//    }
-
-//    break;
-//  }
-
-//  //////////////////////////////////////////////////
-//  if (currentToken->GetWord() == ";")
-//  {
-//    if (prevToken->GetType() == IdentifierType)
-//    {
-//      TransitionTo(VALID);
-//    }
-//    else
-//      TransitionTo(INVALID);
-//    break;
-//  }
-
-//  /////////////////////////////////////////////////
-//  if (currentToken->GetType() == KeywordType && currentToken->GetWord() == "WHERE")
-//  {
-//    if (prevToken->GetType() == IdentifierType)
-//    {
-//      TransitionTo(WHERE);
-//      mAst.InsertRight(currentInstructionNode, currentToken);
-//      currentInstructionNode = currentInstructionNode->GetRight();
-//    }
-//    else
-//    {
-//      TransitionTo(INVALID);
-//    }
-
-//    break;
-//  }
 
 // case WHERE:
 //  if (currentToken->GetWord() == "AND" || currentToken->GetWord() == "OR")
