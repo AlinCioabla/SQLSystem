@@ -13,7 +13,7 @@ public:
   {
     mLeft  = nullptr;
     mRight = nullptr;
-  };
+  }
   AstNode()
     : mToken(nullptr)
     , mLeft(nullptr)

@@ -20,7 +20,6 @@ public:
   ~Parser();
 
 private:
-  // Ast - the output of the parser
   Ast mAst;
 
   IState *           mCurrentState;

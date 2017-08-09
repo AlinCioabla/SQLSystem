@@ -3,6 +3,7 @@
 #include "Lexer.h"
 #include "Test.h"
 
+// Class that test the functionality of a ITokensTraversal module
 class LexerTest
 {
 public:

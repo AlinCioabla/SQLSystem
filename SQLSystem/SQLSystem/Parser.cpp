@@ -25,7 +25,7 @@ bool Parser::Parse()
     IState * nextState =
       mCurrentState->HandleToken(mCurrentToken, mPrevToken, mCurrentInstructionNode, mAst);
 
-    // If the next state is null, the state does not change
+    // If the next state is null, the current state does not change
     if (nextState != nullptr)
     {
       delete mCurrentState;
