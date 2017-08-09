@@ -56,8 +56,8 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     }
   }
-
-  return new Invalid();
+  else
+    return new Invalid();
 }
 
 From::~From()
