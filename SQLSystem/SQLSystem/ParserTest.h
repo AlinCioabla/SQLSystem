@@ -3,6 +3,7 @@
 #include "Lexer.h"
 #include "Parser.h"
 
+// A class used to test the functionality of the Parser
 class ParserTest
 {
 public:

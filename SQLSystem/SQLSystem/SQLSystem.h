@@ -1,17 +1,14 @@
 #pragma once
-#ifndef _SQLSYSTEM_
-#define _SQLSYSTEM_
-
-#include "stdafx.h"
 
 class SQLSystem
 {
 public:
-	SQLSystem();
+  SQLSystem(string aInputFile);
 
-	void Start(ifstream& in);
+  bool ExecuteQuery();
 
-	~SQLSystem();
+  ~SQLSystem();
+
+private:
+  string mInputFile;
 };
-
-#endif // !_SQLSYSTEM_
