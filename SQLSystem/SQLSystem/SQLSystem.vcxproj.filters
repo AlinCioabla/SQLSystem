@@ -102,6 +102,12 @@
     <ClCompile Include="Undefined.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Insert.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Into.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -195,6 +201,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Undefined.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Insert.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Into.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

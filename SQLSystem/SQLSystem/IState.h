@@ -13,7 +13,10 @@ enum State
   WHERE,
   VALID,
   INVALID,
-  UNDEFINED
+  UNDEFINED,
+  INSERT,
+  INTO,
+  VALUES
 };
 
 class IState

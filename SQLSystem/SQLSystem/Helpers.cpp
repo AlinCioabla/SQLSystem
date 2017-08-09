@@ -2,7 +2,7 @@
 #include "Helpers.h"
 // string operators[]{ "+", "-", "*", "/", ":", "=", "^", "%","<", ">" };
 // string punctuations[]{ ".", ",", "?", "&", "!", ";", ":", "_", "(" ")" };
-string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT", "FROM", "WHERE" };
+string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT", "INTO", "FROM", "WHERE" };
 string operators{ "%+-*/:=^<>" };
 string punctuations{ ".,?&!;_();'" };
 string whitespaces{ "\n " };
