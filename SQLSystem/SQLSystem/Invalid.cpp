@@ -9,6 +9,11 @@ IState * Invalid::HandleToken(TokenPtr &   aCurrentToken,
   return nullptr;
 }
 
+State Invalid::GetStateName() const
+{
+  return State::INVALID;
+}
+
 Invalid::~Invalid()
 {
 }

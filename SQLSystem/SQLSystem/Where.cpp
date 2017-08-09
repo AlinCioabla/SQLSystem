@@ -98,6 +98,11 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
   }
 }
 
+State Where::GetStateName() const
+{
+  return State::WHERE;
+}
+
 Where::~Where()
 {
 }

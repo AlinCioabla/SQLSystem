@@ -60,6 +60,11 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid();
 }
 
+State From::GetStateName() const
+{
+  return State::FROM;
+}
+
 From::~From()
 {
 }
