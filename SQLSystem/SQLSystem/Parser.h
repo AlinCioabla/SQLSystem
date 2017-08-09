@@ -11,12 +11,16 @@ class Parser
 public:
   Parser(ITokensTraversal & mLexer);
 
-  bool  Parse();
+  // Parse the tokens provided by the Lexer
+  bool Parse();
+
+  // Returns a reference to the resulted Ast
   Ast & GetAst();
 
   ~Parser();
 
 private:
+  // Ast - the output of the parser
   Ast mAst;
 
   IState *           mCurrentState;
