@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Parser.h"
+#include "IState.h"
 #include "Ast.h"
 #include "Helpers.h"
 
@@ -16,7 +17,7 @@ bool Parser::Parse()
 {
   mCurrentToken = GetNwToken(mLexer);
 
-  while (mCurrentToken != nullptr /* && mCurrentState != INVALID*/)
+  while (mCurrentToken != nullptr && mCurrentState->GetStateName() != INVALID)
   {
     IState * nextState =
       mCurrentState->HandleToken(mCurrentToken, mPrevToken, mCurrentInstructionNode, mAst);
@@ -31,7 +32,7 @@ bool Parser::Parse()
     mCurrentToken = GetNwToken(mLexer);
   }
 
-  return false;
+  return mCurrentState->GetStateName() == VALID;
 }
 // switch (mCurrentState)
 //{
