@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "Values.h"
+#include "From.h"
+#include "Invalid.h"
+#include "Valid.h"
 
 Values::Values()
 {
@@ -38,17 +41,6 @@ IState * Values::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == "*")
-  {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
-  }
-
-  else
-
     if (aPrevToken->GetWord() == "SELECT")
   {
     if (aPrevToken->GetType() == KeywordType)
@@ -68,6 +60,13 @@ IState * Values::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
       return new From();
+    }
+  }
+  else if (aCurrentToken->GetWord() == ";")
+  {
+    if (aPrevToken->GetType() == IdentifierType)
+    {
+      return new Valid();
     }
   }
 

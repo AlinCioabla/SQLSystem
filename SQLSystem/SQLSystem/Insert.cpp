@@ -54,27 +54,15 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
 
     if (aPrevToken->GetWord() == "INSERT")
   {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return nullptr;
-    }
-  }
-
-  else
-
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO")
-  {
-    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
+    if (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO")
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
       return new Into();
     }
   }
-
-  return new Invalid();
+  else
+    return new Invalid();
 }
 
 State Insert::GetStateName() const
