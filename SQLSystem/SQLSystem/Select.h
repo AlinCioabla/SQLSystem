@@ -11,5 +11,5 @@ public:
                        Ast &        aAst) override;
   State    GetStateName() const override;
 
-  ~Select();
+  virtual ~Select();
 };

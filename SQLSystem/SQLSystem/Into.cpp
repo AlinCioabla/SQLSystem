@@ -2,13 +2,15 @@
 #include "Into.h"
 #include "From.h"
 #include "Invalid.h"
+#include "Valid.h"
+#include "Values.h"
 
 Into::Into()
 {
 }
 
 IState * Into::HandleToken(TokenPtr &   aCurrentToken,
-                           TokenPtr &   aPrevToken,
+                           TokenPtr &   prevToken,
                            AstNodePtr & aCurrentInstructionNode,
                            Ast &        aAst)
 {
@@ -50,13 +52,13 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
   /////////////////////////////////////////////////
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "WHERE")
+    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "VALUES")
   {
     if (prevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Where();
+      return new Values();
     }
   }
 
