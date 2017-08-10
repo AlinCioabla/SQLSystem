@@ -3,25 +3,25 @@
 #include "From.h"
 #include "Invalid.h"
 #include "Valid.h"
-#include "Values.h"
+#include "Where.h"
 
 Into::Into()
 {
 }
 
 IState * Into::HandleToken(TokenPtr &   aCurrentToken,
-                           TokenPtr &   prevToken,
+                           TokenPtr &   aPrevToken,
                            AstNodePtr & aCurrentInstructionNode,
                            Ast &        aAst)
 {
   if (aCurrentToken->GetType() == IdentifierType)
   {
-    if (prevToken->GetType() == KeywordType)
+    if (aPrevToken->GetType() == KeywordType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else if (prevToken->GetWord() == ",")
+    else if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -32,7 +32,7 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
 
     if (aCurrentToken->GetWord() == ",")
   {
-    if (prevToken->GetType() == IdentifierType)
+    if (aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
@@ -43,7 +43,7 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
     //////////////////////////////////////////////////
     if (aCurrentToken->GetWord() == ";")
   {
-    if (prevToken->GetType() == IdentifierType)
+    if (aPrevToken->GetType() == IdentifierType)
     {
       return new Valid();
     }
@@ -52,13 +52,13 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
   /////////////////////////////////////////////////
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "VALUES")
+    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "WHERE")
   {
-    if (prevToken->GetType() == IdentifierType)
+    if (aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
       aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Values();
+      return new Where();
     }
   }
 
