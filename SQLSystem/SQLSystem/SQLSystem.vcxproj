@@ -153,6 +153,7 @@
     <ClCompile Include="Undefined.cpp" />
     <ClCompile Include="Update.cpp" />
     <ClCompile Include="Valid.cpp" />
+    <ClCompile Include="Values.cpp" />
     <ClCompile Include="Where.cpp" />
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
@@ -188,6 +189,7 @@
     <ClInclude Include="Undefined.h" />
     <ClInclude Include="Update.h" />
     <ClInclude Include="Valid.h" />
+    <ClInclude Include="Values.h" />
     <ClInclude Include="Where.h" />
     <ClInclude Include="WhiteSpace.h" />
   </ItemGroup>

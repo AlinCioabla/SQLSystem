@@ -2,6 +2,7 @@
 #include "Undefined.h"
 
 #include "Delete.h"
+#include "Insert.h"
 #include "Invalid.h"
 #include "Select.h"
 #include "Update.h"
@@ -32,6 +33,12 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
     aAst.SetRoot(Ast::GetNewNode(aCurrentToken));
     aCurrentInstructionNode = aAst.GetRoot();
     return new Update();
+  }
+  else if (aCurrentToken->GetWord() == "INSERT")
+  {
+    aAst.SetRoot(Ast::GetNewNode(aCurrentToken));
+    aCurrentInstructionNode = aAst.GetRoot();
+    return new Insert();
   }
 
   return new Invalid();
