@@ -29,4 +29,4 @@ public:
   virtual ~IToken(){};
 };
 
-typedef shared_ptr<IToken> TokenPtr;
+typedef unique_ptr<IToken> TokenPtr;

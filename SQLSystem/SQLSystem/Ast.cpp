@@ -4,7 +4,6 @@
 
 Ast::Ast(const Ast & aAst)
 {
-  mRoot = aAst.GetRoot();
 }
 
 Ast::Ast()
@@ -12,7 +11,7 @@ Ast::Ast()
   mRoot = nullptr;
 }
 
-void Ast::Display(AstNodePtr aNode, int indent) const
+void Ast::Display(AstNode * aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -35,7 +34,7 @@ void Ast::Display(AstNodePtr aNode, int indent) const
   }
 }
 
-void Ast::PrintQuery(AstNodePtr aNode)
+void Ast::PrintQuery(AstNode * aNode)
 {
   if (aNode != nullptr)
   {
@@ -56,7 +55,7 @@ void Ast::SetRoot(AstNodePtr aNode)
 {
   if (mRoot == nullptr)
   {
-    mRoot = aNode;
+    mRoot = move(aNode);
   }
 }
 
@@ -65,8 +64,15 @@ void Ast::InsertLeft(AstNodePtr aNode, TokenPtr aToken)
   if (aNode != nullptr)
   {
     auto temp = aNode->GetLeft();
-    aNode->SetLeft(Ast::GetNewNode(aToken));
-    aNode->GetLeft()->SetLeft(temp);
+    aNode->SetLeft(Ast::GetNewNode(move(aToken)));
+    aNode->GetLeft()->SetLeft(make_unique<AstNode>(temp));
+
+
+    auto newNode = Ast::GetNewNode(move(aToken));
+    newNode->SetLeft(move(aNode->ReleaseRight());
+    aNode->SetLeft(newNode);
+
+
   }
 }
 

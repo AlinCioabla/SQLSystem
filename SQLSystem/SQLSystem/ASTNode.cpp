@@ -4,24 +4,21 @@
 
 AstNode::AstNode(const AstNode & aAstNode)
 {
-  mToken = aAstNode.GetToken();
-  mLeft  = aAstNode.GetLeft();
-  mRight = aAstNode.GetRight();
 }
 
 void AstNode::SetToken(TokenPtr aToken)
 {
-  mToken = aToken;
+  mToken = move(aToken);
 }
 
 void AstNode::SetLeft(AstNodePtr aLeft)
 {
-  mLeft = aLeft;
+  mLeft = move(aLeft);
 }
 
 void AstNode::SetRight(AstNodePtr aRight)
 {
-  mRight = aRight;
+  mRight = move(aRight);
 }
 
 AstNode::~AstNode()

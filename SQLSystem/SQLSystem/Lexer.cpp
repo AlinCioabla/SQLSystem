@@ -43,7 +43,7 @@ bool Lexer::Tokenize()
     {
       foundPredicate = false;
       _temp += it;
-      mTokens.push_back(make_shared<Predicate>(_temp));
+      mTokens.push_back(make_unique<Predicate>(_temp));
       _temp.clear();
     }
     else if (foundPredicate)
@@ -64,11 +64,11 @@ bool Lexer::Tokenize()
         {
           if (IsKeyword(_temp))
           {
-            mTokens.push_back(make_shared<Keyword>(_temp));
+            mTokens.push_back(make_unique<Keyword>(_temp));
           }
           else
           {
-            mTokens.push_back(make_shared<Identifier>(_temp));
+            mTokens.push_back(make_unique<Identifier>(_temp));
           }
           _temp.clear();
         }
@@ -78,15 +78,15 @@ bool Lexer::Tokenize()
 
         if (IsWhitespace(it))
         {
-          mTokens.push_back(make_shared<WhiteSpace>(it));
+          mTokens.push_back(make_unique<WhiteSpace>(it));
         }
         else if (IsOperator(it))
         {
-          mTokens.push_back(make_shared<Operator>(it));
+          mTokens.push_back(make_unique<Operator>(it));
         }
         else if (IsPunctuation(it))
         {
-          mTokens.push_back(make_shared<Punctuation>(it));
+          mTokens.push_back(make_unique<Punctuation>(it));
         }
         else
         {
@@ -115,7 +115,7 @@ TokenPtr Lexer::GetNextToken()
     {
       advance(mIndex, 1);
     }
-    return *mIndex;
+    return move(*mIndex);
   }
   {
     return nullptr;

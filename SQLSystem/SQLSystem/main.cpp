@@ -9,7 +9,7 @@
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
 
-int main()
+void TestUnits()
 {
   LexerTestUnit lexerTestUnit;
   lexerTestUnit.CreateTest("TestFile1.txt"s);
@@ -46,6 +46,12 @@ int main()
   // parserTestUnit.CreateTest("TestFile14.txt"s);
   // parserTestUnit.CreateTest("TestFile15.txt"s);
   // parserTestUnit.ExecuteAllTests();
+}
 
+int main()
+{
+  {
+    TestUnits();
+  }
   return 0;
 }

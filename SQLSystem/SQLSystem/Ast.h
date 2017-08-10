@@ -5,7 +5,7 @@ class Ast
 {
 public:
   Ast(AstNodePtr aRoot)
-    : mRoot(aRoot){};
+    : mRoot(move(aRoot)){};
   Ast(const Ast & aAst);
 
   Ast();
@@ -25,10 +25,10 @@ public:
 
   void InsertRight(AstNodePtr aNode, TokenPtr aToken);
 
-  AstNodePtr GetRoot() const { return mRoot; };
+  AstNode * GetRoot() const { return mRoot.get(); };
 
   // Creates a new node
-  static AstNodePtr GetNewNode(TokenPtr aTokenPtr) { return make_shared<AstNode>(aTokenPtr); }
+  static AstNodePtr GetNewNode(TokenPtr aTokenPtr) { return make_unique<AstNode>(aTokenPtr); }
 
   ~Ast();
 

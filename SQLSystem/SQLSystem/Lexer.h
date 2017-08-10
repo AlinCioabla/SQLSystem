@@ -40,5 +40,4 @@ private:
   vector<TokenPtr>::iterator mIndex;
   vector<TokenPtr>           mTokens;
   bool                       returnedFirstToken = false;
-  friend class LexerTest;
 };

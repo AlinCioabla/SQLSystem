@@ -17,4 +17,3 @@ public:
 
   virtual void ResetNext() = 0;
 };
-typedef shared_ptr<ITokensTraversal> TravPtr;
