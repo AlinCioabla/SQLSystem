@@ -2,7 +2,7 @@
 #include "Invalid.h"
 
 IState * Invalid::HandleToken(TokenPtr &   aCurrentToken,
-                              TokenPtr &   prevToken,
+                              IToken *     prevToken,
                               AstNodePtr & aCurrentInstructionNode,
                               Ast &        aAst)
 {

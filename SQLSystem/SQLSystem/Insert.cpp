@@ -9,7 +9,7 @@ Insert::Insert()
 }
 
 IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
-                             TokenPtr &   aPrevToken,
+                             IToken *     aPrevToken,
                              AstNodePtr & aCurrentInstructionNode,
                              Ast &        aAst)
 {

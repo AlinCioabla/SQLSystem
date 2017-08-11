@@ -11,7 +11,7 @@ Into::Into()
 }
 
 IState * Into::HandleToken(TokenPtr &   aCurrentToken,
-                           TokenPtr &   aPrevToken,
+                           IToken *     aPrevToken,
                            AstNodePtr & aCurrentInstructionNode,
                            Ast &        aAst)
 {
