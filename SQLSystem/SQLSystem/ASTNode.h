@@ -3,7 +3,7 @@
 #include "IToken.h"
 
 class AstNode;
-typedef unique_ptr<AstNode> AstNodePtr;
+typedef shared_ptr<AstNode> AstNodePtr;
 
 class AstNode
 {
@@ -15,21 +15,17 @@ public:
   AstNode() {}
   AstNode(const AstNode & aAstNode);
 
-  AstNode * GetLeft() { return mLeft.get(); };
+  AstNodePtr & GetLeft() { return mLeft; };
 
-  AstNode * GetRight() { return mRight.get(); };
+  AstNodePtr & GetRight() { return mRight; };
 
-  IToken * GetToken() { return mToken.get(); };
+  IToken * GetToken() const { return mToken.get(); };
 
-  void InsertLeft(AstNodePtr aNode);
+  void SetToken(TokenPtr & aToken);
 
-  void InsertRight(AstNodePtr aNode);
+  void SetLeft(const AstNodePtr & aLeft);
 
-  void SetToken(TokenPtr aToken);
-
-  void SetLeft(AstNodePtr aLeft);
-
-  void SetRight(AstNodePtr aRight);
+  void SetRight(const AstNodePtr & aRight);
 
   ~AstNode();
 

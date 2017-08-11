@@ -6,17 +6,17 @@ AstNode::AstNode(const AstNode & aAstNode)
 {
 }
 
-void AstNode::SetToken(TokenPtr aToken)
+void AstNode::SetToken(TokenPtr & aToken)
 {
   mToken = move(aToken);
 }
 
-void AstNode::SetLeft(AstNodePtr aLeft)
+void AstNode::SetLeft(const AstNodePtr & aLeft)
 {
   mLeft = move(aLeft);
 }
 
-void AstNode::SetRight(AstNodePtr aRight)
+void AstNode::SetRight(const AstNodePtr & aRight)
 {
   mRight = move(aRight);
 }

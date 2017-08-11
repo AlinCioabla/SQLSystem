@@ -7,7 +7,7 @@ Select::Select()
 }
 
 IState * Select::HandleToken(TokenPtr &   aCurrentToken,
-                             TokenPtr &   aPrevToken,
+                             IToken *     aPrevToken,
                              AstNodePtr & aCurrentInstructionNode,
                              Ast &        aAst)
 {

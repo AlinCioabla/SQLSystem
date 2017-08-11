@@ -33,7 +33,7 @@ bool Parser::Parse()
     }
 
     // Get the next token
-    mPrevToken    = mCurrentToken;
+    mPrevToken    = mCurrentToken.get();
     mCurrentToken = GetNwToken(mLexer);
   }
 
