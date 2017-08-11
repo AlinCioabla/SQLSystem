@@ -6,7 +6,7 @@ class Select : public IState
 public:
   Select();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       TokenPtr &   prevToken,
+                       IToken *     prevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

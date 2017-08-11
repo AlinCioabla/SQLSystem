@@ -23,7 +23,7 @@ class IState
 {
 public:
   virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               TokenPtr &   prevToken,
+                               IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) = 0;
   virtual State    GetStateName() const    = 0;

@@ -17,7 +17,7 @@ void Ast::Display(AstNode * aNode, int indent) const
   {
     if (aNode->GetRight())
     {
-      Display(aNode->GetRight(), indent + 4);
+      Display(aNode->GetRight().get(), indent + 4);
     }
     if (indent)
     {
@@ -29,7 +29,7 @@ void Ast::Display(AstNode * aNode, int indent) const
     if (aNode->GetLeft())
     {
       cout << setw(indent) << ' ' << " \\\n";
-      Display(aNode->GetLeft(), indent + 4);
+      Display(aNode->GetLeft().get(), indent + 4);
     }
   }
 }
@@ -42,12 +42,12 @@ void Ast::PrintQuery(AstNode * aNode)
     {
       cout << aNode->GetToken()->GetWord() << " ";
     }
-    PrintQuery(aNode->GetLeft());
+    PrintQuery(aNode->GetLeft().get());
     if (aNode->GetToken()->GetType() != KeywordType)
     {
       cout << aNode->GetToken()->GetWord() << " ";
     }
-    PrintQuery(aNode->GetRight());
+    PrintQuery(aNode->GetRight().get());
   }
 }
 
@@ -59,29 +59,22 @@ void Ast::SetRoot(AstNodePtr aNode)
   }
 }
 
-void Ast::InsertLeft(AstNodePtr aNode, TokenPtr aToken)
+void Ast::InsertLeft(AstNodePtr & aNode, TokenPtr & aToken)
 {
   if (aNode != nullptr)
   {
     auto temp = aNode->GetLeft();
     aNode->SetLeft(Ast::GetNewNode(move(aToken)));
-    aNode->GetLeft()->SetLeft(make_unique<AstNode>(temp));
-
-
-    auto newNode = Ast::GetNewNode(move(aToken));
-    newNode->SetLeft(move(aNode->ReleaseRight());
-    aNode->SetLeft(newNode);
-
-
+    aNode->GetLeft()->SetLeft(temp);
   }
 }
 
-void Ast::InsertRight(AstNodePtr aNode, TokenPtr aToken)
+void Ast::InsertRight(AstNodePtr & aNode, TokenPtr & aToken)
 {
   if (aNode != nullptr)
   {
     auto temp = aNode->GetRight();
-    aNode->SetRight(Ast::GetNewNode(aToken));
+    aNode->SetRight(Ast::GetNewNode(move(aToken)));
     aNode->GetRight()->SetRight(temp);
   }
 }

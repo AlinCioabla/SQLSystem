@@ -24,7 +24,7 @@ private:
 
   IState *           mCurrentState;
   TokenPtr           mCurrentToken;
-  TokenPtr           mPrevToken;
+  IToken *           mPrevToken;
   AstNodePtr         mCurrentInstructionNode;
   ITokensTraversal & mLexer;
 };

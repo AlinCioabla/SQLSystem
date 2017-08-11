@@ -59,5 +59,5 @@ TokenPtr GetNwToken(ITokensTraversal & aLexer)
   {
     currentToken = aLexer.GetNextToken();
   }
-  return currentToken;
+  return move(currentToken);
 }
