@@ -16,27 +16,30 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
                                 AstNodePtr & aCurrentInstructionNode,
                                 Ast &        aAst)
 {
-  auto tempRoot = Ast::GetNewNode(aCurrentToken);
   if (aCurrentToken->GetWord() == "SELECT")
   {
+    auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
     aCurrentInstructionNode = tempRoot;
     return new Select();
   }
   else if (aCurrentToken->GetWord() == "DELETE")
   {
+    auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
     aCurrentInstructionNode = tempRoot;
     return new Delete();
   }
   else if (aCurrentToken->GetWord() == "UPDATE")
   {
+    auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
     aCurrentInstructionNode = tempRoot;
     return new Update();
   }
   else if (aCurrentToken->GetWord() == "INSERT")
   {
+    auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
     aCurrentInstructionNode = tempRoot;
     return new Insert();
