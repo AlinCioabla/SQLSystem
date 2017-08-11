@@ -122,6 +122,7 @@
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="DiagnosticInfo.cpp" />
     <ClCompile Include="Distinct.cpp" />
     <ClCompile Include="From.cpp" />
     <ClCompile Include="Insert.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Delete.h" />
+    <ClInclude Include="DiagnosticInfo.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
     <ClInclude Include="Insert.h" />

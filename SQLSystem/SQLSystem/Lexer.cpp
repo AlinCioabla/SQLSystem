@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Lexer.h"
+#include "DiagnosticInfo.h"
 #include "Helpers.h"
 
 // Read the input from a given file and store it in the member string
@@ -10,13 +11,16 @@ Lexer::Lexer() = default;
 
 bool Lexer::ReadFromFile(ifstream & aIn)
 {
+  DiagnosticInfo index(0, 0);
   if (!aIn)
   {
     return false;
   }
   char c;
+
   while (aIn.get(c))
   {
+    index.Increment(c);
     mSqlCommand += c;
   }
   return true;
