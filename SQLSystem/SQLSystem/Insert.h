@@ -5,7 +5,7 @@ class Insert : public IState
 public:
   Insert();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       TokenPtr &   prevToken,
+                       IToken *     prevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

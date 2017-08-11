@@ -4,7 +4,7 @@ class Invalid : public IState
 {
 public:
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       TokenPtr &   prevToken,
+                       IToken *     prevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

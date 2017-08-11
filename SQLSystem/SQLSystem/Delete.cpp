@@ -6,7 +6,7 @@
 Delete::Delete() = default;
 
 IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
-                             TokenPtr &   aPrevToken,
+                             IToken *     aPrevToken,
                              AstNodePtr & aCurrentInstructionNode,
                              Ast &        aAst)
 {

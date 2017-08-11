@@ -8,7 +8,7 @@ Distinct::Distinct()
 }
 
 IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
-                               TokenPtr &   aPrevToken,
+                               IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst)
 {
