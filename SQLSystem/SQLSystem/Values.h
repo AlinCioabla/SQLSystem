@@ -5,7 +5,7 @@ class Values : public IState
 public:
   Values();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       IToken *     prevToken,
+                       IToken *     aPrevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

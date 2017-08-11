@@ -28,7 +28,10 @@ public:
   AstNode * GetRoot() const { return mRoot.get(); };
 
   // Creates a new node
-  static AstNodePtr GetNewNode(TokenPtr & aTokenPtr) { return make_shared<AstNode>(aTokenPtr); }
+  static AstNodePtr GetNewNode(TokenPtr & aTokenPtr)
+  {
+    return make_shared<AstNode>(move(aTokenPtr));
+  }
 
   ~Ast();
 
