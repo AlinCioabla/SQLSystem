@@ -9,7 +9,7 @@ Values::Values()
 }
 
 IState * Values::HandleToken(TokenPtr &   aCurrentToken,
-                             TokenPtr &   aPrevToken,
+                             IToken *     aPrevToken,
                              AstNodePtr & aCurrentInstructionNode,
                              Ast &        aAst)
 {
