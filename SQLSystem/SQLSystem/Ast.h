@@ -11,10 +11,10 @@ public:
   Ast();
 
   // Print the Abstract Syntax Tree
-  void Display(AstNodePtr aNode, int indent) const;
+  void Display(AstNode * aNode, int indent) const;
 
   // Print the query obtained from the Ast
-  void PrintQuery(AstNodePtr aNode);
+  void PrintQuery(AstNode * aNode);
 
   // Sets the root of the ast
   void SetRoot(AstNodePtr aNode);
