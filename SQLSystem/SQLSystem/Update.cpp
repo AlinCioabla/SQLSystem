@@ -8,7 +8,7 @@ Update::Update()
 }
 
 IState * Update::HandleToken(TokenPtr &   aCurrentToken,
-                             TokenPtr &   aPrevToken,
+                             IToken *     aPrevToken,
                              AstNodePtr & aCurrentInstructionNode,
                              Ast &        aAst)
 {

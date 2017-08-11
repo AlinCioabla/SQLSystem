@@ -7,7 +7,7 @@ class Undefined : public IState
 public:
   Undefined();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       TokenPtr &   prevToken,
+                       IToken *     prevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

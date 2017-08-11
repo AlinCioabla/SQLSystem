@@ -2,12 +2,10 @@
 #include "IState.h"
 class Valid : public IState
 {
-  State mNextState;
-
 public:
   Valid();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       TokenPtr &   prevToken,
+                       IToken *     aPrevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;

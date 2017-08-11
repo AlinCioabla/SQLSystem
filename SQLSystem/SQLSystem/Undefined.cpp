@@ -12,7 +12,7 @@ Undefined::Undefined()
 }
 
 IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
-                                TokenPtr &   prevToken,
+                                IToken *     prevToken,
                                 AstNodePtr & aCurrentInstructionNode,
                                 Ast &        aAst)
 {

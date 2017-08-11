@@ -7,7 +7,7 @@ class Where : public IState
 public:
   Where();
   virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               TokenPtr &   prevToken,
+                               IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) override;
   State            GetStateName() const override;

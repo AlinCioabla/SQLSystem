@@ -7,7 +7,7 @@ class Update : public IState
 public:
   Update();
   virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               TokenPtr &   prevToken,
+                               IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) override;
   State            GetStateName() const override;

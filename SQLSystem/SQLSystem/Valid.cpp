@@ -7,7 +7,7 @@ Valid::Valid()
 }
 
 IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
-                            TokenPtr &   prevToken,
+                            IToken *     aPrevToken,
                             AstNodePtr & aCurrentInstructionNode,
                             Ast &        aAst)
 {

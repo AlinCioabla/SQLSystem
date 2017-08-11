@@ -10,7 +10,7 @@ Where::Where()
 }
 
 IState * Where::HandleToken(TokenPtr &   aCurrentToken,
-                            TokenPtr &   aPrevToken,
+                            IToken *     aPrevToken,
                             AstNodePtr & aCurrentInstructionNode,
                             Ast &        aAst)
 {
