@@ -6,11 +6,9 @@
 
 Parser::Parser(ITokensTraversal & aLexer)
   : mLexer(aLexer)
+  , mCurrentState(make_unique<Undefined>())
+  , mPrevToken(nullptr)
 {
-  mCurrentState           = new Undefined();
-  mCurrentToken           = nullptr;
-  mPrevToken              = nullptr;
-  mCurrentInstructionNode = nullptr;
 }
 
 bool Parser::Parse()
@@ -18,22 +16,26 @@ bool Parser::Parse()
   // Get the first token
   mCurrentToken = GetNwToken(mLexer);
 
+  IToken * _tempPrevToken;
+
   // We traverse the token list until we run out of tokens or the syntax is invalid
   while (mCurrentToken != nullptr && mCurrentState->GetStateName() != INVALID)
   {
+    // Create a temporary pointer before we move the ownership of the currentToken
+    _tempPrevToken = mCurrentToken.get();
+
     // Do the actions for the current state and get the next state
-    IState * nextState =
+    IState * _nextState =
       mCurrentState->HandleToken(mCurrentToken, mPrevToken, mCurrentInstructionNode, mAst);
 
     // If the next state is null, the current state does not change
-    if (nextState != nullptr)
+    if (_nextState != nullptr)
     {
-      delete mCurrentState;
-      mCurrentState = nextState;
+      mCurrentState.reset(_nextState);
     }
 
     // Get the next token
-    mPrevToken    = mCurrentToken.get();
+    mPrevToken    = _tempPrevToken;
     mCurrentToken = GetNwToken(mLexer);
   }
 

@@ -58,12 +58,18 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
   {
     if (aPrevToken->GetType() == IdentifierType)
     {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
       if (aCurrentToken->GetWord() == "WHERE")
+      {
+        aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+        aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
         return new Where();
+      }
       else if (aCurrentToken->GetWord() == "VALUES")
+      {
+        aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+        aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
         return new Values();
+      }
     }
   }
 

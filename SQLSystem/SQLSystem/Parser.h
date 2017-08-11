@@ -22,7 +22,7 @@ public:
 private:
   Ast mAst;
 
-  IState *           mCurrentState;
+  unique_ptr<IState> mCurrentState;
   TokenPtr           mCurrentToken;
   IToken *           mPrevToken;
   AstNodePtr         mCurrentInstructionNode;
