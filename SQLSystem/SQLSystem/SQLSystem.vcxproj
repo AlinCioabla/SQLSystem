@@ -162,7 +162,7 @@
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Delete.h" />
-    <ClInclude Include="DiagnosticInfo.h" />
+    <ClInclude Include="Position.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
     <ClInclude Include="Insert.h" />

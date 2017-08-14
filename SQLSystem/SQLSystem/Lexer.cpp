@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Lexer.h"
-#include "DiagnosticInfo.h"
 #include "Helpers.h"
+#include "Position.h"
 
 // Read the input from a given file and store it in the member string
 // of the class mSqlCommand
@@ -11,30 +11,30 @@ Lexer::Lexer() = default;
 
 bool Lexer::ReadFromFile(ifstream & aIn)
 {
-  DiagnosticInfo index(0, 0);
   if (!aIn)
   {
     return false;
   }
-  char c;
 
-  while (aIn.get(c))
-  {
-    index.Increment(c);
-    mSqlCommand += c;
-  }
+  string _inputString((istreambuf_iterator<char>(aIn)), istreambuf_iterator<char>());
+  mSqlCommand = _inputString;
+
   return true;
 }
 
 // Split the input string into different types
 bool Lexer::Tokenize()
 {
+  Position pos(0, 0);
   // Temporary string
   string _temp;
   bool   foundPredicate = false;
   // Iterate through all the initial input string characters
   for (auto it : mSqlCommand)
   {
+    if (it == '/n')
+      pos.IncrementLine();
+
     // If we find an alphanumeric character we add it to the
     // _temp string
     if (it == '\'' && !_temp.length() && !foundPredicate)
@@ -47,7 +47,8 @@ bool Lexer::Tokenize()
     {
       foundPredicate = false;
       _temp += it;
-      mTokens.push_back(make_unique<Predicate>(_temp));
+      pos.IncrementColumn();
+      mTokens.push_back(make_unique<Predicate>(_temp, pos));
       _temp.clear();
     }
     else if (foundPredicate)
@@ -68,11 +69,13 @@ bool Lexer::Tokenize()
         {
           if (IsKeyword(_temp))
           {
-            mTokens.push_back(make_unique<Keyword>(_temp));
+            pos.IncrementColumn();
+            mTokens.push_back(make_unique<Keyword>(_temp, pos));
           }
           else
           {
-            mTokens.push_back(make_unique<Identifier>(_temp));
+            pos.IncrementColumn();
+            mTokens.push_back(make_unique<Identifier>(_temp, pos));
           }
           _temp.clear();
         }
@@ -86,11 +89,13 @@ bool Lexer::Tokenize()
         }
         else if (IsOperator(it))
         {
-          mTokens.push_back(make_unique<Operator>(it));
+          pos.IncrementColumn();
+          mTokens.push_back(make_unique<Operator>(it, pos));
         }
         else if (IsPunctuation(it))
         {
-          mTokens.push_back(make_unique<Punctuation>(it));
+          pos.IncrementColumn();
+          mTokens.push_back(make_unique<Punctuation>(it, pos));
         }
         else
         {
@@ -138,4 +143,5 @@ void Lexer::ResetNext()
 
 Lexer::~Lexer()
 {
+  mTokens.clear();
 }

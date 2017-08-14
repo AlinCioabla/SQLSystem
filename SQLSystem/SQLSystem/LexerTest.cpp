@@ -31,7 +31,6 @@ bool LexerTest::Execute()
 
 LexerTest::~LexerTest()
 {
-  delete mLexer;
 }
 
 bool LexerTest::TestInputFile(ifstream & aInputFile)
@@ -47,16 +46,11 @@ bool LexerTest::TestReadFromFile(ifstream & aInputFile)
 {
   if (mLexer->ReadFromFile(aInputFile))
   {
-    string _temp;
-    char   _c;
     aInputFile.clear();
     aInputFile.seekg(0, aInputFile.beg);
 
-    while (aInputFile.get(_c))
-    {
-      _temp += _c;
-    }
-    return _temp == mLexer->GetSqlCommand();
+    string _inputString((istreambuf_iterator<char>(aInputFile)), istreambuf_iterator<char>());
+    return _inputString == mLexer->GetSqlCommand();
   }
   return false;
 }
@@ -74,30 +68,20 @@ bool LexerTest::TestTokenize(ifstream & aInputFile)
     _currentToken = mLexer->GetNextToken();
   }
 
-  string _temp;
-  char   _c;
   aInputFile.clear();
   aInputFile.seekg(0, aInputFile.beg);
 
-  while (aInputFile.get(_c))
-  {
-    _temp += _c;
-  }
+  string _inputString((istreambuf_iterator<char>(aInputFile)), istreambuf_iterator<char>());
 
-  return _tokens == _temp;
+  return _tokens == _inputString;
 }
 
 bool LexerTest::TestGetSqlCommand(ifstream & aInputFile)
 {
-  string _temp;
-  char   _c;
   aInputFile.clear();
   aInputFile.seekg(0, aInputFile.beg);
 
-  while (aInputFile.get(_c))
-  {
-    _temp += _c;
-  }
+  string _inputString((istreambuf_iterator<char>(aInputFile)), istreambuf_iterator<char>());
 
-  return _temp == mLexer->GetSqlCommand();
+  return _inputString == mLexer->GetSqlCommand();
 }

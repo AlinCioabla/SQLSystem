@@ -1,10 +1,12 @@
 #include "stdafx.h"
-#include "DiagnosticInfo.h"
+#include "Position.h"
 
-void DiagnosticInfo::Increment(char c)
+void Position::IncrementLine()
 {
-  if (c == '/n')
-    mLine++;
-  else
-    mColumn++;
+  mLine++;
+}
+
+void Position::IncrementColumn()
+{
+  mColumn++;
 }

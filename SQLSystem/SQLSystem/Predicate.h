@@ -3,12 +3,14 @@
 class Predicate : public IToken
 {
 public:
-  Predicate(string & aWord)
-    : mWord(aWord){};
+  Predicate(string & aWord, Position aPosition)
+    : mWord(aWord)
+    , mPosition(aPosition){};
   string    GetWord() const override;
   TokenType GetType() const override;
   virtual ~Predicate();
 
 private:
-  string mWord;
+  string   mWord;
+  Position mPosition;
 };
