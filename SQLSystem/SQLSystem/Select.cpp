@@ -2,9 +2,7 @@
 #include "Select.h"
 #include "From.h"
 #include "Invalid.h"
-Select::Select()
-{
-}
+Select::Select() = default;
 
 IState * Select::HandleToken(TokenPtr &   aCurrentToken,
                              IToken *     aPrevToken,
@@ -19,7 +17,7 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
       return nullptr;
     }
 
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -80,6 +78,4 @@ State Select::GetStateName() const
   return State::SELECT;
 }
 
-Select::~Select()
-{
-}
+Select::~Select() = default;

@@ -12,6 +12,4 @@ bool SQLSystem::ExecuteQuery()
   return false;
 }
 
-SQLSystem::~SQLSystem()
-{
-}
+SQLSystem::~SQLSystem() = default;

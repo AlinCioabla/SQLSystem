@@ -10,6 +10,4 @@ TokenType Predicate::GetType() const
   return TokenType::PredicateType;
 }
 
-Predicate::~Predicate()
-{
-}
+Predicate::~Predicate() = default;

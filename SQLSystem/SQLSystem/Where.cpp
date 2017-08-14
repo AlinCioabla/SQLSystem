@@ -5,9 +5,7 @@
 #include "Invalid.h"
 #include "Valid.h"
 
-Where::Where()
-{
-}
+Where::Where() = default;
 
 IState * Where::HandleToken(TokenPtr &   aCurrentToken,
                             IToken *     aPrevToken,
@@ -21,8 +19,9 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else
+    {
       return new Invalid();
+    }
   }
 
   if (aCurrentToken->GetType() == OperatorType || aCurrentToken->GetWord() == "LIKE" ||
@@ -38,11 +37,9 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
         aCurrentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
         return nullptr;
       }
-      else
-      {
-        aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-        return nullptr;
-      }
+
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
     else
     {
@@ -57,7 +54,7 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else if (aPrevToken->GetWord() == "AND" || aPrevToken->GetWord() == "OR")
+    if (aPrevToken->GetWord() == "AND" || aPrevToken->GetWord() == "OR")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -79,14 +76,14 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
         aCurrentInstructionNode->GetLeft()->GetRight()->SetRight(Ast::GetNewNode(aCurrentToken));
         return nullptr;
       }
-      else
-      {
-        aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
-        return nullptr;
-      }
+
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      return nullptr;
     }
     else
+    {
       return new Invalid();
+    }
   }
 
   //////////////////////////////////////////////////
@@ -96,8 +93,9 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     {
       return new Valid();
     }
-    else
+    {
       return new Invalid();
+    }
   }
   return new Invalid();
 }
@@ -107,6 +105,4 @@ State Where::GetStateName() const
   return State::WHERE;
 }
 
-Where::~Where()
-{
-}
+Where::~Where() = default;

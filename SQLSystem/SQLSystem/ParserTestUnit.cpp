@@ -12,9 +12,13 @@ void ParserTestUnit::ExecuteAllTests()
       bool succes = test->Execute();
       cout << endl << "Result: ";
       if (succes)
+      {
         cout << "Success!" << endl;
+      }
       else
+      {
         cout << "Failed" << endl;
+      }
       cout << "-------------------------------------" << endl;
       index++;
     }
@@ -26,6 +30,4 @@ void ParserTestUnit::CreateTest(string aFileName)
   mTests.push_back(make_unique<ParserTest>(aFileName));
 }
 
-ParserTestUnit::~ParserTestUnit()
-{
-}
+ParserTestUnit::~ParserTestUnit() = default;

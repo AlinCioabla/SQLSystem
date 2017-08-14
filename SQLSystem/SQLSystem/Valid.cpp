@@ -2,9 +2,7 @@
 #include "Valid.h"
 #include "Invalid.h"
 
-Valid::Valid()
-{
-}
+Valid::Valid() = default;
 
 IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
                             IToken *     aPrevToken,
@@ -19,6 +17,4 @@ State Valid::GetStateName() const
   return State::VALID;
 }
 
-Valid::~Valid()
-{
-}
+Valid::~Valid() = default;

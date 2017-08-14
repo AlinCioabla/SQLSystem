@@ -22,6 +22,4 @@ bool ParserTester::TestAst()
   return false;
 }
 
-ParserTester::~ParserTester()
-{
-}
+ParserTester::~ParserTester() = default;

@@ -3,9 +3,7 @@
 #include "From.h"
 #include "Invalid.h"
 
-Update::Update()
-{
-}
+Update::Update() = default;
 
 IState * Update::HandleToken(TokenPtr &   aCurrentToken,
                              IToken *     aPrevToken,
@@ -20,7 +18,7 @@ IState * Update::HandleToken(TokenPtr &   aCurrentToken,
       return nullptr;
     }
 
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -69,6 +67,4 @@ State Update::GetStateName() const
   return State::UPDATE;
 }
 
-Update::~Update()
-{
-}
+Update::~Update() = default;

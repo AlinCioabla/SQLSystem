@@ -20,7 +20,7 @@ bool ParserTest::Execute()
     cout << "Cannot construct AST. Invalid syntax." << endl;
     return false;
   }
-  else if (!TestAst())
+  if (!TestAst())
   {
     cout << "AST was not constructed properly" << endl;
     return false;
@@ -34,17 +34,11 @@ bool ParserTest::Execute()
   }
 }
 
-ParserTest::~ParserTest()
-{
-}
+ParserTest::~ParserTest() = default;
 
 bool ParserTest::TestInputFile(ifstream & aInputFile)
 {
-  if (aInputFile)
-  {
-    return true;
-  }
-  return false;
+  return static_cast<bool>(aInputFile);
 }
 
 bool ParserTest::TestConstructAst()
