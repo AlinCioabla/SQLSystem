@@ -7,9 +7,7 @@
 #include "Select.h"
 #include "Update.h"
 
-Undefined::Undefined()
-{
-}
+Undefined::Undefined() = default;
 
 IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
                                 IToken *     prevToken,
@@ -23,7 +21,7 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
     aCurrentInstructionNode = tempRoot;
     return new Select();
   }
-  else if (aCurrentToken->GetWord() == "DELETE")
+  if (aCurrentToken->GetWord() == "DELETE")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
@@ -53,6 +51,4 @@ State Undefined::GetStateName() const
   return State::UNDEFINED;
 }
 
-Undefined::~Undefined()
-{
-}
+Undefined::~Undefined() = default;
