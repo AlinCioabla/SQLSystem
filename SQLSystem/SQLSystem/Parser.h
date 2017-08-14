@@ -9,7 +9,7 @@
 class Parser
 {
 public:
-  Parser(ITokensTraversal & mLexer);
+  Parser(ITokensTraversal & aLexer);
 
   // Parse the tokens provided by the Lexer
   bool Parse();

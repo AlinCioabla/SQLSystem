@@ -47,6 +47,4 @@ Ast & Parser::GetAst()
   return mAst;
 }
 
-Parser::~Parser()
-{
-}
+Parser::~Parser() = default;
