@@ -5,15 +5,15 @@
 class Keyword : public IToken
 {
 public:
-  Keyword(string aWord)
+  Keyword(string aWord, Position aPosition)
     : mWord(aWord)
-  {
-  }
+    , mPosition(aPosition){};
 
   TokenType GetType() const override;
   string    GetWord() const override;
   virtual ~Keyword();
 
 private:
-  string mWord;
+  string   mWord;
+  Position mPosition;
 };

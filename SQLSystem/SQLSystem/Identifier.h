@@ -3,12 +3,14 @@
 class Identifier : public IToken
 {
 public:
-  Identifier(string & aWord)
-    : mWord(aWord){};
+  Identifier(string & aWord, Position aPosition)
+    : mWord(aWord)
+    , mPosition(aPosition){};
   string    GetWord() const override;
   TokenType GetType() const override;
   virtual ~Identifier();
 
 private:
-  string mWord;
+  string   mWord;
+  Position mPosition;
 };

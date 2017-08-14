@@ -1,17 +1,19 @@
 #pragma once
-class DiagnosticInfo
+class Position
 {
 public:
-  DiagnosticInfo(int aLine, int aColumn)
+  Position() = default;
+  Position(int aLine, int aColumn)
     : mLine(aLine)
     , mColumn(aColumn){};
 
-  void Increment(char c);
+  void IncrementLine();
+  void IncrementColumn();
 
   int GetLine() { return mLine; };
   int GetColumn() { return mColumn; };
 
-  ~DiagnosticInfo() = default;
+  ~Position() = default;
 
 private:
   int mLine;

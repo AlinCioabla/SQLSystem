@@ -5,12 +5,14 @@
 class Operator : public IToken
 {
 public:
-  Operator(char aWord)
-    : mWord(aWord){};
+  Operator(char aWord, Position aPosition)
+    : mWord(aWord)
+    , mPosition(aPosition){};
   string    GetWord() const override;
   TokenType GetType() const override;
   virtual ~Operator();
 
 private:
-  char mWord;
+  char     mWord;
+  Position mPosition;
 };

@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "Position.h"
 
 // this is the Interface for tokens objects (Operators, Punctuation and Keywords)
 // we have 3 types of operators and white spaces {SELECT, *-=+ , !?; }

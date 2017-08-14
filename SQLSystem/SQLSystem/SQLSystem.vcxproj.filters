@@ -218,7 +218,7 @@
     <ClInclude Include="Values.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DiagnosticInfo.h">
+    <ClInclude Include="Position.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
