@@ -24,7 +24,9 @@ void Ast::Display(AstNode * aNode, int indent) const
       cout << setw(indent) << " ";
     }
     if (aNode->GetRight())
+    {
       cout << " /\n" << setw(indent) << ' ';
+    }
     cout << aNode->GetToken()->GetWord() << "\n ";
     if (aNode->GetLeft())
     {
@@ -64,7 +66,7 @@ void Ast::InsertLeft(AstNodePtr & aNode, TokenPtr & aToken)
   if (aNode != nullptr)
   {
     auto temp = aNode->GetLeft();
-    aNode->SetLeft(Ast::GetNewNode(move(aToken)));
+    aNode->SetLeft(Ast::GetNewNode(aToken));
     aNode->GetLeft()->SetLeft(temp);
   }
 }
@@ -74,11 +76,9 @@ void Ast::InsertRight(AstNodePtr & aNode, TokenPtr & aToken)
   if (aNode != nullptr)
   {
     auto temp = aNode->GetRight();
-    aNode->SetRight(Ast::GetNewNode(move(aToken)));
+    aNode->SetRight(Ast::GetNewNode(aToken));
     aNode->GetRight()->SetRight(temp);
   }
 }
 
-Ast::~Ast()
-{
-}
+Ast::~Ast() = default;
