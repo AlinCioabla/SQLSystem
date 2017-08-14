@@ -37,17 +37,23 @@ const bool IsWhitespace(const char & aChar)
 const bool IsNumber(const string & aString)
 {
   for (auto it : aString)
+  {
     if (!(IsDigit(it)))
+    {
       return false;
+    }
+  }
   return true;
 }
 
 const bool IsKeyword(const string & aString)
 {
-  for (auto it : keywords)
+  for (const auto & it : keywords)
   {
     if (it == aString)
+    {
       return true;
+    }
   }
   return false;
 }

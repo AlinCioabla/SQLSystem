@@ -10,6 +10,4 @@ TokenType Number::GetType() const
   return TokenType::NumberType;
 }
 
-Number::~Number()
-{
-}
+Number::~Number() = default;

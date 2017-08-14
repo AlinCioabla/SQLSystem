@@ -4,9 +4,7 @@
 #include "Invalid.h"
 #include "Valid.h"
 
-Insert::Insert()
-{
-}
+Insert::Insert() = default;
 
 IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
                              IToken *     aPrevToken,
@@ -21,7 +19,7 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
       return nullptr;
     }
 
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -61,8 +59,8 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
       return new Into();
     }
   }
-  else
-    return new Invalid();
+
+  return new Invalid();
 }
 
 State Insert::GetStateName() const
@@ -70,6 +68,4 @@ State Insert::GetStateName() const
   return State::INSERT;
 }
 
-Insert::~Insert()
-{
-}
+Insert::~Insert() = default;

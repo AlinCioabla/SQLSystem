@@ -11,9 +11,13 @@ void LexerTestUnit::ExecuteAllTests()
     bool succes = test->Execute();
     cout << "Result: ";
     if (succes)
+    {
       cout << "Success!" << endl;
+    }
     else
+    {
       cout << "Failed" << endl;
+    }
     cout << "-------------------------------------" << endl;
   }
 }

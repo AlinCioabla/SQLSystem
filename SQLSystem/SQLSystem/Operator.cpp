@@ -12,6 +12,4 @@ TokenType Operator::GetType() const
   return TokenType::OperatorType;
 }
 
-Operator::~Operator()
-{
-}
+Operator::~Operator() = default;

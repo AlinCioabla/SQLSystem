@@ -14,6 +14,4 @@ State Invalid::GetStateName() const
   return State::INVALID;
 }
 
-Invalid::~Invalid()
-{
-}
+Invalid::~Invalid() = default;

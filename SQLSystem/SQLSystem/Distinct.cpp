@@ -3,9 +3,7 @@
 #include "From.h"
 #include "Invalid.h"
 
-Distinct::Distinct()
-{
-}
+Distinct::Distinct() = default;
 
 IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
                                IToken *     aPrevToken,
@@ -20,7 +18,7 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
       return nullptr;
     }
 
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -69,6 +67,4 @@ State Distinct::GetStateName() const
   return State::DISTINCT;
 }
 
-Distinct::~Distinct()
-{
-}
+Distinct::~Distinct() = default;

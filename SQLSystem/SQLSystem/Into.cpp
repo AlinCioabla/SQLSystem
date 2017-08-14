@@ -6,9 +6,7 @@
 #include "Values.h"
 #include "Where.h"
 
-Into::Into()
-{
-}
+Into::Into() = default;
 
 IState * Into::HandleToken(TokenPtr &   aCurrentToken,
                            IToken *     aPrevToken,
@@ -22,7 +20,7 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -64,7 +62,7 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
         aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
         return new Where();
       }
-      else if (aCurrentToken->GetWord() == "VALUES")
+      if (aCurrentToken->GetWord() == "VALUES")
       {
         aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
         aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
@@ -81,6 +79,4 @@ State Into::GetStateName() const
   return State::INTO;
 }
 
-Into::~Into()
-{
-}
+Into::~Into() = default;

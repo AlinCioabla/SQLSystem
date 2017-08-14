@@ -21,6 +21,4 @@ void AstNode::SetRight(const AstNodePtr & aRight)
   mRight = move(aRight);
 }
 
-AstNode::~AstNode()
-{
-}
+AstNode::~AstNode() = default;

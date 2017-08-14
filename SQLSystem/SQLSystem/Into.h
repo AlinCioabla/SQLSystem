@@ -5,7 +5,7 @@ class Into : public IState
 public:
   Into();
   IState * HandleToken(TokenPtr &   aCurrentToken,
-                       IToken *     prevToken,
+                       IToken *     aPrevToken,
                        AstNodePtr & aCurrentInstructionNode,
                        Ast &        aAst) override;
   State    GetStateName() const override;
