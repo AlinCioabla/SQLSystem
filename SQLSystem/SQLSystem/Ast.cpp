@@ -19,7 +19,7 @@ void Ast::Display(AstNode * aNode, int indent) const
     {
       Display(aNode->GetRight().get(), indent + 4);
     }
-    if (indent)
+    if (indent != 0)
     {
       cout << setw(indent) << " ";
     }
