@@ -16,4 +16,6 @@ public:
   virtual bool HasNext() const = 0;
 
   virtual void ResetNext() = 0;
+
+  virtual ~ITokensTraversal() {}
 };

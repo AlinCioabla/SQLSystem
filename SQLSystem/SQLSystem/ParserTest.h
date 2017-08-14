@@ -9,9 +9,9 @@ class ParserTest
 public:
   ParserTest(string aFileName)
     : mInputFileName(aFileName)
+    , mLexer(make_unique<Lexer>())
+    , mParser(make_unique<Parser>(*mLexer))
   {
-    mLexer  = new Lexer();
-    mParser = new Parser(*mLexer);
   }
 
   bool Execute();
@@ -19,12 +19,12 @@ public:
   ~ParserTest();
 
 private:
-  bool               TestInputFile(ifstream & aInputFile);
-  bool               TestConstructAst();
-  bool               TestAst();
-  void               PrintQueryFromAst();
-  void               DisplayAst();
-  string             mInputFileName;
-  Parser *           mParser;
-  ITokensTraversal * mLexer;
+  bool                         TestInputFile(ifstream & aInputFile);
+  bool                         TestConstructAst();
+  bool                         TestAst();
+  void                         PrintQueryFromAst();
+  void                         DisplayAst();
+  string                       mInputFileName;
+  unique_ptr<ITokensTraversal> mLexer;
+  unique_ptr<Parser>           mParser;
 };

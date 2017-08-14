@@ -36,8 +36,6 @@ bool ParserTest::Execute()
 
 ParserTest::~ParserTest()
 {
-  delete mLexer;
-  delete mParser;
 }
 
 bool ParserTest::TestInputFile(ifstream & aInputFile)

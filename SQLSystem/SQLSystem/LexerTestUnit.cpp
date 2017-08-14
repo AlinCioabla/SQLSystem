@@ -25,4 +25,5 @@ void LexerTestUnit::CreateTest(string aFileName)
 
 LexerTestUnit::~LexerTestUnit()
 {
+  mTests.clear();
 }

@@ -16,13 +16,10 @@ bool Lexer::ReadFromFile(ifstream & aIn)
   {
     return false;
   }
-  char c;
 
-  while (aIn.get(c))
-  {
-    index.Increment(c);
-    mSqlCommand += c;
-  }
+  string _inputString((istreambuf_iterator<char>(aIn)), istreambuf_iterator<char>());
+  mSqlCommand = _inputString;
+
   return true;
 }
 
@@ -138,4 +135,5 @@ void Lexer::ResetNext()
 
 Lexer::~Lexer()
 {
+  mTokens.clear();
 }
