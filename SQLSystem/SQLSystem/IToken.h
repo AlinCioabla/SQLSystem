@@ -1,5 +1,6 @@
 #pragma once
 #include "stdafx.h"
+#include "DiagnosticInfo.h"
 
 // this is the Interface for tokens objects (Operators, Punctuation and Keywords)
 // we have 3 types of operators and white spaces {SELECT, *-=+ , !?; }
@@ -19,6 +20,7 @@ enum TokenType
 class IToken
 {
 public:
+  DiagnosticInfo * index;
   // This will return the type of the token
   virtual TokenType GetType() const = 0;
 
