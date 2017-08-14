@@ -10,6 +10,4 @@ string Keyword::GetWord() const
   return mWord;
 }
 
-Keyword::~Keyword()
-{
-}
+Keyword::~Keyword() = default;

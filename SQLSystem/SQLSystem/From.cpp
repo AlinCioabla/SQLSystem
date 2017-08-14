@@ -3,9 +3,7 @@
 #include "Invalid.h"
 #include "Valid.h"
 #include "Where.h"
-From::From()
-{
-}
+From::From() = default;
 
 IState * From::HandleToken(TokenPtr &   aCurrentToken,
                            IToken *     aPrevToken,
@@ -19,7 +17,7 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
@@ -68,6 +66,4 @@ State From::GetStateName() const
   return State::FROM;
 }
 
-From::~From()
-{
-}
+From::~From() = default;

@@ -30,14 +30,16 @@ bool Lexer::Tokenize()
   string _temp;
   bool   foundPredicate = false;
   // Iterate through all the initial input string characters
-  for (auto it : mSqlCommand)
+  for (const auto & it : mSqlCommand)
   {
-    if (it == '/n')
+    if (it == '\n')
+    {
       pos.IncrementLine();
+    }
 
     // If we find an alphanumeric character we add it to the
     // _temp string
-    if (it == '\'' && !_temp.length() && !foundPredicate)
+    if (it == '\'' && (_temp.length() == 0u) && !foundPredicate)
     {
       foundPredicate = true;
       _temp += it;
@@ -65,7 +67,7 @@ bool Lexer::Tokenize()
       // a keyword token, then empty it
       else
       {
-        if (_temp.length())
+        if (_temp.length() != 0u)
         {
           if (IsKeyword(_temp))
           {

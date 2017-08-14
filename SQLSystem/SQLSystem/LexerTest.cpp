@@ -29,17 +29,11 @@ bool LexerTest::Execute()
   return true;
 }
 
-LexerTest::~LexerTest()
-{
-}
+LexerTest::~LexerTest() = default;
 
 bool LexerTest::TestInputFile(ifstream & aInputFile)
 {
-  if (!aInputFile)
-  {
-    return false;
-  }
-  return true;
+  return !!aInputFile;
 }
 
 bool LexerTest::TestReadFromFile(ifstream & aInputFile)
@@ -59,7 +53,9 @@ bool LexerTest::TestTokenize(ifstream & aInputFile)
 {
   string _tokens;
   if (!mLexer->Tokenize())
+  {
     return false;
+  }
 
   auto _currentToken = mLexer->GetNextToken();
   while (_currentToken)
