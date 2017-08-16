@@ -41,7 +41,7 @@ bool ParserTest::TestInputFile(ifstream & aInputFile)
   return static_cast<bool>(aInputFile);
 }
 
-bool ParserTest::TestConstructAst()
+DiagnosticInfo ParserTest::TestConstructAst()
 {
   return mParser->Parse();
 }

@@ -20,7 +20,7 @@ public:
 
 private:
   bool                         TestInputFile(ifstream & aInputFile);
-  bool                         TestConstructAst();
+  DiagnosticInfo               TestConstructAst();
   bool                         TestAst();
   void                         PrintQueryFromAst();
   void                         DisplayAst();
