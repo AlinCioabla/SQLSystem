@@ -19,7 +19,7 @@ public:
   bool ReadFromFile(ifstream & aIn) override;
 
   // This one tokenize mSqlCommand and stores the tokens in mTokens
-  bool Tokenize() override;
+  DiagnosticInfo Tokenize() override;
 
   // Get the initial input
   string GetSqlCommand() const override { return mSqlCommand; };

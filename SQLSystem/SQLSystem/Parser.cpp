@@ -41,8 +41,7 @@ DiagnosticInfo Parser::Parse()
   }
   if (mCurrentState->GetStateName() == INVALID)
   {
-    // make_unique<DiagnosticInfo>(104, mCurrentToken->GetWord(), mCurrentToken->GetPosition());
-    return DiagnosticInfo(204, mCurrentToken->GetWord(), mCurrentToken->GetPosition());
+    return DiagnosticInfo(204, mCurrentToken->GetPosition(), mCurrentToken->GetWord());
   }
 
   return DiagnosticInfo(0);

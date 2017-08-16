@@ -2,6 +2,7 @@
 #include "ITestUnit.h"
 #include "Ast.h"
 #include "AstNode.h"
+#include "Helpers.h"
 #include "Lexer.h"
 #include "LexerTestUnit.h"
 #include "LexerTester.h"
@@ -11,7 +12,7 @@
 
 int main()
 {
-  {
+  /*{
     LexerTestUnit lexerTestUnit;
     lexerTestUnit.CreateTest("TestFile1.txt"s);
     lexerTestUnit.CreateTest("TestFile2.txt"s);
@@ -48,7 +49,8 @@ int main()
     parserTestUnit.CreateTest("TestFile14.txt"s);
     parserTestUnit.CreateTest("TestFile15.txt"s);
     parserTestUnit.ExecuteAllTests();
-  }
+  }*/
+
   cout << endl;
   return 0;
 }
