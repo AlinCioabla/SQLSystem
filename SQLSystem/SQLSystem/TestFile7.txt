@@ -1,1 +1,1 @@
-UPDATE Name1 FROM Table;
+UPDATE Name1 FROM $ ;

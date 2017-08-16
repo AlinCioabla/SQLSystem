@@ -34,27 +34,24 @@ void TestParser()
 void TestLexer()
 {
   LexerTestUnit lexerTestUnit;
-  // lexerTestUnit.CreateTest("TestFile1.txt"s);
-  // lexerTestUnit.CreateTest("TestFile2.txt"s);
-  // lexerTestUnit.CreateTest("TestFile3.txt"s);
+  lexerTestUnit.CreateTest("TestFile1.txt"s);
+  lexerTestUnit.CreateTest("TestFile2.txt"s);
+  lexerTestUnit.CreateTest("TestFile3.txt"s);
   lexerTestUnit.CreateTest("TestFile4.txt"s);
-  // lexerTestUnit.CreateTest("TestFile5.txt"s);
-  // lexerTestUnit.CreateTest("TestFile6.txt"s);
-  // lexerTestUnit.CreateTest("TestFile7.txt"s);
-  // lexerTestUnit.CreateTest("TestFile8.txt"s);
-  // lexerTestUnit.CreateTest("TestFile9.txt"s);
-  // lexerTestUnit.CreateTest("TestFile10.txt"s);
-  // lexerTestUnit.CreateTest("TestFile11.txt"s);
-  // lexerTestUnit.CreateTest("TestFile12.txt"s);
-  // lexerTestUnit.CreateTest("TestFile13.txt"s);
-  // lexerTestUnit.CreateTest("TestFile14.txt"s);
-  // lexerTestUnit.CreateTest("TestFile15.txt"s);
+  lexerTestUnit.CreateTest("TestFile5.txt"s);
+  lexerTestUnit.CreateTest("TestFile6.txt"s);
+  lexerTestUnit.CreateTest("TestFile7.txt"s);
+  lexerTestUnit.CreateTest("TestFile8.txt"s);
+  lexerTestUnit.CreateTest("TestFile9.txt"s);
+  lexerTestUnit.CreateTest("TestFile10.txt"s);
+
   lexerTestUnit.ExecuteAllTests();
 }
 
 int main()
 {
-  // TestLexer();
-  TestParser();
+  TestLexer();
+  // TestParser();
+
   return 0;
 }
