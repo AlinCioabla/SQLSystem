@@ -13,11 +13,11 @@
 void TestParser()
 {
   ParserTestUnit parserTestUnit;
-  // parserTestUnit.CreateTest("TestFile11.txt"s);  // 1
-  // parserTestUnit.CreateTest("TestFile12.txt"s);  // 2
-  // parserTestUnit.CreateTest("TestFile13.txt"s);  // 3
-  // parserTestUnit.CreateTest("TestFile14.txt"s);  // 4
-  // parserTestUnit.CreateTest("TestFile15.txt"s);  // 5
+  parserTestUnit.CreateTest("TestFile11.txt"s);  // 1
+  parserTestUnit.CreateTest("TestFile12.txt"s);  // 2
+  parserTestUnit.CreateTest("TestFile13.txt"s);  // 3
+  parserTestUnit.CreateTest("TestFile14.txt"s);  // 4
+  parserTestUnit.CreateTest("TestFile15.txt"s);  // 5
   parserTestUnit.CreateTest("TestFile16.txt"s);  // 6
   parserTestUnit.CreateTest("TestFile17.txt"s);  // 7
   parserTestUnit.CreateTest("TestFile18.txt"s);  // 8

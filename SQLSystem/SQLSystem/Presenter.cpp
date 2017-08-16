@@ -12,9 +12,13 @@ void Presenter::Present(DiagnosticInfo & aDiagInfo)
   case 123:
     cout << "Invalid token '" << aDiagInfo.GetWord() << "' "
          << "at position " << aDiagInfo.GetPosition().GetColumn() << " on line "
-         << aDiagInfo.GetPosition().GetLine() << endl;
+         << aDiagInfo.GetPosition().GetLine() << ". " << endl;
     break;
   case 124:
-    cout << "Tokens don't match the initial string  " << endl;
+    cout << "Tokens don't match the initial string. " << endl;
+  case 204:
+    cout << "Invalid syntax. Unexpected token '" << aDiagInfo.GetWord() << "' at position "
+         << aDiagInfo.GetPosition().GetColumn() << " on line " << aDiagInfo.GetPosition().GetLine()
+         << ". " << endl;
   }
 }
