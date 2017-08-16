@@ -51,7 +51,7 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM" &&
+    if ((aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM") &&
         (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);

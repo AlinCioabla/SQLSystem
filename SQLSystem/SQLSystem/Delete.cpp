@@ -27,37 +27,28 @@ IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == ",")
+    if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
 
-    if (aCurrentToken->GetWord() == "*")
+    if (aCurrentToken->GetWord() == "*" && aPrevToken->GetType() == KeywordType)
   {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
+    if (aCurrentToken->GetWord() == "FROM" &&
+        (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType))
   {
-    if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType ||
-        aPrevToken->GetWord() == "DELETE")
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new From();
-    }
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    return new From();
   }
 
   return new Invalid(aCurrentToken);

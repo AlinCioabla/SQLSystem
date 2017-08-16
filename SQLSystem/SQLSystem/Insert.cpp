@@ -28,36 +28,28 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == ",")
+    if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
 
-    if (aCurrentToken->GetWord() == "*")
+    if (aCurrentToken->GetWord() == "*" && aPrevToken->GetType() == KeywordType)
   {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
 
-    if (aPrevToken->GetWord() == "INSERT")
+    if (aPrevToken->GetWord() == "INSERT" &&
+        (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO"))
   {
-    if (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO")
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Into();
-    }
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    return new Into();
   }
 
   return new Invalid(aCurrentToken);

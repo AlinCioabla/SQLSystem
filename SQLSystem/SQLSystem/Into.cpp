@@ -29,45 +29,36 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == ",")
+    if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
     //////////////////////////////////////////////////
-    if (aCurrentToken->GetWord() == ";")
+    if (aCurrentToken->GetWord() == ";" && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      return new Valid();
-    }
+    return new Valid();
   }
-
   /////////////////////////////////////////////////
   else
 
     if (aCurrentToken->GetType() == KeywordType &&
-        (aCurrentToken->GetWord() == "WHERE" || aCurrentToken->GetWord() == "VALUES"))
+        (aCurrentToken->GetWord() == "WHERE" || aCurrentToken->GetWord() == "VALUES") &&
+        aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
+    if (aCurrentToken->GetWord() == "WHERE")
     {
-      if (aCurrentToken->GetWord() == "WHERE")
-      {
-        aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-        aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-        return new Where();
-      }
-      if (aCurrentToken->GetWord() == "VALUES")
-      {
-        aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-        aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-        return new Values();
-      }
+      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      return new Where();
+    }
+    if (aCurrentToken->GetWord() == "VALUES")
+    {
+      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      return new Values();
     }
   }
 

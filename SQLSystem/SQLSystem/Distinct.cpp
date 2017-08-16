@@ -27,36 +27,29 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == ",")
+    if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
+
   else
 
     if (aCurrentToken->GetWord() == "DISTINCT" && aPrevToken->GetWord() == "SELECT")
   {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return nullptr;
-    }
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    return nullptr;
   }
 
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
+    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM" &&
+        aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new From();
-    }
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    return new From();
   }
 
   return new Invalid(aCurrentToken);

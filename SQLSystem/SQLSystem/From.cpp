@@ -26,36 +26,27 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
 
   else
 
-    if (aCurrentToken->GetWord() == ",")
+    if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   else
     //////////////////////////////////////////////////
-    if (aCurrentToken->GetWord() == ";")
+    if (aCurrentToken->GetWord() == ";" && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      return new Valid();
-    }
+    return new Valid();
   }
 
   /////////////////////////////////////////////////
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "WHERE")
+    if (aCurrentToken->GetWord() == "WHERE" && aPrevToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == IdentifierType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Where();
-    }
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    return new Where();
   }
 
   return new Invalid(aCurrentToken);
