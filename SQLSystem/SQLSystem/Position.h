@@ -14,8 +14,9 @@ public:
   void IncrementLine();
   void IncrementColumn();
 
-  int GetLine() const { return mLine; };
-  int GetColumn() const { return mColumn; };
+  int  GetLine() const { return mLine; };
+  int  GetColumn() const { return mColumn; };
+  void ResetColumn() { mColumn = 0; };
 
   ~Position() = default;
 
