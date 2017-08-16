@@ -2,7 +2,9 @@
 class Position
 {
 public:
-  Position() = default;
+  Position()
+    : mLine(0)
+    , mColumn(0){};
   Position(int aLine, int aColumn)
     : mLine(aLine)
     , mColumn(aColumn){};

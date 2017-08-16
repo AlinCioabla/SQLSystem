@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Lexer.h"
+#include "DiagnosticInfo.h"
 #include "Helpers.h"
 #include "Position.h"
 
@@ -23,7 +24,7 @@ bool Lexer::ReadFromFile(ifstream & aIn)
 }
 
 // Split the input string into different types
-bool Lexer::Tokenize()
+DiagnosticInfo Lexer::Tokenize()
 {
   Position pos(0, 0);
   // Temporary string
@@ -102,16 +103,16 @@ bool Lexer::Tokenize()
         else
         {
           // If we find a character we do not recognize, the tokenizer stops
-          // and returns false
+          // and returns an error object
 
-          return false;
+          return DiagnosticInfo(123, _temp, pos);
         }
       }
     }
     mIndex = mTokens.begin();
   }
 
-  return true;
+  return DiagnosticInfo(0);
 }
 
 TokenPtr Lexer::GetNextToken()

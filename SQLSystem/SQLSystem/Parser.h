@@ -3,6 +3,7 @@
 #include "IState.h"
 #include "Ast.h"
 #include "AstNode.h"
+#include "DiagnosticInfo.h"
 #include "Lexer.h"
 #include "Undefined.h"
 
@@ -12,7 +13,7 @@ public:
   Parser(ITokensTraversal & aLexer);
 
   // Parse the tokens provided by the Lexer
-  bool Parse();
+  DiagnosticInfo Parse();
 
   // Returns a reference to the resulted Ast
   Ast & GetAst();

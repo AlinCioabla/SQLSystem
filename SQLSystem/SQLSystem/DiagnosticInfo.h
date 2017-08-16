@@ -3,7 +3,7 @@
 class DiagnosticInfo
 {
 public:
-  DiagnosticInfo(int aErrorCode, string aWord, Position aPosition)
+  DiagnosticInfo(int aErrorCode = 0, string aWord = "", Position aPosition = Position())
     : mErrorCode(aErrorCode)
     , mWord(aWord)
     , mPosition(aPosition){};

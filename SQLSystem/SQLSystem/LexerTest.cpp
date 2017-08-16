@@ -5,6 +5,7 @@
 bool LexerTest::Execute()
 {
   ifstream _inputFile(mInputFileName);
+
   if (!TestInputFile(_inputFile))
   {
     cout << "Cannot open the specified input file" << endl;
