@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ParserTestUnit.h"
+#include "Presenter.h"
 
 void ParserTestUnit::ExecuteAllTests()
 {
@@ -10,6 +11,7 @@ void ParserTestUnit::ExecuteAllTests()
       cout << "-------------------------------------" << endl << endl;
       cout << "Parser Test: " << index << endl;
       bool succes = test->Execute();
+
       cout << endl << "Result: ";
       if (succes)
       {
