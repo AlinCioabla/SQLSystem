@@ -2,6 +2,7 @@
 #include "Parser.h"
 #include "IState.h"
 #include "Ast.h"
+#include "DiagnosticInfo.h"
 #include "Helpers.h"
 
 Parser::Parser(ITokensTraversal & aLexer)
@@ -37,6 +38,10 @@ bool Parser::Parse()
     // Get the next token
     mPrevToken    = _tempPrevToken;
     mCurrentToken = GetNwToken(mLexer);
+  }
+  if (mCurrentState->GetStateName() == INVALID)
+  {
+    make_unique<DiagnosticInfo>(104, mCurrentToken->GetWord(), mCurrentToken->GetPosition());
   }
 
   return mCurrentState->GetStateName() == VALID;

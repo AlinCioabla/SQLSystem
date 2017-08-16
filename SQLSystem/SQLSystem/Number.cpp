@@ -10,4 +10,9 @@ TokenType Number::GetType() const
   return TokenType::NumberType;
 }
 
+Position Number::GetPosition() const
+{
+  return mPosition;
+}
+
 Number::~Number() = default;

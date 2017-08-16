@@ -12,4 +12,9 @@ TokenType Operator::GetType() const
   return TokenType::OperatorType;
 }
 
+Position Operator::GetPosition() const
+{
+  return mPosition;
+}
+
 Operator::~Operator() = default;

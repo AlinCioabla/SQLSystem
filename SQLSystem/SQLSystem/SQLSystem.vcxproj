@@ -141,7 +141,9 @@
     <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="ParserTester.cpp" />
     <ClCompile Include="ParserTestUnit.cpp" />
+    <ClCompile Include="Position.cpp" />
     <ClCompile Include="Predicate.cpp" />
+    <ClCompile Include="Presenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
@@ -185,6 +187,7 @@
     <ClInclude Include="ParserTest.h" />
     <ClInclude Include="ParserTestUnit.h" />
     <ClInclude Include="Predicate.h" />
+    <ClInclude Include="Presenter.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />

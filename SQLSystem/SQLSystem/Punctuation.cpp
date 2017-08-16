@@ -12,4 +12,9 @@ TokenType Punctuation::GetType() const
   return TokenType::PunctuationType;
 }
 
+Position Punctuation::GetPosition() const
+{
+  return mPosition;
+}
+
 Punctuation::~Punctuation() = default;

@@ -10,6 +10,7 @@ public:
     , mPosition(aPosition){};
   string    GetWord() const override;
   TokenType GetType() const override;
+  Position  GetPosition() const override;
   virtual ~Punctuation();
 
 private:

@@ -26,6 +26,8 @@ public:
   // This will return the string or character stored by each token
   virtual string GetWord() const = 0;
 
+  virtual Position GetPosition() const = 0;
+
   // Destructor
   virtual ~IToken(){};
 };
