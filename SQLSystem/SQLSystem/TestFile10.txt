@@ -1,1 +1,1 @@
-DELETE FROM Table1 WHER ^ E Name1='Andreea';
+DELETE FROM Table1 WHER ^ #  E Name1='Andreea';

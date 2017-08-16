@@ -1,1 +1,1 @@
-SELECT Table FROM } Smth WHERE Columnname = 'Value' OR Columnname = 'Value';
+SELECT Table FROM  Smth WHERE Columnname = 'Value' OR Columnname = 'Value';
