@@ -31,7 +31,7 @@ DiagnosticInfo Lexer::Tokenize()
   string _temp;
   bool   foundPredicate = false;
   // Iterate through all the initial input string characters
-  for (char it : mSqlCommand)
+  for (const auto & it : mSqlCommand)
   {
     if (it == '\n')
     {
@@ -105,7 +105,6 @@ DiagnosticInfo Lexer::Tokenize()
           // If we find a character we do not recognize, the tokenizer stops
           // and returns an error object
 
-          _temp += it;
           return DiagnosticInfo(123, pos, _temp);
         }
       }
