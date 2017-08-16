@@ -18,7 +18,7 @@ public:
   // Checks if the file can be read and sets mSqlCommand
   bool ReadFromFile(ifstream & aIn) override;
 
-  // This one tokenize mSqlCommand and stores the tokens in mTokens
+  // Tokenize the input and return info
   DiagnosticInfo Tokenize() override;
 
   // Get the initial input

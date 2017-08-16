@@ -12,13 +12,11 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
                             AstNodePtr & aCurrentInstructionNode,
                             Ast &        aAst)
 {
-  if (aCurrentToken->GetWord() == "AND" || aCurrentToken->GetWord() == "OR")
+  if ((aCurrentToken->GetWord() == "AND" || aCurrentToken->GetWord() == "OR") &&
+      (aPrevToken->GetType() == PredicateType || IsNumber(aPrevToken->GetWord())))
   {
-    if (aPrevToken->GetType() == PredicateType || IsNumber(aPrevToken->GetWord()))
-    {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+    return nullptr;
   }
 
   if (aCurrentToken->GetType() == OperatorType || aCurrentToken->GetWord() == "LIKE" ||
