@@ -14,5 +14,7 @@ void Presenter::Present(DiagnosticInfo & aDiagInfo)
          << "at position " << aDiagInfo.GetPosition().GetColumn() << " on line "
          << aDiagInfo.GetPosition().GetLine() << endl;
     break;
+  case 124:
+    cout << "Tokens don't match the initial string  " << endl;
   }
 }
