@@ -20,7 +20,7 @@ public:
 private:
   bool                         TestInputFile(ifstream & aInputFile);
   bool                         TestReadFromFile(ifstream & aInputFile);
-  bool                         TestTokenize(ifstream & aInputFile);
+  DiagnosticInfo               TestTokenize(ifstream & aInputFile);
   bool                         TestGetSqlCommand(ifstream & aInputFile);
   string                       mInputFileName;
   unique_ptr<ITokensTraversal> mLexer;

@@ -19,3 +19,5 @@ const bool IsNumber(const string & aString);
 const bool IsKeyword(const string & aString);
 
 TokenPtr GetNwToken(ITokensTraversal & aLexer);
+
+int MatchStrings(const string & aParent, const string & aChild);

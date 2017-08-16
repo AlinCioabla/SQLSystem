@@ -1,10 +1,13 @@
 
 #include "stdafx.h"
 #include "LexerTest.h"
+#include "DiagnosticInfo.h"
+#include "Presenter.h"
 
 bool LexerTest::Execute()
 {
-  ifstream _inputFile(mInputFileName);
+  ifstream  _inputFile(mInputFileName);
+  Presenter _errorPresenter;
 
   if (!TestInputFile(_inputFile))
   {
@@ -21,9 +24,11 @@ bool LexerTest::Execute()
     cout << "Cannot retrieve the initial input." << endl;
     return false;
   }
-  if (!TestTokenize(_inputFile))
+
+  DiagnosticInfo _tokenizeInfo = TestTokenize(_inputFile);
+  if (_tokenizeInfo.GetErrorCode() != 0)
   {
-    cout << "Tokenization did not end properly. Unexpected symbol" << endl;
+    _errorPresenter.Present(_tokenizeInfo);
     return false;
   }
 
@@ -50,12 +55,13 @@ bool LexerTest::TestReadFromFile(ifstream & aInputFile)
   return false;
 }
 
-bool LexerTest::TestTokenize(ifstream & aInputFile)
+DiagnosticInfo LexerTest::TestTokenize(ifstream & aInputFile)
 {
-  string _tokens;
-  if (!mLexer->Tokenize())
+  string         _tokens;
+  DiagnosticInfo _diagInfo = mLexer->Tokenize();
+  if (_diagInfo.GetErrorCode() != 0)
   {
-    return false;
+    return _diagInfo;
   }
 
   auto _currentToken = mLexer->GetNextToken();
@@ -70,7 +76,12 @@ bool LexerTest::TestTokenize(ifstream & aInputFile)
 
   string _inputString((istreambuf_iterator<char>(aInputFile)), istreambuf_iterator<char>());
 
-  return _tokens == _inputString;
+  if (_tokens != _inputString)
+  {
+    return DiagnosticInfo(124);
+  }
+
+  return DiagnosticInfo(0);
 }
 
 bool LexerTest::TestGetSqlCommand(ifstream & aInputFile)

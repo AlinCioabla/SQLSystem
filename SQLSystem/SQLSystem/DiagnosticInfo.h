@@ -3,15 +3,21 @@
 class DiagnosticInfo
 {
 public:
-  DiagnosticInfo(int aErrorCode = 0, string aWord = "", Position aPosition = Position())
+  DiagnosticInfo(int aErrorCode = 0, Position aPosition = Position(), string aWord = "")
     : mErrorCode(aErrorCode)
+    , mPosition(aPosition)
     , mWord(aWord)
-    , mPosition(aPosition){};
+  {
+  }
+
+  int      GetErrorCode() const;
+  string   GetWord() const;
+  Position GetPosition() const;
 
   ~DiagnosticInfo() = default;
 
 private:
   int      mErrorCode;
-  string   mWord;
   Position mPosition;
+  string   mWord;
 };

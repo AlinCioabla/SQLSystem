@@ -67,3 +67,17 @@ TokenPtr GetNwToken(ITokensTraversal & aLexer)
   }
   return move(currentToken);
 }
+
+int MatchStrings(const string & aParent, const string & aChild)
+{
+  int i = 0;
+  while (i != aParent.size() - 1 && i != aChild.size() - 1)
+  {
+    if (aParent[i] != aChild[i])
+    {
+      return i;
+    }
+    i++;
+  }
+  return -1;
+}

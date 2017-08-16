@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include "ParserTest.h"
-
+#include "Presenter.h"
 bool ParserTest::Execute()
 {
-  ifstream _inputFile(mInputFileName);
+  ifstream  _inputFile(mInputFileName);
+  Presenter _errorPresenter;
   if (!TestInputFile(_inputFile))
   {
     cout << "Cannot open the given file" << endl;
@@ -15,9 +16,11 @@ bool ParserTest::Execute()
   _inputFile.clear();
   _inputFile.seekg(0, _inputFile.beg);
 
-  if (!TestConstructAst())
+  DiagnosticInfo _parseInfo = TestConstructAst();
+
+  if (_parseInfo.GetErrorCode() != 0)
   {
-    cout << "Cannot construct AST. Invalid syntax." << endl;
+    _errorPresenter.Present(_parseInfo);
     return false;
   }
   if (!TestAst())

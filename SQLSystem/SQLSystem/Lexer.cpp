@@ -105,7 +105,7 @@ DiagnosticInfo Lexer::Tokenize()
           // If we find a character we do not recognize, the tokenizer stops
           // and returns an error object
 
-          return DiagnosticInfo(123, _temp, pos);
+          return DiagnosticInfo(123, pos, _temp);
         }
       }
     }
