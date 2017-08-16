@@ -60,7 +60,7 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
     }
   }
 
-  return new Invalid();
+  return new Invalid(aCurrentToken);
 }
 
 State Insert::GetStateName() const

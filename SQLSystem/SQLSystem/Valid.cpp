@@ -9,7 +9,7 @@ IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
                             AstNodePtr & aCurrentInstructionNode,
                             Ast &        aAst)
 {
-  return new Invalid();
+  return new Invalid(aCurrentToken);
 }
 
 State Valid::GetStateName() const

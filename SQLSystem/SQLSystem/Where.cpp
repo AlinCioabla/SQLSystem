@@ -19,9 +19,6 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    {
-      return new Invalid();
-    }
   }
 
   if (aCurrentToken->GetType() == OperatorType || aCurrentToken->GetWord() == "LIKE" ||
@@ -41,10 +38,6 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
       return nullptr;
     }
-    else
-    {
-      return new Invalid();
-    }
   }
 
   if (aCurrentToken->GetType() == IdentifierType)
@@ -58,10 +51,6 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
-    }
-    else
-    {
-      return new Invalid();
     }
   }
 
@@ -80,10 +69,6 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;
     }
-    else
-    {
-      return new Invalid();
-    }
   }
 
   //////////////////////////////////////////////////
@@ -93,11 +78,8 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
     {
       return new Valid();
     }
-    {
-      return new Invalid();
-    }
   }
-  return new Invalid();
+  return new Invalid(aCurrentToken);
 }
 
 State Where::GetStateName() const

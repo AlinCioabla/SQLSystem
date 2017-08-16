@@ -13,16 +13,16 @@
 void TestParser()
 {
   ParserTestUnit parserTestUnit;
-  parserTestUnit.CreateTest("TestFile11.txt"s);
-  parserTestUnit.CreateTest("TestFile12.txt"s);
-  parserTestUnit.CreateTest("TestFile13.txt"s);
-  parserTestUnit.CreateTest("TestFile14.txt"s);
-  parserTestUnit.CreateTest("TestFile15.txt"s);
-  parserTestUnit.CreateTest("TestFile16.txt"s);
-  parserTestUnit.CreateTest("TestFile17.txt"s);
-  parserTestUnit.CreateTest("TestFile18.txt"s);
-  parserTestUnit.CreateTest("TestFile19.txt"s);
-  parserTestUnit.CreateTest("TestFile20.txt"s);
+  // parserTestUnit.CreateTest("TestFile11.txt"s);  // 1
+  // parserTestUnit.CreateTest("TestFile12.txt"s);  // 2
+  // parserTestUnit.CreateTest("TestFile13.txt"s);  // 3
+  // parserTestUnit.CreateTest("TestFile14.txt"s);  // 4
+  // parserTestUnit.CreateTest("TestFile15.txt"s);  // 5
+  parserTestUnit.CreateTest("TestFile16.txt"s);  // 6
+  parserTestUnit.CreateTest("TestFile17.txt"s);  // 7
+  parserTestUnit.CreateTest("TestFile18.txt"s);  // 8
+  parserTestUnit.CreateTest("TestFile19.txt"s);  // 9
+  parserTestUnit.CreateTest("TestFile20.txt"s);  // 10
   parserTestUnit.ExecuteAllTests();
 }
 
@@ -45,7 +45,7 @@ void TestLexer()
 
 int main()
 {
-  TestLexer();
+  // TestLexer();
   TestParser();
 
   return 0;

@@ -18,6 +18,7 @@ DiagnosticInfo Parser::Parse()
   mCurrentToken = GetNwToken(mLexer);
 
   IToken * _tempPrevToken;
+  IState * _nextState;
 
   // We traverse the token list until we run out of tokens or the syntax is invalid
   while (mCurrentToken != nullptr && mCurrentState->GetStateName() != INVALID)
@@ -26,7 +27,7 @@ DiagnosticInfo Parser::Parse()
     _tempPrevToken = mCurrentToken.get();
 
     // Do the actions for the current state and get the next state
-    IState * _nextState =
+    _nextState =
       mCurrentState->HandleToken(mCurrentToken, mPrevToken, mCurrentInstructionNode, mAst);
 
     // If the next state is null, the current state does not change

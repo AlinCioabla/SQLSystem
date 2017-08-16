@@ -43,7 +43,7 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
     return new Insert();
   }
 
-  return new Invalid();
+  return new Invalid(aCurrentToken);
 }
 
 State Undefined::GetStateName() const
