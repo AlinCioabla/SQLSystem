@@ -1,1 +1,1 @@
-SELECT Nume1 FROM Table1 WHERE Nume1 = 'Aleen'
+SELECT Nume1 FROM Table1 WHERE AND Nume1 = 'Aleen';
