@@ -26,7 +26,7 @@ bool Lexer::ReadFromFile(ifstream & aIn)
 // Split the input string into different types
 DiagnosticInfo Lexer::Tokenize()
 {
-  Position pos(0, 0);
+  Position pos(1, 1);
   // Temporary string
   string _temp;
   bool   foundPredicate = false;
