@@ -5,6 +5,6 @@ Presenter::Presenter()
 {
 }
 
-Presenter::~Presenter()
+void Presenter::Present(DiagnosticInfo aDiagInfo)
 {
 }
