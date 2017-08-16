@@ -1,0 +1,1 @@
+INSERT INTO Table1 WHERE Nume LIKE 'A';

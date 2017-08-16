@@ -1,0 +1,1 @@
+DELETE Nume4, Nume5 FROM;
