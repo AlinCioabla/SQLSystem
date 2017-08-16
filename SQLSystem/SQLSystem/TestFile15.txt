@@ -1,1 +1,1 @@
-SELECT * FROM tabel1 WHERE nume1 = '%a';
+SELECT  FROM Table1, Table2, Table3, Table4 
