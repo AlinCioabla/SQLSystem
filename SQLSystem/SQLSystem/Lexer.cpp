@@ -36,6 +36,7 @@ DiagnosticInfo Lexer::Tokenize()
     if (it == '\n')
     {
       pos.IncrementLine();
+      pos.ResetColumn();
     }
 
     // If we find an alphanumeric character we add it to the
@@ -72,13 +73,13 @@ DiagnosticInfo Lexer::Tokenize()
         {
           if (IsKeyword(_temp))
           {
-            pos.IncrementColumn();
             mTokens.push_back(make_unique<Keyword>(_temp, pos));
+            pos.IncrementColumn();
           }
           else
           {
-            pos.IncrementColumn();
             mTokens.push_back(make_unique<Identifier>(_temp, pos));
+            pos.IncrementColumn();
           }
           _temp.clear();
         }
@@ -92,13 +93,13 @@ DiagnosticInfo Lexer::Tokenize()
         }
         else if (IsOperator(it))
         {
-          pos.IncrementColumn();
           mTokens.push_back(make_unique<Operator>(it, pos));
+          pos.IncrementColumn();
         }
         else if (IsPunctuation(it))
         {
-          pos.IncrementColumn();
           mTokens.push_back(make_unique<Punctuation>(it, pos));
+          pos.IncrementColumn();
         }
         else
         {
