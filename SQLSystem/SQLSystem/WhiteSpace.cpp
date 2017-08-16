@@ -12,4 +12,9 @@ string WhiteSpace::GetWord() const
   return s_word;
 }
 
+Position WhiteSpace::GetPosition() const
+{
+	return Position();
+}
+
 WhiteSpace::~WhiteSpace() = default;

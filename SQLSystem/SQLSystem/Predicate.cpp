@@ -10,4 +10,9 @@ TokenType Predicate::GetType() const
   return TokenType::PredicateType;
 }
 
+Position Predicate::GetPosition() const
+{
+  return mPosition;
+}
+
 Predicate::~Predicate() = default;

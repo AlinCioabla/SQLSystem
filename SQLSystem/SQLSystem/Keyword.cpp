@@ -10,4 +10,9 @@ string Keyword::GetWord() const
   return mWord;
 }
 
+Position Keyword::GetPosition() const
+{
+  return mPosition;
+}
+
 Keyword::~Keyword() = default;

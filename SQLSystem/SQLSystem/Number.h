@@ -7,8 +7,10 @@ public:
     : mWord(aWord){};
   string    GetWord() const override;
   TokenType GetType() const override;
+  Position  GetPosition() const override;
   virtual ~Number();
 
 private:
-  string mWord;
+  string   mWord;
+  Position mPosition;
 };

@@ -11,6 +11,7 @@ public:
 
   TokenType GetType() const override;
   string    GetWord() const override;
+  Position  GetPosition() const override;
   virtual ~Keyword();
 
 private:
