@@ -8,12 +8,14 @@ public:
   Position(int aLine, int aColumn)
     : mLine(aLine)
     , mColumn(aColumn){};
+  Position(const Position & aPosition);
+  Position & operator=(const Position & aPosition);
 
   void IncrementLine();
   void IncrementColumn();
 
-  int GetLine() { return mLine; };
-  int GetColumn() { return mColumn; };
+  int GetLine() const { return mLine; };
+  int GetColumn() const { return mColumn; };
 
   ~Position() = default;
 

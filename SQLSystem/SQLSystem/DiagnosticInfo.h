@@ -10,6 +10,8 @@ public:
   {
   }
 
+  DiagnosticInfo(const DiagnosticInfo & aDiagInfo);
+
   int      GetErrorCode() const;
   string   GetWord() const;
   Position GetPosition() const;

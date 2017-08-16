@@ -11,6 +11,7 @@ bool ParserTest::Execute()
     return false;
   }
   mLexer->ReadFromFile(_inputFile);
+
   mLexer->Tokenize();
 
   _inputFile.clear();

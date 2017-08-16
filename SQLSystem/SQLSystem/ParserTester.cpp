@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ParserTester.h"
-bool ParserTester::ConstructAst()
+DiagnosticInfo ParserTester::ConstructAst()
 {
   return mParser.Parse();
 }

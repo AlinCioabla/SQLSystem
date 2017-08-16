@@ -139,7 +139,6 @@
     <ClCompile Include="Operator.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="ParserTest.cpp" />
-    <ClCompile Include="ParserTester.cpp" />
     <ClCompile Include="ParserTestUnit.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Predicate.cpp" />

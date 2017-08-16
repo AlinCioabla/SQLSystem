@@ -39,9 +39,10 @@ DiagnosticInfo Parser::Parse()
     mPrevToken    = _tempPrevToken;
     mCurrentToken = GetNwToken(mLexer);
   }
-  if (mCurrentState->GetStateName() == INVALID)
+
+  if (mCurrentState->GetStateName() != VALID)
   {
-    return DiagnosticInfo(204, mCurrentToken->GetPosition(), mCurrentToken->GetWord());
+    return DiagnosticInfo(204, mPrevToken->GetPosition(), mPrevToken->GetWord());
   }
 
   return DiagnosticInfo(0);

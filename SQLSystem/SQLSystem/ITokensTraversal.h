@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "IToken.h"
+#include "DiagnosticInfo.h"
 
 class ITokensTraversal
 {

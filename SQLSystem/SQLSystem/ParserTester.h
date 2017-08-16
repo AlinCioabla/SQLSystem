@@ -12,14 +12,13 @@ public:
   {
   }
 
-  bool ConstructAst();
-  void PrintQueryFromAst();
-  void DisplayAst();
-  bool TestAst();
-
   ~ParserTester();
 
 private:
+  DiagnosticInfo     ConstructAst();
+  void               PrintQueryFromAst();
+  void               DisplayAst();
+  bool               TestAst();
   Parser &           mParser;
   ITokensTraversal & mLexer;
 };
