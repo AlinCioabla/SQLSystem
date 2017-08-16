@@ -206,7 +206,12 @@
     <Text Include="TestFile13.txt" />
     <Text Include="TestFile14.txt" />
     <Text Include="TestFile15.txt" />
+    <Text Include="TestFile16.txt" />
+    <Text Include="TestFile17.txt" />
+    <Text Include="TestFile18.txt" />
+    <Text Include="TestFile19.txt" />
     <Text Include="TestFile2.txt" />
+    <Text Include="TestFile20.txt" />
     <Text Include="TestFile3.txt" />
     <Text Include="TestFile4.txt" />
     <Text Include="TestFile5.txt" />

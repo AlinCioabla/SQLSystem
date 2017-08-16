@@ -1,1 +1,1 @@
-DELETE Nume1, Nume2 FROM Tabel1 , Tabel2 WHERE  Nume3 LIKE '%A' OR Nume4 NOTLIKE '%Alex';
+;~This test will fail;
