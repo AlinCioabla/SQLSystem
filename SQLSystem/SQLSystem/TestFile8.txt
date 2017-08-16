@@ -1,1 +1,1 @@
-DELETE Name1 FROM Table1 WHERE Name1 LIKE '%A@ #\;
+DELETE Name1 FROM Table1 WHERE Name1 LIKE '%A@ #;
