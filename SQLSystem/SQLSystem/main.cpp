@@ -56,7 +56,7 @@ int main()
 {
   {
     TestLexer();
-    // TestParser();
+    TestParser();
   }
   return 0;
 }

@@ -14,7 +14,7 @@ string WhiteSpace::GetWord() const
 
 Position WhiteSpace::GetPosition() const
 {
-	return Position();
+  return Position();
 }
 
 WhiteSpace::~WhiteSpace() = default;

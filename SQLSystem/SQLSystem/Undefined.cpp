@@ -28,7 +28,7 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
     aCurrentInstructionNode = tempRoot;
     return new Delete();
   }
-  else if (aCurrentToken->GetWord() == "UPDATE")
+  if (aCurrentToken->GetWord() == "UPDATE")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);

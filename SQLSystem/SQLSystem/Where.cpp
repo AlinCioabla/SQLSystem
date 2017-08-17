@@ -33,11 +33,8 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
         return nullptr;
       }
 
-      else
-      {
-        aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-        return nullptr;
-      }
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      return nullptr;
     }
   }
 
@@ -67,11 +64,8 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
         return nullptr;
       }
 
-      else
-      {
-        aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
-        return nullptr;
-      }
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      return nullptr;
     }
   }
   //////////////////////////////////////////////////
