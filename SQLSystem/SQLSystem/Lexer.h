@@ -2,13 +2,8 @@
 
 #include "IToken.h"
 #include "ITokensTraversal.h"
-#include "Identifier.h"
-#include "Keyword.h"
-#include "Number.h"
-#include "Operator.h"
-#include "Predicate.h"
-#include "Punctuation.h"
-#include "WhiteSpace.h"
+
+class DiagnosticInfo;
 
 class Lexer : public ITokensTraversal
 {

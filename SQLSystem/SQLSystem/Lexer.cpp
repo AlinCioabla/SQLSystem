@@ -2,7 +2,15 @@
 #include "Lexer.h"
 #include "DiagnosticInfo.h"
 #include "Helpers.h"
+#include "Identifier.h"
+#include "Keyword.h"
+#include "Number.h"
+#include "Operator.h"
 #include "Position.h"
+#include "Predicate.h"
+#include "Punctuation.h"
+#include "TextualOperator.h"
+#include "WhiteSpace.h"
 
 // Read the input from a given file and store it in the member string
 // of the class mSqlCommand
@@ -74,6 +82,11 @@ DiagnosticInfo Lexer::Tokenize()
           if (IsKeyword(_temp))
           {
             mTokens.push_back(make_unique<Keyword>(_temp, pos));
+            pos.IncrementColumn();
+          }
+          else if (IsTextualOperator(_temp))
+          {
+            mTokens.push_back(make_unique<TextualOperator>(_temp, pos));
             pos.IncrementColumn();
           }
           else

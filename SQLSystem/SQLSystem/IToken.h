@@ -13,7 +13,8 @@ enum TokenType
   WhiteSpaceType,
   IdentifierType,
   NumberType,
-  PredicateType
+  PredicateType,
+  TextualOperatorType
 };
 
 // This is the Interface for tokens objects (Operators, Punctuation and Keywords)

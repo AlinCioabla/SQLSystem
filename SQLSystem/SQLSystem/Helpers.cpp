@@ -3,36 +3,36 @@
 // string operators[]{ "+", "-", "*", "/", ":", "=", "^", "%","<", ">" };
 // string punctuations[]{ ".", ",", "?", "&", "!", ";", ":", "_", "(" ")" };
 
-const bool IsAlphanumeric(const char & aChar)
+bool IsAlphanumeric(const char & aChar)
 {
   return ((aChar >= 'A' && aChar <= 'z') || IsDigit(aChar));
 }
 
-const bool IsDigit(const char & aChar)
+bool IsDigit(const char & aChar)
 {
   static const string digits{ "1234567890" };
   return aChar >= '0' && aChar <= '9';
 }
 
-const bool IsOperator(const char & aChar)
+bool IsOperator(const char & aChar)
 {
   static const string operators{ "%+-*/:=^<>" };
   return (operators.find(aChar) != string::npos);
 }
 
-const bool IsPunctuation(const char & aChar)
+bool IsPunctuation(const char & aChar)
 {
   static const string punctuations{ ".,?&!;_();'" };
   return (punctuations.find(aChar) != string::npos);
 }
 
-const bool IsWhitespace(const char & aChar)
+bool IsWhitespace(const char & aChar)
 {
   static const string whitespaces{ "\n " };
   return (whitespaces.find(aChar) != string::npos);
 }
 
-const bool IsNumber(const string & aString)
+bool IsNumber(const string & aString)
 {
   for (auto it : aString)
   {
@@ -43,14 +43,25 @@ const bool IsNumber(const string & aString)
   }
   return true;
 }
-
-const bool IsKeyword(const string & aString)
+bool IsKeyword(const string & aString)
 {
   static const string keywords[]{ "DISTINCT", "SELECT", "DELETE", "UPDATE", "INSERT",
-                                  "INTO",     "VALUES", "FROM",   "WHERE",  "LIKE",
-                                  "NOTLIKE",  "OR",     "AND" };
+                                  "INTO",     "VALUES", "FROM",   "WHERE" };
 
   for (const auto & it : keywords)
+  {
+    if (it == aString)
+    {
+      return true;
+    }
+  }
+  return false;
+}
+
+bool IsTextualOperator(const string & aString)
+{
+  static const string textualOperators[]{ "AND", "OR", "LIKE", "NOTLIKE" };
+  for (const auto & it : textualOperators)
   {
     if (it == aString)
     {
