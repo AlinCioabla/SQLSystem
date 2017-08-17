@@ -21,3 +21,5 @@ const bool IsKeyword(const string & aString);
 TokenPtr GetNwToken(ITokensTraversal & aLexer);
 
 int MatchStrings(const string & aParent, const string & aChild);
+
+bool IsValidChar(const char & aChar);
