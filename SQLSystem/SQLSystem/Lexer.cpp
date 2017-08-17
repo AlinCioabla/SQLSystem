@@ -55,7 +55,7 @@ DiagnosticInfo Lexer::Tokenize()
       mTokens.push_back(make_unique<Predicate>(_temp, pos));
       _temp.clear();
     }
-    else if (foundPredicate)
+    else if (foundPredicate && IsValidChar(it))
     {
       _temp += it;
     }
