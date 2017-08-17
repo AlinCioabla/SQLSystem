@@ -55,9 +55,9 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Insert::GetStateName() const
+StateName Insert::GetStateName() const
 {
-  return State::INSERT;
+  return StateName::INSERT;
 }
 
 Insert::~Insert() = default;

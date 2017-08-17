@@ -71,9 +71,9 @@ IState * Values::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Values::GetStateName() const
+StateName Values::GetStateName() const
 {
-  return State::VALUES;
+  return StateName::VALUES;
 }
 
 Values::~Values() = default;

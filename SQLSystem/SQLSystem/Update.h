@@ -2,7 +2,7 @@
 #include "IState.h"
 class Update : public IState
 {
-  State mNextState;
+  StateName mNextState;
 
 public:
   Update();
@@ -10,6 +10,6 @@ public:
                                IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) override;
-  State            GetStateName() const override;
+  StateName        GetStateName() const override;
   virtual ~Update();
 };

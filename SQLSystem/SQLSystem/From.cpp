@@ -52,9 +52,9 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State From::GetStateName() const
+StateName From::GetStateName() const
 {
-  return State::FROM;
+  return StateName::FROM;
 }
 
 From::~From() = default;

@@ -39,8 +39,6 @@ DiagnosticInfo Lexer::Tokenize()
       pos.ResetColumn();
     }
 
-    // If we find an alphanumeric character we add it to the
-    // _temp string
     if (it == '\'' && (_temp.length() == 0u) && !foundPredicate)
     {
       foundPredicate = true;
@@ -61,6 +59,8 @@ DiagnosticInfo Lexer::Tokenize()
     }
     else
     {
+      // If we find an alphanumeric character we add it to the
+      // _temp string
       if (IsAlphanumeric(it))
       {
         _temp += it;

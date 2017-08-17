@@ -2,7 +2,7 @@
 #include "IState.h"
 class Where : public IState
 {
-  State mNextState;
+  StateName mNextState;
 
 public:
   Where();
@@ -10,6 +10,6 @@ public:
                                IToken *     aPrevToken,
                                AstNodePtr & aCurrentInstructionNode,
                                Ast &        aAst) override;
-  State            GetStateName() const override;
+  StateName        GetStateName() const override;
   virtual ~Where();
 };

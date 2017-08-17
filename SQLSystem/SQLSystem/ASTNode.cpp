@@ -2,10 +2,6 @@
 #include "AstNode.h"
 #include "IToken.h"
 
-AstNode::AstNode(const AstNode & aAstNode)
-{
-}
-
 void AstNode::SetToken(TokenPtr & aToken)
 {
   mToken = move(aToken);

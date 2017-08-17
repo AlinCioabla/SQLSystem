@@ -16,9 +16,9 @@ IState * Invalid::HandleToken(TokenPtr &   aCurrentToken,
   return nullptr;
 }
 
-State Invalid::GetStateName() const
+StateName Invalid::GetStateName() const
 {
-  return State::INVALID;
+  return StateName::INVALID;
 }
 
 Invalid::~Invalid() = default;

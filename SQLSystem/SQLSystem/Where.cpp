@@ -85,9 +85,9 @@ IState * Where::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Where::GetStateName() const
+StateName Where::GetStateName() const
 {
-  return State::WHERE;
+  return StateName::WHERE;
 }
 
 Where::~Where() = default;

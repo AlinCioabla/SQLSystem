@@ -62,9 +62,9 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Select::GetStateName() const
+StateName Select::GetStateName() const
 {
-  return State::SELECT;
+  return StateName::SELECT;
 }
 
 Select::~Select() = default;

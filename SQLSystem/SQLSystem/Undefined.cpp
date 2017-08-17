@@ -46,9 +46,9 @@ IState * Undefined::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Undefined::GetStateName() const
+StateName Undefined::GetStateName() const
 {
-  return State::UNDEFINED;
+  return StateName::UNDEFINED;
 }
 
 Undefined::~Undefined() = default;

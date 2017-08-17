@@ -4,10 +4,10 @@ class Distinct : public IState
 {
 public:
   Distinct();
-  IState * HandleToken(TokenPtr &   aCurrentToken,
-                       IToken *     aPrevToken,
-                       AstNodePtr & aCurrentInstructionNode,
-                       Ast &        aAst) override;
-  State    GetStateName() const override;
+  IState *  HandleToken(TokenPtr &   aCurrentToken,
+                        IToken *     aPrevToken,
+                        AstNodePtr & aCurrentInstructionNode,
+                        Ast &        aAst) override;
+  StateName GetStateName() const override;
   virtual ~Distinct();
 };

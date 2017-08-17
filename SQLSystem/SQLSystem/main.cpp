@@ -1,12 +1,5 @@
 #include "stdafx.h"
-#include "ITestUnit.h"
-#include "Ast.h"
-#include "AstNode.h"
-#include "Helpers.h"
-#include "Lexer.h"
 #include "LexerTestUnit.h"
-#include "LexerTester.h"
-#include "Parser.h"
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
 
@@ -56,7 +49,7 @@ int main()
 {
   {
     TestLexer();
-    // TestParser();
+    TestParser();
   }
   return 0;
 }

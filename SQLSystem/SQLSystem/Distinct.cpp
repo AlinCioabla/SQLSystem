@@ -55,9 +55,9 @@ IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Distinct::GetStateName() const
+StateName Distinct::GetStateName() const
 {
-  return State::DISTINCT;
+  return StateName::DISTINCT;
 }
 
 Distinct::~Distinct() = default;

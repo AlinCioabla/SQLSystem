@@ -3,7 +3,7 @@
 #include "IToken.h"
 #include "Ast.h"
 
-enum State
+enum StateName
 {
   SELECT,
   DELETE,
@@ -22,11 +22,11 @@ enum State
 class IState
 {
 public:
-  virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               IToken *     aPrevToken,
-                               AstNodePtr & aCurrentInstructionNode,
-                               Ast &        aAst) = 0;
-  virtual State    GetStateName() const    = 0;
+  virtual IState *  HandleToken(TokenPtr &   aCurrentToken,
+                                IToken *     aPrevToken,
+                                AstNodePtr & aCurrentInstructionNode,
+                                Ast &        aAst) = 0;
+  virtual StateName GetStateName() const    = 0;
 
   virtual ~IState(){};
 };

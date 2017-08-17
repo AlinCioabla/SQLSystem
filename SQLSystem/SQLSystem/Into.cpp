@@ -65,9 +65,9 @@ IState * Into::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Into::GetStateName() const
+StateName Into::GetStateName() const
 {
-  return State::INTO;
+  return StateName::INTO;
 }
 
 Into::~Into() = default;

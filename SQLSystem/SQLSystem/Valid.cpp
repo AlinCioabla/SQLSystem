@@ -12,9 +12,9 @@ IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
   return new Invalid(aCurrentToken);
 }
 
-State Valid::GetStateName() const
+StateName Valid::GetStateName() const
 {
-  return State::VALID;
+  return StateName::VALID;
 }
 
 Valid::~Valid() = default;
