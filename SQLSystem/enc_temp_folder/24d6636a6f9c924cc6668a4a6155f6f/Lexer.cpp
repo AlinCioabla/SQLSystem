@@ -39,6 +39,8 @@ DiagnosticInfo Lexer::Tokenize()
       pos.ResetColumn();
     }
 
+    // If we find an alphanumeric character we add it to the
+    // _temp string
     if (it == '\'' && (_temp.length() == 0u) && !foundPredicate)
     {
       foundPredicate = true;
@@ -53,14 +55,12 @@ DiagnosticInfo Lexer::Tokenize()
       mTokens.push_back(make_unique<Predicate>(_temp, pos));
       _temp.clear();
     }
-    else if (foundPredicate && IsValidChar(it))
+    else if (foundPredicate)
     {
       _temp += it;
     }
     else
     {
-      // If we find an alphanumeric character we add it to the
-      // _temp string
       if (IsAlphanumeric(it))
       {
         _temp += it;
@@ -81,7 +81,7 @@ DiagnosticInfo Lexer::Tokenize()
             mTokens.push_back(make_unique<Identifier>(_temp, pos));
             pos.IncrementColumn();
           }
-           _temp.clear();
+          _temp.clear();
         }
 
         // Then we create the appropiate token for the given non alphanumeric
