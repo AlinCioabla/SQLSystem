@@ -81,3 +81,9 @@ int MatchStrings(const string & aParent, const string & aChild)
   }
   return -1;
 }
+
+bool IsValidChar(const char & aChar)
+{
+  return (IsAlphanumeric(aChar) || IsWhitespace(aChar) || IsOperator(aChar) ||
+          IsPunctuation(aChar));
+}
