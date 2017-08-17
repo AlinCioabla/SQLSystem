@@ -16,6 +16,4 @@ Position TextualOperator::GetPosition() const
   return mPosition;
 }
 
-TextualOperator::~TextualOperator()
-{
-}
+TextualOperator::~TextualOperator() = default;
