@@ -17,7 +17,7 @@ IState * Select::HandleToken(TokenPtr &   aCurrentToken,
       return nullptr;
     }
 
-    else if (aPrevToken->GetWord() == ",")
+    if (aPrevToken->GetWord() == ",")
     {
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
       return nullptr;

@@ -3,7 +3,7 @@
 class Presenter
 {
 public:
-  Presenter();
+  Presenter() = default;
   void Present(DiagnosticInfo & aDiagInfo);
   ~Presenter() = default;
 };

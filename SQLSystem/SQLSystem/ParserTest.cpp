@@ -30,12 +30,9 @@ bool ParserTest::Execute()
     return false;
   }
 
-  else
-  {
-    DisplayAst();
-    PrintQueryFromAst();
-    return true;
-  }
+  DisplayAst();
+  PrintQueryFromAst();
+  return true;
 }
 
 ParserTest::~ParserTest() = default;

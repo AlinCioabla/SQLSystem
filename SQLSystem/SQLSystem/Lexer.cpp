@@ -81,7 +81,7 @@ DiagnosticInfo Lexer::Tokenize()
             mTokens.push_back(make_unique<Identifier>(_temp, pos));
             pos.IncrementColumn();
           }
-           _temp.clear();
+          _temp.clear();
         }
 
         // Then we create the appropiate token for the given non alphanumeric
