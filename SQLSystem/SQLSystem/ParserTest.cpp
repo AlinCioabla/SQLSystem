@@ -3,10 +3,12 @@
 #include "IPresenter.h"
 #include "ConsolePresenter.h"
 #include "FilePresenter.h"
+#include "LexerTest.h"
 bool ParserTest::Execute()
 {
+  ofstream _outputFile("FilePresenter.txt", ios::out | ios::ate | ios::app);
+
   ifstream      _inputFile(mInputFileName);
-  ofstream      _outputFile("FilePresenter.txt");
   FilePresenter _errorPresenter(_outputFile);
   if (!TestInputFile(_inputFile))
   {

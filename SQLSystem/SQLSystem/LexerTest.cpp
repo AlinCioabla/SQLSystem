@@ -1,14 +1,16 @@
 
 #include "stdafx.h"
 #include "LexerTest.h"
+#include "IPresenter.h"
 #include "ConsolePresenter.h"
 #include "DiagnosticInfo.h"
 #include "FilePresenter.h"
 
 bool LexerTest::Execute()
 {
+  ofstream _outputFile("FilePresenter.txt", ios::out | ios::ate | ios::app);
+
   ifstream      _inputFile(mInputFileName);
-  ofstream      _outputFile("FilePresenter.txt");
   FilePresenter _errorPresenter(_outputFile);
 
   if (!TestInputFile(_inputFile))
