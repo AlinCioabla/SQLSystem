@@ -4,10 +4,7 @@
 
 Valid::Valid() = default;
 
-IState * Valid::HandleToken(TokenPtr &   aCurrentToken,
-                            IToken *     aPrevToken,
-                            AstNodePtr & aCurrentInstructionNode,
-                            Ast &        aAst)
+IState * Valid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   return new Invalid(aCurrentToken);
 }

@@ -5,11 +5,11 @@
 
 Delete::Delete() = default;
 
-IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
-                             IToken *     aPrevToken,
-                             AstNodePtr & aCurrentInstructionNode,
-                             Ast &        aAst)
+IState * Delete::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if (aCurrentToken->GetType() == IdentifierType)
   {
     if (aPrevToken->GetType() == KeywordType)
@@ -47,7 +47,7 @@ IState * Delete::HandleToken(TokenPtr &   aCurrentToken,
         (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     return new From();
   }
 

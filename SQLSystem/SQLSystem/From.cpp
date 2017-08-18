@@ -5,11 +5,11 @@
 #include "Where.h"
 From::From() = default;
 
-IState * From::HandleToken(TokenPtr &   aCurrentToken,
-                           IToken *     aPrevToken,
-                           AstNodePtr & aCurrentInstructionNode,
-                           Ast &        aAst)
+IState * From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if (aCurrentToken->GetType() == IdentifierType)
   {
     if (aPrevToken->GetType() == KeywordType)
@@ -45,7 +45,7 @@ IState * From::HandleToken(TokenPtr &   aCurrentToken,
     if (aCurrentToken->GetWord() == "WHERE" && aPrevToken->GetType() == IdentifierType)
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     return new Where();
   }
 

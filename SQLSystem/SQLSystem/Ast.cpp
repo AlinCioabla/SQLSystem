@@ -81,4 +81,29 @@ void Ast::InsertRight(AstNodePtr & aNode, TokenPtr & aToken)
   }
 }
 
+IToken * Ast::GetLastAddedToken(AstNodePtr & aNode) const
+{
+  auto _prevTokenNode = aNode->GetLeft();
+  if (_prevTokenNode == nullptr)
+  {
+    return aNode->GetToken();
+  }
+
+  while (_prevTokenNode->GetRight() != nullptr)
+  {
+    _prevTokenNode = _prevTokenNode->GetRight();
+  }
+  return _prevTokenNode->GetToken();
+}
+
+AstNodePtr Ast::GetCurrentInstr() const
+{
+  auto _tempNode = mRoot;
+  while (_tempNode->GetRight() != nullptr)
+  {
+    _tempNode = _tempNode->GetRight();
+  }
+  return _tempNode;
+}
+
 Ast::~Ast() = default;

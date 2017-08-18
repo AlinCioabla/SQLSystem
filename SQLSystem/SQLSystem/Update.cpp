@@ -5,11 +5,11 @@
 
 Update::Update() = default;
 
-IState * Update::HandleToken(TokenPtr &   aCurrentToken,
-                             IToken *     aPrevToken,
-                             AstNodePtr & aCurrentInstructionNode,
-                             Ast &        aAst)
+IState * Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if (aCurrentToken->GetType() == IdentifierType)
   {
     if (aPrevToken->GetType() == KeywordType)
@@ -54,7 +54,7 @@ IState * Update::HandleToken(TokenPtr &   aCurrentToken,
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
       return new From();
     }
   }

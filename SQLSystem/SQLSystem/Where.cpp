@@ -7,11 +7,11 @@
 
 Where::Where() = default;
 
-IState * Where::HandleToken(TokenPtr &   aCurrentToken,
-                            IToken *     aPrevToken,
-                            AstNodePtr & aCurrentInstructionNode,
-                            Ast &        aAst)
+IState * Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if ((aCurrentToken->GetWord() == "AND" || aCurrentToken->GetWord() == "OR") &&
       (aPrevToken->GetType() == PredicateType || IsNumber(aPrevToken->GetWord())))
   {

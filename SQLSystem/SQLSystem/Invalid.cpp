@@ -6,13 +6,13 @@ Invalid::Invalid(TokenPtr & aTokenPtr)
   mInvalidToken = move(aTokenPtr);
 }
 
-IState * Invalid::HandleToken(TokenPtr &   aCurrentToken,
-                              IToken *     aPrevToken,
-                              AstNodePtr & aCurrentInstructionNode,
-                              Ast &        aAst)
+IState * Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-  aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+  // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
   return nullptr;
 }
 

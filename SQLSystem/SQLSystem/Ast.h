@@ -25,6 +25,12 @@ public:
 
   void InsertRight(AstNodePtr & aNode, TokenPtr & aToken);
 
+  // Returns a const pointer to the last added node's token of the given node as parameter
+  IToken * GetLastAddedToken(AstNodePtr & aNode) const;
+
+  // Returns a copy of the current instruction node
+  AstNodePtr GetCurrentInstr() const;
+
   AstNode * GetRoot() const { return mRoot.get(); };
 
   // Creates a new node
