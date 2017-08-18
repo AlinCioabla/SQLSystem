@@ -2,10 +2,12 @@
 #include "ParserTest.h"
 #include "IPresenter.h"
 #include "ConsolePresenter.h"
+#include "FilePresenter.h"
 bool ParserTest::Execute()
 {
-  ifstream         _inputFile(mInputFileName);
-  ConsolePresenter _errorPresenter;
+  ifstream      _inputFile(mInputFileName);
+  ofstream      _outputFile("FilePresenter.txt");
+  FilePresenter _errorPresenter(_outputFile);
   if (!TestInputFile(_inputFile))
   {
     cout << "Cannot open the given file" << endl;

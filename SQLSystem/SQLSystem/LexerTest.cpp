@@ -3,11 +3,13 @@
 #include "LexerTest.h"
 #include "ConsolePresenter.h"
 #include "DiagnosticInfo.h"
+#include "FilePresenter.h"
 
 bool LexerTest::Execute()
 {
-  ifstream         _inputFile(mInputFileName);
-  ConsolePresenter _errorPresenter;
+  ifstream      _inputFile(mInputFileName);
+  ofstream      _outputFile("FilePresenter.txt");
+  FilePresenter _errorPresenter(_outputFile);
 
   if (!TestInputFile(_inputFile))
   {
