@@ -1,10 +1,11 @@
 #include "stdafx.h"
 #include "ParserTest.h"
-#include "Presenter.h"
+#include "IPresenter.h"
+#include "ConsolePresenter.h"
 bool ParserTest::Execute()
 {
-  ifstream  _inputFile(mInputFileName);
-  Presenter _errorPresenter;
+  ifstream         _inputFile(mInputFileName);
+  ConsolePresenter _errorPresenter;
   if (!TestInputFile(_inputFile))
   {
     cout << "Cannot open the given file" << endl;

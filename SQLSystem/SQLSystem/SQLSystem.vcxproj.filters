@@ -111,13 +111,16 @@
     <ClCompile Include="DiagnosticInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Presenter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Position.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TextualOperator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsolePresenter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FilePresenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -230,10 +233,16 @@
     <ClInclude Include="DiagnosticInfo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Presenter.h">
+    <ClInclude Include="TextualOperator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TextualOperator.h">
+    <ClInclude Include="IPresenter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsolePresenter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FilePresenter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -296,6 +305,9 @@
       <Filter>Resource Files</Filter>
     </Text>
     <Text Include="TestFile20.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="FilePresenter.txt">
       <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>

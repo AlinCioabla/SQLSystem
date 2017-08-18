@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "ParserTestUnit.h"
-#include "Presenter.h"
+#include "IPresenter.h"
 
 void ParserTestUnit::ExecuteAllTests()
 {

@@ -160,5 +160,5 @@ void Lexer::ResetNext()
 
 Lexer::~Lexer()
 {
-  mTokens.clear();
+  // mTokens.clear();
 }
