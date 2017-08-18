@@ -30,7 +30,7 @@ DiagnosticInfo Parser::Parse()
     // If the next state is null, the current state does not change
     if (_nextState != nullptr)
     {
-      mCurrentState.reset(_nextState);
+      mCurrentState = move(_nextState);
     }
 
     // Get the next token

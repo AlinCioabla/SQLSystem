@@ -9,38 +9,34 @@
 
 Undefined::Undefined() = default;
 
-IState * Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   if (aCurrentToken->GetWord() == "SELECT")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
-    // aCurrentInstructionNode = tempRoot;
-    return new Select();
+    return make_unique<Select>();
   }
   if (aCurrentToken->GetWord() == "DELETE")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
-    // aCurrentInstructionNode = tempRoot;
-    return new Delete();
+    return make_unique<Delete>();
   }
   if (aCurrentToken->GetWord() == "UPDATE")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
-    // aCurrentInstructionNode = tempRoot;
-    return new Update();
+    return make_unique<Update>();
   }
   else if (aCurrentToken->GetWord() == "INSERT")
   {
     auto tempRoot = Ast::GetNewNode(aCurrentToken);
     aAst.SetRoot(tempRoot);
-    //  aCurrentInstructionNode = tempRoot;
-    return new Insert();
+    return make_unique<Insert>();
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Undefined::GetStateName() const

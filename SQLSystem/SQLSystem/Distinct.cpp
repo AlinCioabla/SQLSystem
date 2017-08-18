@@ -5,7 +5,7 @@
 
 Distinct::Distinct() = default;
 
-IState * Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -49,10 +49,10 @@ IState * Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
     aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-    return new From();
+    return make_unique<From>();
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Distinct::GetStateName() const

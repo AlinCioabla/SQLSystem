@@ -5,7 +5,7 @@
 
 Update::Update() = default;
 
-IState * Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -54,12 +54,11 @@ IState * Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new From();
+      return make_unique<From>();
     }
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Update::GetStateName() const

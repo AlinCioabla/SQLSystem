@@ -6,7 +6,7 @@ class Update : public IState
 
 public:
   Update();
-  virtual IState * HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName        GetStateName() const override;
+  virtual unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
+  StateName                  GetStateName() const override;
   virtual ~Update();
 };

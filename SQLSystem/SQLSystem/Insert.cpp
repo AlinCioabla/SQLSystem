@@ -6,7 +6,7 @@
 
 Insert::Insert() = default;
 
-IState * Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -48,11 +48,10 @@ IState * Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
         (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO"))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-    return new Into();
+    return make_unique<Into>();
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Insert::GetStateName() const

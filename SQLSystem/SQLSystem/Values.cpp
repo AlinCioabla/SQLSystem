@@ -6,7 +6,7 @@
 
 Values::Values() = default;
 
-IState * Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -56,19 +56,18 @@ IState * Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new From();
+      return make_unique<From>();
     }
   }
   else if (aCurrentToken->GetWord() == ";")
   {
     if (aPrevToken->GetType() == IdentifierType)
     {
-      return new Valid();
+      return make_unique<Valid>();
     }
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Values::GetStateName() const

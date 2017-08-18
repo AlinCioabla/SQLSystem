@@ -4,9 +4,9 @@
 
 Valid::Valid() = default;
 
-IState * Valid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Valid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Valid::GetStateName() const

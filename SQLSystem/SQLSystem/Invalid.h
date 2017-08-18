@@ -4,10 +4,10 @@ class Invalid : public IState
 {
 public:
   Invalid(TokenPtr & aTokenPtr);
-  IState *  HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName GetStateName() const override;
+  unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
+  StateName          GetStateName() const override;
+  virtual ~Invalid();
 
 private:
   TokenPtr mInvalidToken;
-  virtual ~Invalid();
 };
