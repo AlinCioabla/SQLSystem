@@ -21,11 +21,8 @@ public:
   ~Parser();
 
 private:
-  Ast mAst;
-
+  Ast                mAst;
   unique_ptr<IState> mCurrentState;
   TokenPtr           mCurrentToken;
-  IToken *           mPrevToken;
-  AstNodePtr         mCurrentInstructionNode;
   ITokensTraversal & mLexer;
 };

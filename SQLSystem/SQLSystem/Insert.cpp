@@ -6,11 +6,11 @@
 
 Insert::Insert() = default;
 
-IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
-                             IToken *     aPrevToken,
-                             AstNodePtr & aCurrentInstructionNode,
-                             Ast &        aAst)
+IState * Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if (aCurrentToken->GetType() == IdentifierType)
   {
     if (aPrevToken->GetType() == KeywordType)
@@ -48,7 +48,7 @@ IState * Insert::HandleToken(TokenPtr &   aCurrentToken,
         (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO"))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     return new Into();
   }
 

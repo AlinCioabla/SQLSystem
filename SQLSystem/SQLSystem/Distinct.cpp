@@ -5,11 +5,11 @@
 
 Distinct::Distinct() = default;
 
-IState * Distinct::HandleToken(TokenPtr &   aCurrentToken,
-                               IToken *     aPrevToken,
-                               AstNodePtr & aCurrentInstructionNode,
-                               Ast &        aAst)
+IState * Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
+  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
+  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
+
   if (aCurrentToken->GetType() == IdentifierType)
   {
     if (aPrevToken->GetType() == KeywordType)

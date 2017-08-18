@@ -6,10 +6,7 @@ class Where : public IState
 
 public:
   Where();
-  virtual IState * HandleToken(TokenPtr &   aCurrentToken,
-                               IToken *     aPrevToken,
-                               AstNodePtr & aCurrentInstructionNode,
-                               Ast &        aAst) override;
+  virtual IState * HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
   StateName        GetStateName() const override;
   virtual ~Where();
 };

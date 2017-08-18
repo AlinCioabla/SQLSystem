@@ -8,7 +8,6 @@
 Parser::Parser(ITokensTraversal & aLexer)
   : mLexer(aLexer)
   , mCurrentState(make_unique<Undefined>())
-  , mPrevToken(nullptr)
 {
 }
 
@@ -17,8 +16,7 @@ DiagnosticInfo Parser::Parse()
   // Get the first token
   mCurrentToken = GetNwToken(mLexer);
 
-  IToken * _tempPrevToken;
-  IState * _nextState;
+  IToken * _tempPrevToken = nullptr;
 
   // We traverse the token list until we run out of tokens or the syntax is invalid
   while (mCurrentToken != nullptr && mCurrentState->GetStateName() != INVALID)
@@ -27,8 +25,7 @@ DiagnosticInfo Parser::Parse()
     _tempPrevToken = mCurrentToken.get();
 
     // Do the actions for the current state and get the next state
-    _nextState =
-      mCurrentState->HandleToken(mCurrentToken, mPrevToken, mCurrentInstructionNode, mAst);
+    auto _nextState = mCurrentState->HandleToken(mCurrentToken, mAst);
 
     // If the next state is null, the current state does not change
     if (_nextState != nullptr)
@@ -37,13 +34,15 @@ DiagnosticInfo Parser::Parse()
     }
 
     // Get the next token
-    mPrevToken    = _tempPrevToken;
     mCurrentToken = GetNwToken(mLexer);
   }
 
   if (mCurrentState->GetStateName() != VALID)
   {
-    return DiagnosticInfo(204, mPrevToken->GetPosition(), mPrevToken->GetWord());
+    if (_tempPrevToken != nullptr)
+    {
+      return DiagnosticInfo(204, _tempPrevToken->GetPosition(), _tempPrevToken->GetWord());
+    }
   }
 
   return DiagnosticInfo(0);
