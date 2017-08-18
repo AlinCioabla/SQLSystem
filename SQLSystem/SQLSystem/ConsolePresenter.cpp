@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "Presenter.h"
+#include "ConsolePresenter.h"
 
-void Presenter::Present(DiagnosticInfo & aDiagInfo)
+void ConsolePresenter::Present(DiagnosticInfo & aDiagInfo) const
 {
   switch (aDiagInfo.GetErrorCode())
   {
@@ -11,9 +11,7 @@ void Presenter::Present(DiagnosticInfo & aDiagInfo)
          << "at position " << aDiagInfo.GetPosition().GetColumn() << " on line "
          << aDiagInfo.GetPosition().GetLine() << ". " << endl;
     break;
-  // Lexer error, failed to tokenize
-  case 124:
-    cout << "Error 124: Tokens don't match the initial string. " << endl;
+
   // Parser error
   case 204:
     cout << "Error 204: Invalid syntax. Unexpected token '" << aDiagInfo.GetWord()

@@ -1,13 +1,13 @@
 
 #include "stdafx.h"
 #include "LexerTest.h"
+#include "ConsolePresenter.h"
 #include "DiagnosticInfo.h"
-#include "Presenter.h"
 
 bool LexerTest::Execute()
 {
-  ifstream  _inputFile(mInputFileName);
-  Presenter _errorPresenter;
+  ifstream         _inputFile(mInputFileName);
+  ConsolePresenter _errorPresenter;
 
   if (!TestInputFile(_inputFile))
   {

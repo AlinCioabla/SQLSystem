@@ -124,6 +124,7 @@
     <ClCompile Include="Delete.cpp" />
     <ClCompile Include="DiagnosticInfo.cpp" />
     <ClCompile Include="Distinct.cpp" />
+    <ClCompile Include="FilePresenter.cpp" />
     <ClCompile Include="From.cpp" />
     <ClCompile Include="Insert.cpp" />
     <ClCompile Include="Into.cpp" />
@@ -142,7 +143,7 @@
     <ClCompile Include="ParserTestUnit.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="Predicate.cpp" />
-    <ClCompile Include="Presenter.cpp" />
+    <ClCompile Include="ConsolePresenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
@@ -165,6 +166,8 @@
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="Delete.h" />
     <ClInclude Include="DiagnosticInfo.h" />
+    <ClInclude Include="FilePresenter.h" />
+    <ClInclude Include="IPresenter.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
@@ -187,7 +190,7 @@
     <ClInclude Include="ParserTest.h" />
     <ClInclude Include="ParserTestUnit.h" />
     <ClInclude Include="Predicate.h" />
-    <ClInclude Include="Presenter.h" />
+    <ClInclude Include="ConsolePresenter.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />
@@ -221,6 +224,7 @@
     <Text Include="TestFile7.txt" />
     <Text Include="TestFile8.txt" />
     <Text Include="TestFile9.txt" />
+    <Text Include="FilePresenter.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
