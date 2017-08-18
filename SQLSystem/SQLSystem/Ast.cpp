@@ -98,7 +98,12 @@ IToken * Ast::GetLastAddedToken(AstNodePtr & aNode) const
 
 AstNodePtr Ast::GetCurrentInstr() const
 {
+  if (!mRoot)
+  {
+    return nullptr;
+  }
   auto _tempNode = mRoot;
+
   while (_tempNode->GetRight() != nullptr)
   {
     _tempNode = _tempNode->GetRight();

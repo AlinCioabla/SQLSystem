@@ -11,28 +11,25 @@ Undefined::Undefined() = default;
 
 unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
-  if (aCurrentToken->GetWord() == "SELECT")
+  auto tempRoot = Ast::GetNewNode(aCurrentToken);
+  aAst.SetRoot(tempRoot);
+
+  const string currentTokenWord = tempRoot->GetToken()->GetWord();
+
+  if (currentTokenWord == "SELECT")
   {
-    auto tempRoot = Ast::GetNewNode(aCurrentToken);
-    aAst.SetRoot(tempRoot);
     return make_unique<Select>();
   }
-  if (aCurrentToken->GetWord() == "DELETE")
+  if (currentTokenWord == "DELETE")
   {
-    auto tempRoot = Ast::GetNewNode(aCurrentToken);
-    aAst.SetRoot(tempRoot);
     return make_unique<Delete>();
   }
-  if (aCurrentToken->GetWord() == "UPDATE")
+  if (currentTokenWord == "UPDATE")
   {
-    auto tempRoot = Ast::GetNewNode(aCurrentToken);
-    aAst.SetRoot(tempRoot);
     return make_unique<Update>();
   }
-  else if (aCurrentToken->GetWord() == "INSERT")
+  else if (currentTokenWord == "INSERT")
   {
-    auto tempRoot = Ast::GetNewNode(aCurrentToken);
-    aAst.SetRoot(tempRoot);
     return make_unique<Insert>();
   }
 

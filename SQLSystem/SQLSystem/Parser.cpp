@@ -16,13 +16,10 @@ DiagnosticInfo Parser::Parse()
   // Get the first token
   mCurrentToken = GetNwToken(mLexer);
 
-  IToken * _tempPrevToken = nullptr;
-
   // We traverse the token list until we run out of tokens or the syntax is invalid
   while (mCurrentToken != nullptr && mCurrentState->GetStateName() != INVALID)
   {
     // Create a temporary pointer before we move the ownership of the currentToken
-    _tempPrevToken = mCurrentToken.get();
 
     // Do the actions for the current state and get the next state
     auto _nextState = mCurrentState->HandleToken(mCurrentToken, mAst);
@@ -39,10 +36,16 @@ DiagnosticInfo Parser::Parse()
 
   if (mCurrentState->GetStateName() != VALID)
   {
-    if (_tempPrevToken != nullptr)
+    auto currentInstr = mAst.GetCurrentInstr();
+    // if (currentInstr != nullptr)
     {
-      return DiagnosticInfo(204, _tempPrevToken->GetPosition(), _tempPrevToken->GetWord());
+      auto lastToken = mAst.GetLastAddedToken(currentInstr);
+      return DiagnosticInfo(204, lastToken->GetPosition(), lastToken->GetWord());
     }
+    // else
+    //{
+    //  return DiagnosticInfo(204, mCur)
+    //}
   }
 
   return DiagnosticInfo(0);
