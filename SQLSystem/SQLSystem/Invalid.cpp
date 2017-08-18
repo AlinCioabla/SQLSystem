@@ -6,13 +6,11 @@ Invalid::Invalid(TokenPtr & aTokenPtr)
   mInvalidToken = move(aTokenPtr);
 }
 
-IState * Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
-  auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
 
   aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-  // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
   return nullptr;
 }
 

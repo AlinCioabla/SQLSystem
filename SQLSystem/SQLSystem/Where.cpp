@@ -7,7 +7,7 @@
 
 Where::Where() = default;
 
-IState * Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -72,11 +72,11 @@ IState * Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   if (aCurrentToken->GetWord() == ";" &&
       (aPrevToken->GetType() == IdentifierType || aPrevToken->GetType() == PredicateType))
   {
-    return new Valid();
+    return make_unique<Valid>();
   }
   /////////////////////////////////////////////////
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Where::GetStateName() const

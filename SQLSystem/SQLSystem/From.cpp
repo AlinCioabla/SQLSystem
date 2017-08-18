@@ -5,7 +5,7 @@
 #include "Where.h"
 From::From() = default;
 
-IState * From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -36,20 +36,18 @@ IState * From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     //////////////////////////////////////////////////
     if (aCurrentToken->GetWord() == ";" && aPrevToken->GetType() == IdentifierType)
   {
-    return new Valid();
+    return make_unique<Valid>();
   }
-
   /////////////////////////////////////////////////
   else
 
     if (aCurrentToken->GetWord() == "WHERE" && aPrevToken->GetType() == IdentifierType)
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-    return new Where();
+    return make_unique<Where>();
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName From::GetStateName() const

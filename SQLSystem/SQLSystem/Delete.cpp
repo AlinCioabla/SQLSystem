@@ -5,7 +5,7 @@
 
 Delete::Delete() = default;
 
-IState * Delete::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Delete::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -47,11 +47,10 @@ IState * Delete::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
         (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-    // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-    return new From();
+    return make_unique<From>();
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Delete::GetStateName() const

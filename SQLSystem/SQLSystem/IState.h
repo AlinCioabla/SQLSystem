@@ -22,8 +22,8 @@ enum StateName
 class IState
 {
 public:
-  virtual IState *  HandleToken(TokenPtr & aCurrentToken, Ast & aAst) = 0;
-  virtual StateName GetStateName() const                              = 0;
+  virtual unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) = 0;
+  virtual StateName          GetStateName() const                              = 0;
 
   virtual ~IState(){};
 };

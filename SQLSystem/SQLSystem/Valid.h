@@ -4,7 +4,7 @@ class Valid : public IState
 {
 public:
   Valid();
-  IState *  HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName GetStateName() const override;
+  unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
+  StateName          GetStateName() const override;
   virtual ~Valid();
 };

@@ -8,7 +8,7 @@
 
 Into::Into() = default;
 
-IState * Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
+unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
   auto aPrevToken              = aAst.GetLastAddedToken(aCurrentInstructionNode);
@@ -39,7 +39,7 @@ IState * Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     //////////////////////////////////////////////////
     if (aCurrentToken->GetWord() == ";" && aPrevToken->GetType() == IdentifierType)
   {
-    return new Valid();
+    return make_unique<Valid>();
   }
   /////////////////////////////////////////////////
   else
@@ -51,18 +51,16 @@ IState * Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     if (aCurrentToken->GetWord() == "WHERE")
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Where();
+      return make_unique<Where>();
     }
     if (aCurrentToken->GetWord() == "VALUES")
     {
       aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      // aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
-      return new Values();
+      return make_unique<Values>();
     }
   }
 
-  return new Invalid(aCurrentToken);
+  return make_unique<Invalid>(aCurrentToken);
 }
 
 StateName Into::GetStateName() const

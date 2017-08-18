@@ -5,8 +5,8 @@ class Select : public IState
 {
 public:
   Select();
-  IState *  HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName GetStateName() const override;
+  unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
+  StateName          GetStateName() const override;
 
   virtual ~Select();
 };
