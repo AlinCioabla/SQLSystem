@@ -2,10 +2,14 @@
 #include "ParserTest.h"
 #include "IPresenter.h"
 #include "ConsolePresenter.h"
+#include "FilePresenter.h"
+#include "LexerTest.h"
 bool ParserTest::Execute()
 {
-  ifstream         _inputFile(mInputFileName);
-  ConsolePresenter _errorPresenter;
+  ofstream _outputFile("FilePresenter.txt", ios::out | ios::ate | ios::app);
+
+  ifstream      _inputFile(mInputFileName);
+  FilePresenter _errorPresenter(_outputFile);
   if (!TestInputFile(_inputFile))
   {
     cout << "Cannot open the given file" << endl;

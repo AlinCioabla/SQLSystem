@@ -1,5 +1,6 @@
 #pragma once
 #include "DiagnosticInfo.h"
+
 class IPresenter
 {
 public:
