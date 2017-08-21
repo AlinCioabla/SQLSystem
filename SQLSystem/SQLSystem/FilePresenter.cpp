@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "FilePresenter.h"
 
-void FilePresenter::Present(DiagnosticInfo & aDiagInfo) const
+void FilePresenter::Present(DiagnosticInfo & aDiagInfo)
 
 {
-  ostream mOutputFile(mFile, ios::out | ios::ate | ios::app);
   switch (aDiagInfo.GetErrorCode())
   {
   // Lexer error

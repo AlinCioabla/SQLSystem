@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ConsolePresenter.h"
 
-void ConsolePresenter::Present(DiagnosticInfo & aDiagInfo) const
+void ConsolePresenter::Present(DiagnosticInfo & aDiagInfo)
 {
   switch (aDiagInfo.GetErrorCode())
   {
