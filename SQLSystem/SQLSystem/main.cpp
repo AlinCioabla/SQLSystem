@@ -52,8 +52,6 @@ void TestParser()
 
 int main()
 {
-  string test("   SELECT   ALL   ; ");
-  DeleteUnNeededCharacters(test);
-  cout << test;
+  TestParser();
   return 0;
 }

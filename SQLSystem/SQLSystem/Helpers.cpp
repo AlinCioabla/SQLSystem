@@ -103,5 +103,31 @@ bool IsValidChar(const char & aChar)
 
 void DeleteUnNeededCharacters(string & aString)
 {
-  static const string characters{ ";" };
+  replace(aString.begin(), aString.end(), '\n', ' ');
+  replace(aString.begin(), aString.end(), ';', ' ');
+
+  // delete whitespace duplicates
+  auto newEnd = unique(aString.begin(), aString.end(), BothAreSpaces);
+  aString.erase(newEnd, aString.end());
+
+  // delete whitespaces from beginning and from the end
+  if (IsWhitespace(*aString.begin()))
+  {
+    aString.erase(aString.begin());
+  }
+
+  if (IsWhitespace(*(aString.end() - 1)))
+  {
+    aString.erase(aString.end() - 1);
+  }
+}
+
+bool BothAreSpaces(char aLhs, char aRhs)
+{
+  return (aLhs == aRhs) && (aLhs == ' ');
+}
+
+bool IsSemicolon(char & aChar)
+{
+  return aChar == ';';
 }

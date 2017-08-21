@@ -38,7 +38,7 @@ ParserTest::~ParserTest() = default;
 
 bool ParserTest::TestInputFile(ifstream & aInputFile)
 {
-  return static_cast<bool>(aInputFile);
+  return !!aInputFile;
 }
 
 DiagnosticInfo ParserTest::TestConstructAst()
@@ -52,7 +52,10 @@ bool ParserTest::TestAst()
   rewriter.RewriteQuery(rewriter.GetAst().GetRoot());
 
   string initialQuery = mLexer->GetSqlCommand();
-  // DeleteUneededCharacters(initialQuery);
+  string queryFromAst = rewriter.GetQuery();
 
-  return initialQuery == rewriter.GetQuery();
+  DeleteUnNeededCharacters(initialQuery);
+  DeleteUnNeededCharacters(queryFromAst);
+
+  return initialQuery == queryFromAst;
 }

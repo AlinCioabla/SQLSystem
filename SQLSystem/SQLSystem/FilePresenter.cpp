@@ -29,6 +29,9 @@ void FilePresenter::Present(int aTestNumber, DiagnosticInfo & aDiagInfo)
           << "' at position " << aDiagInfo.GetPosition().GetColumn() << " on line "
           << aDiagInfo.GetPosition().GetLine() << ". " << endl;
     break;
+  case 205:
+    mFile << "Error 205: The query formed from AST doesn't match the initial input." << endl;
+    break;
 
   // General errors
   case 12:
