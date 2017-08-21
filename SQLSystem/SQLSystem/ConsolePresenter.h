@@ -5,6 +5,6 @@ class ConsolePresenter : public IPresenter
 {
 public:
   ConsolePresenter() = default;
-  void Present(DiagnosticInfo & aDiagInfo) override;
+  void Present(int aTestNumber, DiagnosticInfo & aDiagInfo) override;
   virtual ~ConsolePresenter() = default;
 };

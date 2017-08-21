@@ -1,33 +1,21 @@
 #include "stdafx.h"
 #include "LexerTestUnit.h"
+#include "DiagnosticInfo.h"
 
 void LexerTestUnit::ExecuteAllTests()
 {
-  int index = 1;
   for (auto & test : mTests)
   {
-    cout << "-------------------------------------" << endl << endl;
-    cout << "Lexer Test: " << index++ << endl;
-    bool succes = test->Execute();
-    cout << "Result: ";
-    if (succes)
-    {
-      cout << "Success!" << endl;
-    }
-    else
-    {
-      cout << "Failed" << endl;
-    }
-    cout << "-------------------------------------" << endl;
+    DiagnosticInfo testDiagInfo = test->Execute();
+    mPresenter.Present(test->GetNumber(), testDiagInfo);
   }
 }
 
 void LexerTestUnit::CreateTest(string aFileName)
 {
-  mTests.push_back(make_unique<LexerTest>(aFileName));
+  mTests.push_back(make_unique<LexerTest>(aFileName, mTests.size() + 1));
 }
 
 LexerTestUnit::~LexerTestUnit()
 {
-  mTests.clear();
 }

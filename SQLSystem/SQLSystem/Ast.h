@@ -14,7 +14,6 @@ public:
   void Display(AstNode * aNode, int indent) const;
 
   // Print the query obtained from the Ast
-  void PrintQuery(AstNode * aNode);
 
   // Sets the root of the ast
   void SetRoot(AstNodePtr aNode);
@@ -39,8 +38,12 @@ public:
     return make_shared<AstNode>(move(aTokenPtr));
   }
 
+  string GetQueryFromAst();
+
   ~Ast();
 
 private:
   AstNodePtr mRoot;
+  string     mQueryFromAst;
+  void       ConstructQueryFromAst(AstNode * aNode);
 };

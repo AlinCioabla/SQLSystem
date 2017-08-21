@@ -1,6 +1,7 @@
 #pragma once
 
 #include "stdafx.h"
+#include "IPresenter.h"
 #include "ITestUnit.h"
 #include "Lexer.h"
 #include "LexerTest.h"
@@ -10,7 +11,10 @@
 class LexerTestUnit : public ITestUnit
 {
 public:
-  LexerTestUnit(){};
+  LexerTestUnit(IPresenter & aPresenter)
+    : mPresenter(aPresenter)
+  {
+  }
 
   void ExecuteAllTests() override;
 
@@ -20,4 +24,5 @@ public:
 
 private:
   vector<unique_ptr<LexerTest>> mTests;
+  IPresenter &                  mPresenter;
 };

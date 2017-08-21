@@ -4,18 +4,16 @@
 #include "ConsolePresenter.h"
 #include "FilePresenter.h"
 #include "LexerTest.h"
-bool ParserTest::Execute()
+DiagnosticInfo ParserTest::Execute()
 {
-  string        _outputFile = "FilePresenter.txt";
-  ifstream      _inputFile(mInputFileName);
-  FilePresenter _errorPresenter(_outputFile);
+  ifstream _inputFile(mInputFileName);
+
   if (!TestInputFile(_inputFile))
   {
-    cout << "Cannot open the given file" << endl;
-    return false;
+    return DiagnosticInfo(12);
   }
-  mLexer->ReadFromFile(_inputFile);
 
+  mLexer->ReadFromFile(_inputFile);
   mLexer->Tokenize();
 
   _inputFile.clear();
@@ -25,18 +23,13 @@ bool ParserTest::Execute()
 
   if (_parseInfo.GetErrorCode() != 0)
   {
-    _errorPresenter.Present(_parseInfo);
-    return false;
+    return _parseInfo;
   }
   if (!TestAst())
   {
-    cout << "AST was not constructed properly" << endl;
-    return false;
+    return DiagnosticInfo(205);
   }
-
-  DisplayAst();
-  PrintQueryFromAst();
-  return true;
+  return DiagnosticInfo(0);
 }
 
 ParserTest::~ParserTest() = default;
@@ -53,13 +46,13 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  return true;
+  const string queryFromAst = mParser->GetAst().GetQueryFromAst();
 }
 
 void ParserTest::PrintQueryFromAst()
 {
-  auto root = mParser->GetAst().GetRoot();
-  mParser->GetAst().PrintQuery(root);
+  const string queryFromAst = mParser->GetAst().GetQueryFromAst();
+  cout << queryFromAst << endl;
 }
 
 void ParserTest::DisplayAst()

@@ -1,4 +1,6 @@
 #include "stdafx.h"
+#include "ConsolePresenter.h"
+#include "FilePresenter.h"
 #include "LexerTestUnit.h"
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
@@ -6,7 +8,9 @@
 void TestLexer()
 {
   // Create the test unit for the lexer
-  LexerTestUnit lexerTestUnit;
+  ConsolePresenter consolePresenter;
+
+  LexerTestUnit lexerTestUnit(consolePresenter);
 
   // Create tests by giving the filename for the input
   lexerTestUnit.CreateTest("TestFile1.txt"s);   // 1
@@ -27,7 +31,8 @@ void TestLexer()
 void TestParser()
 {
   // Create the test unit for the parser
-  ParserTestUnit parserTestUnit;
+  ConsolePresenter consolePresenter;
+  ParserTestUnit   parserTestUnit(consolePresenter);
 
   // Create tests by giving the filename for the input
   parserTestUnit.CreateTest("TestFile11.txt"s);  // 1

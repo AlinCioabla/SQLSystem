@@ -7,20 +7,24 @@
 class LexerTest
 {
 public:
-  LexerTest(string aFileName)
+  LexerTest(string aFileName, size_t aTestNumber)
     : mInputFileName(aFileName)
     , mLexer(make_unique<Lexer>())
+    , mTestNumber(aTestNumber)
   {
   }
-  bool Execute();
+  DiagnosticInfo Execute();
+
+  int GetNumber() const { return mTestNumber; };
 
   ~LexerTest();
 
 private:
+  string                       mInputFileName;
+  unique_ptr<ITokensTraversal> mLexer;
+  size_t                       mTestNumber;
   bool                         TestInputFile(ifstream & aInputFile);
   bool                         TestReadFromFile(ifstream & aInputFile);
   DiagnosticInfo               TestTokenize(ifstream & aInputFile);
   bool                         TestGetSqlCommand(ifstream & aInputFile);
-  string                       mInputFileName;
-  unique_ptr<ITokensTraversal> mLexer;
 };

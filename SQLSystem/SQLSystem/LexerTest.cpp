@@ -6,36 +6,24 @@
 #include "DiagnosticInfo.h"
 #include "FilePresenter.h"
 
-bool LexerTest::Execute()
+DiagnosticInfo LexerTest::Execute()
 {
-  string        _outputFile = "FilePresenter.txt";
-  ifstream      _inputFile(mInputFileName);
-  FilePresenter _errorPresenter(_outputFile);
+  ifstream _inputFile(mInputFileName);
 
   if (!TestInputFile(_inputFile))
   {
-    cout << "Cannot open the specified input file" << endl;
-    return false;
+    return DiagnosticInfo(12);
   }
   if (!TestReadFromFile(_inputFile))
   {
-    cout << "Failed to read properly from the given file" << endl;
-    return false;
+    return DiagnosticInfo(14);
   }
   if (!TestGetSqlCommand(_inputFile))
   {
-    cout << "Cannot retrieve the initial input." << endl;
-    return false;
+    return DiagnosticInfo(50);
   }
 
-  DiagnosticInfo _tokenizeInfo = TestTokenize(_inputFile);
-  if (_tokenizeInfo.GetErrorCode() != 0)
-  {
-    _errorPresenter.Present(_tokenizeInfo);
-    return false;
-  }
-
-  return true;
+  return TestTokenize(_inputFile);
 }
 
 LexerTest::~LexerTest() = default;

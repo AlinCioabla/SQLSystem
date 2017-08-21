@@ -7,14 +7,18 @@
 class ParserTest
 {
 public:
-  ParserTest(string aFileName)
+  ParserTest(string aFileName, size_t aTestNumber)
     : mInputFileName(aFileName)
     , mLexer(make_unique<Lexer>())
     , mParser(make_unique<Parser>(*mLexer))
+    , mTestNumber(aTestNumber)
+
   {
   }
 
-  bool Execute();
+  DiagnosticInfo Execute();
+
+  int GetNumber() const { return mTestNumber; };
 
   ~ParserTest();
 
@@ -27,4 +31,5 @@ private:
   string                       mInputFileName;
   unique_ptr<ITokensTraversal> mLexer;
   unique_ptr<Parser>           mParser;
+  int                          mTestNumber;
 };

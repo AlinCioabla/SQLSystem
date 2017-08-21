@@ -36,20 +36,22 @@ void Ast::Display(AstNode * aNode, int indent) const
   }
 }
 
-void Ast::PrintQuery(AstNode * aNode)
+void Ast::ConstructQueryFromAst(AstNode * aNode)
 {
   if (aNode != nullptr)
   {
     if (aNode->GetToken()->GetType() == KeywordType)
     {
-      cout << aNode->GetToken()->GetWord() << " ";
+      mQueryFromAst += aNode->GetToken()->GetWord();
+      mQueryFromAst += " ";
     }
-    PrintQuery(aNode->GetLeft().get());
+    ConstructQueryFromAst(aNode->GetLeft().get());
     if (aNode->GetToken()->GetType() != KeywordType)
     {
-      cout << aNode->GetToken()->GetWord() << " ";
+      mQueryFromAst += aNode->GetToken()->GetWord();
+      mQueryFromAst += " ";
     }
-    PrintQuery(aNode->GetRight().get());
+    ConstructQueryFromAst(aNode->GetRight().get());
   }
 }
 
@@ -114,6 +116,17 @@ AstNodePtr Ast::GetCurrentInstr() const
     _tempNode = _tempNode->GetRight();
   }
   return _tempNode;
+}
+
+string Ast::GetQueryFromAst()
+{
+  if (!mQueryFromAst.size())
+  {
+    ConstructQueryFromAst(mRoot.get());
+    return mQueryFromAst;
+  }
+
+  return mQueryFromAst;
 }
 
 Ast::~Ast() = default;
