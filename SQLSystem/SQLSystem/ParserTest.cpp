@@ -6,7 +6,7 @@
 #include "LexerTest.h"
 bool ParserTest::Execute()
 {
-  string        _outputFile = "FilePresenter";
+  string        _outputFile = "FilePresenter.txt";
   ifstream      _inputFile(mInputFileName);
   FilePresenter _errorPresenter(_outputFile);
   if (!TestInputFile(_inputFile))

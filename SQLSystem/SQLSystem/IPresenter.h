@@ -4,6 +4,6 @@
 class IPresenter
 {
 public:
-  virtual void Present(DiagnosticInfo & aDiagInfo) const = 0;
+  virtual void Present(DiagnosticInfo & aDiagInfo) = 0;
   virtual ~IPresenter(){};
 };
