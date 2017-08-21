@@ -83,6 +83,11 @@ void Ast::InsertRight(AstNodePtr & aNode, TokenPtr & aToken)
 
 IToken * Ast::GetLastAddedToken(AstNodePtr & aNode) const
 {
+  if (!aNode)
+  {
+    return nullptr;
+  }
+
   auto _prevTokenNode = aNode->GetLeft();
   if (_prevTokenNode == nullptr)
   {

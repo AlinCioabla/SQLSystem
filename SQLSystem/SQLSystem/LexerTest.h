@@ -12,7 +12,6 @@ public:
     , mLexer(make_unique<Lexer>())
   {
   }
-
   bool Execute();
 
   ~LexerTest();
