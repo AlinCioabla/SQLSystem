@@ -11,31 +11,6 @@ Ast::Ast()
   mRoot = nullptr;
 }
 
-void Ast::Display(AstNode * aNode, int indent) const
-{
-  if (aNode != nullptr)
-  {
-    if (aNode->GetRight())
-    {
-      Display(aNode->GetRight().get(), indent + 4);
-    }
-    if (indent != 0)
-    {
-      cout << setw(indent) << " ";
-    }
-    if (aNode->GetRight())
-    {
-      cout << " /\n" << setw(indent) << ' ';
-    }
-    cout << aNode->GetToken()->GetWord() << "\n ";
-    if (aNode->GetLeft())
-    {
-      cout << setw(indent) << ' ' << " \\\n";
-      Display(aNode->GetLeft().get(), indent + 4);
-    }
-  }
-}
-
 void Ast::ConstructQueryFromAst(AstNode * aNode)
 {
   if (aNode != nullptr)

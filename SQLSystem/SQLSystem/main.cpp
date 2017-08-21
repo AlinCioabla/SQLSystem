@@ -1,10 +1,10 @@
 #include "stdafx.h"
 #include "ConsolePresenter.h"
 #include "FilePresenter.h"
+#include "Helpers.h"
 #include "LexerTestUnit.h"
 #include "ParserTestUnit.h"
 #include "SQLSystem.h"
-
 void TestLexer()
 {
   // Create the test unit for the lexer
@@ -52,9 +52,8 @@ void TestParser()
 
 int main()
 {
-  {
-    TestLexer();
-    TestParser();
-  }
+  string test("   SELECT   ALL   ; ");
+  DeleteUnNeededCharacters(test);
+  cout << test;
   return 0;
 }

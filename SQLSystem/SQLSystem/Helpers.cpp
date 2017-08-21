@@ -100,3 +100,8 @@ bool IsValidChar(const char & aChar)
   return (IsAlphanumeric(aChar) || IsWhitespace(aChar) || IsOperator(aChar) ||
           IsPunctuation(aChar));
 }
+
+void DeleteUnNeededCharacters(string & aString)
+{
+  static const string characters{ ";" };
+}

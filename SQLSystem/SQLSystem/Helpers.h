@@ -25,3 +25,5 @@ TokenPtr GetNwToken(ITokensTraversal & aLexer);
 int MatchStrings(const string & aParent, const string & aChild);
 
 bool IsValidChar(const char & aChar);
+
+void DeleteUnNeededCharacters(string & aString);

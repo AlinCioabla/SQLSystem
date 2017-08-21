@@ -3,7 +3,9 @@
 #include "IPresenter.h"
 #include "ConsolePresenter.h"
 #include "FilePresenter.h"
+#include "Helpers.h"
 #include "LexerTest.h"
+
 DiagnosticInfo ParserTest::Execute()
 {
   ifstream _inputFile(mInputFileName);
@@ -46,15 +48,11 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  return true;
-}
+  ReWriter rewriter(mParser->GetAst());
+  rewriter.RewriteQuery(rewriter.GetAst().GetRoot());
 
-void ParserTest::PrintQueryFromAst()
-{
-}
+  string initialQuery = mLexer->GetSqlCommand();
+  // DeleteUneededCharacters(initialQuery);
 
-void ParserTest::DisplayAst()
-{
-  auto root = mParser->GetAst().GetRoot();
-  mParser->GetAst().Display(root, 20);
+  return initialQuery == rewriter.GetQuery();
 }

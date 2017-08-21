@@ -2,6 +2,7 @@
 #include "stdafx.h"
 #include "Lexer.h"
 #include "Parser.h"
+#include "ReWriter.h"
 
 // A class used to test the functionality of the Parser
 class ParserTest
@@ -23,13 +24,12 @@ public:
   ~ParserTest();
 
 private:
-  bool                         TestInputFile(ifstream & aInputFile);
-  DiagnosticInfo               TestConstructAst();
-  bool                         TestAst();
-  void                         PrintQueryFromAst();
-  void                         DisplayAst();
+  bool           TestInputFile(ifstream & aInputFile);
+  bool           TestAst();
+  DiagnosticInfo TestConstructAst();
+
   string                       mInputFileName;
   unique_ptr<ITokensTraversal> mLexer;
   unique_ptr<Parser>           mParser;
-  int                          mTestNumber;
+  size_t                       mTestNumber;
 };
