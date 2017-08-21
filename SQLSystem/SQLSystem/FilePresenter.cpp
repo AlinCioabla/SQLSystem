@@ -21,4 +21,6 @@ void FilePresenter::Present(DiagnosticInfo & aDiagInfo)
           << "' at position " << aDiagInfo.GetPosition().GetColumn() << " on line "
           << aDiagInfo.GetPosition().GetLine() << ". " << endl;
   }
+
+  mFile.close();
 }
