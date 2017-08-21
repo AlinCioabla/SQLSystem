@@ -7,7 +7,7 @@ public:
   ReWriter(Ast & aAst)
     : mAst(aAst){};
 
-  void RewriteQuery();
+  void RewriteQuery(AstNode * aNode);
 
   ~ReWriter();
 

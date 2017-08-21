@@ -46,14 +46,11 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  const string queryFromAst = mParser->GetAst().GetQueryFromAst();
-  string       initialQuery = mLexer->GetSqlCommand();
+  return true;
 }
 
 void ParserTest::PrintQueryFromAst()
 {
-  const string queryFromAst = mParser->GetAst().GetQueryFromAst();
-  cout << queryFromAst << endl;
 }
 
 void ParserTest::DisplayAst()

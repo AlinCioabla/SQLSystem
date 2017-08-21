@@ -29,6 +29,7 @@ public:
 
   // Returns a copy of the current instruction node
   AstNodePtr GetCurrentInstr() const;
+  void       ConstructQueryFromAst(AstNode * aNode);
 
   AstNode * GetRoot() const { return mRoot.get(); };
 
@@ -42,5 +43,5 @@ public:
 
 private:
   AstNodePtr mRoot;
-  string     mQueryFromAst;
+  string     mAstQuery;
 };

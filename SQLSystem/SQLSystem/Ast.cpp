@@ -42,14 +42,14 @@ void Ast::ConstructQueryFromAst(AstNode * aNode)
   {
     if (aNode->GetToken()->GetType() == KeywordType)
     {
-      mQueryFromAst += aNode->GetToken()->GetWord();
-      mQueryFromAst += " ";
+      mAstQuery += aNode->GetToken()->GetWord();
+      mAstQuery += " ";
     }
     ConstructQueryFromAst(aNode->GetLeft().get());
     if (aNode->GetToken()->GetType() != KeywordType)
     {
-      mQueryFromAst += aNode->GetToken()->GetWord();
-      mQueryFromAst += " ";
+      mAstQuery += aNode->GetToken()->GetWord();
+      mAstQuery += " ";
     }
     ConstructQueryFromAst(aNode->GetRight().get());
   }
