@@ -8,3 +8,53 @@ Error 204: Invalid syntax. Unexpected token ';' at position 6 on line 1.
 Error 204: Invalid syntax. Unexpected token 'OR' at position 1 on line 2. 
 Error 204: Invalid syntax. Unexpected token 'AND' at position 6 on line 1. 
 Error 204: Invalid syntax. Unexpected token '=' at position 7 on line 1. 
+Error 123: Invalid token '~' at position 2 on line 1. 
+Error 123: Invalid token '$' at position 4 on line 1. 
+Error 123: Invalid token '@' at position 10 on line 1. 
+Error 123: Invalid token '#' at position 3 on line 1. 
+Error 123: Invalid token '#' at position 6 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'FROM' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'Table1' at position 0 on line 2. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'LIKE' at position 6 on line 1. 
+Error 123: Invalid token '~' at position 2 on line 1. 
+Error 123: Invalid token '$' at position 4 on line 1. 
+Error 123: Invalid token '@' at position 10 on line 1. 
+Error 123: Invalid token '#' at position 3 on line 1. 
+Error 123: Invalid token '#' at position 6 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'FROM' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'Table1' at position 0 on line 2. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'LIKE' at position 6 on line 1. 
+Error 123: Invalid token '~' at position 2 on line 1. 
+Error 123: Invalid token '$' at position 4 on line 1. 
+Error 123: Invalid token '@' at position 10 on line 1. 
+Error 123: Invalid token '#' at position 3 on line 1. 
+Error 123: Invalid token '#' at position 6 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'FROM' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'Table1' at position 0 on line 2. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'LIKE' at position 6 on line 1. 
+Error 123: Invalid token '~' at position 2 on line 1. 
+Error 123: Invalid token '$' at position 4 on line 1. 
+Error 123: Invalid token '@' at position 10 on line 1. 
+Error 123: Invalid token '#' at position 3 on line 1. 
+Error 123: Invalid token '#' at position 6 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'FROM' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'LIKE' at position 6 on line 1. 
+Error 123: Invalid token '~' at position 2 on line 1. 
+Error 123: Invalid token '$' at position 4 on line 1. 
+Error 123: Invalid token '@' at position 10 on line 1. 
+Error 123: Invalid token '#' at position 3 on line 1. 
+Error 123: Invalid token '#' at position 6 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 1 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'FROM' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'ok' at position 2 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'WHERE' at position 5 on line 1. 
+Error 204: Invalid syntax. Unexpected token 'LIKE' at position 6 on line 1. 

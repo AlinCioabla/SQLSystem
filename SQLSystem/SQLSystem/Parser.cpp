@@ -37,15 +37,10 @@ DiagnosticInfo Parser::Parse()
   if (mCurrentState->GetStateName() != VALID)
   {
     auto currentInstr = mAst.GetCurrentInstr();
-    // if (currentInstr != nullptr)
     {
       auto lastToken = mAst.GetLastAddedToken(currentInstr);
       return DiagnosticInfo(204, lastToken->GetPosition(), lastToken->GetWord());
     }
-    // else
-    //{
-    //  return DiagnosticInfo(204, mCur)
-    //}
   }
 
   return DiagnosticInfo(0);

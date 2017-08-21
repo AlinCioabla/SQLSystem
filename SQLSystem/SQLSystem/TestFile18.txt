@@ -1,2 +1,1 @@
-SELECT Table1
-OR Table2 FROM Nume1;
+SELECT ok;
