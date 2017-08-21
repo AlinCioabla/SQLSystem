@@ -8,8 +8,7 @@
 
 bool LexerTest::Execute()
 {
-  ofstream _outputFile("FilePresenter.txt", ios::out | ios::ate | ios::app);
-
+  string        _outputFile = "FilePresenter.txt";
   ifstream      _inputFile(mInputFileName);
   FilePresenter _errorPresenter(_outputFile);
 

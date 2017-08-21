@@ -1,11 +1,17 @@
 #pragma once
+#include "stdafx.h"
 #include "IPresenter.h"
+
 class FilePresenter : public IPresenter
 {
 public:
-  FilePresenter(ofstream & aFile)
-    : mFile(aFile){};
+  FilePresenter(string & aFile)
+    : mFile(aFile){
+
+    };
   void Present(DiagnosticInfo & aDiagInfo) const override;
   virtual ~FilePresenter() = default;
-  ofstream & mFile;
+
+private:
+  string mFile;
 };

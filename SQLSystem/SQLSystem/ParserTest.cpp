@@ -6,8 +6,7 @@
 #include "LexerTest.h"
 bool ParserTest::Execute()
 {
-  ofstream _outputFile("FilePresenter.txt", ios::out | ios::ate | ios::app);
-
+  string        _outputFile = "FilePresenter";
   ifstream      _inputFile(mInputFileName);
   FilePresenter _errorPresenter(_outputFile);
   if (!TestInputFile(_inputFile))
