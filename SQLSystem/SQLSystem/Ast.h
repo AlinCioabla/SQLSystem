@@ -38,12 +38,9 @@ public:
     return make_shared<AstNode>(move(aTokenPtr));
   }
 
-  string GetQueryFromAst();
-
   ~Ast();
 
 private:
   AstNodePtr mRoot;
   string     mQueryFromAst;
-  void       ConstructQueryFromAst(AstNode * aNode);
 };

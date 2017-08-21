@@ -118,15 +118,4 @@ AstNodePtr Ast::GetCurrentInstr() const
   return _tempNode;
 }
 
-string Ast::GetQueryFromAst()
-{
-  if (!mQueryFromAst.size())
-  {
-    ConstructQueryFromAst(mRoot.get());
-    return mQueryFromAst;
-  }
-
-  return mQueryFromAst;
-}
-
 Ast::~Ast() = default;

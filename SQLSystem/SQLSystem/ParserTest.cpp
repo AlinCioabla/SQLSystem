@@ -47,6 +47,7 @@ DiagnosticInfo ParserTest::TestConstructAst()
 bool ParserTest::TestAst()
 {
   const string queryFromAst = mParser->GetAst().GetQueryFromAst();
+  string       initialQuery = mLexer->GetSqlCommand();
 }
 
 void ParserTest::PrintQueryFromAst()

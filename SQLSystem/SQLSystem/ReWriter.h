@@ -4,10 +4,14 @@
 class ReWriter
 {
 public:
-  ReWriter(Ast aAst)
+  ReWriter(Ast & aAst)
     : mAst(aAst){};
+
+  void RewriteQuery();
+
   ~ReWriter();
 
 private:
-  Ast mAst;
+  Ast &  mAst;
+  string mAstQuery;
 };
