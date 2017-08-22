@@ -36,9 +36,9 @@ unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Undefined::GetStateName() const
+StateType Undefined::GetStateName() const
 {
-  return StateName::UNDEFINED;
+  return StateType::UNDEFINED;
 }
 
 Undefined::~Undefined() = default;

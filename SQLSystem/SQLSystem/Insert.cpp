@@ -54,9 +54,9 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Insert::GetStateName() const
+StateType Insert::GetStateName() const
 {
-  return StateName::INSERT;
+  return StateType::INSERT;
 }
 
 Insert::~Insert() = default;

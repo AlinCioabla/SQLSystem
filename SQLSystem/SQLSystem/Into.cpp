@@ -63,9 +63,9 @@ unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Into::GetStateName() const
+StateType Into::GetStateName() const
 {
-  return StateName::INTO;
+  return StateType::INTO;
 }
 
 Into::~Into() = default;

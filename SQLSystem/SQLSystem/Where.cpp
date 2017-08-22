@@ -79,9 +79,9 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Where::GetStateName() const
+StateType Where::GetStateName() const
 {
-  return StateName::WHERE;
+  return StateType::WHERE;
 }
 
 Where::~Where() = default;

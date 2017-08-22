@@ -14,9 +14,9 @@ unique_ptr<IState> Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return nullptr;
 }
 
-StateName Invalid::GetStateName() const
+StateType Invalid::GetStateName() const
 {
-  return StateName::INVALID;
+  return StateType::INVALID;
 }
 
 Invalid::~Invalid() = default;

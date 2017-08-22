@@ -70,9 +70,9 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Values::GetStateName() const
+StateType Values::GetStateName() const
 {
-  return StateName::VALUES;
+  return StateType::VALUES;
 }
 
 Values::~Values() = default;

@@ -9,9 +9,9 @@ unique_ptr<IState> Valid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Valid::GetStateName() const
+StateType Valid::GetStateName() const
 {
-  return StateName::VALID;
+  return StateType::VALID;
 }
 
 Valid::~Valid() = default;

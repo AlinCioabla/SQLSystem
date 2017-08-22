@@ -2,11 +2,11 @@
 #include "IState.h"
 class Update : public IState
 {
-  StateName mNextState;
+  StateType mNextState;
 
 public:
   Update();
   virtual unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName                  GetStateName() const override;
+  StateType                  GetStateName() const override;
   virtual ~Update();
 };

@@ -50,9 +50,9 @@ unique_ptr<IState> From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName From::GetStateName() const
+StateType From::GetStateName() const
 {
-  return StateName::FROM;
+  return StateType::FROM;
 }
 
 From::~From() = default;

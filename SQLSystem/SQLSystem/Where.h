@@ -2,11 +2,11 @@
 #include "IState.h"
 class Where : public IState
 {
-  StateName mNextState;
+  StateType mNextState;
 
 public:
   Where();
   virtual unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) override;
-  StateName                  GetStateName() const override;
+  StateType                  GetStateName() const override;
   virtual ~Where();
 };

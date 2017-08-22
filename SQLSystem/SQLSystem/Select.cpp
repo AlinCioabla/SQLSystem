@@ -62,9 +62,9 @@ unique_ptr<IState> Select::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Select::GetStateName() const
+StateType Select::GetStateName() const
 {
-  return StateName::SELECT;
+  return StateType::SELECT;
 }
 
 Select::~Select() = default;

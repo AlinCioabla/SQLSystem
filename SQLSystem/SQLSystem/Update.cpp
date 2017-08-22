@@ -61,9 +61,9 @@ unique_ptr<IState> Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Update::GetStateName() const
+StateType Update::GetStateName() const
 {
-  return StateName::UPDATE;
+  return StateType::UPDATE;
 }
 
 Update::~Update() = default;

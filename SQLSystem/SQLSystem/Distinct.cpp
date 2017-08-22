@@ -55,9 +55,9 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Distinct::GetStateName() const
+StateType Distinct::GetStateName() const
 {
-  return StateName::DISTINCT;
+  return StateType::DISTINCT;
 }
 
 Distinct::~Distinct() = default;

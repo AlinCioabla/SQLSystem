@@ -53,9 +53,9 @@ unique_ptr<IState> Delete::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   return make_unique<Invalid>(aCurrentToken);
 }
 
-StateName Delete::GetStateName() const
+StateType Delete::GetStateName() const
 {
-  return StateName::DELETE;
+  return StateType::DELETE;
 }
 
 Delete::~Delete() = default;
