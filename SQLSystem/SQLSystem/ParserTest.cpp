@@ -49,10 +49,9 @@ DiagnosticInfo ParserTest::TestConstructAst()
 bool ParserTest::TestAst()
 {
   ReWriter rewriter(mParser->GetAst());
-  rewriter.RewriteQuery(rewriter.GetAst().GetRoot());
 
-  string initialQuery = mLexer->GetSqlCommand();
   string queryFromAst = rewriter.GetQuery();
+  string initialQuery = mLexer->GetSqlCommand();
 
   FormatQuery(initialQuery);
   FormatQuery(queryFromAst);

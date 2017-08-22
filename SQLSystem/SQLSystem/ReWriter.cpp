@@ -1,22 +1,22 @@
 #include "stdafx.h"
 #include "ReWriter.h"
 
-void ReWriter::RewriteQuery(AstNode * aNode)
+void ReWriter::RewriteQuery(AstNode * aNode, string & aAstQuery)
 {
   if (aNode != nullptr)
   {
     if (aNode->GetToken()->GetType() == KeywordType)
     {
-      mAstQuery += aNode->GetToken()->GetWord();
-      mAstQuery += " ";
+      aAstQuery += aNode->GetToken()->GetWord();
+      aAstQuery += " ";
     }
-    RewriteQuery(aNode->GetLeft().get());
+    RewriteQuery(aNode->GetLeft().get(), aAstQuery);
     if (aNode->GetToken()->GetType() != KeywordType)
     {
-      mAstQuery += aNode->GetToken()->GetWord();
-      mAstQuery += " ";
+      aAstQuery += aNode->GetToken()->GetWord();
+      aAstQuery += " ";
     }
-    RewriteQuery(aNode->GetRight().get());
+    RewriteQuery(aNode->GetRight().get(), aAstQuery);
   }
 }
 
@@ -46,12 +46,9 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
 }
 string ReWriter::GetQuery()
 {
-  if (!mAstQuery.size())
-  {
-    RewriteQuery(mAst.GetRoot());
-  }
-
-  return mAstQuery;
+  string query;
+  RewriteQuery(mAst.GetRoot(), query);
+  return query;
 }
 
 ReWriter::~ReWriter()
