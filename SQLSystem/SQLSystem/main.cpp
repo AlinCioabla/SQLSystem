@@ -52,6 +52,7 @@ void TestParser()
 
 int main()
 {
+  // TestLexer();
   TestParser();
   return 0;
 }

@@ -7,8 +7,6 @@ public:
   ReWriter(Ast & aAst)
     : mAst(aAst){};
 
-  void RewriteQuery(AstNode * aNode);
-
   void DisplayAstInConsole(AstNode * aNode, int indent) const;
 
   string GetQuery();
@@ -18,6 +16,7 @@ public:
   ~ReWriter();
 
 private:
+  void   RewriteQuery(AstNode * aNode);
   Ast &  mAst;
   string mAstQuery;
 };

@@ -49,7 +49,7 @@ DiagnosticInfo ParserTest::TestConstructAst()
 bool ParserTest::TestAst()
 {
   ReWriter rewriter(mParser->GetAst());
-  rewriter.RewriteQuery(rewriter.GetAst().GetRoot());
+  rewriter.GetQuery();
 
   string initialQuery = mLexer->GetSqlCommand();
   string queryFromAst = rewriter.GetQuery();
