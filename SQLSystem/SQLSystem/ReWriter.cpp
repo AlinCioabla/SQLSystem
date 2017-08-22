@@ -46,7 +46,7 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
 }
 string ReWriter::GetQuery()
 {
-  if (!mAstQuery.size())
+  if (mAstQuery.empty())
   {
     RewriteQuery(mAst.GetRoot());
   }
@@ -54,6 +54,4 @@ string ReWriter::GetQuery()
   return mAstQuery;
 }
 
-ReWriter::~ReWriter()
-{
-}
+ReWriter::~ReWriter() = default;
