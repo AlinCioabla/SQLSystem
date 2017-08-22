@@ -26,7 +26,7 @@ int MatchStrings(const string & aParent, const string & aChild);
 
 bool IsValidChar(const char & aChar);
 
-void DeleteUnNeededCharacters(string & aString);
+void FormatQuery(string & aString);
 
 bool BothAreSpaces(char aLhs, char aRhs);
 

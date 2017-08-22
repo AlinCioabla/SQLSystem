@@ -54,8 +54,8 @@ bool ParserTest::TestAst()
   string initialQuery = mLexer->GetSqlCommand();
   string queryFromAst = rewriter.GetQuery();
 
-  DeleteUnNeededCharacters(initialQuery);
-  DeleteUnNeededCharacters(queryFromAst);
+  FormatQuery(initialQuery);
+  FormatQuery(queryFromAst);
 
   return initialQuery == queryFromAst;
 }

@@ -101,7 +101,7 @@ bool IsValidChar(const char & aChar)
           IsPunctuation(aChar));
 }
 
-void DeleteUnNeededCharacters(string & aString)
+void FormatQuery(string & aString)
 {
   replace(aString.begin(), aString.end(), '\n', ' ');
   replace(aString.begin(), aString.end(), ';', ' ');
@@ -119,6 +119,20 @@ void DeleteUnNeededCharacters(string & aString)
   if (IsWhitespace(*(aString.end() - 1)))
   {
     aString.erase(aString.end() - 1);
+  }
+
+  // delete whitespaces next to punctuation and operators
+  for (auto it = aString.begin() + 1; it != aString.end() - 2;)
+  {
+    if (IsWhitespace(*it) && (IsPunctuation(*(it + 1)) || IsOperator(*(it + 1)) ||
+                              IsPunctuation(*(it - 1)) || IsOperator(*(it - 1))))
+    {
+      it = aString.erase(it);
+    }
+    else
+    {
+      ++it;
+    }
   }
 }
 
