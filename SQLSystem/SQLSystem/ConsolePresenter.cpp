@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ConsolePresenter.h"
 
-void ConsolePresenter::Present(int aTestNumber, DiagnosticInfo & aDiagInfo)
+void ConsolePresenter::Present(size_t aTestNumber, DiagnosticInfo & aDiagInfo)
 {
   cout << "--------------------------------------------------" << endl << endl;
 

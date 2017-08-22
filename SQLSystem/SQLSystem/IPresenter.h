@@ -4,6 +4,6 @@
 class IPresenter
 {
 public:
-  virtual void Present(int aTestNumber, DiagnosticInfo & aDiagInfo) = 0;
+  virtual void Present(size_t aTestNumber, DiagnosticInfo & aDiagInfo) = 0;
   virtual ~IPresenter(){};
 };

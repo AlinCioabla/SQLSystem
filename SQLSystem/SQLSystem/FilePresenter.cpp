@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "FilePresenter.h"
 
-void FilePresenter::Present(int aTestNumber, DiagnosticInfo & aDiagInfo)
+void FilePresenter::Present(size_t aTestNumber, DiagnosticInfo & aDiagInfo)
 {
   mFile << "--------------------------------------------------" << endl;
 

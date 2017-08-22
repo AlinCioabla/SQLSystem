@@ -15,7 +15,7 @@ public:
   }
   DiagnosticInfo Execute();
 
-  int GetNumber() const { return mTestNumber; };
+  size_t GetNumber() const { return mTestNumber; };
 
   ~LexerTest();
 
