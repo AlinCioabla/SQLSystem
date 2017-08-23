@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ReWriterXml.h"
 
-vector<string> smth = {
+vector<string> tag = {
   "SELECT",   " DISTINCT ", "UPDATE",  " FROM ",     " ALL ",
   " COLUMN ", " TABLE ",    " WHERE ", "DELETE",     "INSERT",
   "INTO",     "VALUES",     "OR",      "AND",        "LIKE",
