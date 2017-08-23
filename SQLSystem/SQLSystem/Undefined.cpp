@@ -11,7 +11,7 @@ Undefined::Undefined() = default;
 
 unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
-  auto tempRoot = Ast::GetNewNode(aCurrentToken);
+  auto tempRoot = Ast::GetNewNode(aCurrentToken, );
   aAst.SetRoot(tempRoot);
 
   const string currentTokenWord = tempRoot->GetToken()->GetWord();
