@@ -4,18 +4,14 @@
 class ReWriter
 {
 public:
-  ReWriter(Ast & aAst)
+  ReWriter(const Ast & aAst)
     : mAst(aAst){};
 
   void DisplayAstInConsole(AstNode * aNode, int indent) const;
 
-  string GetQuery();
-
-  Ast & GetAst() { return mAst; }
-
-  ~ReWriter();
+  string GetQuery() const;
 
 private:
-  void  RewriteQuery(AstNode * aNode, string & aAstQuery);
-  Ast & mAst;
+  void        RewriteQuery(AstNode * aNode, string & aAstQuery) const;
+  const Ast & mAst;
 };

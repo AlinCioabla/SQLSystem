@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ReWriter.h"
 
-void ReWriter::RewriteQuery(AstNode * aNode, string & aAstQuery)
+void ReWriter::RewriteQuery(AstNode * aNode, string & aAstQuery) const
 {
   if (aNode != nullptr)
   {
@@ -44,13 +44,9 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
     }
   }
 }
-string ReWriter::GetQuery()
+string ReWriter::GetQuery() const
 {
   string query;
   RewriteQuery(mAst.GetRoot(), query);
   return query;
-}
-
-ReWriter::~ReWriter()
-{
 }
