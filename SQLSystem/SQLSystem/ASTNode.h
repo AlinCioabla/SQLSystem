@@ -5,11 +5,38 @@
 class AstNode;
 using AstNodePtr = shared_ptr<AstNode>;
 
+enum class AstNodeType
+{
+  SELECT = 0,
+  FROM,
+  ALL,
+  COLUMN,
+  TABLE,
+  WHERE,
+  DELETE,
+  INSERT,
+  INTO,
+  VALUES,
+  OR,
+  AND,
+  LIKE,
+  NOTLIKE,
+  EQUALS,
+  PLUSOP,
+  MINUSOP,
+  DIVISIONOP,
+  MULTIPLICATIONOP,
+  NUMBER,
+  PREDICATE,
+  COMMA
+};
+
 class AstNode
 {
 public:
-  AstNode(TokenPtr aToken)
+  AstNode(TokenPtr aToken, AstNodeType aType)
     : mToken(move(aToken))
+    , mType(aType)
   {
   }
   AstNode() {}
@@ -19,6 +46,8 @@ public:
 
   // Returns the right child
   AstNodePtr & GetRight() { return mRight; };
+
+  AstNodeType GetType() const { return mType; }
 
   // Returns the token
   IToken * GetToken() const { return mToken.get(); };
@@ -32,7 +61,8 @@ public:
   ~AstNode();
 
 private:
-  TokenPtr   mToken;
-  AstNodePtr mLeft;
-  AstNodePtr mRight;
+  TokenPtr    mToken;
+  AstNodePtr  mLeft;
+  AstNodePtr  mRight;
+  AstNodeType mType;
 };
