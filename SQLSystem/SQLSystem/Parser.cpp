@@ -37,8 +37,7 @@ DiagnosticInfo Parser::Parse()
   if (mCurrentState->GetStateName() != VALID)
   {
     auto currentInstr = mAst.GetCurrentInstr();
-
-    auto lastToken = mAst.GetLastAddedToken(currentInstr);
+    auto lastToken    = mAst.GetLastAddedToken(currentInstr);
     return DiagnosticInfo(204, lastToken->GetPosition(), lastToken->GetWord());
   }
 
