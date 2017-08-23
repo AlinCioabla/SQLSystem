@@ -8,6 +8,7 @@ using AstNodePtr = shared_ptr<AstNode>;
 enum class AstNodeType
 {
   SELECT = 0,
+  DISTINCT,
   FROM,
   ALL,
   COLUMN,
@@ -17,6 +18,7 @@ enum class AstNodeType
   INSERT,
   INTO,
   VALUES,
+  VALUE,
   OR,
   AND,
   LIKE,
@@ -28,7 +30,8 @@ enum class AstNodeType
   MULTIPLICATIONOP,
   NUMBER,
   PREDICATE,
-  COMMA
+  COMMA,
+  INVALID
 };
 
 class AstNode
