@@ -10,7 +10,7 @@ unique_ptr<IState> Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
   auto aCurrentInstructionNode = aAst.GetCurrentInstr();
 
-  aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+  aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::INVALID);
   return nullptr;
 }
 

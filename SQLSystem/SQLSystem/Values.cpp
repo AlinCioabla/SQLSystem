@@ -15,13 +15,13 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::VALUE);
       return nullptr;
     }
 
     if (aPrevToken->GetWord() == ",")
     {
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::VALUE);
       return nullptr;
     }
   }
@@ -32,19 +32,7 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == IdentifierType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken);
-      return nullptr;
-    }
-  }
-
-  else
-
-    if (aPrevToken->GetWord() == "SELECT")
-  {
-    if (aPrevToken->GetType() == KeywordType)
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
-      aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COMMA);
       return nullptr;
     }
   }
@@ -55,7 +43,7 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken);
+      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::FROM);
       return make_unique<From>();
     }
   }
