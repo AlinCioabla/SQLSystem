@@ -146,6 +146,7 @@
     <ClCompile Include="ConsolePresenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="ReWriter.cpp" />
+    <ClCompile Include="ReWriterXml.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -169,6 +170,7 @@
     <ClInclude Include="DiagnosticInfo.h" />
     <ClInclude Include="FilePresenter.h" />
     <ClInclude Include="IPresenter.h" />
+    <ClInclude Include="ISerializer.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
@@ -194,6 +196,7 @@
     <ClInclude Include="ConsolePresenter.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="ReWriter.h" />
+    <ClInclude Include="ReWriterXml.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />
