@@ -9,6 +9,7 @@ enum class AstNodeType
 {
   SELECT = 0,
   DISTINCT,
+  UPDATE,
   FROM,
   ALL,
   COLUMN,
@@ -51,6 +52,8 @@ public:
   AstNodePtr & GetRight() { return mRight; };
 
   AstNodeType GetType() const { return mType; }
+
+  void SetType(AstNodeType aType) { mType = aType; }
 
   // Returns the token
   IToken * GetToken() const { return mToken.get(); };
