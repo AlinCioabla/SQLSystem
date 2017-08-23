@@ -38,7 +38,7 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     }
     else if (currentWord == "-")
     {
-      tempType == AstNodeType::MINUSOP;
+      tempType = AstNodeType::MINUSOP;
     }
     else if (currentWord == "/")
     {
@@ -54,7 +54,11 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     }
     else if (currentWord == "NOTLIKE")
     {
-      tempType == AstNodeType::NOTLIKE;
+      tempType = AstNodeType::NOTLIKE;
+    }
+    else
+    {
+      tempType = AstNodeType::INVALID;
     }
 
     if (aPrevToken->GetType() == IdentifierType)
