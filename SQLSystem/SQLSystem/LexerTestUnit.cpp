@@ -16,6 +16,4 @@ void LexerTestUnit::CreateTest(string aFileName)
   mTests.push_back(make_unique<LexerTest>(aFileName, mTests.size() + 1));
 }
 
-LexerTestUnit::~LexerTestUnit()
-{
-}
+LexerTestUnit::~LexerTestUnit() = default;

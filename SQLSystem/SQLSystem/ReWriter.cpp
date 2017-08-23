@@ -51,6 +51,4 @@ string ReWriter::GetQuery()
   return query;
 }
 
-ReWriter::~ReWriter()
-{
-}
+ReWriter::~ReWriter() = default;
