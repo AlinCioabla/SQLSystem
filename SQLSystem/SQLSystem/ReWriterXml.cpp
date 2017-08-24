@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ReWriterXml.h"
+#include "AstNode.h"
 
 vector<string> tag = { "SELECT",   " DISTINCT ", "UPDATE",  " FROM ",     " ALL ",
                        " COLUMN ", " TABLE ",    " WHERE ", "DELETE",     "INSERT",
