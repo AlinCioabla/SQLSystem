@@ -5,9 +5,7 @@ class ReWriterXml : public ISerializer
 public:
   ReWriterXml(Ast & aAst, string aFileName)
     : mAst(aAst)
-  {
-    mOutputStream.open(aFileName, ios::out | ios::ate | ios::app);
-  };
+    , mOutputStream(aFileName, ios::out | ios::ate | ios::app){};
   void Serialize() const override;
   virtual ~ReWriterXml() = default;
 

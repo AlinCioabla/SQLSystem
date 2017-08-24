@@ -121,6 +121,7 @@
   <ItemGroup>
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
+    <ClCompile Include="AstTraversal.cpp" />
     <ClCompile Include="Delete.cpp" />
     <ClCompile Include="DiagnosticInfo.cpp" />
     <ClCompile Include="Distinct.cpp" />
@@ -166,6 +167,7 @@
   <ItemGroup>
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
+    <ClInclude Include="AstTraversal.h" />
     <ClInclude Include="Delete.h" />
     <ClInclude Include="DiagnosticInfo.h" />
     <ClInclude Include="FilePresenter.h" />
