@@ -2,12 +2,19 @@
 #include "ReWriterXml.h"
 #include "AstNode.h"
 
-vector<string> tag = { "SELECT",     " DISTINCT ",       "UPDATE",  " FROM ",    " ALL ",
-                       " COLUMN ",   " TABLE ",          " WHERE ", "DELETE",    "INSERT",
-                       "INTO",       "VALUES",           "VALUE",   "OR",        "AND",
-                       "LIKE",       "NOTLIKE",          "EQUALS",  "PLUSOP",    "MINUS",
-                       "DIVISIONOP", "MULTIPLICATIONOP", "NUMBER",  "PREDICATE", "COMA",
-                       "INVALID" };
+vector<string> tag = { "SELECT",     "DISTINCT ",
+                       "UPDATE",     "FROM ",
+                       "ALL",        "COLUMN ",
+                       "TABLE",      "WHERE ",
+                       "DELETE",     "INSERT",
+                       "INTO",       "VALUES",
+                       "VALUE",      "OR",
+                       "AND",        "LIKE",
+                       "NOTLIKE",    "EQUALS",
+                       "PLUSOP",     "MINUS",
+                       "DIVISIONOP", "MULTIPLICATIONOP",
+                       "NUMBER",     "PREDICATE",
+                       "COMMA",      "INVALID" };
 
 vector<string> type = {
   "KeywordType",    "OperatorType", "PunctuationType", "WhiteSpaceType",

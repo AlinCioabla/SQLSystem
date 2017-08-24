@@ -1,25 +1,20 @@
 #include "stdafx.h"
-//#include "ReWriter.h"
-//
-// void ReWriter::TraverseTree(AstNode * aNode, string & aAstQuery) const
-//{
-//  if (aNode != nullptr)
-//  {
-//    if (aNode->GetToken()->GetType() == KeywordType)
-//    {
-//      aAstQuery += aNode->GetToken()->GetWord();
-//      aAstQuery += " ";
-//    }
-//    TraverseTree(aNode->GetLeft().get(), aAstQuery);
-//    if (aNode->GetToken()->GetType() != KeywordType)
-//    {
-//      aAstQuery += aNode->GetToken()->GetWord();
-//      aAstQuery += " ";
-//    }
-//    TraverseTree(aNode->GetRight().get(), aAstQuery);
-//  }
-//}
-//
+#include "ReWriter.h"
+
+void ReWriter::TraverseTree(AstNode * aNode, int indent) const
+{
+  if (aNode != nullptr)
+  {
+    cout << setw(indent) << "<" << aNode->GetToken()->GetWord() << ">\n";
+
+    TraverseTree(aNode->GetLeft().get(), indent + 3);
+
+    TraverseTree(aNode->GetRight().get(), indent + 3);
+
+    cout << setw(indent) << "<\\" << aNode->GetToken()->GetWord() << ">\n";
+  }
+}
+
 // void ReWriter::Serialize() const
 //{
 //  stack<AstNode *> stack;
@@ -48,34 +43,50 @@
 //  }
 //  cout << endl;
 //}
+void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
+{
+  if (aNode != nullptr)
+  {
+    if (aNode->GetRight())
+    {
+      DisplayAstInConsole(aNode->GetRight().get(), indent + 4);
+    }
+    if (indent != 0)
+    {
+      cout << setw(indent) << " ";
+    }
+    if (aNode->GetRight())
+    {
+      cout << " /\n" << setw(indent) << ' ';
+    }
+    cout << aNode->GetToken()->GetWord() << "\n ";
+    if (aNode->GetLeft())
+    {
+      cout << setw(indent) << ' ' << " \\\n";
+      DisplayAstInConsole(aNode->GetLeft().get(), indent + 4);
+    }
+  }
+}
+string ReWriter::GetQuery() const
+{
+  string query;
+  TraverseTree(mAst.GetRoot(), 0);
+  return query;
+}
+
 //
-// void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
+// if (aNode != nullptr)
 //{
-//  if (aNode != nullptr)
+//  if (aNode->GetToken()->GetType() == KeywordType)
 //  {
-//    if (aNode->GetRight())
-//    {
-//      DisplayAstInConsole(aNode->GetRight().get(), indent + 4);
-//    }
-//    if (indent != 0)
-//    {
-//      cout << setw(indent) << " ";
-//    }
-//    if (aNode->GetRight())
-//    {
-//      cout << " /\n" << setw(indent) << ' ';
-//    }
-//    cout << aNode->GetToken()->GetWord() << "\n ";
-//    if (aNode->GetLeft())
-//    {
-//      cout << setw(indent) << ' ' << " \\\n";
-//      DisplayAstInConsole(aNode->GetLeft().get(), indent + 4);
-//    }
+//    aAstQuery += aNode->GetToken()->GetWord();
+//    aAstQuery += " ";
 //  }
-//}
-// string ReWriter::GetQuery() const
-//{
-//  string query;
-//  TraverseTree(mAst.GetRoot(), query);
-//  return query;
+//  TraverseTree(aNode->GetLeft().get(), aAstQuery);
+//  if (aNode->GetToken()->GetType() != KeywordType)
+//  {
+//    aAstQuery += aNode->GetToken()->GetWord();
+//    aAstQuery += " ";
+//  }
+//  TraverseTree(aNode->GetRight().get(), aAstQuery);
 //}
