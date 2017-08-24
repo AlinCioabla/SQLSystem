@@ -1,56 +1,56 @@
-<SELECT At="Line 1, Column 1" Type="KeywordType" Word=SELECT">
-  <COMMA At="Line 1, Column 7" Type="PunctuationType" Word=,">
-     <COMMA At="Line 1, Column 5" Type="PunctuationType" Word=,">
-        <COMMA At="Line 1, Column 3" Type="PunctuationType" Word=,">
-           <COLUMN At="Line 1, Column 2" Type="IdentifierType" Word=Nume1">
-          <\COLUMN>
-           <COLUMN At="Line 1, Column 4" Type="IdentifierType" Word=Nume2">
-          <\COLUMN>
-       <\COMMA>
-        <COLUMN At="Line 1, Column 6" Type="IdentifierType" Word=Nume3">
-       <\COLUMN>
-    <\COMMA>
-     <COLUMN At="Line 2, Column 0" Type="IdentifierType" Word=Nume4">
-    <\COLUMN>
- <\COMMA>
-  <FROM At="Line 2, Column 1" Type="KeywordType" Word=FROM">
-     <COMMA At="Line 2, Column 7" Type="PunctuationType" Word=,">
-        <COMMA At="Line 2, Column 5" Type="PunctuationType" Word=,">
-           <COMMA At="Line 2, Column 3" Type="PunctuationType" Word=,">
-              <TABLE At="Line 2, Column 2" Type="IdentifierType" Word=Table1">
-             <\TABLE>
-              <TABLE At="Line 2, Column 4" Type="IdentifierType" Word=Table2">
-             <\TABLE>
-          <\COMMA>
-           <TABLE At="Line 2, Column 6" Type="IdentifierType" Word=Table3">
-          <\TABLE>
-       <\COMMA>
-        <TABLE At="Line 2, Column 8" Type="IdentifierType" Word=Table4">
-       <\TABLE>
-    <\COMMA>
-     <WHERE At="Line 2, Column 9" Type="KeywordType" Word=WHERE">
-        <AND At="Line 3, Column 0" Type="TextualOperatorType" Word=AND">
-           <OR At="Line 2, Column 13" Type="TextualOperatorType" Word=OR">
-              <LIKE At="Line 2, Column 11" Type="TextualOperatorType" Word=LIKE">
-                 <COLUMN At="Line 2, Column 10" Type="IdentifierType" Word=Nume1">
-                <\COLUMN>
-                 <PREDICATE At="Line 2, Column 13" Type="PredicateType" Word='%A'">
-                <\PREDICATE>
-             <\LIKE>
-              <INVALID At="Line 2, Column 15" Type="OperatorType" Word==">
-                 <COLUMN At="Line 2, Column 14" Type="IdentifierType" Word=Nume2">
-                <\COLUMN>
-                 <PREDICATE At="Line 2, Column 17" Type="PredicateType" Word='Alin'">
-                <\PREDICATE>
-             <\INVALID>
-          <\OR>
-           <NOTLIKE At="Line 3, Column 2" Type="TextualOperatorType" Word=NOTLIKE">
-              <COLUMN At="Line 3, Column 1" Type="IdentifierType" Word=Nume4">
-             <\COLUMN>
-              <PREDICATE At="Line 3, Column 4" Type="PredicateType" Word='%ASD'">
-             <\PREDICATE>
-          <\NOTLIKE>
-       <\AND>
-    <\WHERE>
- <\FROM>
-<\SELECT>
+<SELECT At="Line 1, Column 1" Type="KeywordType" Word="SELECT">
+  <COMMA At="Line 1, Column 7" Type="PunctuationType" Word=",">
+     <COMMA At="Line 1, Column 5" Type="PunctuationType" Word=",">
+        <COMMA At="Line 1, Column 3" Type="PunctuationType" Word=",">
+           <COLUMN At="Line 1, Column 2" Type="IdentifierType" Word="Nume1">
+          </COLUMN>
+           <COLUMN At="Line 1, Column 4" Type="IdentifierType" Word="Nume2">
+          </COLUMN>
+       </COMMA>
+        <COLUMN At="Line 1, Column 6" Type="IdentifierType" Word="Nume3">
+       </COLUMN>
+    </COMMA>
+     <COLUMN At="Line 2, Column 0" Type="IdentifierType" Word="Nume4">
+    </COLUMN>
+ </COMMA>
+  <FROM At="Line 2, Column 1" Type="KeywordType" Word="FROM">
+     <COMMA At="Line 2, Column 7" Type="PunctuationType" Word=",">
+        <COMMA At="Line 2, Column 5" Type="PunctuationType" Word=",">
+           <COMMA At="Line 2, Column 3" Type="PunctuationType" Word=",">
+              <TABLE At="Line 2, Column 2" Type="IdentifierType" Word="Table1">
+             </TABLE>
+              <TABLE At="Line 2, Column 4" Type="IdentifierType" Word="Table2">
+             </TABLE>
+          </COMMA>
+           <TABLE At="Line 2, Column 6" Type="IdentifierType" Word="Table3">
+          </TABLE>
+       </COMMA>
+        <TABLE At="Line 2, Column 8" Type="IdentifierType" Word="Table4">
+       </TABLE>
+    </COMMA>
+     <WHERE At="Line 2, Column 9" Type="KeywordType" Word="WHERE">
+        <AND At="Line 3, Column 0" Type="TextualOperatorType" Word="AND">
+           <OR At="Line 2, Column 13" Type="TextualOperatorType" Word="OR">
+              <LIKE At="Line 2, Column 11" Type="TextualOperatorType" Word="LIKE">
+                 <COLUMN At="Line 2, Column 10" Type="IdentifierType" Word="Nume1">
+                </COLUMN>
+                 <PREDICATE At="Line 2, Column 13" Type="PredicateType" Word="'%A'">
+                </PREDICATE>
+             </LIKE>
+              <INVALID At="Line 2, Column 15" Type="OperatorType" Word="=">
+                 <COLUMN At="Line 2, Column 14" Type="IdentifierType" Word="Nume2">
+                </COLUMN>
+                 <PREDICATE At="Line 2, Column 17" Type="PredicateType" Word="'Alin'">
+                </PREDICATE>
+             </INVALID>
+          </OR>
+           <NOTLIKE At="Line 3, Column 2" Type="TextualOperatorType" Word="NOTLIKE">
+              <COLUMN At="Line 3, Column 1" Type="IdentifierType" Word="Nume4">
+             </COLUMN>
+              <PREDICATE At="Line 3, Column 4" Type="PredicateType" Word="'%ASD'">
+             </PREDICATE>
+          </NOTLIKE>
+       </AND>
+    </WHERE>
+ </FROM>
+</SELECT>
