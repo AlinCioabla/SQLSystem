@@ -1,2 +1,1 @@
-SELECT column1, column2,column3, column4,column5
-FROM table_name;
+SELECT Nume1, Nume2, Nume3 FROM T1,T2;
