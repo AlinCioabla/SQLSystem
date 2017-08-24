@@ -1,2 +1,19 @@
 INSERT INTO table_name
-VALUES value1, value2, value3;
+VALUES value1, value2, value3;<INSERT at="line 1, column 1" Type="KeywordType'>
+  <INTO at="line 1, column 2" Type="KeywordType'>
+     <TABLE at="line 2, column 0" Type="IdentifierType'>
+    <\TABLE>
+     <VALUES at="line 2, column 1" Type="KeywordType'>
+        <COMMA at="line 2, column 5" Type="PunctuationType'>
+           <COMMA at="line 2, column 3" Type="PunctuationType'>
+              <VALUE at="line 2, column 2" Type="IdentifierType'>
+             <\VALUE>
+              <VALUE at="line 2, column 4" Type="IdentifierType'>
+             <\VALUE>
+          <\COMMA>
+           <VALUE at="line 2, column 6" Type="IdentifierType'>
+          <\VALUE>
+       <\COMMA>
+    <\VALUES>
+ <\INTO>
+<\INSERT>

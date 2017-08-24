@@ -7,8 +7,8 @@ public:
     : ISerializer(aAst, aFileName)
   {
   }
-  void Serialize() const override;
+  void Serialize() override;
 
 private:
-  void TraverseAst(AstNode * aNode, int indent = 0) const;
+  void TraverseAst(AstNode * aNode, int indent = 0);
 };

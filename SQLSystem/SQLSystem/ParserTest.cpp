@@ -53,7 +53,7 @@ bool ParserTest::TestAst()
   ReWriter rewriter(mParser->GetAst());
   rewriter.DisplayAstInConsole(mParser->GetAst().GetRoot(), 20);
 
-  ReWriterXml rwXml(mParser->GetAst(), mInputFileName);
+  ReWriterXml rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
   rwXml.Serialize();
 
   // AstTraversal traversal(mParser->GetAst());

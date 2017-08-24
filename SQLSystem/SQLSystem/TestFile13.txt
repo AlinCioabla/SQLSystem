@@ -1,1 +1,16 @@
-SELECT * FROM tabel1 WHERE nume1 = '%a';
+SELECT * FROM tabel1 WHERE nume1 = '%a';<SELECT at="line 1, column 1" Type="KeywordType'>
+  <ALL at="line 1, column 2" Type="OperatorType'>
+ <\ALL>
+  <FROM  at="line 1, column 3" Type="KeywordType'>
+     <TABLE at="line 1, column 4" Type="IdentifierType'>
+    <\TABLE>
+     <WHERE  at="line 1, column 5" Type="KeywordType'>
+        <INVALID at="line 1, column 7" Type="OperatorType'>
+           <COLUMN  at="line 1, column 6" Type="IdentifierType'>
+          <\COLUMN >
+           <PREDICATE at="line 1, column 9" Type="PredicateType'>
+          <\PREDICATE>
+       <\INVALID>
+    <\WHERE >
+ <\FROM >
+<\SELECT>

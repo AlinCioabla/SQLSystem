@@ -8,9 +8,9 @@ class ISerializer
 public:
   ISerializer(Ast & aAst, string aFileName)
     : mAst(aAst)
-    , mOutputStream(aFileName, ios::out | ios::ate | ios::app){};
+    , mOutputStream(aFileName){};
 
-  virtual void Serialize() const = 0;
+  virtual void Serialize() = 0;
 
   virtual ~ISerializer() = default;
 

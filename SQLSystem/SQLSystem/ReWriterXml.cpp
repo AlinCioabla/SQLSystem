@@ -3,7 +3,7 @@
 #include "AstNode.h"
 
 vector<string> tag = { "SELECT",     "DISTINCT ",
-                       "COMMA",      "FROM",
+                       "UPDATE",     "FROM ",
                        "ALL",        "COLUMN ",
                        "TABLE",      "WHERE ",
                        "DELETE",     "INSERT",
@@ -14,32 +14,32 @@ vector<string> tag = { "SELECT",     "DISTINCT ",
                        "PLUSOP",     "MINUS",
                        "DIVISIONOP", "MULTIPLICATIONOP",
                        "NUMBER",     "PREDICATE",
-                       "UPDATE",     "INVALID" };
+                       "COMMA",      "INVALID" };
 
 vector<string> type = {
   "KeywordType",    "OperatorType", "PunctuationType", "WhiteSpaceType",
   "IdentifierType", "NumberType",   "PredicateType",   "TextualOperatorType"
 };
 
-void ReWriterXml::Serialize() const
+void ReWriterXml::Serialize()
 {
   TraverseAst(mAst.GetRoot());
 }
 
-void ReWriterXml::TraverseAst(AstNode * aNode, int indent) const
+void ReWriterXml::TraverseAst(AstNode * aNode, int indent)
 {
   if (aNode != nullptr)
   {
-    cout << setw(indent) << "<" << tag[aNode->GetToken()->GetType()] << " at='line "
-         << aNode->GetToken()->GetPosition().GetLine() << ", column "
-         << aNode->GetToken()->GetPosition().GetColumn() << "' Type='"
-         << type[aNode->GetToken()->GetType()] << "'"
-         << ">\n";
+    mOutputStream << setw(indent) << "<" << tag[(int)aNode->GetType()] << " at=\"line "
+                  << aNode->GetToken()->GetPosition().GetLine() << ", column "
+                  << aNode->GetToken()->GetPosition().GetColumn() << "\" Type=\""
+                  << type[(int)aNode->GetToken()->GetType()] << "'"
+                  << ">\n";
 
     TraverseAst(aNode->GetLeft().get(), indent + 3);
 
     TraverseAst(aNode->GetRight().get(), indent + 3);
 
-    cout << setw(indent) << "<\\" << tag[aNode->GetToken()->GetType()] << ">\n";
+    mOutputStream << setw(indent) << "<\\" << tag[(int)aNode->GetType()] << ">\n";
   }
 }
