@@ -3,6 +3,11 @@
 class ReWriterXml : public ISerializer
 {
 public:
-  ReWriterXml();
+  ReWriterXml(Ast & aAst)
+    : mAst(aAst){};
+  void Serialize() const override;
   virtual ~ReWriterXml() = default;
+
+private:
+  Ast & mAst;
 };
