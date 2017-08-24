@@ -8,7 +8,7 @@ public:
   ReWriter(const Ast & aAst)
     : mAst(aAst){};
 
-  void DisplayAstInConsole(AstNode * aNode, int indent) const override;
+  void DisplayAstInConsole(AstNode * aNode, int indent) const;
 
   string GetQuery() const;
 

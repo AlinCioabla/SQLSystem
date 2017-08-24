@@ -8,3 +8,7 @@ vector<string> tag = {
   "NOTLIKE",  "EQUALS",     "MINUS",   "DIVISIONOP", "MULTIPLICATIONOP",
   "NUMBER",   "PREDICATE",  "COMA",
 };
+
+// void ReWriterXml::Serialize() const
+//{
+//}
