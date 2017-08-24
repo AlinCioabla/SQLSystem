@@ -14,12 +14,12 @@ unique_ptr<IState> From::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::FROM);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::TABLE);
       return nullptr;
     }
     if (aPrevToken->GetWord() == ",")
     {
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::FROM);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::TABLE);
       return nullptr;
     }
   }

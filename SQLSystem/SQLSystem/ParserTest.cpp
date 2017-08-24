@@ -6,6 +6,7 @@
 #include "FilePresenter.h"
 #include "Helpers.h"
 #include "LexerTest.h"
+#include "ReWriterXml.h"
 
 DiagnosticInfo ParserTest::Execute()
 {
@@ -49,14 +50,18 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  ReWriter rewriter(mParser->GetAst());
-  rewriter.DisplayAstInConsole(mParser->GetAst().GetRoot(), 20);
+  /*ReWriter rewriter(mParser->GetAst());
+  rewriter.DisplayAstInConsole(mParser->GetAst().GetRoot(), 20);*/
 
-  string queryFromAst = rewriter.GetQuery();
-  string initialQuery = mLexer->GetSqlCommand();
+  AstTraversal traversal(mParser->GetAst());
+  ReWriterXml  serializer(mParser->GetAst(), mInputFileName, traversal);
+  serializer.Serialize();
 
-  FormatQuery(initialQuery);
-  FormatQuery(queryFromAst);
+  // string queryFromAst = rewriter.GetQuery();
+  // string initialQuery = mLexer->GetSqlCommand();
 
-  return initialQuery == queryFromAst;
+  // FormatQuery(initialQuery);
+  // FormatQuery(queryFromAst);
+
+  return false;
 }
