@@ -19,7 +19,7 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::OR);
       return nullptr;
     }
-    else if (aCurrentToken->GetWord() == "AND")
+    if (aCurrentToken->GetWord() == "AND")
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::AND);
       return nullptr;

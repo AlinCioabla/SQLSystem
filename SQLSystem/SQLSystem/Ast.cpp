@@ -2,10 +2,6 @@
 #include "Ast.h"
 #include "AstNode.h"
 
-Ast::Ast(const Ast & aAst)
-{
-}
-
 Ast::Ast()
 {
   mRoot = nullptr;
