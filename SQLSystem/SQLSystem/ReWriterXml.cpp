@@ -3,9 +3,9 @@
 #include "AstNode.h"
 
 vector<string> tag = { "SELECT",     "DISTINCT ",
-                       "UPDATE",     "FROM ",
-                       "ALL",        "COLUMN ",
-                       "TABLE",      "WHERE ",
+                       "UPDATE",     "FROM",
+                       "ALL",        "COLUMN",
+                       "TABLE",      "WHERE",
                        "DELETE",     "INSERT",
                        "INTO",       "VALUES",
                        "VALUE",      "OR",
@@ -30,10 +30,11 @@ void ReWriterXml::TraverseAst(AstNode * aNode, int indent)
 {
   if (aNode != nullptr)
   {
-    mOutputStream << setw(indent) << "<" << tag[(int)aNode->GetType()] << " at=\"line "
-                  << aNode->GetToken()->GetPosition().GetLine() << ", column "
+    mOutputStream << setw(indent) << "<" << tag[(int)aNode->GetType()] << " At=\"Line "
+                  << aNode->GetToken()->GetPosition().GetLine() << ", Column "
                   << aNode->GetToken()->GetPosition().GetColumn() << "\" Type=\""
-                  << type[(int)aNode->GetToken()->GetType()] << "'"
+                  << type[(int)aNode->GetToken()->GetType()] << "\""
+                  << " Word=" << aNode->GetToken()->GetWord() << "\""
                   << ">\n";
 
     TraverseAst(aNode->GetLeft().get(), indent + 3);

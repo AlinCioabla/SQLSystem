@@ -50,9 +50,6 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  ReWriter rewriter(mParser->GetAst());
-  rewriter.DisplayAstInConsole(mParser->GetAst().GetRoot(), 20);
-
   ReWriterXml rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
   rwXml.Serialize();
 
@@ -65,6 +62,5 @@ bool ParserTest::TestAst()
 
   // FormatQuery(initialQuery);
   // FormatQuery(queryFromAst);
-
-  return false;
+  return true;
 }
