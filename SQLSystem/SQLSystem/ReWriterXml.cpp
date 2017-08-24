@@ -9,6 +9,6 @@ vector<string> tag = {
   "NUMBER",   "PREDICATE",  "COMA",
 };
 
-// void ReWriterXml::Serialize() const
-//{
-//}
+void ReWriterXml::Serialize() const
+{
+}

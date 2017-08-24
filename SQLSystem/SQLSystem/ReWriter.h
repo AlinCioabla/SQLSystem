@@ -8,11 +8,13 @@ public:
   ReWriter(const Ast & aAst)
     : mAst(aAst){};
 
+  void Serialize() const override;
+
   void DisplayAstInConsole(AstNode * aNode, int indent) const;
 
   string GetQuery() const;
 
 private:
-  void        RewriteQuery(AstNode * aNode, string & aAstQuery) const;
+  void        TraverseTree(AstNode * aNode, string & aAstQuery) const;
   const Ast & mAst;
 };

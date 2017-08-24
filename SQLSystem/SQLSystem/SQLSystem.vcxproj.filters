@@ -129,6 +129,9 @@
     <ClCompile Include="ReWriterXml.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AstTraversal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -258,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ReWriterXml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="AstTraversal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

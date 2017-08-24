@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ReWriter.h"
 
-void ReWriter::RewriteQuery(AstNode * aNode, string & aAstQuery) const
+void ReWriter::TraverseTree(AstNode * aNode, string & aAstQuery) const
 {
   if (aNode != nullptr)
   {
@@ -10,14 +10,43 @@ void ReWriter::RewriteQuery(AstNode * aNode, string & aAstQuery) const
       aAstQuery += aNode->GetToken()->GetWord();
       aAstQuery += " ";
     }
-    RewriteQuery(aNode->GetLeft().get(), aAstQuery);
+    TraverseTree(aNode->GetLeft().get(), aAstQuery);
     if (aNode->GetToken()->GetType() != KeywordType)
     {
       aAstQuery += aNode->GetToken()->GetWord();
       aAstQuery += " ";
     }
-    RewriteQuery(aNode->GetRight().get(), aAstQuery);
+    TraverseTree(aNode->GetRight().get(), aAstQuery);
   }
+}
+
+void ReWriter::Serialize() const
+{
+  stack<AstNode *> stack;
+
+  AstNode * curr = mAst.GetRoot();
+
+  while (!stack.empty() || curr != nullptr)
+  {
+    if (curr != nullptr)
+    {
+      stack.push(curr);
+      if (curr->GetToken()->GetType() == KeywordType)
+        cout << curr->GetToken()->GetWord() << " ";
+      curr = curr->GetLeft().get();
+    }
+    else
+    {
+      curr = stack.top();
+      stack.pop();
+
+      if (curr->GetToken()->GetType() != KeywordType)
+        cout << curr->GetToken()->GetWord() << " ";
+
+      curr = curr->GetRight().get();
+    }
+  }
+  cout << endl;
 }
 
 void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
@@ -47,6 +76,6 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
 string ReWriter::GetQuery() const
 {
   string query;
-  RewriteQuery(mAst.GetRoot(), query);
+  TraverseTree(mAst.GetRoot(), query);
   return query;
 }

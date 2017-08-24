@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "ParserTest.h"
 #include "IPresenter.h"
+#include "AstTraversal.h"
 #include "ConsolePresenter.h"
 #include "FilePresenter.h"
 #include "Helpers.h"
