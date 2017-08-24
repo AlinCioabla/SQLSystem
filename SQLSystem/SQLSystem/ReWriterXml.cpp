@@ -34,13 +34,13 @@ void ReWriterXml::TraverseAst(AstNode * aNode, int indent)
                   << aNode->GetToken()->GetPosition().GetLine() << ", Column "
                   << aNode->GetToken()->GetPosition().GetColumn() << "\" Type=\""
                   << type[(int)aNode->GetToken()->GetType()] << "\""
-                  << " Word=" << aNode->GetToken()->GetWord() << "\""
+                  << " Word=\"" << aNode->GetToken()->GetWord() << "\""
                   << ">\n";
 
     TraverseAst(aNode->GetLeft().get(), indent + 3);
 
     TraverseAst(aNode->GetRight().get(), indent + 3);
 
-    mOutputStream << setw(indent) << "<\\" << tag[(int)aNode->GetType()] << ">\n";
+    mOutputStream << setw(indent) << "</" << tag[(int)aNode->GetType()] << ">\n";
   }
 }
