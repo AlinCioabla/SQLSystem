@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Invalid.h"
+#include "ReWriter.h"
 
 Invalid::Invalid(TokenPtr & aTokenPtr)
 {
@@ -8,9 +9,6 @@ Invalid::Invalid(TokenPtr & aTokenPtr)
 
 unique_ptr<IState> Invalid::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
-  auto aCurrentInstructionNode = aAst.GetCurrentInstr();
-
-  aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::INVALID);
   return nullptr;
 }
 
