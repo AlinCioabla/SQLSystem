@@ -8,8 +8,10 @@ class ISerializer
 public:
   ISerializer(Ast & aAst, string aFileName, AstTraversal & aAstTraversal)
     : mAst(aAst)
-    , mOutputStream(aFileName, ios::out | ios::ate | ios::app)
-    , mAstTraversal(aAstTraversal){};
+    , mAstTraversal(aAstTraversal)
+  {
+    mOutputStream.open(aFileName, ios::out | ios::ate | ios::app);
+  };
 
   virtual void Serialize() const = 0;
 
