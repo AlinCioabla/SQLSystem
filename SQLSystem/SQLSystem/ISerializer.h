@@ -1,11 +1,11 @@
 #pragma once
 #include "stdafx.h"
+#include "Ast.h"
 #include "AstNode.h"
 class ISerializer
 {
 public:
-  ISerializer(){};
-  virtual void DisplayAstInConsole(AstNode * aNode, int indent) const = 0;
+  virtual void Serialize() const = 0;
 
   virtual ~ISerializer() = default;
 };

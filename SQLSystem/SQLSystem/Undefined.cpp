@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Undefined.h"
-
 #include "Delete.h"
 #include "Insert.h"
 #include "Invalid.h"
