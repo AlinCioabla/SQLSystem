@@ -6,17 +6,15 @@
 class ISerializer
 {
 public:
-  ISerializer(Ast & aAst, string aFileName, AstTraversal & aAstTraversal)
+  ISerializer(Ast & aAst, string aFileName)
     : mAst(aAst)
-    , mOutputStream(aFileName, ios::out | ios::ate | ios::app)
-    , mAstTraversal(aAstTraversal){};
+    , mOutputStream(aFileName, ios::out | ios::ate | ios::app){};
 
   virtual void Serialize() const = 0;
 
   virtual ~ISerializer() = default;
 
 protected:
-  ofstream       mOutputStream;
-  Ast &          mAst;
-  AstTraversal & mAstTraversal;
+  ofstream mOutputStream;
+  Ast &    mAst;
 };

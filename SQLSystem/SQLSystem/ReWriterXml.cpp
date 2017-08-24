@@ -3,7 +3,7 @@
 #include "AstNode.h"
 
 vector<string> tag = { "SELECT",     "DISTINCT ",
-                       "UPDATE",     "FROM ",
+                       "COMMA",      "FROM",
                        "ALL",        "COLUMN ",
                        "TABLE",      "WHERE ",
                        "DELETE",     "INSERT",
@@ -14,7 +14,7 @@ vector<string> tag = { "SELECT",     "DISTINCT ",
                        "PLUSOP",     "MINUS",
                        "DIVISIONOP", "MULTIPLICATIONOP",
                        "NUMBER",     "PREDICATE",
-                       "COMMA",      "INVALID" };
+                       "UPDATE",     "INVALID" };
 
 vector<string> type = {
   "KeywordType",    "OperatorType", "PunctuationType", "WhiteSpaceType",
@@ -23,16 +23,23 @@ vector<string> type = {
 
 void ReWriterXml::Serialize() const
 {
-  auto mCurrentNode = mAstTraversal.GetNextNode();
-  while (mCurrentNode != nullptr)
-  {
-    cout << "<" << tag[(int)mCurrentNode->GetType()] << " at='line "
-         << mCurrentNode->GetToken()->GetPosition().GetLine() << ", column "
-         << mCurrentNode->GetToken()->GetPosition().GetColumn() << "' Type='"
-         << type[(int)mCurrentNode->GetToken()->GetType()] << "'"
-         << ">" << mCurrentNode->GetToken()->GetWord() << "</" << tag[(int)mCurrentNode->GetType()]
-         << ">" << endl;
+  TraverseAst(mAst.GetRoot());
+}
 
-    mCurrentNode = mAstTraversal.GetNextNode();
+void ReWriterXml::TraverseAst(AstNode * aNode, int indent) const
+{
+  if (aNode != nullptr)
+  {
+    cout << setw(indent) << "<" << tag[aNode->GetToken()->GetType()] << " at='line "
+         << aNode->GetToken()->GetPosition().GetLine() << ", column "
+         << aNode->GetToken()->GetPosition().GetColumn() << "' Type='"
+         << type[aNode->GetToken()->GetType()] << "'"
+         << ">\n";
+
+    TraverseAst(aNode->GetLeft().get(), indent + 3);
+
+    TraverseAst(aNode->GetRight().get(), indent + 3);
+
+    cout << setw(indent) << "<\\" << tag[aNode->GetToken()->GetType()] << ">\n";
   }
 }

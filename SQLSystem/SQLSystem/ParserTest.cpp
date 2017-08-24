@@ -52,8 +52,9 @@ bool ParserTest::TestAst()
 {
   ReWriter rewriter(mParser->GetAst());
   rewriter.DisplayAstInConsole(mParser->GetAst().GetRoot(), 20);
-  rewriter.GetQuery();
-  cout << endl;
+
+  ReWriterXml rwXml(mParser->GetAst(), mInputFileName);
+  rwXml.Serialize();
 
   // AstTraversal traversal(mParser->GetAst());
   // ReWriterXml  serializer(mParser->GetAst(), mInputFileName, traversal);
