@@ -9,6 +9,7 @@ public:
     : mAst(aAst){};
 
   void DisplayAstInConsole(AstNode * aNode, int indent) const;
+  void Serialize() const override;
 
   string GetQuery() const;
 

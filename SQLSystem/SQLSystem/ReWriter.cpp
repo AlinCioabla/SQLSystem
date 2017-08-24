@@ -44,6 +44,9 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
     }
   }
 }
+void ReWriter::Serialize() const
+{
+}
 string ReWriter::GetQuery() const
 {
   string query;

@@ -5,7 +5,7 @@
 class ISerializer
 {
 public:
-  // virtual void Serialize() const = 0;
+  virtual void Serialize() const = 0;
 
   virtual ~ISerializer() = default;
 };

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "ReWriterXml.h"
+#include "AstNode.h"
 
 vector<string> tag = {
   "SELECT",   " DISTINCT ", "UPDATE",  " FROM ",     " ALL ",
@@ -9,6 +10,6 @@ vector<string> tag = {
   "NUMBER",   "PREDICATE",  "COMA",
 };
 
-// void ReWriterXml::Serialize() const
-//{
-//}
+void ReWriterXml::Serialize() const
+{
+}
