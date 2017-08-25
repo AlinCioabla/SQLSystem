@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "ReWriterXml.h"
+#include "XmlRewriter.h"
 #include "AstNode.h"
 
 vector<string> tag = { "SELECT",     "DISTINCT ",
@@ -21,12 +21,12 @@ vector<string> type = {
   "IdentifierType", "NumberType",   "PredicateType",   "TextualOperatorType"
 };
 
-void ReWriterXml::Serialize()
+void XmlRewriter::Serialize()
 {
   TraverseAst(mAst.GetRoot());
 }
 
-void ReWriterXml::TraverseAst(AstNode * aNode, int indent)
+void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 {
   if (aNode != nullptr)
   {

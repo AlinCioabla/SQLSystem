@@ -1,9 +1,9 @@
 #pragma once
 #include "ISerializer.h"
-class ReWriterXml : public ISerializer
+class XmlRewriter : public ISerializer
 {
 public:
-  ReWriterXml(Ast & aAst, string aFileName)
+  XmlRewriter(Ast & aAst, string aFileName)
     : ISerializer(aAst, aFileName)
   {
   }

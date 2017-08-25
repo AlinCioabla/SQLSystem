@@ -6,7 +6,7 @@
 #include "FilePresenter.h"
 #include "Helpers.h"
 #include "LexerTest.h"
-#include "ReWriterXml.h"
+#include "XmlRewriter.h"
 
 DiagnosticInfo ParserTest::Execute()
 {
@@ -50,7 +50,7 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  ReWriterXml rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
+  XmlRewriter rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
   rwXml.Serialize();
 
   // AstTraversal traversal(mParser->GetAst());
