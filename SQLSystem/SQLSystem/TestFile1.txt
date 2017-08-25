@@ -1,1 +1,1 @@
-    SELECT Name1, Name2 FROM Table1 WHERE Name1 LIKE'%A'  ;     
+    SELECT Name1, Name2 FROM Table1 WHERE Name1 LIKE'%A' ;     
