@@ -36,12 +36,24 @@ void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
                   << aNode->GetToken()->GetPosition().GetColumn() << "\" Type=\""
                   << type[(int)aNode->GetToken()->GetType()] << "\""
                   << " Word=\"" << aNode->GetToken()->GetWord() << "\""
-                  << ">\n";
+                  << ">";
+
+    if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)
+    {
+      mOutputStream << "\n";
+    }
 
     TraverseAst(aNode->GetLeft().get(), indent + 3);
 
     TraverseAst(aNode->GetRight().get(), indent + 3);
 
-    mOutputStream << setw(indent) << "</" << tag[(int)aNode->GetType()] << ">\n";
+    if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)
+    {
+      mOutputStream << setw(indent) << "</" << tag[(int)aNode->GetType()] << ">\n";
+    }
+    else
+    {
+      mOutputStream << "</" << tag[(int)aNode->GetType()] << ">\n";
+    }
   }
 }
