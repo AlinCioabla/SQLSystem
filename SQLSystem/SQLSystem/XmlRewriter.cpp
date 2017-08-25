@@ -24,6 +24,7 @@ vector<string> type = {
 void XmlRewriter::Serialize()
 {
   TraverseAst(mAst.GetRoot());
+  mOutputStream << endl << endl;
 }
 
 void XmlRewriter::TraverseAst(AstNode * aNode, int indent)

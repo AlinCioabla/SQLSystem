@@ -232,6 +232,7 @@
     <Text Include="TestFile8.txt" />
     <Text Include="TestFile9.txt" />
     <Text Include="FilePresenter.txt" />
+    <Text Include="TextSerialization.txt" />
     <Text Include="XMLSerialization.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

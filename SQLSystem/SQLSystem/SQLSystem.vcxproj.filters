@@ -334,5 +334,8 @@
     <Text Include="XMLSerialization.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="TextSerialization.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

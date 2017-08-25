@@ -6,7 +6,6 @@ public:
   XmlRewriter(Ast & aAst, string aFileName)
     : ISerializer(aAst, aFileName)
   {
-    mOutputStream.open(aFileName, ios::out | ios::ate | ios::app);
   }
   void Serialize() override;
 

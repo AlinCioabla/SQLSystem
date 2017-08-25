@@ -17,5 +17,5 @@ public:
   string GetQuery() const;
 
 private:
-  void TraverseTree(AstNode * aNode, int indent) const;
+  void TraverseTree(AstNode * aNode, string & aAstQuery) const;
 };

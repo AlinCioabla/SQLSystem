@@ -50,17 +50,17 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  XmlRewriter rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
-  rwXml.Serialize();
+  TextRewriter textRewriter(mParser->GetAst(), "TextSerialization.txt"s);
+  textRewriter.Serialize();
 
-  // AstTraversal traversal(mParser->GetAst());
-  // ReWriterXml  serializer(mParser->GetAst(), mInputFileName, traversal);
-  // serializer.Serialize();
+  XmlRewriter xmlRewriter(mParser->GetAst(), "XMLSerialization.txt"s);
+  xmlRewriter.Serialize();
 
-  // string queryFromAst = rewriter.GetQuery();
-  // string initialQuery = mLexer->GetSqlCommand();
+  string queryFromAst = textRewriter.GetQuery();
+  string initialQuery = mLexer->GetSqlCommand();
 
-  // FormatQuery(initialQuery);
-  // FormatQuery(queryFromAst);
-  return true;
+  FormatQuery(initialQuery);
+  FormatQuery(queryFromAst);
+
+  return queryFromAst == initialQuery;
 }
