@@ -9,7 +9,7 @@ public:
   ISerializer(Ast & aAst, string aFileName)
     : mAst(aAst)
   {
-    mOutputStream.open(aFileName, ios::out || ios::app || ios::ate);
+    mOutputStream.open(aFileName, ios::out | ios::app | ios::ate);
   };
 
   virtual void Serialize() = 0;

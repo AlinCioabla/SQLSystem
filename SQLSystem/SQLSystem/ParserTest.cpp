@@ -50,7 +50,7 @@ DiagnosticInfo ParserTest::TestConstructAst()
 
 bool ParserTest::TestAst()
 {
-  ReWriterXml rwXml(mParser->GetAst(), "XMLSerialization.txt"s);
+  ReWriterXml rwXml(mParser->GetAst(), "XMLSerialization.txt");
   rwXml.Serialize();
 
   // AstTraversal traversal(mParser->GetAst());
