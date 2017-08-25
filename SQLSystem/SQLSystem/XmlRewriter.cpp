@@ -31,11 +31,11 @@ void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 {
   if (aNode != nullptr)
   {
-    mOutputStream << setw(indent) << "<" << tag[(int)aNode->GetType()] << " At=\"Line "
-                  << aNode->GetToken()->GetPosition().GetLine() << ", Column "
-                  << aNode->GetToken()->GetPosition().GetColumn() << "\" Type=\""
-                  << type[(int)aNode->GetToken()->GetType()] << "\""
-                  << " Word=\"" << aNode->GetToken()->GetWord() << "\""
+    mOutputStream << setw(indent) << "<" << tag[static_cast<int>(aNode->GetType())]
+                  << R"( At Line=")" << aNode->GetToken()->GetPosition().GetLine()
+                  << R"(", Column=")" << aNode->GetToken()->GetPosition().GetColumn()
+                  << R"(" Type=")" << type[static_cast<int>(aNode->GetToken()->GetType())] << R"(")"
+                  << R"( Word=")" << aNode->GetToken()->GetWord() << R"(")"
                   << ">";
 
     if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)
@@ -49,11 +49,11 @@ void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 
     if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)
     {
-      mOutputStream << setw(indent) << "</" << tag[(int)aNode->GetType()] << ">\n";
+      mOutputStream << setw(indent) << "</" << tag[static_cast<int>(aNode->GetType())] << ">\n";
     }
     else
     {
-      mOutputStream << "</" << tag[(int)aNode->GetType()] << ">\n";
+      mOutputStream << "</" << tag[static_cast<int>(aNode->GetType())] << ">\n";
     }
   }
 }
