@@ -39,7 +39,7 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM")
+    if (aCurrentToken->GetWord() == "FROM")
   {
     if (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType)
     {
