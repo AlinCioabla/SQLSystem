@@ -8,7 +8,9 @@ class ISerializer
 public:
   ISerializer(const Ast & aAst, string aFileName)
     : mAst(aAst)
-    , mOutputStream(aFileName){};
+  {
+    mOutputStream.open(aFileName, ios::out || ios::app || ios::ate);
+  };
 
   virtual void Serialize() = 0;
 
