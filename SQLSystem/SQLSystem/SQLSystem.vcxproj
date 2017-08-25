@@ -147,7 +147,7 @@
     <ClCompile Include="ConsolePresenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="ReWriter.cpp" />
-    <ClCompile Include="ReWriterXml.cpp" />
+    <ClCompile Include="XmlRewriter.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -198,7 +198,7 @@
     <ClInclude Include="ConsolePresenter.h" />
     <ClInclude Include="Punctuation.h" />
     <ClInclude Include="ReWriter.h" />
-    <ClInclude Include="ReWriterXml.h" />
+    <ClInclude Include="XmlRewriter.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />
     <ClInclude Include="stdafx.h" />

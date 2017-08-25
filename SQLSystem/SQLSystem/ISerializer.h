@@ -6,7 +6,7 @@
 class ISerializer
 {
 public:
-  ISerializer(Ast & aAst, string aFileName)
+  ISerializer(const Ast & aAst, string aFileName)
     : mAst(aAst)
   {
     mOutputStream.open(aFileName, ios::out | ios::app | ios::ate);
@@ -17,6 +17,6 @@ public:
   virtual ~ISerializer() = default;
 
 protected:
-  ofstream mOutputStream;
-  Ast &    mAst;
+  ofstream    mOutputStream;
+  const Ast & mAst;
 };

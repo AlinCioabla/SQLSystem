@@ -126,10 +126,10 @@
     <ClCompile Include="ReWriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReWriterXml.cpp">
+    <ClCompile Include="AstTraversal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AstTraversal.cpp">
+    <ClCompile Include="XmlRewriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -260,10 +260,10 @@
     <ClInclude Include="ISerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReWriterXml.h">
+    <ClInclude Include="AstTraversal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AstTraversal.h">
+    <ClInclude Include="XmlRewriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

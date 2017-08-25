@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "ReWriter.h"
+#include "TextRewriter.h"
 
-void ReWriter::TraverseTree(AstNode * aNode, int indent) const
+void TextRewriter::TraverseTree(AstNode * aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -13,6 +13,10 @@ void ReWriter::TraverseTree(AstNode * aNode, int indent) const
 
     cout << setw(indent) << "<\\" << aNode->GetToken()->GetWord() << ">\n";
   }
+}
+
+void TextRewriter::Serialize()
+{
 }
 
 // void ReWriter::Serialize() const
@@ -43,7 +47,7 @@ void ReWriter::TraverseTree(AstNode * aNode, int indent) const
 //  }
 //  cout << endl;
 //}
-void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
+void TextRewriter::DisplayAstInConsole(AstNode * aNode, int indent) const
 {
   if (aNode != nullptr)
   {
@@ -67,7 +71,7 @@ void ReWriter::DisplayAstInConsole(AstNode * aNode, int indent) const
     }
   }
 }
-string ReWriter::GetQuery() const
+string TextRewriter::GetQuery() const
 {
   string query;
   TraverseTree(mAst.GetRoot(), 0);
