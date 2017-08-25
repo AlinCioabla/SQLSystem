@@ -146,7 +146,7 @@
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="ConsolePresenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
-    <ClCompile Include="ReWriter.cpp" />
+    <ClCompile Include="TextRewriter.cpp" />
     <ClCompile Include="XmlRewriter.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
@@ -197,7 +197,7 @@
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="ConsolePresenter.h" />
     <ClInclude Include="Punctuation.h" />
-    <ClInclude Include="ReWriter.h" />
+    <ClInclude Include="TextRewriter.h" />
     <ClInclude Include="XmlRewriter.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />

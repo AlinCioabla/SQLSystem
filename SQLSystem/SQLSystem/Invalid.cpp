@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "Invalid.h"
-#include "ReWriter.h"
 
 Invalid::Invalid(TokenPtr & aTokenPtr)
 {

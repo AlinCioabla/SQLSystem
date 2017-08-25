@@ -123,13 +123,13 @@
     <ClCompile Include="FilePresenter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ReWriter.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="AstTraversal.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="XmlRewriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextRewriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -254,9 +254,6 @@
     <ClInclude Include="FilePresenter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ReWriter.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ISerializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -264,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="XmlRewriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRewriter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,7 +2,7 @@
 #include "stdafx.h"
 #include "Lexer.h"
 #include "Parser.h"
-#include "ReWriter.h"
+#include "TextRewriter.h"
 
 // A class used to test the functionality of the Parser
 class ParserTest
