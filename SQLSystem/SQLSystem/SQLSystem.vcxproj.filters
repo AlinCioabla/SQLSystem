@@ -254,9 +254,6 @@
     <ClInclude Include="FilePresenter.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ISerializer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="AstTraversal.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -264,6 +261,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="TextRewriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Serializer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

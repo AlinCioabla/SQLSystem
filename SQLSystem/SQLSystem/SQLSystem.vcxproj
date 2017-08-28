@@ -172,7 +172,7 @@
     <ClInclude Include="DiagnosticInfo.h" />
     <ClInclude Include="FilePresenter.h" />
     <ClInclude Include="IPresenter.h" />
-    <ClInclude Include="ISerializer.h" />
+    <ClInclude Include="Serializer.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="Distinct.h" />
     <ClInclude Include="From.h" />
