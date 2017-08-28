@@ -43,7 +43,7 @@ public:
     , mType(aType)
   {
   }
-  AstNode() {}
+  AstNode();
 
   // Returns the left child
   AstNodePtr & GetLeft() { return mLeft; };

@@ -18,5 +18,5 @@ public:
 
   virtual void ResetNext() = 0;
 
-  virtual ~ITokensTraversal() {}
+  virtual ~ITokensTraversal() = default;
 };

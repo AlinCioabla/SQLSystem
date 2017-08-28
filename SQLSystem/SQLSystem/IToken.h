@@ -30,7 +30,7 @@ public:
   virtual Position GetPosition() const = 0;
 
   // Destructor
-  virtual ~IToken(){};
+  virtual ~IToken() = default;
 };
 
 typedef unique_ptr<IToken> TokenPtr;
