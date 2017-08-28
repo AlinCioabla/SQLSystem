@@ -1,7 +1,8 @@
 #include "stdafx.h"
 #include "XmlRewriter.h"
 #include "AstNode.h"
-
+namespace
+{
 vector<string> tag = { "SELECT",     "DISTINCT ",
                        "UPDATE",     "FROM",
                        "ALL",        "COLUMN",
@@ -20,7 +21,7 @@ vector<string> type = {
   "KeywordType",    "OperatorType", "PunctuationType", "WhiteSpaceType",
   "IdentifierType", "NumberType",   "PredicateType",   "TextualOperatorType"
 };
-
+}
 void XmlRewriter::Serialize()
 {
   TraverseAst(mAst.GetRoot());
