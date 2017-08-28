@@ -44,8 +44,7 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   else
 
-    if (aPrevToken->GetWord() == "INSERT" &&
-        (aPrevToken->GetType() == KeywordType && aCurrentToken->GetWord() == "INTO"))
+    if (aPrevToken->GetWord() == "INSERT" && aCurrentToken->GetWord() == "INTO")
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::INTO);
     return make_unique<Into>();

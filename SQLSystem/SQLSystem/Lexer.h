@@ -28,7 +28,7 @@ public:
   // Resets the token iterator
   void ResetNext() override;
 
-  ~Lexer();
+  virtual ~Lexer(){};
 
 private:
   string                     mSqlCommand;

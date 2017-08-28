@@ -42,7 +42,7 @@ unique_ptr<IState> Select::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   else
 
-    if ((aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM") &&
+    if (aCurrentToken->GetWord() == "FROM" &&
         (aPrevToken->GetWord() == "*" || aPrevToken->GetType() == IdentifierType))
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::FROM);

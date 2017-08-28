@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "XmlRewriter.h"
 #include "AstNode.h"
+
 namespace
 {
 vector<string> tag = { "SELECT",     "DISTINCT ",
@@ -24,6 +25,7 @@ vector<string> type = {
 }
 void XmlRewriter::Serialize()
 {
+  // mXmlWr.Init();
   TraverseAst(mAst.GetRoot());
   mOutputStream << endl << endl;
 }
@@ -32,10 +34,12 @@ void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 {
   if (aNode != nullptr)
   {
-    mOutputStream << setw(indent) << "<" << tag[static_cast<int>(aNode->GetType())]
-                  << R"( At Line=")" << aNode->GetToken()->GetPosition().GetLine()
-                  << R"(", Column=")" << aNode->GetToken()->GetPosition().GetColumn()
-                  << R"(" Type=")" << type[static_cast<int>(aNode->GetToken()->GetType())] << R"(")"
+    // mXmlWr.AddNode(tag[static_cast<int>(aNode->GetType())], )
+
+    mOutputStream << setw(indent) << "<" << tag[static_cast<int>(aNode->GetType())] << R"(  Line=")"
+                  << aNode->GetToken()->GetPosition().GetLine() << R"(" Column=")"
+                  << aNode->GetToken()->GetPosition().GetColumn() << R"(" Type=")"
+                  << type[static_cast<int>(aNode->GetToken()->GetType())] << R"(")"
                   << R"( Word=")" << aNode->GetToken()->GetWord() << R"(")"
                   << ">";
 

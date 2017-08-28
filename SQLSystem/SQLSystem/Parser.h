@@ -10,7 +10,7 @@
 class Parser
 {
 public:
-  Parser(ITokensTraversal & aLexer);
+  explicit Parser(ITokensTraversal & aLexer);
 
   // Parse the tokens provided by the Lexer
   DiagnosticInfo Parse();

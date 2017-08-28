@@ -157,8 +157,3 @@ void Lexer::ResetNext()
 {
   mIndex = mTokens.begin();
 }
-
-Lexer::~Lexer()
-{
-  // mTokens.clear();
-}

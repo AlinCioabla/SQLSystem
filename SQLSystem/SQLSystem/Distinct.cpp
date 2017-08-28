@@ -44,8 +44,7 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   else
 
-    if (aCurrentToken->GetType() == KeywordType && aCurrentToken->GetWord() == "FROM" &&
-        aPrevToken->GetType() == IdentifierType)
+    if (aCurrentToken->GetWord() == "FROM" && aPrevToken->GetType() == IdentifierType)
   {
     aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::FROM);
     aCurrentInstructionNode = aCurrentInstructionNode->GetRight();

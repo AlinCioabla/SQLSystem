@@ -15,7 +15,7 @@ unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   if (aCurrentToken->GetType() == IdentifierType)
   {
-    if (aPrevToken->GetType() == KeywordType)
+    if (aPrevToken->GetWord() == "INSERT")
     {
       aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::TABLE);
       return nullptr;
@@ -44,8 +44,7 @@ unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   /////////////////////////////////////////////////
   else
 
-    if (aCurrentToken->GetType() == KeywordType &&
-        (aCurrentToken->GetWord() == "WHERE" || aCurrentToken->GetWord() == "VALUES") &&
+    if ((aCurrentToken->GetWord() == "WHERE" || aCurrentToken->GetWord() == "VALUES") &&
         aPrevToken->GetType() == IdentifierType)
   {
     if (aCurrentToken->GetWord() == "WHERE")

@@ -25,5 +25,5 @@ public:
   virtual unique_ptr<IState> HandleToken(TokenPtr & aCurrentToken, Ast & aAst) = 0;
   virtual StateType          GetStateName() const                              = 0;
 
-  virtual ~IState(){};
+  virtual ~IState() = default;
 };
