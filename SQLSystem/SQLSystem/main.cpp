@@ -8,9 +8,10 @@
 void TestLexer()
 {
   // Create the test unit for the lexer
-  ConsolePresenter consolePresenter;
+  // ConsolePresenter consolePresenter;
+  FilePresenter filePresenter("FilePresenter.txt");
 
-  LexerTestUnit lexerTestUnit(consolePresenter);
+  LexerTestUnit lexerTestUnit(filePresenter);
 
   // Create tests by giving the filename for the input
   lexerTestUnit.CreateTest("TestFile1.txt"s);   // 1
@@ -31,8 +32,10 @@ void TestLexer()
 void TestParser()
 {
   // Create the test unit for the parser
-  ConsolePresenter consolePresenter;
-  ParserTestUnit   parserTestUnit(consolePresenter);
+  // ConsolePresenter consolePresenter;
+  FilePresenter filePresenter("FilePresenter.txt");
+
+  ParserTestUnit parserTestUnit(filePresenter);
 
   // Create tests by giving the filename for the input
   parserTestUnit.CreateTest("TestFile11.txt"s);  // 1
