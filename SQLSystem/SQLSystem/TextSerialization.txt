@@ -22,3 +22,27 @@ SELECT Nume1 , Nume2 , Nume3 FROM T1 , T2
 
 SELECT Nume1 , Nume2 , Nume3 , Nume4 FROM Table1 , Table2 , Table3 , Table4 WHERE Nume1 LIKE '%A' OR Nume2 = 'Alin' AND Nume4 NOTLIKE '%ASD' 
 
+DELETE * FROM Table1 WHERE Nume1 
+
+SELECT * FROM tabel1 WHERE nume1 = '%a' 
+
+SELECT Nume1 , Nume2 , Nume3 FROM T1 , T2 
+
+SELECT Nume1 , Nume2 , Nume3 , Nume4 FROM Table1 , Table2 , Table3 , Table4 WHERE Nume1 LIKE '%A' OR Nume2 = 'Alin' AND Nume4 NOTLIKE '%ASD' 
+
+DELETE * FROM Table1 WHERE Nume1 
+
+DELETE * FROM Table1 WHERE Nume1 
+
+DELETE * FROM Table1 WHERE Nume1 
+
+DELETE * FROM Table1 WHERE Nume1 
+
+INSERT INTO table_name VALUES value1 , value2 , value3 
+
+SELECT * FROM tabel1 WHERE nume1 = '%a' 
+
+SELECT Nume1 , Nume2 , Nume3 FROM T1 , T2 
+
+SELECT Nume1 , Nume2 , Nume3 , Nume4 FROM Table1 , Table2 , Table3 , Table4 WHERE Nume1 LIKE '%A' OR Nume2 = 'Alin' AND Nume4 NOTLIKE '%ASD' 
+
