@@ -12,6 +12,8 @@ public:
   }
   void Init();
 
+  void ApplyIndentation(int aNumberOfSpaces);
+
   void AddNode(
     string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren);
   void CloseNode(

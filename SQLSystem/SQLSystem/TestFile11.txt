@@ -1,5 +1,5 @@
 DELETE
-*
+Nume1, Nume2, Nume3
 FROM 
-Table1 WHERE Nume1;
+Table1 WHERE Nume1 LIKE '%A';
 
