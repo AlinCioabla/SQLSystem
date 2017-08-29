@@ -32,7 +32,7 @@ void XmlRewriter::Serialize()
 
 void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 {
-  WriterXml mXmlWr;
+  WriterXml mXmlWr(mOutputStream);
   bool      hasChildren = 0;
   if (aNode != nullptr)
   {

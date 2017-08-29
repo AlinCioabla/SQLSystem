@@ -3,7 +3,8 @@
 class WriterXml : public Writer
 {
 public:
-  WriterXml();
+  WriterXml(ofstream & aFileName)
+    : Writer(aFileName){};
   void AddNode(string aNodeName,
                bool   aHasChildren,
                int    aLine,
