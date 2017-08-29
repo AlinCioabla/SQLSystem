@@ -25,6 +25,8 @@ unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
       aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::TABLE);
       return nullptr;
     }
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::TABLE);
+    return nullptr;
   }
 
   else
@@ -44,19 +46,15 @@ unique_ptr<IState> Into::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   /////////////////////////////////////////////////
   else
 
-    if ((aCurrentToken->GetWord() == "WHERE" || aCurrentToken->GetWord() == "VALUES") &&
-        aPrevToken->GetType() == IdentifierType)
-  {
     if (aCurrentToken->GetWord() == "WHERE")
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::WHERE);
-      return make_unique<Where>();
-    }
-    if (aCurrentToken->GetWord() == "VALUES")
-    {
-      aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::VALUES);
-      return make_unique<Values>();
-    }
+  {
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::WHERE);
+    return make_unique<Where>();
+  }
+  if (aCurrentToken->GetWord() == "VALUES")
+  {
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::VALUES);
+    return make_unique<Values>();
   }
 
   return make_unique<Invalid>(aCurrentToken);
