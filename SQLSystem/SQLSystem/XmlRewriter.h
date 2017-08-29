@@ -1,10 +1,10 @@
 #pragma once
-#include "ISerializer.h"
-class XmlRewriter : public ISerializer
+#include "Serializer.h"
+class XmlRewriter : public Serializer
 {
 public:
   XmlRewriter(Ast & aAst, string aFileName)
-    : ISerializer(aAst, aFileName)
+    : Serializer(aAst, aFileName)
   {
   }
   void Serialize() override;

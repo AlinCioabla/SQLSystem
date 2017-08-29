@@ -1,12 +1,12 @@
 #pragma once
 #include "stdafx.h"
-#include "ISerializer.h"
 #include "Ast.h"
-class TextRewriter : public ISerializer
+#include "Serializer.h"
+class TextRewriter : public Serializer
 {
 public:
   TextRewriter(const Ast & aAst, string aFileName)
-    : ISerializer(aAst, aFileName)
+    : Serializer(aAst, aFileName)
   {
   }
 
