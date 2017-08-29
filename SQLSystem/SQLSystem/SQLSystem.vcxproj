@@ -149,6 +149,7 @@
     <ClCompile Include="TextRewriter.cpp" />
     <ClCompile Include="Writer.cpp" />
     <ClCompile Include="WriterXml.cpp" />
+    <ClCompile Include="XmlNodeAttributes.cpp" />
     <ClCompile Include="XmlRewriter.cpp" />
     <ClCompile Include="Select.cpp" />
     <ClCompile Include="SQLSystem.cpp" />
@@ -202,6 +203,7 @@
     <ClInclude Include="TextRewriter.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="WriterXml.h" />
+    <ClInclude Include="XmlNodeAttributes.h" />
     <ClInclude Include="XmlRewriter.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />

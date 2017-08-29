@@ -2,6 +2,7 @@
 #include "XmlRewriter.h"
 #include "AstNode.h"
 #include "WriterXml.h"
+#include "XmlNodeAttributes.h"
 
 namespace
 {
@@ -32,8 +33,7 @@ void XmlRewriter::Serialize()
 
 void XmlRewriter::TraverseAst(AstNode * aNode, int indent)
 {
-  WriterXml mXmlWr(mOutputStream);
-  bool      hasChildren = 0;
+  bool hasChildren = 0;
   if (aNode != nullptr)
   {
     if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)
