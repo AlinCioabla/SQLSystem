@@ -132,6 +132,12 @@
     <ClCompile Include="TextRewriter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Writer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WriterXml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -264,6 +270,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Serializer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Writer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WriterXml.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

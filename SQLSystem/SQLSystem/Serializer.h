@@ -3,17 +3,17 @@
 #include "Ast.h"
 #include "AstNode.h"
 #include "AstTraversal.h"
-class ISerializer
+class Serializer
 {
 public:
-  ISerializer(const Ast & aAst, string aFileName)
+  Serializer(const Ast & aAst, string aFileName)
     : mAst(aAst)
     , mOutputStream(aFileName, ios::out | ios::app | ios::ate)
   {
   }
   virtual void Serialize() = 0;
 
-  virtual ~ISerializer() = default;
+  virtual ~Serializer() = default;
 
 protected:
   ofstream    mOutputStream;
