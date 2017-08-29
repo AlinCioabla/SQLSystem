@@ -25,7 +25,8 @@ void WriterXml::CloseNode(
     mOutputFile << setw(indent) << "</" << aNodeName << ">" << '\n';
   else
 
-    mOutputFile << "/" << aNodeName << ">" << '\n';
+    mOutputFile << "/"
+                << ">" << '\n';
 
   indent -= 3;
 }
