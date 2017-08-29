@@ -22,7 +22,7 @@ void WriterXml::CloseNode(
   string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
 {
   if (aHasChildren)
-    mOutputFile << setw(indent) << "</" << aNodeName << ">" << '\n';
+    mOutputFile << setw(indent - 1) << "</" << aNodeName << ">" << '\n';
   else
 
     mOutputFile << "/"

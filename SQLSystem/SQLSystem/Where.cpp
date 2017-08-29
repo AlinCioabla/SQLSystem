@@ -56,6 +56,10 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     {
       tempType = AstNodeType::NOTLIKE;
     }
+    else if (currentWord == "=")
+    {
+      tempType = AstNodeType::EQUALS;
+    }
     else
     {
       tempType = AstNodeType::INVALID;
