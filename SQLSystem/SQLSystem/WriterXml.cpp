@@ -9,11 +9,11 @@ void WriterXml::Init()
 void WriterXml::AddNode(
   string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
 {
-  mOutputFile << setw(indent) << "<" << aNodeName << R"(
-   Line=")" << aLine << R"(" Column=")" << aColumn
-              << R"(" Type=")" << aColumn << R"(")"
+  mOutputFile << setw(indent) << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")"
+              << aColumn << R"(" Type=")" << aColumn << R"(")"
               << R"( Word=")" << aWord << R"(")"
-              << R"(>)";
+              << ">\n";
+
   indent += 3;
 }
 
