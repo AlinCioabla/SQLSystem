@@ -2,26 +2,27 @@
 #include "WriterXml.h"
 #include "Writer.h"
 
-void WriterXml::AddNode(
-  string aNodeName, bool aHasChildren, int aLine, int aColumn, string aType, string aWord)
+void WriterXml::Init()
 {
-  mOutputStream << setw(indent) << "<" << aNodeName << R"(  Line=")" << aLine << R"(" Column=")"
-                << aColumn << R"(" Type=")" << aType << R"(")"
-                << R"( Word=")" << aWord << R"(")"
-                << ">";
+}
 
-  if (aHasChildren)
-  {
-    mOutputStream << "\n";
-  }
-  if (aHasChildren)
-  {
-    mOutputStream << setw(indent) << "</" << aNodeName << ">\n";
-  }
-  else
-  {
-    mOutputStream << "</" << aNodeName << ">\n";
-  }
+void WriterXml::AddNode(
+  string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
+{
+  mOutputFile << setw(indent) << "<" << aNodeName << R"(
+   Line=")" << aLine << R"(" Column=")" << aColumn
+              << R"(" Type=")" << aColumn << R"(")"
+              << R"( Word=")" << aWord << R"(")"
+              << R"(>)";
+  indent += 3;
+}
+
+void WriterXml::CloseNode(
+  string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
+{
+  mOutputFile << setw(indent) << "</" << aNodeName << ">" << '\n';
+
+  indent -= 3;
 }
 
 WriterXml::~WriterXml()
