@@ -1,6 +1,7 @@
 #include "stdafx.h"
-#include "AstNode.h"
 #include "IToken.h"
+#include "AstNode.h"
+#include "Visitor.h"
 
 AstNode::AstNode()
 {

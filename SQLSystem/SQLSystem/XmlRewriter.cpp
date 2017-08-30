@@ -26,6 +26,7 @@ const vector<string> type = { "KeywordType",    "OperatorType",       "Punctuati
 }
 void XmlRewriter::Serialize()
 {
+  mXmlWr.Init();
   TraverseAst(mAst.GetRoot());
   mOutputStream << endl << endl;
 }
@@ -50,10 +51,6 @@ void XmlRewriter::TraverseAst(AstNode * aNode)
 
     TraverseAst(aNode->GetRight().get());
 
-    mXmlWr.CloseNode(tag[static_cast<int>(aNode->GetType())],
-                     aNode->GetToken()->GetPosition().GetLine(),
-                     aNode->GetToken()->GetPosition().GetColumn(),
-                     type[static_cast<int>(aNode->GetToken()->GetType())],
-                     aNode->GetToken()->GetWord(), hasChildren);
+    mXmlWr.CloseNode(tag[static_cast<int>(aNode->GetType())], hasChildren);
   }
 }

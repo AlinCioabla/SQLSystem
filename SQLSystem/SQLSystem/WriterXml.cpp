@@ -4,6 +4,8 @@
 
 void WriterXml::Init()
 {
+  mOutputFile << R"(<?xml version="1.0" encoding="UTF-8"?>)"
+              << "\n";
 }
 
 void WriterXml::ApplyIndentation(int aNumberOfSpaces)
@@ -29,8 +31,7 @@ void WriterXml::AddNode(
   indent += 3;
 }
 
-void WriterXml::CloseNode(
-  string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
+void WriterXml::CloseNode(string aNodeName, bool aHasChildren)
 {
   indent -= 3;
   if (aHasChildren)

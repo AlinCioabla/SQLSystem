@@ -38,9 +38,8 @@ enum class AstNodeType
 class AstNode
 {
 public:
-  AstNode(TokenPtr aToken, AstNodeType aType)
+  AstNode(TokenPtr & aToken)
     : mToken(move(aToken))
-    , mType(aType)
   {
   }
   AstNode();
@@ -51,10 +50,6 @@ public:
   // Returns the right child
   AstNodePtr & GetRight() { return mRight; };
 
-  AstNodeType GetType() const { return mType; }
-
-  void SetType(AstNodeType aType) { mType = aType; }
-
   // Returns the token
   IToken * GetToken() const { return mToken.get(); };
 
@@ -64,11 +59,12 @@ public:
 
   void SetRight(const AstNodePtr & aRight);
 
-  ~AstNode();
+  virtual void Accept(Visitor & aVisitor) = 0;
+
+  virtual ~AstNode();
 
 private:
-  TokenPtr    mToken;
-  AstNodePtr  mLeft;
-  AstNodePtr  mRight;
-  AstNodeType mType;
+  TokenPtr   mToken;
+  AstNodePtr mLeft;
+  AstNodePtr mRight;
 };

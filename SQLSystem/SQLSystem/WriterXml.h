@@ -16,8 +16,7 @@ public:
 
   void AddNode(
     string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren);
-  void CloseNode(
-    string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren);
+  void CloseNode(string aNodeName, bool aHasChildren);
   ~WriterXml();
 
 private:
