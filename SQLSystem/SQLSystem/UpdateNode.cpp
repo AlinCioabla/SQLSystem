@@ -6,7 +6,3 @@ void UpdateNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-UpdateNode::~UpdateNode()
-{
-}

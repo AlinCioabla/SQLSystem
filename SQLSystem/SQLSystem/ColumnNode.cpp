@@ -6,7 +6,3 @@ void ColumnNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-ColumnNode::~ColumnNode()
-{
-}

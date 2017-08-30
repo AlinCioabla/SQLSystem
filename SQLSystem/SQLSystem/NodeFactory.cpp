@@ -1,5 +1,31 @@
 #include "stdafx.h"
 #include "NodeFactory.h"
+#include "AllNode.h"
+#include "AndNode.h"
+#include "ColumnNode.h"
+#include "CommaNode.h"
+#include "DeleteNode.h"
+#include "DistinctNode.h"
+#include "DivisionOpNode.h"
+#include "EqualsNode.h"
+#include "FromNode.h"
+#include "InsertNode.h"
+#include "IntoNode.h"
+#include "InvalidNode.h"
+#include "LikeNode.h"
+#include "MinusOpNode.h"
+#include "MultiplicationOpNode.h"
+#include "NotLikeNode.h"
+#include "NumberNode.h"
+#include "OrNode.h"
+#include "PlusOpNode.h"
+#include "PredicateNode.h"
+#include "SelectNode.h"
+#include "TableNode.h"
+#include "UpdateNode.h"
+#include "ValueNode.h"
+#include "ValuesNode.h"
+#include "WhereNode.h"
 
 NodeFactory::NodeFactory()
 {
@@ -8,73 +34,73 @@ NodeFactory::NodeFactory()
 AstNodePtr NodeFactory::GetNode(string aNodeType, TokenPtr & aToken)
 {
   if (aNodeType == "select")
-    return make_shared<SelectNode>(aToken);
+    return make_shared<SelectNode>(move(aToken));
 
   if (aNodeType == "and")
-    return make_shared<AndNode>(aToken);
+    return make_shared<AndNode>(move(aToken));
 
   if (aNodeType == "column")
-    return make_shared<ColumnNode>(aToken);
+    return make_shared<ColumnNode>(move(aToken));
 
   if (aNodeType == "comma")
-    return make_shared<CommaNode>(aToken);
+    return make_shared<CommaNode>(move(aToken));
 
   if (aNodeType == "distinct")
-    return make_shared<DistinctNode>(aToken);
+    return make_shared<DistinctNode>(move(aToken));
 
   if (aNodeType == "divisionop")
-    return make_shared<DivisionOpNode>(aToken);
+    return make_shared<DivisionOpNode>(move(aToken));
 
   if (aNodeType == "equals")
-    return make_shared<EqualsNode>(aToken);
+    return make_shared<EqualsNode>(move(aToken));
 
   if (aNodeType == "from")
-    return make_shared<FromNode>(aToken);
+    return make_shared<FromNode>(move(aToken));
 
   if (aNodeType == "insert")
-    return make_shared<InsertNode>(aToken);
+    return make_shared<InsertNode>(move(aToken));
 
   if (aNodeType == "into")
-    return make_shared<IntoNode>(aToken);
+    return make_shared<IntoNode>(move(aToken));
 
   if (aNodeType == "like")
-    return make_shared<LikeNode>(aToken);
+    return make_shared<LikeNode>(move(aToken));
 
   if (aNodeType == "minusop")
-    return make_shared<MinusOpNode>(aToken);
+    return make_shared<MinusOpNode>(move(aToken));
 
   if (aNodeType == "multiplicationop")
-    return make_shared<MultiplicationOpNode>(aToken);
+    return make_shared<MultiplicationOpNode>(move(aToken));
 
   if (aNodeType == "notlike")
-    return make_shared<NotLikeNode>(aToken);
+    return make_shared<NotLikeNode>(move(aToken));
 
   if (aNodeType == "number")
-    return make_shared<NumberNode>(aToken);
+    return make_shared<NumberNode>(move(aToken));
 
   if (aNodeType == "or")
-    return make_shared<OrNode>(aToken);
+    return make_shared<OrNode>(move(aToken));
 
   if (aNodeType == "plusop")
-    return make_shared<PlusOpNode>(aToken);
+    return make_shared<PlusOpNode>(move(aToken));
 
   if (aNodeType == "predicate")
-    return make_shared<PredicateNode>(aToken);
+    return make_shared<PredicateNode>(move(aToken));
 
   if (aNodeType == "table")
-    return make_shared<TableNode>(aToken);
+    return make_shared<TableNode>(move(aToken));
 
   if (aNodeType == "update")
-    return make_shared<UpdateNode>(aToken);
+    return make_shared<UpdateNode>(move(aToken));
 
   if (aNodeType == "value")
-    return make_shared<ValueNode>(aToken);
+    return make_shared<ValueNode>(move(aToken));
 
   if (aNodeType == "values")
-    return make_shared<ValuesNode>(aToken);
+    return make_shared<ValuesNode>(move(aToken));
 
   if (aNodeType == "where")
-    return make_shared<WhereNode>(aToken);
+    return make_shared<WhereNode>(move(aToken));
 
   return nullptr;
 }

@@ -4,32 +4,30 @@
 class TypeDeducer : public Visitor
 {
 public:
-  TypeDeducer();
-
   void Visit(SelectNode & aSelectNode) override;
-  void Visit(AndNode & aAndNode);
-  void Visit(ColumnNode & aColumnNode);
-  void Visit(CommaNode & aCommaNode);
-  void Visit(DistinctNode & aDistinctNode);
-  void Visit(DivisionOpNode & aDivisionOpNode);
-  void Visit(EqualsNode & aEqualsNode);
-  void Visit(FromNode & aFromNode);
-  void Visit(InsertNode & aInsertNode);
-  void Visit(IntoNode & aIntoNode);
-  void Visit(LikeNode & aLikeNode);
-  void Visit(MinusOpNode & aMinusOpNode);
-  void Visit(MultiplicationOpNode & aMultiplicationOpNode);
-  void Visit(NotLikeNode & aNotLikeNode);
-  void Visit(NumberNode & aNumberNode);
-  void Visit(OrNode & aOrNode);
-  void Visit(PlusOpNode & aPlusOpNode);
-  void Visit(PredicateNode & aPredicateNode);
-  void Visit(TableNode & aTableNode);
-  void Visit(UpdateNode & aUpdateNode);
-  void Visit(ValueNode & aValueNode);
-  void Visit(ValuesNode & aValuesNode);
-  void Visit(WhereNode & aWhereNode);
-  void Visit(InvalidNode & aInvalidNode);
+  void Visit(AndNode & aAndNode) override;
+  void Visit(ColumnNode & aColumnNode) override;
+  void Visit(CommaNode & aCommaNode) override;
+  void Visit(DistinctNode & aDistinctNode) override;
+  void Visit(DivisionOpNode & aDivisionOpNode) override;
+  void Visit(EqualsNode & aEqualsNode) override;
+  void Visit(FromNode & aFromNode) override;
+  void Visit(InsertNode & aInsertNode) override;
+  void Visit(IntoNode & aIntoNode) override;
+  void Visit(LikeNode & aLikeNode) override;
+  void Visit(MinusOpNode & aMinusOpNode) override;
+  void Visit(MultiplicationOpNode & aMultiplicationOpNode) override;
+  void Visit(NotLikeNode & aNotLikeNode) override;
+  void Visit(NumberNode & aNumberNode) override;
+  void Visit(OrNode & aOrNode) override;
+  void Visit(PlusOpNode & aPlusOpNode) override;
+  void Visit(PredicateNode & aPredicateNode) override;
+  void Visit(TableNode & aTableNode) override;
+  void Visit(UpdateNode & aUpdateNode) override;
+  void Visit(ValueNode & aValueNode) override;
+  void Visit(ValuesNode & aValuesNode) override;
+  void Visit(WhereNode & aWhereNode) override;
+  void Visit(InvalidNode & aInvalidNode) override;
 
   string GetOutput() const { return mOutput; }
 

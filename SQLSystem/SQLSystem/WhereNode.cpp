@@ -6,7 +6,3 @@ void WhereNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-WhereNode::~WhereNode()
-{
-}

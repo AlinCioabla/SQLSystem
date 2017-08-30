@@ -6,7 +6,3 @@ void DeleteNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-DeleteNode::~DeleteNode()
-{
-}

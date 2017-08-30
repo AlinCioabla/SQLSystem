@@ -6,7 +6,3 @@ void OrNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-OrNode::~OrNode()
-{
-}

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "XmlRewriter.h"
 #include "AstNode.h"
+#include "TypeDeducer.h"
 #include "WriterXml.h"
 #include "XmlNodeAttributes.h"
 
@@ -41,16 +42,19 @@ void XmlRewriter::TraverseAst(AstNode * aNode)
       hasChildren = true;
     }
 
-    mXmlWr.AddNode(tag[static_cast<int>(aNode->GetType())],
-                   aNode->GetToken()->GetPosition().GetLine(),
-                   aNode->GetToken()->GetPosition().GetColumn(),
-                   type[static_cast<int>(aNode->GetToken()->GetType())],
-                   aNode->GetToken()->GetWord(), hasChildren);
+    // TypeDeducer typeDeducer;
+    // aNode->Accept(typeDeducer);
+
+    /*   mXmlWr.AddNode(tag[static_cast<int>(aNode->GetType())],
+                      aNode->GetToken()->GetPosition().GetLine(),
+                      aNode->GetToken()->GetPosition().GetColumn(),
+                      type[static_cast<int>(aNode->GetToken()->GetType())],
+                      aNode->GetToken()->GetWord(), hasChildren);*/
 
     TraverseAst(aNode->GetLeft().get());
 
     TraverseAst(aNode->GetRight().get());
 
-    mXmlWr.CloseNode(tag[static_cast<int>(aNode->GetType())], hasChildren);
+    // mXmlWr.CloseNode(tag[static_cast<int>(aNode->GetType())], hasChildren);
   }
 }

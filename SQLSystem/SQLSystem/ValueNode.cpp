@@ -6,7 +6,3 @@ void ValueNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-ValueNode::~ValueNode()
-{
-}

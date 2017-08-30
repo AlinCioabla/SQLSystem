@@ -6,7 +6,3 @@ void InsertNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-InsertNode::~InsertNode()
-{
-}

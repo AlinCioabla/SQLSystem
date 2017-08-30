@@ -6,7 +6,3 @@ void TableNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-TableNode::~TableNode()
-{
-}

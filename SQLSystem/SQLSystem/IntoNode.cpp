@@ -2,11 +2,7 @@
 #include "IntoNode.h"
 #include "Visitor.h"
 
-void InsertNode::Accept(Visitor & aVisitor)
+void IntoNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
-}
-
-IntoNode::~IntoNode()
-{
 }
