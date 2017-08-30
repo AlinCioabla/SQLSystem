@@ -1,12 +1,12 @@
 #pragma once
 #include "AstNode.h"
+#include "NodeFactory.h"
 
 class Ast
 {
 public:
   Ast(AstNodePtr aRoot)
     : mRoot(move(aRoot)){};
-  Ast(const Ast & aAst);
 
   Ast();
 
@@ -15,9 +15,9 @@ public:
 
   // Creates a node from a token and then inserts it as the left(right) child of the current node
   // (aNode)
-  void InsertLeft(AstNodePtr & aNode, TokenPtr & aToken, AstNodeType aType);
+  void InsertLeft(AstNodePtr & aNode, TokenPtr & aToken, string aNodeType);
 
-  void InsertRight(AstNodePtr & aNode, TokenPtr & aToken, AstNodeType aType);
+  void InsertRight(AstNodePtr & aNode, TokenPtr & aToken, string aNodeType);
 
   // Returns a const pointer to the last added node's token of the given node as parameter
   IToken * GetLastAddedToken(AstNodePtr & aNode) const;
@@ -28,15 +28,10 @@ public:
 
   AstNode * GetRoot() const { return mRoot.get(); };
 
-  // Creates a new node
-  static AstNodePtr GetNewNode(TokenPtr & aTokenPtr, AstNodeType aType)
-  {
-    return make_shared<AstNode>(move(aTokenPtr), aType);
-  }
-
   ~Ast();
 
 private:
-  AstNodePtr mRoot;
-  string     mAstQuery;
+  AstNodePtr  mRoot;
+  string      mAstQuery;
+  NodeFactory nodeFactory;
 };

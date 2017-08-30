@@ -14,13 +14,13 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "column"s);
       return nullptr;
     }
 
     if (aPrevToken->GetWord() == ",")
     {
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, "column"s);
       return nullptr;
     }
   }
@@ -29,7 +29,7 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COMMA);
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "comma"s);
     return nullptr;
   }
 
@@ -37,7 +37,7 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aCurrentToken->GetWord() == "DISTINCT" && aPrevToken->GetWord() == "SELECT")
   {
-    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::DISTINCT);
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, "distinct");
     aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     return nullptr;
   }
@@ -46,7 +46,7 @@ unique_ptr<IState> Distinct::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aCurrentToken->GetWord() == "FROM" && aPrevToken->GetType() == IdentifierType)
   {
-    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::FROM);
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, "from"s);
     aCurrentInstructionNode = aCurrentInstructionNode->GetRight();
     return make_unique<From>();
   }
