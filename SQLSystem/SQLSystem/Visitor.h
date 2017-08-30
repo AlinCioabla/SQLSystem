@@ -32,6 +32,8 @@ class Visitor
 {
 public:
   virtual void Visit(SelectNode &)           = 0;
+  virtual void Visit(DeleteNode &)           = 0;
+  virtual void Visit(AllNode &)              = 0;
   virtual void Visit(AndNode &)              = 0;
   virtual void Visit(ColumnNode &)           = 0;
   virtual void Visit(CommaNode &)            = 0;
