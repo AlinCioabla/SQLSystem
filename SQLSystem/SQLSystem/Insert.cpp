@@ -15,13 +15,13 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "COLUMN");
       return nullptr;
     }
 
     if (aPrevToken->GetWord() == ",")
     {
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, "COLUMN");
       return nullptr;
     }
   }
@@ -30,7 +30,7 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aCurrentToken->GetWord() == "," && aPrevToken->GetType() == IdentifierType)
   {
-    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COMMA);
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "COMMA");
     return nullptr;
   }
 
@@ -38,7 +38,7 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aCurrentToken->GetWord() == "*" && aPrevToken->GetType() == KeywordType)
   {
-    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::ALL);
+    aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "ALL");
     return nullptr;
   }
 
@@ -46,7 +46,7 @@ unique_ptr<IState> Insert::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
     if (aPrevToken->GetWord() == "INSERT" && aCurrentToken->GetWord() == "INTO")
   {
-    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, AstNodeType::INTO);
+    aAst.InsertRight(aCurrentInstructionNode, aCurrentToken, "INTO");
     return make_unique<Into>();
   }
 

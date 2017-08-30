@@ -10,14 +10,14 @@ Undefined::Undefined() = default;
 
 unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 {
-  auto tempRoot = Ast::GetNewNode(aCurrentToken, AstNodeType::INVALID);
+  auto tempRoot = Ast::GetNewNode(aCurrentToken, "invalid");
   aAst.SetRoot(tempRoot);
 
   const string currentTokenWord = tempRoot->GetToken()->GetWord();
 
   if (currentTokenWord == "SELECT")
   {
-    tempRoot->SetType(AstNodeType::SELECT);
+    tempRoot->SetType("select");
     return make_unique<Select>();
   }
   if (currentTokenWord == "DELETE")
