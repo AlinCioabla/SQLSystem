@@ -71,8 +71,7 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         auto temp = aCurrentInstructionNode->GetLeft()->GetRight();
-        aCurrentInstructionNode->GetLeft()->SetRight(
-          Ast::nodeFactory.GetNode(tempType, aCurrentToken));
+        aCurrentInstructionNode->GetLeft()->SetRight(aAst.GetNewNode(tempType, aCurrentToken));
         aCurrentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
         return nullptr;
       }
@@ -105,7 +104,7 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         aCurrentInstructionNode->GetLeft()->GetRight()->SetRight(
-          Ast::nodeFactory.GetNode("predicate", aCurrentToken));
+          aAst.GetNewNode("predicate", aCurrentToken));
         return nullptr;
       }
 

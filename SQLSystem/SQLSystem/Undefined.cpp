@@ -14,26 +14,27 @@ unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
 
   if (currentTokenWord == "SELECT")
   {
-    aAst.SetRoot(Ast::nodeFactory.GetNode("select"s, aCurrentToken));
+    aAst.SetRoot(aAst.GetNewNode("select"s, aCurrentToken));
     return make_unique<Select>();
   }
   if (currentTokenWord == "DELETE")
   {
-    aAst.SetRoot(Ast::nodeFactory.GetNode("delete"s, aCurrentToken));
+    auto t = aAst.GetNewNode("delete"s, aCurrentToken);
+    aAst.SetRoot(t);
     return make_unique<Delete>();
   }
   if (currentTokenWord == "UPDATE")
   {
-    aAst.SetRoot(Ast::nodeFactory.GetNode("update"s, aCurrentToken));
+    aAst.SetRoot(aAst.GetNewNode("update"s, aCurrentToken));
     return make_unique<Update>();
   }
   else if (currentTokenWord == "INSERT")
   {
-    aAst.SetRoot(Ast::nodeFactory.GetNode("insert"s, aCurrentToken));
+    aAst.SetRoot(aAst.GetNewNode("insert"s, aCurrentToken));
     return make_unique<Insert>();
   }
 
-  aAst.SetRoot(Ast::nodeFactory.GetNode("invalid"s, aCurrentToken));
+  aAst.SetRoot(aAst.GetNewNode("invalid"s, aCurrentToken));
 
   return make_unique<Invalid>(aCurrentToken);
 }

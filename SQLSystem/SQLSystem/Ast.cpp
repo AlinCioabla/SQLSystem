@@ -39,7 +39,7 @@ void Ast::InsertLeft(AstNodePtr & aNode, TokenPtr & aToken, string aNodeType)
   if (aNode != nullptr)
   {
     auto temp = aNode->GetLeft();
-    aNode->SetLeft(nodeFactory.GetNode(aNodeType, aToken));
+    aNode->SetLeft(GetNewNode(aNodeType, aToken));
     aNode->GetLeft()->SetLeft(temp);
   }
 }
@@ -49,7 +49,7 @@ void Ast::InsertRight(AstNodePtr & aNode, TokenPtr & aToken, string aNodeType)
   if (aNode != nullptr)
   {
     auto temp = aNode->GetRight();
-    aNode->SetRight(nodeFactory.GetNode(aNodeType, aToken));
+    aNode->SetRight(GetNewNode(aNodeType, aToken));
     aNode->GetRight()->SetRight(temp);
   }
 }
@@ -90,3 +90,8 @@ AstNodePtr Ast::GetCurrentInstr() const
 }
 
 Ast::~Ast() = default;
+
+AstNodePtr Ast::GetNewNode(string aNodeType, TokenPtr & aToken)
+{
+  return nodeFactory.GetNode(aNodeType, aToken);
+}

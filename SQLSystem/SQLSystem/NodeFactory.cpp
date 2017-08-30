@@ -36,6 +36,12 @@ AstNodePtr NodeFactory::GetNode(string aNodeType, TokenPtr & aToken)
   if (aNodeType == "select")
     return make_shared<SelectNode>(move(aToken));
 
+  if (aNodeType == "all")
+    return make_shared<AllNode>(move(aToken));
+
+  if (aNodeType == "delete")
+    return make_shared<DeleteNode>(move(aToken));
+
   if (aNodeType == "and")
     return make_shared<AndNode>(move(aToken));
 
