@@ -29,6 +29,7 @@ public:
   void Visit(ValueNode & aValueNode);
   void Visit(ValuesNode & aValuesNode);
   void Visit(WhereNode & aWhereNode);
+  void Visit(InvalidNode & aInvalidNode);
 
   string GetOutput() const { return mOutput; }
 

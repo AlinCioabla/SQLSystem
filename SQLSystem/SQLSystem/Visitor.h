@@ -11,6 +11,7 @@
 #include "FromNode.h"
 #include "InsertNode.h"
 #include "IntoNode.h"
+#include "Invalid.h"
 #include "InvalidNode.h"
 #include "LikeNode.h"
 #include "MinusOpNode.h"
@@ -53,4 +54,5 @@ public:
   virtual void Visit(ValueNode &)            = 0;
   virtual void Visit(ValuesNode &)           = 0;
   virtual void Visit(WhereNode &)            = 0;
+  virtual void Visit(InvalidNode &)          = 0;
 };

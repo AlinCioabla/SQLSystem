@@ -12,110 +12,115 @@ void TypeDeducer::Visit(SelectNode & aSelectNode)
 
 void TypeDeducer::Visit(AndNode & aAndNode)
 {
-	mOutput = "AND";
+  mOutput = "AND";
 }
 
 void TypeDeducer::Visit(ColumnNode & aColumnNode)
 {
-	mOutput = "COLUMN";
+  mOutput = "COLUMN";
 }
 
 void TypeDeducer::Visit(CommaNode & aCommaNode)
 {
-	mOutput = "COMMA";
+  mOutput = "COMMA";
 }
 
 void TypeDeducer::Visit(DistinctNode & aDistinctNode)
 {
-	mOutput = "DISTINCT";
+  mOutput = "DISTINCT";
 }
 
 void TypeDeducer::Visit(DivisionOpNode & aDivisionOpNode)
 {
-	mOutput = "DIVISIONOP";
+  mOutput = "DIVISIONOP";
 }
 
 void TypeDeducer::Visit(EqualsNode & aEqualsNode)
 {
-	mOutput = "EQUALS";
+  mOutput = "EQUALS";
 }
 
 void TypeDeducer::Visit(FromNode & aFromNode)
 {
-	mOutput = "FROM";
+  mOutput = "FROM";
 }
 
 void TypeDeducer::Visit(InsertNode & aInsertNode)
 {
-	mOutput = "INSERT";
+  mOutput = "INSERT";
 }
 
 void TypeDeducer::Visit(IntoNode & aIntoNode)
 {
-	mOutput = "INTO";
+  mOutput = "INTO";
 }
 
 void TypeDeducer::Visit(LikeNode & aLikeNode)
 {
-	mOutput = "LIKE";
+  mOutput = "LIKE";
 }
 
 void TypeDeducer::Visit(MinusOpNode & aMinusOpNode)
 {
-	mOutput = "MINUSOP";
+  mOutput = "MINUSOP";
 }
 
 void TypeDeducer::Visit(MultiplicationOpNode & aMultiplicationOpNode)
 {
-	mOutput = "MULTIPLICATIONOP";
+  mOutput = "MULTIPLICATIONOP";
 }
 
 void TypeDeducer::Visit(NotLikeNode & aNotLikeNode)
 {
-	mOutput = "NOTLIKE";
+  mOutput = "NOTLIKE";
 }
 
 void TypeDeducer::Visit(NumberNode & aNumberNode)
 {
-	mOutput = "NUMBER";
+  mOutput = "NUMBER";
 }
 
 void TypeDeducer::Visit(OrNode & aOrNode)
 {
-	mOutput = "OR";
+  mOutput = "OR";
 }
 
 void TypeDeducer::Visit(PlusOpNode & aPlusOpNode)
 {
-	mOutput = "PLUSOP";
+  mOutput = "PLUSOP";
 }
 
 void TypeDeducer::Visit(PredicateNode & aPredicateNode)
 {
-	mOutput = "PREDICATE";
+  mOutput = "PREDICATE";
 }
 
 void TypeDeducer::Visit(TableNode & aTableNode)
 {
-	mOutput = "TABLE";
+  mOutput = "TABLE";
 }
 
 void TypeDeducer::Visit(UpdateNode & aUpdateNode)
 {
-	mOutput = "UPDATE";
+  mOutput = "UPDATE";
 }
 
 void TypeDeducer::Visit(ValueNode & aValueNode)
 {
-	mOutput = "VALUE";
+  mOutput = "VALUE";
 }
 
 void TypeDeducer::Visit(ValuesNode & aValuesNode)
 {
-	mOutput = "VALUES";
+  mOutput = "VALUES";
 }
 
 void TypeDeducer::Visit(WhereNode & aWhereNode)
 {
-	mOutput = "WHERE";
+  mOutput = "WHERE";
+}
+
+void TypeDeducer::Visit(InvalidNode & aInvalidNode)
+{
+  mOutput = "INVALID";
 }
