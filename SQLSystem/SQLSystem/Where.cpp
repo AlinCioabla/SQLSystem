@@ -29,7 +29,7 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   if (aCurrentToken->GetType() == OperatorType || aCurrentToken->GetWord() == "LIKE" ||
       aCurrentToken->GetWord() == "NOTLIKE")
   {
-   string  tempType;
+    string       tempType;
     const string currentWord = aCurrentToken->GetWord();
 
     if (currentWord == "+")
@@ -71,7 +71,8 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         auto temp = aCurrentInstructionNode->GetLeft()->GetRight();
-        aCurrentInstructionNode->GetLeft()->SetRight(Ast::GetNewNode(aCurrentToken, tempType));
+        aCurrentInstructionNode->GetLeft()->SetRight(
+          Ast::nodeFactory.GetNode(tempType, aCurrentToken));
         aCurrentInstructionNode->GetLeft()->GetRight()->SetLeft(temp);
         return nullptr;
       }
@@ -104,11 +105,11 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         aCurrentInstructionNode->GetLeft()->GetRight()->SetRight(
-          Ast::GetNewNode(aCurrentToken, "predicate"));
+          Ast::nodeFactory.GetNode("predicate", aCurrentToken));
         return nullptr;
       }
 
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken,"predicate");
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, "predicate");
       return nullptr;
     }
   }

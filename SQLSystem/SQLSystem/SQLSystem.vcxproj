@@ -140,6 +140,7 @@
     <ClCompile Include="LikeNode.cpp" />
     <ClCompile Include="MinusOpNode.cpp" />
     <ClCompile Include="MultiplicationOpNode.cpp" />
+    <ClCompile Include="NodeFactory.cpp" />
     <ClCompile Include="NotLikeNode.cpp" />
     <ClCompile Include="Number.cpp" />
     <ClCompile Include="Helpers.cpp" />
@@ -198,6 +199,7 @@
     <ClInclude Include="LikeNode.h" />
     <ClInclude Include="MinusOpNode.h" />
     <ClInclude Include="MultiplicationOpNode.h" />
+    <ClInclude Include="NodeFactory.h" />
     <ClInclude Include="NotLikeNode.h" />
     <ClInclude Include="NumberNode.h" />
     <ClInclude Include="PlusOpNode.h" />

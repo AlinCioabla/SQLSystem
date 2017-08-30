@@ -30,8 +30,9 @@ public:
 
   ~Ast();
 
+  static NodeFactory nodeFactory;
+
 private:
-  AstNodePtr  mRoot;
-  string      mAstQuery;
-  NodeFactory nodeFactory;
+  AstNodePtr mRoot;
+  string     mAstQuery;
 };
