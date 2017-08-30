@@ -16,12 +16,12 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aCurrentToken->GetWord() == "OR")
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::OR);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "or");
       return nullptr;
     }
     if (aCurrentToken->GetWord() == "AND")
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::AND);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "and");
       return nullptr;
     }
   }
@@ -29,40 +29,40 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   if (aCurrentToken->GetType() == OperatorType || aCurrentToken->GetWord() == "LIKE" ||
       aCurrentToken->GetWord() == "NOTLIKE")
   {
-    AstNodeType  tempType;
+   string  tempType;
     const string currentWord = aCurrentToken->GetWord();
 
     if (currentWord == "+")
     {
-      tempType = AstNodeType::PLUSOP;
+      tempType = "plusop";
     }
     else if (currentWord == "-")
     {
-      tempType = AstNodeType::MINUSOP;
+      tempType = "minusop";
     }
     else if (currentWord == "/")
     {
-      tempType = AstNodeType::DIVISIONOP;
+      tempType = "divisionop";
     }
     else if (currentWord == "*")
     {
-      tempType = AstNodeType::MULTIPLICATIONOP;
+      tempType = "multiplicationop";
     }
     else if (currentWord == "LIKE")
     {
-      tempType = AstNodeType::LIKE;
+      tempType = "like";
     }
     else if (currentWord == "NOTLIKE")
     {
-      tempType = AstNodeType::NOTLIKE;
+      tempType = "notlike";
     }
     else if (currentWord == "=")
     {
-      tempType = AstNodeType::EQUALS;
+      tempType = "equals";
     }
     else
     {
-      tempType = AstNodeType::INVALID;
+      tempType = "invalid";
     }
 
     if (aPrevToken->GetType() == IdentifierType)
@@ -85,12 +85,12 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "column");
       return nullptr;
     }
     if (aPrevToken->GetWord() == "AND" || aPrevToken->GetWord() == "OR")
     {
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::COLUMN);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, "column");
       return nullptr;
     }
   }
@@ -104,11 +104,11 @@ unique_ptr<IState> Where::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
           aCurrentInstructionNode->GetLeft()->GetToken()->GetWord() == "OR")
       {
         aCurrentInstructionNode->GetLeft()->GetRight()->SetRight(
-          Ast::GetNewNode(aCurrentToken, AstNodeType::PREDICATE));
+          Ast::GetNewNode(aCurrentToken, "predicate"));
         return nullptr;
       }
 
-      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken, AstNodeType::PREDICATE);
+      aAst.InsertRight(aCurrentInstructionNode->GetLeft(), aCurrentToken,"predicate");
       return nullptr;
     }
   }
