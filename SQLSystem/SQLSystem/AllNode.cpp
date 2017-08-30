@@ -6,7 +6,3 @@ void AllNode::Accept(Visitor & aVisitor)
 {
   aVisitor.Visit(*this);
 }
-
-AllNode::~AllNode()
-{
-}

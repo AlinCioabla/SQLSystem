@@ -2,38 +2,9 @@
 
 #include "IToken.h"
 
+class Visitor;
 class AstNode;
 using AstNodePtr = shared_ptr<AstNode>;
-
-enum class AstNodeType
-{
-  SELECT = 0,
-  DISTINCT,
-  UPDATE,
-  FROM,
-  ALL,
-  COLUMN,
-  TABLE,
-  WHERE,
-  DELETE,
-  INSERT,
-  INTO,
-  VALUES,
-  VALUE,
-  OR,
-  AND,
-  LIKE,
-  NOTLIKE,
-  EQUALS,
-  PLUSOP,
-  MINUSOP,
-  DIVISIONOP,
-  MULTIPLICATIONOP,
-  NUMBER,
-  PREDICATE,
-  COMMA,
-  INVALID
-};
 
 class AstNode
 {

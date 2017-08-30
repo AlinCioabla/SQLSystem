@@ -2,6 +2,8 @@
 #include "IToken.h"
 #include "AstNode.h"
 
+class Visitor;
+
 class WhereNode : public AstNode
 {
 public:

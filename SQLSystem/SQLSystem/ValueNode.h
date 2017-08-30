@@ -1,7 +1,7 @@
 #pragma once
 #include "IToken.h"
 #include "AstNode.h"
-
+class Visitor;
 class ValueNode : public AstNode
 {
 public:

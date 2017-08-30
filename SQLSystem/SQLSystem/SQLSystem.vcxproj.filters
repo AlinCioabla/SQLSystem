@@ -150,43 +150,40 @@
     <ClCompile Include="TypeDeducer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DistinctNode.cpp">
+    <ClCompile Include="AndNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UpdateNode.cpp">
+    <ClCompile Include="LikeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FromNode.cpp">
+    <ClCompile Include="NotLikeNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AllNode.cpp">
+    <ClCompile Include="EqualsNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ColumnNode.cpp">
+    <ClCompile Include="PlusOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="TableNode.cpp">
+    <ClCompile Include="MinusOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="WhereNode.cpp">
+    <ClCompile Include="DivisionOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DeleteNode.cpp">
+    <ClCompile Include="MultiplicationOpNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="InsertNode.cpp">
+    <ClCompile Include="NumberNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="IntoNode.cpp">
+    <ClCompile Include="PredicateNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ValuesNode.cpp">
+    <ClCompile Include="CommaNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ValueNode.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="OrNode.cpp">
+    <ClCompile Include="InvalidNode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -341,43 +338,40 @@
     <ClInclude Include="TypeDeducer.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DistinctNode.h">
+    <ClInclude Include="AndNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="UpdateNode.h">
+    <ClInclude Include="LikeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FromNode.h">
+    <ClInclude Include="NotLikeNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="AllNode.h">
+    <ClInclude Include="EqualsNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ColumnNode.h">
+    <ClInclude Include="PlusOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="TableNode.h">
+    <ClInclude Include="MinusOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WhereNode.h">
+    <ClInclude Include="DivisionOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DeleteNode.h">
+    <ClInclude Include="MultiplicationOpNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="InsertNode.h">
+    <ClInclude Include="NumberNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="IntoNode.h">
+    <ClInclude Include="PredicateNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ValuesNode.h">
+    <ClInclude Include="CommaNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ValueNode.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="OrNode.h">
+    <ClInclude Include="InvalidNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

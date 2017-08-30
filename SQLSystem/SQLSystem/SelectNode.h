@@ -2,6 +2,7 @@
 #include "IToken.h"
 #include "AstNode.h"
 #include "Punctuation.h"
+class Visitor;
 
 class SelectNode : public AstNode
 {
