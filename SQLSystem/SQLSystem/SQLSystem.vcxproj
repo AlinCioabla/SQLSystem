@@ -119,16 +119,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AllNode.cpp" />
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="AstTraversal.cpp" />
+    <ClCompile Include="ColumnNode.cpp" />
     <ClCompile Include="Delete.cpp" />
+    <ClCompile Include="DeleteNode.cpp" />
     <ClCompile Include="DiagnosticInfo.cpp" />
     <ClCompile Include="Distinct.cpp" />
+    <ClCompile Include="DistinctNode.cpp" />
     <ClCompile Include="FilePresenter.cpp" />
     <ClCompile Include="From.cpp" />
+    <ClCompile Include="FromNode.cpp" />
     <ClCompile Include="Insert.cpp" />
+    <ClCompile Include="InsertNode.cpp" />
     <ClCompile Include="Into.cpp" />
+    <ClCompile Include="IntoNode.cpp" />
     <ClCompile Include="Invalid.cpp" />
     <ClCompile Include="LexerTest.cpp" />
     <ClCompile Include="LexerTestUnit.cpp" />
@@ -139,6 +146,7 @@
     <ClCompile Include="Lexer.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Operator.cpp" />
+    <ClCompile Include="OrNode.cpp" />
     <ClCompile Include="Parser.cpp" />
     <ClCompile Include="ParserTest.cpp" />
     <ClCompile Include="ParserTestUnit.cpp" />
@@ -147,9 +155,14 @@
     <ClCompile Include="ConsolePresenter.cpp" />
     <ClCompile Include="Punctuation.cpp" />
     <ClCompile Include="SelectNode.cpp" />
+    <ClCompile Include="TableNode.cpp" />
     <ClCompile Include="TextRewriter.cpp" />
     <ClCompile Include="TypeDeducer.cpp" />
+    <ClCompile Include="UpdateNode.cpp" />
+    <ClCompile Include="ValueNode.cpp" />
+    <ClCompile Include="ValuesNode.cpp" />
     <ClCompile Include="Visitor.cpp" />
+    <ClCompile Include="WhereNode.cpp" />
     <ClCompile Include="Writer.cpp" />
     <ClCompile Include="WriterXml.cpp" />
     <ClCompile Include="XmlNodeAttributes.cpp" />
@@ -171,13 +184,21 @@
     <ClCompile Include="WhiteSpace.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AllNode.h" />
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="AstTraversal.h" />
+    <ClInclude Include="ColumnNode.h" />
     <ClInclude Include="Delete.h" />
+    <ClInclude Include="DeleteNode.h" />
     <ClInclude Include="DiagnosticInfo.h" />
+    <ClInclude Include="DistinctNode.h" />
     <ClInclude Include="FilePresenter.h" />
+    <ClInclude Include="FromNode.h" />
+    <ClInclude Include="InsertNode.h" />
+    <ClInclude Include="IntoNode.h" />
     <ClInclude Include="IPresenter.h" />
+    <ClInclude Include="OrNode.h" />
     <ClInclude Include="SelectNode.h" />
     <ClInclude Include="Serializer.h" />
     <ClInclude Include="Position.h" />
@@ -204,9 +225,14 @@
     <ClInclude Include="Predicate.h" />
     <ClInclude Include="ConsolePresenter.h" />
     <ClInclude Include="Punctuation.h" />
+    <ClInclude Include="TableNode.h" />
     <ClInclude Include="TextRewriter.h" />
     <ClInclude Include="TypeDeducer.h" />
+    <ClInclude Include="UpdateNode.h" />
+    <ClInclude Include="ValueNode.h" />
+    <ClInclude Include="ValuesNode.h" />
     <ClInclude Include="Visitor.h" />
+    <ClInclude Include="WhereNode.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="WriterXml.h" />
     <ClInclude Include="XmlNodeAttributes.h" />
