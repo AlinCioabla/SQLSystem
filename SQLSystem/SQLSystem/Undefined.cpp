@@ -28,7 +28,7 @@ unique_ptr<IState> Undefined::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
     aAst.SetRoot(aAst.GetNewNode("update"s, aCurrentToken));
     return make_unique<Update>();
   }
-  else if (currentTokenWord == "INSERT")
+  if (currentTokenWord == "INSERT")
   {
     aAst.SetRoot(aAst.GetNewNode("insert"s, aCurrentToken));
     return make_unique<Insert>();

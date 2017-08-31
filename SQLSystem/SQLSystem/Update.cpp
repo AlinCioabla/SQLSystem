@@ -42,7 +42,7 @@ unique_ptr<IState> Update::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == KeywordType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken,"all");
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "all");
       return nullptr;
     }
   }
