@@ -28,6 +28,8 @@ public:
   void Visit(ValuesNode & aValuesNode) override;
   void Visit(WhereNode & aWhereNode) override;
   void Visit(InvalidNode & aInvalidNode) override;
+  void Visit(AllNode & aAllNode) override;
+  void Visit(DeleteNode & aDeleteNode) override;
 
   string GetOutput() const { return mOutput; }
 

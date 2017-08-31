@@ -120,3 +120,13 @@ void TypeDeducer::Visit(InvalidNode & aInvalidNode)
 {
   mOutput = "INVALID";
 }
+
+void TypeDeducer::Visit(AllNode & aAllNode)
+{
+  mOutput = "ALL";
+}
+
+void TypeDeducer::Visit(DeleteNode & aDeleteNode)
+{
+  mOutput = "DELETE";
+}

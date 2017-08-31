@@ -16,12 +16,10 @@ void WriterXml::ApplyIndentation(int aNumberOfSpaces)
   }
 }
 
-void WriterXml::AddNode(
-  string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren)
+void WriterXml::AddNode(string aNodeName, int aLine, int aColumn, string aWord, bool aHasChildren)
 {
   ApplyIndentation(indent);
-  mOutputFile << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn
-              << R"(" Type=")" << aType << R"(")"
+  mOutputFile << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn << R"(")"
               << R"( Word=")" << aWord << R"(")";
   if (aHasChildren)
   {

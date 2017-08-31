@@ -14,8 +14,7 @@ public:
 
   void ApplyIndentation(int aNumberOfSpaces);
 
-  void AddNode(
-    string aNodeName, int aLine, int aColumn, string aType, string aWord, bool aHasChildren);
+  void AddNode(string aNodeName, int aLine, int aColumn, string aWord, bool aHasChildren);
   void CloseNode(string aNodeName, bool aHasChildren);
   ~WriterXml();
 

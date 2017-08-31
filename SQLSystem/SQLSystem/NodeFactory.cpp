@@ -110,5 +110,8 @@ AstNodePtr NodeFactory::GetNode(string aNodeType, TokenPtr & aToken)
   if (aNodeType == "where")
     return make_shared<WhereNode>(move(aToken));
 
+  if (aNodeType == "invalid")
+    return make_shared<InvalidNode>(move(aToken));
+
   return nullptr;
 }
