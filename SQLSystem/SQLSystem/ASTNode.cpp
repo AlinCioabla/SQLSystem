@@ -1,11 +1,7 @@
 #include "stdafx.h"
-#include "IToken.h"
 #include "AstNode.h"
+#include "IToken.h"
 #include "Visitor.h"
-
-AstNode::AstNode()
-{
-}
 
 void AstNode::SetToken(TokenPtr & aToken)
 {

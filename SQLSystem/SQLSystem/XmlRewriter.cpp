@@ -5,26 +5,6 @@
 #include "WriterXml.h"
 #include "XmlNodeAttributes.h"
 
-// namespace
-//{
-// const vector<string> tag = { "SELECT",     "DISTINCT ",
-//                             "UPDATE",     "FROM",
-//                             "ALL",        "COLUMN",
-//                             "TABLE",      "WHERE",
-//                             "DELETE",     "INSERT",
-//                             "INTO",       "VALUES",
-//                             "VALUE",      "OR",
-//                             "AND",        "LIKE",
-//                             "NOTLIKE",    "EQUALS",
-//                             "PLUSOP",     "MINUS",
-//                             "DIVISIONOP", "MULTIPLICATIONOP",
-//                             "NUMBER",     "PREDICATE",
-//                             "COMMA",      "INVALID" };
-//
-// const vector<string> type = { "KeywordType",    "OperatorType",       "PunctuationType",
-//                              "WhiteSpaceType", "IdentifierType",     "NumberType",
-//                              "PredicateType",  "TextualOperatorType" };
-//}
 void XmlRewriter::Serialize()
 {
   mXmlWr.Init();
@@ -34,7 +14,7 @@ void XmlRewriter::Serialize()
 
 void XmlRewriter::TraverseAst(AstNode * aNode)
 {
-  bool hasChildren = 0;
+  bool hasChildren = false;
   if (aNode != nullptr)
   {
     if (aNode->GetRight() != nullptr || aNode->GetLeft() != nullptr)

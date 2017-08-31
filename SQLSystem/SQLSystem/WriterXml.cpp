@@ -16,7 +16,8 @@ void WriterXml::ApplyIndentation(int aNumberOfSpaces)
   }
 }
 
-void WriterXml::AddNode(string aNodeName, int aLine, int aColumn, string aWord, bool aHasChildren)
+void WriterXml::AddNode(
+  const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren)
 {
   ApplyIndentation(indent);
   mOutputFile << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn << R"(")"
@@ -29,7 +30,7 @@ void WriterXml::AddNode(string aNodeName, int aLine, int aColumn, string aWord, 
   indent += 3;
 }
 
-void WriterXml::CloseNode(string aNodeName, bool aHasChildren)
+void WriterXml::CloseNode(const string & aNodeName, bool aHasChildren)
 {
   indent -= 3;
   if (aHasChildren)
@@ -39,11 +40,11 @@ void WriterXml::CloseNode(string aNodeName, bool aHasChildren)
                 << "\n";
   }
   else
+  {
     mOutputFile << "/"
                 << ">"
                 << "\n";
+  }
 }
 
-WriterXml::~WriterXml()
-{
-}
+WriterXml::~WriterXml() = default;
