@@ -6,14 +6,14 @@ void WriterXml::ApplyIndentation()
 {
   for (int i = 0; i < mCurrentIndent; i++)
   {
-    // mBuffer.Update(mIndentChar);
+    mBuffer.Update(mIndentChar);
   }
 }
 
 void WriterXml::StartDocument()
 {
-  // mBuffer.Update(R"(<?xml version="1.0" encoding="UTF-8"?>)");
-  // mBuffer.Update("\n");
+  mBuffer.Update(R"(<?xml version="1.0" encoding="UTF-8"?>)");
+  mBuffer.Update("\n");
 
   mDocStarted = true;
 }
@@ -36,27 +36,27 @@ void WriterXml::AddNode(const string                aNodeName,
 
   ApplyIndentation();
 
-  // mBuffer.Update("<" + aNodeName + " ");
+  mBuffer.Update("<" + aNodeName + " ");
 
   for (auto & attr : aAttr)
   {
-    // mBuffer.Update(attr.first + "=" + attr.second);
+    mBuffer.Update(attr.first + "=" + "\"" + attr.second + "\"");
     if (!aAttr.empty() && attr != *(prev(aAttr.end())))
     {
-      // mBuffer.Update(" ");
+      mBuffer.Update(" ");
     }
   }
 
   if (aHasChildren)
   {
-    //  mBuffer.Update(">\n");
+    mBuffer.Update(">\n");
+    mNodes.push(aNodeName);
+    mCurrentIndent += mAddedIndent;
   }
   else
   {
-    mNodes.push(aNodeName);
+    mBuffer.Update("/>\n");
   }
-
-  mCurrentIndent += mAddedIndent;
 }
 
 void WriterXml::CloseNode()
@@ -65,27 +65,21 @@ void WriterXml::CloseNode()
     return;
 
   mCurrentIndent -= mAddedIndent;
-  /*if (aHasChildren)
-  {
-    ApplyIndentation();
-    mOutputStream << "</" << aNodeName << ">"
-                  << "\n";
-  }
-  else
-  {
-    mOutputStream << "/"
-                  << ">"
-                  << "\n";
-  }*/
+  ApplyIndentation();
+
+  mBuffer.Update("</"s + mNodes.top() + ">\n"s);
+  mNodes.pop();
 }
 
 void WriterXml::Write()
 {
+  if (mOutputStream)
+    mOutputStream << mBuffer.Get();
 }
 
 void WriterXml::EndDocument()
 {
-  // mBuffer.Update("\n\n");
+  mBuffer.Update("\n\n");
   mDocStarted = false;
 }
 

@@ -8,7 +8,7 @@ class WriterXml
 {
 public:
   WriterXml(string aFilePath = "", string aIndentChar = " "s, int aAddedIndent = 3)
-    : mOutputStream(aFilePath)
+    : mOutputStream(aFilePath, ios::app | ios::ate)
     , mIndentChar(aIndentChar)
     , mAddedIndent(aAddedIndent)
     , mCurrentIndent(0)

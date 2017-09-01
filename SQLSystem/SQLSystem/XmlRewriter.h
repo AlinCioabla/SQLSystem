@@ -7,6 +7,7 @@ class XmlRewriter : public Serializer
 public:
   XmlRewriter(Ast & aAst, string aFilePath)
     : Serializer(aAst)
+    , mXmlWr(aFilePath)
   {
   }
   void Serialize() override;

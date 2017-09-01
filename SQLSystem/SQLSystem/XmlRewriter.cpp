@@ -10,6 +10,7 @@ void XmlRewriter::Serialize()
   mXmlWr.StartDocument();
   TraverseAst(mAst.GetRoot());
   mXmlWr.EndDocument();
+  mXmlWr.Write();
 }
 
 void XmlRewriter::TraverseAst(AstNode * aNode)
@@ -32,7 +33,8 @@ void XmlRewriter::TraverseAst(AstNode * aNode)
 
     TraverseAst(aNode->GetRight().get());
 
-    mXmlWr.CloseNode();
+    if (hasChildren)
+      mXmlWr.CloseNode();
   }
 }
 
@@ -40,9 +42,9 @@ map<string, string> XmlRewriter::GetNodeAttr(AstNode * aNode)
 {
   map<string, string> temp;
 
-  temp.insert("Line"s, to_string(aNode->GetToken()->GetPosition().GetLine()));
-  temp.insert("Column"s, to_string(aNode->GetToken()->GetPosition().GetColumn()));
-  temp.insert("Word"s, aNode->GetToken()->GetWord());
+  temp.insert({ "Line"s, to_string(aNode->GetToken()->GetPosition().GetLine()) });
+  temp.insert({ "Column"s, to_string(aNode->GetToken()->GetPosition().GetColumn()) });
+  temp.insert({ "Word"s, aNode->GetToken()->GetWord() });
 
   return temp;
 }
