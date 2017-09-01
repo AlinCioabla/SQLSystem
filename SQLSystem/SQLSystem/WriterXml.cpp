@@ -5,15 +5,15 @@
 void WriterXml::Init(string aFilePath)
 
 {
-  mOutputStream << R"(<?xml version="1.0" encoding="UTF-8"?>)"
-                << "\n";
+  mBuffer->Update(R"(<?xml version="1.0" encoding="UTF-8"?>)");
+  mBuffer->Update("\n");
 }
 
 void WriterXml::ApplyIndentation()
 {
   for (int i = 0; i < aNumberOfSpaces; i++)
   {
-    mOutputStream << " ";
+    mBuffer->Update(" ");
   }
 }
 
@@ -21,8 +21,13 @@ void WriterXml::AddNode(
   const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren)
 {
   ApplyIndentation(indent);
-  mOutputStream << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn << R"(")"
-                << R"( Word=")" << aWord << R"(")";
+  mBuffer->Update("<" + aNodeName + (R"( Line=")"));
+  mBuffer->Update(aLine);
+  mBuffer->Update(R"(" Column=")");
+  mBuffer->Update(aColumn);
+  mBuffer->Update(R"(")"
+                  R"( Word=")" +
+                  aWord + R"(")");
   if (aHasChildren)
   {
     mOutputStream << ">\n";

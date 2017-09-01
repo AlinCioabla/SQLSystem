@@ -1,5 +1,6 @@
 #pragma once
 
+#include "IBuffer.h"
 #include "XmlNodeAttributes.h"
 
 class WriterXml
@@ -22,6 +23,7 @@ public:
   ~WriterXml();
 
 private:
-  ofstream mOutputStream;
-  int      indent;
+  ofstream  mOutputStream;
+  int       indent;
+  IBuffer * mBuffer;
 };
