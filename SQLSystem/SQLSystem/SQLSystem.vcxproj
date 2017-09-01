@@ -124,6 +124,7 @@
     <ClCompile Include="Ast.cpp" />
     <ClCompile Include="AstNode.cpp" />
     <ClCompile Include="AstTraversal.cpp" />
+    <ClCompile Include="BufferXml.cpp" />
     <ClCompile Include="ColumnNode.cpp" />
     <ClCompile Include="CommaNode.cpp" />
     <ClCompile Include="Delete.cpp" />
@@ -176,7 +177,6 @@
     <ClCompile Include="ValuesNode.cpp" />
     <ClCompile Include="Visitor.cpp" />
     <ClCompile Include="WhereNode.cpp" />
-    <ClCompile Include="Writer.cpp" />
     <ClCompile Include="WriterXml.cpp" />
     <ClCompile Include="XmlNodeAttributes.cpp" />
     <ClCompile Include="XmlRewriter.cpp" />
@@ -202,6 +202,7 @@
     <ClInclude Include="Ast.h" />
     <ClInclude Include="AstNode.h" />
     <ClInclude Include="AstTraversal.h" />
+    <ClInclude Include="BufferXml.h" />
     <ClInclude Include="ColumnNode.h" />
     <ClInclude Include="CommaNode.h" />
     <ClInclude Include="Delete.h" />
@@ -212,6 +213,7 @@
     <ClInclude Include="EqualsNode.h" />
     <ClInclude Include="FilePresenter.h" />
     <ClInclude Include="FromNode.h" />
+    <ClInclude Include="IBuffer.h" />
     <ClInclude Include="InsertNode.h" />
     <ClInclude Include="IntoNode.h" />
     <ClInclude Include="InvalidNode.h" />

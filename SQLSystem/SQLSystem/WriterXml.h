@@ -5,20 +5,23 @@
 class WriterXml
 {
 public:
-  WriterXml(ofstream & aFileName)
-    : mOutputFile(aFileName)
+  WriterXml(string aFilePath)
+    : mOutputStream(aFilePath)
     , indent(0)
   {
+    Init(aFilePath);
   }
-  void Init();
+  WriterXml() = default;
+  void Init(string aFilePath);
 
-  void ApplyIndentation(int aNumberOfSpaces);
+  void ApplyIndentation();
 
-  void AddNode(const string& aNodeName, int aLine, int aColumn, const string& aWord, bool aHasChildren);
-  void CloseNode(const string& aNodeName, bool aHasChildren);
+  void AddNode(
+    const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren);
+  void CloseNode(const string & aNodeName, bool aHasChildren);
   ~WriterXml();
 
 private:
-  ofstream & mOutputFile;
-  int        indent;
+  ofstream mOutputStream;
+  int      indent;
 };

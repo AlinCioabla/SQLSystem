@@ -2,17 +2,18 @@
 #include "WriterXml.h"
 #include "Writer.h"
 
-void WriterXml::Init()
+void WriterXml::Init(string aFilePath)
+
 {
-  mOutputFile << R"(<?xml version="1.0" encoding="UTF-8"?>)"
-              << "\n";
+  mOutputStream << R"(<?xml version="1.0" encoding="UTF-8"?>)"
+                << "\n";
 }
 
-void WriterXml::ApplyIndentation(int aNumberOfSpaces)
+void WriterXml::ApplyIndentation()
 {
   for (int i = 0; i < aNumberOfSpaces; i++)
   {
-    mOutputFile << " ";
+    mOutputStream << " ";
   }
 }
 
@@ -20,11 +21,11 @@ void WriterXml::AddNode(
   const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren)
 {
   ApplyIndentation(indent);
-  mOutputFile << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn << R"(")"
-              << R"( Word=")" << aWord << R"(")";
+  mOutputStream << "<" << aNodeName << R"( Line=")" << aLine << R"(" Column=")" << aColumn << R"(")"
+                << R"( Word=")" << aWord << R"(")";
   if (aHasChildren)
   {
-    mOutputFile << ">\n";
+    mOutputStream << ">\n";
   }
 
   indent += 3;
@@ -36,14 +37,14 @@ void WriterXml::CloseNode(const string & aNodeName, bool aHasChildren)
   if (aHasChildren)
   {
     ApplyIndentation(indent);
-    mOutputFile << "</" << aNodeName << ">"
-                << "\n";
+    mOutputStream << "</" << aNodeName << ">"
+                  << "\n";
   }
   else
   {
-    mOutputFile << "/"
-                << ">"
-                << "\n";
+    mOutputStream << "/"
+                  << ">"
+                  << "\n";
   }
 }
 
