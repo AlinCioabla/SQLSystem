@@ -5,8 +5,8 @@
 class TextRewriter : public Serializer
 {
 public:
-  TextRewriter(const Ast & aAst, string aFileName)
-    : Serializer(aAst, aFileName)
+  TextRewriter(const Ast & aAst, string aFilePath)
+    : Serializer(aAst)
   {
   }
 

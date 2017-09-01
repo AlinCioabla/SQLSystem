@@ -1,29 +1,44 @@
 #pragma once
 
 #include "IBuffer.h"
+#include "BufferXml.h"
 #include "XmlNodeAttributes.h"
 
 class WriterXml
 {
 public:
-  WriterXml(string aFilePath)
+  WriterXml(string aFilePath = "", string aIndentChar = " "s, int aAddedIndent = 3)
     : mOutputStream(aFilePath)
-    , indent(0)
+    , mIndentChar(aIndentChar)
+    , mAddedIndent(aAddedIndent)
+    , mCurrentIndent(0)
   {
-    Init(aFilePath);
   }
-  WriterXml() = default;
-  void Init(string aFilePath);
 
-  void ApplyIndentation();
+  void StartDocument();
 
-  void AddNode(
-    const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren);
-  void CloseNode(const string & aNodeName, bool aHasChildren);
+  void ReInit(string aFilePath = "", string aIndentChar = " "s, int aAddedIndent = 3);
+
+  void AddNode(const string aNodeName, bool aHasChildren, const map<string, string> & aAttr);
+
+  void CloseNode();
+
+  void Write();
+
+  void EndDocument();
+
   ~WriterXml();
 
 private:
-  ofstream  mOutputStream;
-  int       indent;
-  IBuffer * mBuffer;
+  ofstream mOutputStream;
+  string   mIndentChar;
+  int      mAddedIndent;
+  int      mCurrentIndent;
+
+  BufferXml     mBuffer;
+  stack<string> mNodes;
+
+  void ApplyIndentation();
+
+  bool mDocStarted = false;
 };

@@ -7,6 +7,7 @@ public:
 
   void   Update(string aCommand) override;
   string Get() override;
+  void   Clear() override;
 
   virtual ~BufferXml() = default;
 

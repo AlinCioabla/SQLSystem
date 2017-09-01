@@ -24,8 +24,8 @@ void TextRewriter::Serialize()
 {
   string tempQuery;
   TraverseTree(mAst.GetRoot(), tempQuery);
-  mOutputStream << tempQuery;
-  mOutputStream << endl << endl;
+  // mOutputStream << tempQuery;
+  // mOutputStream << endl << endl;
 }
 
 void TextRewriter::DisplayAstInConsole(AstNode * aNode, int indent) const

@@ -5,14 +5,14 @@
 class XmlRewriter : public Serializer
 {
 public:
-  XmlRewriter(Ast & aAst, string aFileName)
-    : Serializer(aAst, aFileName)
-    , mXmlWr(mOutputStream)
+  XmlRewriter(Ast & aAst, string aFilePath)
+    : Serializer(aAst)
   {
   }
   void Serialize() override;
 
 private:
-  void      TraverseAst(AstNode * aNode);
-  WriterXml mXmlWr;
+  void                TraverseAst(AstNode * aNode);
+  map<string, string> GetNodeAttr(AstNode * aNode);
+  WriterXml           mXmlWr;
 };

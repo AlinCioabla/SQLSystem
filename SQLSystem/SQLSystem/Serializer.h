@@ -6,9 +6,8 @@
 class Serializer
 {
 public:
-  Serializer(const Ast & aAst, string aFileName)
+  Serializer(const Ast & aAst)
     : mAst(aAst)
-    , mOutputStream(aFileName, ios::out | ios::app | ios::ate)
   {
   }
   virtual void Serialize() = 0;
@@ -16,6 +15,5 @@ public:
   virtual ~Serializer() = default;
 
 protected:
-  ofstream    mOutputStream;
   const Ast & mAst;
 };

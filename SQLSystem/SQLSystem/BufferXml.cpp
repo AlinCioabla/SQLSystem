@@ -10,3 +10,8 @@ string BufferXml::Get()
 {
   return mBufferString;
 }
+
+void BufferXml::Clear()
+{
+  mBufferString = "";
+}

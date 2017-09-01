@@ -267,7 +267,6 @@
     <ClInclude Include="Wherenode.h" />
     <ClInclude Include="Writer.h" />
     <ClInclude Include="WriterXml.h" />
-    <ClInclude Include="XmlNodeAttributes.h" />
     <ClInclude Include="XmlRewriter.h" />
     <ClInclude Include="Select.h" />
     <ClInclude Include="SQLSystem.h" />

@@ -368,9 +368,6 @@
     <ClInclude Include="WriterXml.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="XmlNodeAttributes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SelectNode.h">
       <Filter>Header Files</Filter>
     </ClInclude>

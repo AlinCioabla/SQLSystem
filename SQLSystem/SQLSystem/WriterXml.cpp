@@ -2,46 +2,72 @@
 #include "WriterXml.h"
 #include "Writer.h"
 
-void WriterXml::Init(string aFilePath)
-
-{
-  mBuffer->Update(R"(<?xml version="1.0" encoding="UTF-8"?>)");
-  mBuffer->Update("\n");
-}
-
 void WriterXml::ApplyIndentation()
 {
-  for (int i = 0; i < aNumberOfSpaces; i++)
+  for (int i = 0; i < mCurrentIndent; i++)
   {
-    mBuffer->Update(" ");
+    // mBuffer.Update(mIndentChar);
   }
 }
 
-void WriterXml::AddNode(
-  const string & aNodeName, int aLine, int aColumn, const string & aWord, bool aHasChildren)
+void WriterXml::StartDocument()
 {
-  ApplyIndentation(indent);
-  mBuffer->Update("<" + aNodeName + (R"( Line=")"));
-  mBuffer->Update(aLine);
-  mBuffer->Update(R"(" Column=")");
-  mBuffer->Update(aColumn);
-  mBuffer->Update(R"(")"
-                  R"( Word=")" +
-                  aWord + R"(")");
-  if (aHasChildren)
-  {
-    mOutputStream << ">\n";
-  }
+  // mBuffer.Update(R"(<?xml version="1.0" encoding="UTF-8"?>)");
+  // mBuffer.Update("\n");
 
-  indent += 3;
+  mDocStarted = true;
 }
 
-void WriterXml::CloseNode(const string & aNodeName, bool aHasChildren)
+void WriterXml::ReInit(string aFilePath, string aIndentChar, int aAddedIndent)
 {
-  indent -= 3;
+  mOutputStream.open(aFilePath);
+  mIndentChar  = aIndentChar;
+  mAddedIndent = aAddedIndent;
+  mBuffer.Clear();
+  mDocStarted = false;
+}
+
+void WriterXml::AddNode(const string                aNodeName,
+                        bool                        aHasChildren,
+                        const map<string, string> & aAttr)
+{
+  if (!mDocStarted)
+    return;
+
+  ApplyIndentation();
+
+  // mBuffer.Update("<" + aNodeName + " ");
+
+  for (auto & attr : aAttr)
+  {
+    // mBuffer.Update(attr.first + "=" + attr.second);
+    if (!aAttr.empty() && attr != *(prev(aAttr.end())))
+    {
+      // mBuffer.Update(" ");
+    }
+  }
+
   if (aHasChildren)
   {
-    ApplyIndentation(indent);
+    //  mBuffer.Update(">\n");
+  }
+  else
+  {
+    mNodes.push(aNodeName);
+  }
+
+  mCurrentIndent += mAddedIndent;
+}
+
+void WriterXml::CloseNode()
+{
+  if (!mDocStarted)
+    return;
+
+  mCurrentIndent -= mAddedIndent;
+  /*if (aHasChildren)
+  {
+    ApplyIndentation();
     mOutputStream << "</" << aNodeName << ">"
                   << "\n";
   }
@@ -50,7 +76,17 @@ void WriterXml::CloseNode(const string & aNodeName, bool aHasChildren)
     mOutputStream << "/"
                   << ">"
                   << "\n";
-  }
+  }*/
+}
+
+void WriterXml::Write()
+{
+}
+
+void WriterXml::EndDocument()
+{
+  // mBuffer.Update("\n\n");
+  mDocStarted = false;
 }
 
 WriterXml::~WriterXml() = default;
