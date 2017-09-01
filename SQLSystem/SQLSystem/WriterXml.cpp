@@ -2,10 +2,11 @@
 #include "WriterXml.h"
 #include "Writer.h"
 
-void WriterXml::Init()
+void WriterXml::Init(string aFilePath)
 {
-  mOutputFile << R"(<?xml version="1.0" encoding="UTF-8"?>)"
-              << "\n";
+  mOutputStream.open(aFilePath);
+  mOutputStream << R"(<?xml version="1.0" encoding="UTF-8"?>)"
+                << "\n";
 }
 
 void WriterXml::ApplyIndentation(int aNumberOfSpaces)
