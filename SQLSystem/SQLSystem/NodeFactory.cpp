@@ -29,10 +29,6 @@
 #include "ValuesNode.h"
 #include "WhereNode.h"
 
-NodeFactory::NodeFactory()
-{
-}
-
 AstNodePtr NodeFactory::GetNode(string aNodeType, TokenPtr & aToken)
 {
   if (aNodeType == "select")

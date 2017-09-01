@@ -13,7 +13,7 @@ public:
     : mToken(move(aToken))
   {
   }
-  AstNode();
+  AstNode() = default;
 
   // Returns the left child
   AstNodePtr & GetLeft() { return mLeft; };

@@ -32,7 +32,7 @@ unique_ptr<IState> Values::HandleToken(TokenPtr & aCurrentToken, Ast & aAst)
   {
     if (aPrevToken->GetType() == IdentifierType)
     {
-      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken,"comma");
+      aAst.InsertLeft(aCurrentInstructionNode, aCurrentToken, "comma");
       return nullptr;
     }
   }

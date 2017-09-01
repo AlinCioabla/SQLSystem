@@ -5,6 +5,6 @@
 class NodeFactory
 {
 public:
-  NodeFactory();
+  NodeFactory() = default;
   AstNodePtr GetNode(string aNodeType, TokenPtr & aToken);
 };
