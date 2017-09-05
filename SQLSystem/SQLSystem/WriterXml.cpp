@@ -27,6 +27,11 @@ void WriterXml::ReInit(string aFilePath, string aIndentChar, int aAddedIndent)
   mDocStarted = false;
 }
 
+string to_string(const Gogu & g)
+{
+  return g.AsStr();
+}
+
 void WriterXml::AddNode(const string                aNodeName,
                         bool                        aHasChildren,
                         const map<string, string> & aAttr)
@@ -49,7 +54,8 @@ void WriterXml::AddNode(const string                aNodeName,
 
   if (aHasChildren)
   {
-    mBuffer.Update(">\n");
+    mBuffer << 5L << gogu << mCurrentIndent << ">\n" << aHasChildren;
+
     mNodes.push(aNodeName);
     mCurrentIndent += mAddedIndent;
   }
