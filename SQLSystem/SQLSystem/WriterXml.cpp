@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include "WriterXml.h"
 #include "Writer.h"
+#include"BufferXml.h"
 
 void WriterXml::ApplyIndentation()
 {
@@ -27,10 +28,7 @@ void WriterXml::ReInit(string aFilePath, string aIndentChar, int aAddedIndent)
   mDocStarted = false;
 }
 
-string to_string(const Gogu & g)
-{
-  return g.AsStr();
-}
+
 
 void WriterXml::AddNode(const string                aNodeName,
                         bool                        aHasChildren,
@@ -54,10 +52,10 @@ void WriterXml::AddNode(const string                aNodeName,
 
   if (aHasChildren)
   {
-    mBuffer << 5L << gogu << mCurrentIndent << ">\n" << aHasChildren;
+    mCurrentIndent += mAddedIndent;
+    mBuffer <<  mCurrentIndent << ">\n" << aHasChildren;
 
     mNodes.push(aNodeName);
-    mCurrentIndent += mAddedIndent;
   }
   else
   {

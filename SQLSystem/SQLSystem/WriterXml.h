@@ -26,6 +26,7 @@ public:
   void Write();
 
   void EndDocument();
+  //ostream& operator<< (std::ostream &out, const Writer &point);
 
   ~WriterXml();
 
@@ -38,6 +39,7 @@ private:
   BufferXml     mBuffer;
   stack<string> mNodes;
 
+  
   void ApplyIndentation();
 
   bool mDocStarted = false;

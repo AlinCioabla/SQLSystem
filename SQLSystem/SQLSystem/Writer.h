@@ -7,6 +7,8 @@ public:
   Writer(ofstream & aFileName)
     : mOutputStream(aFileName){};
 
+  
+
   virtual ~Writer() = default;
 
 protected:

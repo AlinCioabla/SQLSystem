@@ -6,8 +6,10 @@ public:
   BufferXml() = default;
 
   void           Update(string aCommand) override;
-  const string & Get() const override;
+
   void           Clear() override;
+
+  string Get() override;
 
   virtual ~BufferXml() = default;
 
@@ -20,7 +22,7 @@ public:
   template <typename T>
   BufferXml & operator<<(T val)
   {
-    mBufferString += to_string(value);
+    mBufferString += to_string(val);
     return *this;
   }
 
