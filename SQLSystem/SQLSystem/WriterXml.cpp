@@ -19,11 +19,10 @@ void WriterXml::StartDocument()
   mDocStarted = true;
 }
 
-void WriterXml::ReInit(string aFilePath, string aIndentChar, int aAddedIndent)
+void WriterXml::ReInit(string aFilePath, string aIndentChar)
 {
   mOutputStream.open(aFilePath);
   mIndentChar  = aIndentChar;
-  mAddedIndent = aAddedIndent;
   mBuffer.Clear();
   mDocStarted = false;
 }
@@ -32,11 +31,11 @@ void WriterXml::ReInit(string aFilePath, string aIndentChar, int aAddedIndent)
 
 void WriterXml::AddNode(const string                aNodeName,
                         bool                        aHasChildren,
-                        const map<string, string> & aAttr)
+                        const vector<pair<string, string>> & aAttr)
 {
   if (!mDocStarted)
     return;
-
+//------------
   ApplyIndentation();
 
   mBuffer.Update("<" + aNodeName + " ");
@@ -52,10 +51,10 @@ void WriterXml::AddNode(const string                aNodeName,
 
   if (aHasChildren)
   {
-    mCurrentIndent += mAddedIndent;
     mBuffer <<  mCurrentIndent << ">\n" << aHasChildren;
 
     mNodes.push(aNodeName);
+    mCurrentIndent = mNodes.size()*3;
   }
   else
   {
@@ -65,14 +64,15 @@ void WriterXml::AddNode(const string                aNodeName,
 
 void WriterXml::CloseNode()
 {
-  if (!mDocStarted)
-    return;
-
-  mCurrentIndent -= mAddedIndent;
+	if (!mDocStarted) {
+		return;
+	}
   ApplyIndentation();
 
   mBuffer.Update("</"s + mNodes.top() + ">\n"s);
   mNodes.pop();
+ 
+  mCurrentIndent = (mNodes.size() - 1) * 3;
 }
 
 void WriterXml::Write()
@@ -87,4 +87,3 @@ void WriterXml::EndDocument()
   mDocStarted = false;
 }
 
-WriterXml::~WriterXml() = default;

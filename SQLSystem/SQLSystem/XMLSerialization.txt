@@ -114,3 +114,467 @@
 </SELECT>
 
 
+<?xml version="1.0" encoding="UTF-8"?>
+<DELETE Line="2" Column="0" Word="DELETE"0>
+1 <COMMA Line="2" Column="4" Word=","1>
+1  <COMMA Line="2" Column="2" Word=","2>
+1   <COLUMN Line="2" Column="1" Word="Nume1"/>
+   <COLUMN Line="2" Column="3" Word="Nume2"/>
+   </COMMA>
+ <COLUMN Line="3" Column="0" Word="Nume3"/>
+ </COMMA>
+<FROM Line="3" Column="1" Word="FROM"0>
+1  <TABLE Line="4" Column="0" Word="Table1"/>
+  <WHERE Line="4" Column="1" Word="WHERE"2>
+1   <LIKE Line="4" Column="3" Word="LIKE"3>
+1    <COLUMN Line="4" Column="2" Word="Nume1"/>
+    <PREDICATE Line="4" Column="5" Word="'%A'"/>
+    </LIKE>
+  </WHERE>
+ </FROM>
+</DELETE>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<INSERT Line="1" Column="1" Word="INSERT"0>
+1 <INTO Line="1" Column="2" Word="INTO"1>
+1  <TABLE Line="2" Column="0" Word="table_name"/>
+  <VALUES Line="2" Column="1" Word="VALUES"2>
+1   <COMMA Line="2" Column="5" Word=","3>
+1    <COMMA Line="2" Column="3" Word=","4>
+1     <VALUE Line="2" Column="2" Word="value1"/>
+     <VALUE Line="2" Column="4" Word="value2"/>
+     </COMMA>
+   <VALUE Line="2" Column="6" Word="value3"/>
+   </COMMA>
+  </VALUES>
+ </INTO>
+</INSERT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1 <ALL Line="1" Column="2" Word="*"/>
+ <FROM Line="1" Column="3" Word="FROM"1>
+1  <TABLE Line="1" Column="4" Word="tabel1"/>
+  <WHERE Line="1" Column="5" Word="WHERE"2>
+1   <EQUALS Line="1" Column="7" Word="="3>
+1    <COLUMN Line="1" Column="6" Word="nume1"/>
+    <PREDICATE Line="1" Column="9" Word="'%a'"/>
+    </EQUALS>
+  </WHERE>
+ </FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1 <COMMA Line="1" Column="5" Word=","1>
+1  <COMMA Line="1" Column="3" Word=","2>
+1   <COLUMN Line="1" Column="2" Word="Nume1"/>
+   <COLUMN Line="1" Column="4" Word="Nume2"/>
+   </COMMA>
+ <COLUMN Line="1" Column="6" Word="Nume3"/>
+ </COMMA>
+<FROM Line="1" Column="7" Word="FROM"0>
+1  <COMMA Line="1" Column="9" Word=","2>
+1   <TABLE Line="1" Column="8" Word="T1"/>
+   <TABLE Line="1" Column="10" Word="T2"/>
+   </COMMA>
+ </FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1 <COMMA Line="1" Column="7" Word=","1>
+1  <COMMA Line="1" Column="5" Word=","2>
+1   <COMMA Line="1" Column="3" Word=","3>
+1    <COLUMN Line="1" Column="2" Word="Nume1"/>
+    <COLUMN Line="1" Column="4" Word="Nume2"/>
+    </COMMA>
+  <COLUMN Line="1" Column="6" Word="Nume3"/>
+  </COMMA>
+ <COLUMN Line="2" Column="0" Word="Nume4"/>
+ </COMMA>
+<FROM Line="2" Column="1" Word="FROM"0>
+1  <COMMA Line="2" Column="7" Word=","2>
+1   <COMMA Line="2" Column="5" Word=","3>
+1    <COMMA Line="2" Column="3" Word=","4>
+1     <TABLE Line="2" Column="2" Word="Table1"/>
+     <TABLE Line="2" Column="4" Word="Table2"/>
+     </COMMA>
+   <TABLE Line="2" Column="6" Word="Table3"/>
+   </COMMA>
+  <TABLE Line="2" Column="8" Word="Table4"/>
+  </COMMA>
+ <WHERE Line="2" Column="9" Word="WHERE"1>
+1   <AND Line="3" Column="0" Word="AND"3>
+1    <OR Line="2" Column="13" Word="OR"4>
+1     <LIKE Line="2" Column="11" Word="LIKE"5>
+1      <COLUMN Line="2" Column="10" Word="Nume1"/>
+      <PREDICATE Line="2" Column="13" Word="'%A'"/>
+      </LIKE>
+    <EQUALS Line="2" Column="15" Word="="4>
+1      <COLUMN Line="2" Column="14" Word="Nume2"/>
+      <PREDICATE Line="2" Column="17" Word="'Alin'"/>
+      </EQUALS>
+    </OR>
+   <NOTLIKE Line="3" Column="2" Word="NOTLIKE"3>
+1     <COLUMN Line="3" Column="1" Word="Nume4"/>
+     <PREDICATE Line="3" Column="4" Word="'%ASD'"/>
+     </NOTLIKE>
+   </AND>
+  </WHERE>
+ </FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DELETE Line="2" Column="0" Word="DELETE"0>
+1   <COMMA Line="2" Column="4" Word=","3>
+1      <COMMA Line="2" Column="2" Word=","6>
+1         <COLUMN Line="2" Column="1" Word="Nume1"/>
+         <COLUMN Line="2" Column="3" Word="Nume2"/>
+         </COMMA>
+<COLUMN Line="3" Column="0" Word="Nume3"/>
+</COMMA>
+<FROM Line="3" Column="1" Word="FROM"-2>
+1      <TABLE Line="4" Column="0" Word="Table1"/>
+      <WHERE Line="4" Column="1" Word="WHERE"6>
+1         <LIKE Line="4" Column="3" Word="LIKE"9>
+1            <COLUMN Line="4" Column="2" Word="Nume1"/>
+            <PREDICATE Line="4" Column="5" Word="'%A'"/>
+            </LIKE>
+</WHERE>
+</FROM>
+</DELETE>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<INSERT Line="1" Column="1" Word="INSERT"0>
+1   <INTO Line="1" Column="2" Word="INTO"3>
+1      <TABLE Line="2" Column="0" Word="table_name"/>
+      <VALUES Line="2" Column="1" Word="VALUES"6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <VALUE Line="2" Column="2" Word="value1"/>
+               <VALUE Line="2" Column="4" Word="value2"/>
+               </COMMA>
+ <VALUE Line="2" Column="6" Word="value3"/>
+ </COMMA>
+</VALUES>
+</INTO>
+</INSERT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <ALL Line="1" Column="2" Word="*"/>
+   <FROM Line="1" Column="3" Word="FROM"3>
+1      <TABLE Line="1" Column="4" Word="tabel1"/>
+      <WHERE Line="1" Column="5" Word="WHERE"6>
+1         <EQUALS Line="1" Column="7" Word="="9>
+1            <COLUMN Line="1" Column="6" Word="nume1"/>
+            <PREDICATE Line="1" Column="9" Word="'%a'"/>
+            </EQUALS>
+</WHERE>
+</FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="5" Word=","3>
+1      <COMMA Line="1" Column="3" Word=","6>
+1         <COLUMN Line="1" Column="2" Word="Nume1"/>
+         <COLUMN Line="1" Column="4" Word="Nume2"/>
+         </COMMA>
+<COLUMN Line="1" Column="6" Word="Nume3"/>
+</COMMA>
+<FROM Line="1" Column="7" Word="FROM"-2>
+1      <COMMA Line="1" Column="9" Word=","6>
+1         <TABLE Line="1" Column="8" Word="T1"/>
+         <TABLE Line="1" Column="10" Word="T2"/>
+         </COMMA>
+</FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="7" Word=","3>
+1      <COMMA Line="1" Column="5" Word=","6>
+1         <COMMA Line="1" Column="3" Word=","9>
+1            <COLUMN Line="1" Column="2" Word="Nume1"/>
+            <COLUMN Line="1" Column="4" Word="Nume2"/>
+            </COMMA>
+<COLUMN Line="1" Column="6" Word="Nume3"/>
+</COMMA>
+<COLUMN Line="2" Column="0" Word="Nume4"/>
+</COMMA>
+<FROM Line="2" Column="1" Word="FROM"-2>
+1      <COMMA Line="2" Column="7" Word=","6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <TABLE Line="2" Column="2" Word="Table1"/>
+               <TABLE Line="2" Column="4" Word="Table2"/>
+               </COMMA>
+ <TABLE Line="2" Column="6" Word="Table3"/>
+ </COMMA>
+<TABLE Line="2" Column="8" Word="Table4"/>
+</COMMA>
+<WHERE Line="2" Column="9" Word="WHERE"-1>
+1         <AND Line="3" Column="0" Word="AND"9>
+1            <OR Line="2" Column="13" Word="OR"12>
+1               <LIKE Line="2" Column="11" Word="LIKE"15>
+1                  <COLUMN Line="2" Column="10" Word="Nume1"/>
+                  <PREDICATE Line="2" Column="13" Word="'%A'"/>
+                  </LIKE>
+  <EQUALS Line="2" Column="15" Word="="2>
+1                  <COLUMN Line="2" Column="14" Word="Nume2"/>
+                  <PREDICATE Line="2" Column="17" Word="'Alin'"/>
+                  </EQUALS>
+  </OR>
+ <NOTLIKE Line="3" Column="2" Word="NOTLIKE"1>
+1               <COLUMN Line="3" Column="1" Word="Nume4"/>
+               <PREDICATE Line="3" Column="4" Word="'%ASD'"/>
+               </NOTLIKE>
+ </AND>
+</WHERE>
+</FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DELETE Line="2" Column="0" Word="DELETE"0>
+1   <COMMA Line="2" Column="4" Word=","3>
+1      <COMMA Line="2" Column="2" Word=","6>
+1         <COLUMN Line="2" Column="1" Word="Nume1"/>
+         <COLUMN Line="2" Column="3" Word="Nume2"/>
+         </COMMA>
+      <COLUMN Line="3" Column="0" Word="Nume3"/>
+      </COMMA>
+   <FROM Line="3" Column="1" Word="FROM"3>
+1      <TABLE Line="4" Column="0" Word="Table1"/>
+      <WHERE Line="4" Column="1" Word="WHERE"6>
+1         <LIKE Line="4" Column="3" Word="LIKE"9>
+1            <COLUMN Line="4" Column="2" Word="Nume1"/>
+            <PREDICATE Line="4" Column="5" Word="'%A'"/>
+            </LIKE>
+         </WHERE>
+      </FROM>
+   </DELETE>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<INSERT Line="1" Column="1" Word="INSERT"0>
+1   <INTO Line="1" Column="2" Word="INTO"3>
+1      <TABLE Line="2" Column="0" Word="table_name"/>
+      <VALUES Line="2" Column="1" Word="VALUES"6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <VALUE Line="2" Column="2" Word="value1"/>
+               <VALUE Line="2" Column="4" Word="value2"/>
+               </COMMA>
+            <VALUE Line="2" Column="6" Word="value3"/>
+            </COMMA>
+         </VALUES>
+      </INTO>
+   </INSERT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <ALL Line="1" Column="2" Word="*"/>
+   <FROM Line="1" Column="3" Word="FROM"3>
+1      <TABLE Line="1" Column="4" Word="tabel1"/>
+      <WHERE Line="1" Column="5" Word="WHERE"6>
+1         <EQUALS Line="1" Column="7" Word="="9>
+1            <COLUMN Line="1" Column="6" Word="nume1"/>
+            <PREDICATE Line="1" Column="9" Word="'%a'"/>
+            </EQUALS>
+         </WHERE>
+      </FROM>
+   </SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="5" Word=","3>
+1      <COMMA Line="1" Column="3" Word=","6>
+1         <COLUMN Line="1" Column="2" Word="Nume1"/>
+         <COLUMN Line="1" Column="4" Word="Nume2"/>
+         </COMMA>
+      <COLUMN Line="1" Column="6" Word="Nume3"/>
+      </COMMA>
+   <FROM Line="1" Column="7" Word="FROM"3>
+1      <COMMA Line="1" Column="9" Word=","6>
+1         <TABLE Line="1" Column="8" Word="T1"/>
+         <TABLE Line="1" Column="10" Word="T2"/>
+         </COMMA>
+      </FROM>
+   </SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="7" Word=","3>
+1      <COMMA Line="1" Column="5" Word=","6>
+1         <COMMA Line="1" Column="3" Word=","9>
+1            <COLUMN Line="1" Column="2" Word="Nume1"/>
+            <COLUMN Line="1" Column="4" Word="Nume2"/>
+            </COMMA>
+         <COLUMN Line="1" Column="6" Word="Nume3"/>
+         </COMMA>
+      <COLUMN Line="2" Column="0" Word="Nume4"/>
+      </COMMA>
+   <FROM Line="2" Column="1" Word="FROM"3>
+1      <COMMA Line="2" Column="7" Word=","6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <TABLE Line="2" Column="2" Word="Table1"/>
+               <TABLE Line="2" Column="4" Word="Table2"/>
+               </COMMA>
+            <TABLE Line="2" Column="6" Word="Table3"/>
+            </COMMA>
+         <TABLE Line="2" Column="8" Word="Table4"/>
+         </COMMA>
+      <WHERE Line="2" Column="9" Word="WHERE"6>
+1         <AND Line="3" Column="0" Word="AND"9>
+1            <OR Line="2" Column="13" Word="OR"12>
+1               <LIKE Line="2" Column="11" Word="LIKE"15>
+1                  <COLUMN Line="2" Column="10" Word="Nume1"/>
+                  <PREDICATE Line="2" Column="13" Word="'%A'"/>
+                  </LIKE>
+               <EQUALS Line="2" Column="15" Word="="15>
+1                  <COLUMN Line="2" Column="14" Word="Nume2"/>
+                  <PREDICATE Line="2" Column="17" Word="'Alin'"/>
+                  </EQUALS>
+               </OR>
+            <NOTLIKE Line="3" Column="2" Word="NOTLIKE"12>
+1               <COLUMN Line="3" Column="1" Word="Nume4"/>
+               <PREDICATE Line="3" Column="4" Word="'%ASD'"/>
+               </NOTLIKE>
+            </AND>
+         </WHERE>
+      </FROM>
+   </SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<DELETE Line="2" Column="0" Word="DELETE"0>
+1   <COMMA Line="2" Column="4" Word=","3>
+1      <COMMA Line="2" Column="2" Word=","6>
+1         <COLUMN Line="2" Column="1" Word="Nume1"/>
+         <COLUMN Line="2" Column="3" Word="Nume2"/>
+         </COMMA>
+   <COLUMN Line="3" Column="0" Word="Nume3"/>
+   </COMMA>
+<FROM Line="3" Column="1" Word="FROM"0>
+1      <TABLE Line="4" Column="0" Word="Table1"/>
+      <WHERE Line="4" Column="1" Word="WHERE"6>
+1         <LIKE Line="4" Column="3" Word="LIKE"9>
+1            <COLUMN Line="4" Column="2" Word="Nume1"/>
+            <PREDICATE Line="4" Column="5" Word="'%A'"/>
+            </LIKE>
+      </WHERE>
+   </FROM>
+</DELETE>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<INSERT Line="1" Column="1" Word="INSERT"0>
+1   <INTO Line="1" Column="2" Word="INTO"3>
+1      <TABLE Line="2" Column="0" Word="table_name"/>
+      <VALUES Line="2" Column="1" Word="VALUES"6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <VALUE Line="2" Column="2" Word="value1"/>
+               <VALUE Line="2" Column="4" Word="value2"/>
+               </COMMA>
+         <VALUE Line="2" Column="6" Word="value3"/>
+         </COMMA>
+      </VALUES>
+   </INTO>
+</INSERT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <ALL Line="1" Column="2" Word="*"/>
+   <FROM Line="1" Column="3" Word="FROM"3>
+1      <TABLE Line="1" Column="4" Word="tabel1"/>
+      <WHERE Line="1" Column="5" Word="WHERE"6>
+1         <EQUALS Line="1" Column="7" Word="="9>
+1            <COLUMN Line="1" Column="6" Word="nume1"/>
+            <PREDICATE Line="1" Column="9" Word="'%a'"/>
+            </EQUALS>
+      </WHERE>
+   </FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="5" Word=","3>
+1      <COMMA Line="1" Column="3" Word=","6>
+1         <COLUMN Line="1" Column="2" Word="Nume1"/>
+         <COLUMN Line="1" Column="4" Word="Nume2"/>
+         </COMMA>
+   <COLUMN Line="1" Column="6" Word="Nume3"/>
+   </COMMA>
+<FROM Line="1" Column="7" Word="FROM"0>
+1      <COMMA Line="1" Column="9" Word=","6>
+1         <TABLE Line="1" Column="8" Word="T1"/>
+         <TABLE Line="1" Column="10" Word="T2"/>
+         </COMMA>
+   </FROM>
+</SELECT>
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<SELECT Line="1" Column="1" Word="SELECT"0>
+1   <COMMA Line="1" Column="7" Word=","3>
+1      <COMMA Line="1" Column="5" Word=","6>
+1         <COMMA Line="1" Column="3" Word=","9>
+1            <COLUMN Line="1" Column="2" Word="Nume1"/>
+            <COLUMN Line="1" Column="4" Word="Nume2"/>
+            </COMMA>
+      <COLUMN Line="1" Column="6" Word="Nume3"/>
+      </COMMA>
+   <COLUMN Line="2" Column="0" Word="Nume4"/>
+   </COMMA>
+<FROM Line="2" Column="1" Word="FROM"0>
+1      <COMMA Line="2" Column="7" Word=","6>
+1         <COMMA Line="2" Column="5" Word=","9>
+1            <COMMA Line="2" Column="3" Word=","12>
+1               <TABLE Line="2" Column="2" Word="Table1"/>
+               <TABLE Line="2" Column="4" Word="Table2"/>
+               </COMMA>
+         <TABLE Line="2" Column="6" Word="Table3"/>
+         </COMMA>
+      <TABLE Line="2" Column="8" Word="Table4"/>
+      </COMMA>
+   <WHERE Line="2" Column="9" Word="WHERE"3>
+1         <AND Line="3" Column="0" Word="AND"9>
+1            <OR Line="2" Column="13" Word="OR"12>
+1               <LIKE Line="2" Column="11" Word="LIKE"15>
+1                  <COLUMN Line="2" Column="10" Word="Nume1"/>
+                  <PREDICATE Line="2" Column="13" Word="'%A'"/>
+                  </LIKE>
+            <EQUALS Line="2" Column="15" Word="="12>
+1                  <COLUMN Line="2" Column="14" Word="Nume2"/>
+                  <PREDICATE Line="2" Column="17" Word="'Alin'"/>
+                  </EQUALS>
+            </OR>
+         <NOTLIKE Line="3" Column="2" Word="NOTLIKE"9>
+1               <COLUMN Line="3" Column="1" Word="Nume4"/>
+               <PREDICATE Line="3" Column="4" Word="'%ASD'"/>
+               </NOTLIKE>
+         </AND>
+      </WHERE>
+   </FROM>
+</SELECT>
+
+

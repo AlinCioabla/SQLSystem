@@ -3,7 +3,7 @@
 
 void BufferXml::Update(string aCommand)
 {
-  mBufferString += aCommand;
+  *this << aCommand;
 }
 
 

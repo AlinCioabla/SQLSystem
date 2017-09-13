@@ -7,33 +7,29 @@
 class WriterXml
 {
 public:
-  WriterXml(string aFilePath = "", string aIndentChar = " "s, int aAddedIndent = 3)
+  WriterXml(string aFilePath = "", string aIndentChar = " "s)
     : mOutputStream(aFilePath, ios::app | ios::ate)
     , mIndentChar(aIndentChar)
-    , mAddedIndent(aAddedIndent)
     , mCurrentIndent(0)
   {
   }
 
   void StartDocument();
 
-  void ReInit(string aFilePath = "", string aIndentChar = " "s, int aAddedIndent = 3);
+  void ReInit(string aFilePath = "", string aIndentChar = " "s);
 
-  void AddNode(const string aNodeName, bool aHasChildren, const map<string, string> & aAttr);
+  void AddNode(const string aNodeName, bool aHasChildren, const vector<pair<string, string>> & aAttr);
 
   void CloseNode();
 
   void Write();
 
   void EndDocument();
-  //ostream& operator<< (std::ostream &out, const Writer &point);
-
-  ~WriterXml();
+ 
 
 private:
   ofstream mOutputStream;
   string   mIndentChar;
-  int      mAddedIndent;
   int      mCurrentIndent;
 
   BufferXml     mBuffer;

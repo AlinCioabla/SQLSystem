@@ -38,13 +38,13 @@ void XmlRewriter::TraverseAst(AstNode * aNode)
   }
 }
 
-map<string, string> XmlRewriter::GetNodeAttr(AstNode * aNode)
+vector<pair<string, string>> XmlRewriter::GetNodeAttr(AstNode * aNode)
 {
-  map<string, string> temp;
+  vector<pair<string, string>> temp;
 
-  temp.insert({ "Line"s, to_string(aNode->GetToken()->GetPosition().GetLine()) });
-  temp.insert({ "Column"s, to_string(aNode->GetToken()->GetPosition().GetColumn()) });
-  temp.insert({ "Word"s, aNode->GetToken()->GetWord() });
+  temp.push_back({ "Line"s, to_string(aNode->GetToken()->GetPosition().GetLine()) });
+  temp.push_back({ "Column"s, to_string(aNode->GetToken()->GetPosition().GetColumn()) });
+  temp.push_back({ "Word"s, aNode->GetToken()->GetWord() });
 
   return temp;
 }

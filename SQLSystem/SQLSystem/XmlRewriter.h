@@ -14,6 +14,6 @@ public:
 
 private:
   void                TraverseAst(AstNode * aNode);
-  map<string, string> GetNodeAttr(AstNode * aNode);
+  vector<pair<string, string>> GetNodeAttr(AstNode * aNode);
   WriterXml           mXmlWr;
 };
